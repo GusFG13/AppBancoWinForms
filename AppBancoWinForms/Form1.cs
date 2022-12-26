@@ -41,20 +41,7 @@ namespace AppBancoWinForms
 
         private void btSelecionarConta_Click(object sender, EventArgs e)
         {
-            string tipoConta = cbContaSelecionada.Text.Split('-')[1].Trim();
-            switch (tipoConta)
-            {
-                case "Conta Poupança":
-                    tabControl1.SelectedTab = tabPage3;
-                    break;
-                case "Conta Salário":
-                    tabControl1.SelectedTab = tabPage4;
-                    break;
-                case "Conta Investimento":
-                    tabControl1.SelectedTab = tabPage5;
-                    break;
-                default: break;
-            }
+
         }
 
         private void btEnter_Click(object sender, EventArgs e)
@@ -253,6 +240,29 @@ namespace AppBancoWinForms
         private void rbInvestimento_CheckedChanged(object sender, EventArgs e)
         {
             tabControl2.SelectedTab = tabPage11;
+        }
+
+        private void btExtratoPoupanca_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbContaSelecionada_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string tipoConta = cbContaSelecionada.Text.Split('-')[1].Trim();
+            switch (tipoConta)
+            {
+                case "Conta Poupança":
+                    tabControl3.SelectedTab = tabPoupanca;
+                    break;
+                case "Conta Salário":
+                    tabControl3.SelectedTab = tabSalario;
+                    break;
+                case "Conta Investimento":
+                    tabControl3.SelectedTab = tabInvestimento;
+                    break;
+                default: break;
+            }
         }
     }
 }
