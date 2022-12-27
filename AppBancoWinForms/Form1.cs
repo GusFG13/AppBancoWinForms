@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AppBancoWinForms.Entities;
+using AppBancoWinForms.Utils;
+using AppBancoWinForms.Entities.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,12 +18,22 @@ namespace AppBancoWinForms
 {
     public partial class Form1 : Form
     {
+        Cliente cliente = new Cliente();
+
         public Form1()
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             //this.MinimizeBox = false;
+            //foreach (Control ctr in tabPage1.Controls)
+            //{
+            //    ctr.TabStop = false;
+            //}
+            //foreach (Control ctr in groupBox1.Controls)
+            //{
+            //    ctr.TabStop = false;
+            //}
             linkLabel2.Text = "";
             cbContaSelecionada.Items.Add("0101 - Conta Poupança");
             cbContaSelecionada.Items.Add("0127 - Conta Investimento");
@@ -35,7 +48,6 @@ namespace AppBancoWinForms
             {
                 //cbContaSelecionada.Visible = false;
                 cbContaSelecionada.Enabled = false;
-                btSelecionarConta.Enabled = false;
             }
         }
 
@@ -46,23 +58,42 @@ namespace AppBancoWinForms
 
         private void btEnter_Click(object sender, EventArgs e)
         {
-            //tabControl1.SelectedTab = tabPage2;
-            Regex rgx = new Regex(@"^(\d{3})\.(\d{3})\.(\d{3})-(\d{2})$");
-            bool padraoCPF = rgx.IsMatch(maskedTextBox1.Text);
-            if (padraoCPF)
+
+            string numerosCPF;
+            mtbCPFLogin.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            numerosCPF = mtbCPFLogin.Text;
+            if (numerosCPF.Length == 11 || double.TryParse(numerosCPF, out _))
             {
-                if ((maskedTextBox1.Text == "111.111.111-11") && (mtbSenha.Text == "123456"))
+                mtbCPFLogin.TextMaskFormat = MaskFormat.IncludeLiterals;
+                string path = @"c:\DadosAppBanco\clientes.csv";
+                string dadosCliente = EscreverArquivosBD.RetornarDadosCliente(path, mtbCPFLogin.Text);
+                if (dadosCliente != "")
                 {
-                    tabControl1.SelectedTab = tabPage2;
+                    string[] aux = dadosCliente.Split(';');
+                    if (aux[5] == mtbSenhaLogin.Text) 
+                    {
+                        cliente.Codigo = int.Parse(aux[0]);
+                        cliente.Cpf = aux[1];
+                        cliente.Nome = aux[2];
+                        cliente.Sobrenome = aux[3];
+                        cliente.Perfil = (PerfilInvestidor)Enum.Parse(typeof(PerfilInvestidor),aux[4]);
+                        tabControl1.SelectedTab = tabPage2; // ir para a página de seleção de conta
+                    }
+                    else
+                    {
+                        linkLabel2.Text = "Senha incorreta";
+                        mtbSenhaLogin.Focus();
+                    }
                 }
                 else
                 {
-                    linkLabel2.Text = "CPF ou Senha incorretos";
+                    linkLabel2.Text = "CPF não encontrado no cadastro";
+                    mtbCPFLogin.Focus();
                 }
             }
             else
             {
-                maskedTextBox1.Focus();
+                mtbCPFLogin.Focus();
                 linkLabel2.Text = "Formato do CPF incorreto";
             }
         }
@@ -85,21 +116,14 @@ namespace AppBancoWinForms
         private void btCadastrar_Click(object sender, EventArgs e)
         {
             bool dadosOK = true;
-
-            Regex rgx = new Regex(@"^(\d{3})\.(\d{3})\.(\d{3})-(\d{2})$");
-            bool padraoCPF = rgx.IsMatch(maskedTextBox1.Text);
-
-            if (mtbSenhaCadastro.Text.Length < 6)
+            string numerosCPF;
+            mtbCPFCadastro.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            numerosCPF = mtbCPFCadastro.Text;
+            if (numerosCPF.Length != 11 || !double.TryParse(numerosCPF, out _)) // melhorar validação
             {
                 dadosOK = false;
-                mtbSenhaCadastro.Focus();
-                MessageBox.Show("Senha deve ter 6 números", "Senha Inválida", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else if (mtbSenhaCadastro.Text != mtbSenhaCadastroRepetir.Text)
-            {
-                dadosOK = false;
-                mtbSenhaCadastro.Focus();
-                MessageBox.Show("Campos senhas não coincidem", "Senhas Diferentes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Porfavor, preencha o campo CPF corretamente.", "CPF Inválido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                mtbCPFCadastro.Focus();
             }
             else if (String.IsNullOrWhiteSpace(tbNomeCadastro.Text))
             {
@@ -111,24 +135,56 @@ namespace AppBancoWinForms
                 dadosOK = false;
                 tbSobrenomeCadastro.Focus();
             }
-            else if (padraoCPF) // melhorar validação
+            else if (mtbSenhaCadastro.Text.Length < 6)
             {
                 dadosOK = false;
-                MessageBox.Show("Porfavor, preencha o campo CPF corretamente.", "CPF Inválido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                mtbCPFCadastro.Focus();
+                mtbSenhaCadastro.Focus();
+                MessageBox.Show("Senha deve ter 6 números", "Senha Inválida", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            if (dadosOK)
+            else
             {
-                MessageBox.Show("Novo cadastro realizado", "Cadastro concluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                tabControl1.SelectedTab = tabPage7;
+                if (mtbSenhaCadastro.Text != mtbSenhaCadastroRepetir.Text)
+                {
+                    dadosOK = false;
+                    mtbSenhaCadastro.Focus();
+                    MessageBox.Show("Campos senhas não coincidem", "Senhas Diferentes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
 
+            if (dadosOK) // Gravar novo usuário no arquivo c:\DadosAppBanco\clientes.csv
+            {
+
+                string path = @"c:\DadosAppBanco\clientes.csv";
+                //string path = @"c:\DadosAppBanco\contas.csv";
+                //string path = @"c:\DadosAppBanco\trasacoes.csv";
+
+                mtbCPFCadastro.TextMaskFormat = MaskFormat.IncludeLiterals;
+                string cpf = mtbCPFCadastro.Text;
+                string nome = tbNomeCadastro.Text;
+                string sobrenome = tbSobrenomeCadastro.Text;
+                string senha = mtbSenhaCadastro.Text;
+
+
+                // cadastrar novo
+                if (EscreverArquivosBD.ProcurarCliente(path, cpf))
+                {
+                    MessageBox.Show("CPF já cadastrado!", "Falha no Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //Console.WriteLine("CPF já cadastrado");
+                }
+                else
+                {
+                    Cliente cliente = Cadastros.CadastrarCliente(path, cpf, nome, sobrenome, senha);
+                    MessageBox.Show("Novo cadastro realizado", "Cadastro concluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //Console.WriteLine("NOVO CADASTRO: " + cliente.ToString());
+                    tabControl1.SelectedTab = tabPage7; // Ir para a tela de criação de conta
+                }
+            }
         }
 
         private void btNovoCadastro_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = tabPage6;
+            mtbCPFCadastro.Focus();
         }
 
         private void btExtratoPoupanca_Click(object sender, EventArgs e)
@@ -250,6 +306,7 @@ namespace AppBancoWinForms
         private void cbContaSelecionada_SelectedIndexChanged(object sender, EventArgs e)
         {
             string tipoConta = cbContaSelecionada.Text.Split('-')[1].Trim();
+            lblDadosConta.Text = cbContaSelecionada.Text.Split('-')[0].Trim() + "\n" + tipoConta;
             switch (tipoConta)
             {
                 case "Conta Poupança":
@@ -263,6 +320,11 @@ namespace AppBancoWinForms
                     break;
                 default: break;
             }
+        }
+
+        private void tabPage2_Enter(object sender, EventArgs e)
+        {
+            lblDadosConta.Text = cliente.Nome;
         }
     }
 }
