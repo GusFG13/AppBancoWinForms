@@ -13,12 +13,16 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+using System.IO;
 
 namespace AppBancoWinForms
 {
     public partial class Form1 : Form
     {
         Cliente cliente = new Cliente();
+        string pathClientes = @"c:\DadosAppBanco\clientes.csv";
+        string pathContas = @"c:\DadosAppBanco\contas.csv";
+        string pathTransacoes = @"c:\DadosAppBanco\trasacoes.csv";
 
         public Form1()
         {
@@ -26,34 +30,7 @@ namespace AppBancoWinForms
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             //this.MinimizeBox = false;
-            //foreach (Control ctr in tabPage1.Controls)
-            //{
-            //    ctr.TabStop = false;
-            //}
-            //foreach (Control ctr in groupBox1.Controls)
-            //{
-            //    ctr.TabStop = false;
-            //}
-            linkLabel2.Text = "";
-            cbContaSelecionada.Items.Add("0101 - Conta Poupança");
-            cbContaSelecionada.Items.Add("0127 - Conta Investimento");
-            cbContaSelecionada.Items.Add("0243 - Conta Salário");
-            cbContaSelecionada.Items.Add("0574 - Conta Poupança");
-            if (cbContaSelecionada.Items.Count > 0)
-            {
-                //comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-                cbContaSelecionada.SelectedIndex = 0;
-            }
-            else
-            {
-                //cbContaSelecionada.Visible = false;
-                cbContaSelecionada.Enabled = false;
-            }
-        }
-
-        private void btSelecionarConta_Click(object sender, EventArgs e)
-        {
-
+            linklblErroLogin.Text = "";
         }
 
         private void btEnter_Click(object sender, EventArgs e)
@@ -65,36 +42,36 @@ namespace AppBancoWinForms
             if (numerosCPF.Length == 11 || double.TryParse(numerosCPF, out _))
             {
                 mtbCPFLogin.TextMaskFormat = MaskFormat.IncludeLiterals;
-                string path = @"c:\DadosAppBanco\clientes.csv";
-                string dadosCliente = EscreverArquivosBD.RetornarDadosCliente(path, mtbCPFLogin.Text);
+                //string path = @"c:\DadosAppBanco\clientes.csv";
+                string dadosCliente = EscreverArquivosBD.RetornarDadosCliente(pathClientes, mtbCPFLogin.Text);
                 if (dadosCliente != "")
                 {
                     string[] aux = dadosCliente.Split(';');
-                    if (aux[5] == mtbSenhaLogin.Text) 
+                    if (aux[5] == mtbSenhaLogin.Text)
                     {
                         cliente.Codigo = int.Parse(aux[0]);
                         cliente.Cpf = aux[1];
                         cliente.Nome = aux[2];
                         cliente.Sobrenome = aux[3];
-                        cliente.Perfil = (PerfilInvestidor)Enum.Parse(typeof(PerfilInvestidor),aux[4]);
+                        cliente.Perfil = (PerfilInvestidor)Enum.Parse(typeof(PerfilInvestidor), aux[4]);
                         tabControl1.SelectedTab = tabPage2; // ir para a página de seleção de conta
                     }
                     else
                     {
-                        linkLabel2.Text = "Senha incorreta";
+                        linklblErroLogin.Text = "Senha incorreta";
                         mtbSenhaLogin.Focus();
                     }
                 }
                 else
                 {
-                    linkLabel2.Text = "CPF não encontrado no cadastro";
+                    linklblErroLogin.Text = "CPF não encontrado no cadastro";
                     mtbCPFLogin.Focus();
                 }
             }
             else
             {
                 mtbCPFLogin.Focus();
-                linkLabel2.Text = "Formato do CPF incorreto";
+                linklblErroLogin.Text = "Formato do CPF incorreto";
             }
         }
 
@@ -154,9 +131,7 @@ namespace AppBancoWinForms
             if (dadosOK) // Gravar novo usuário no arquivo c:\DadosAppBanco\clientes.csv
             {
 
-                string path = @"c:\DadosAppBanco\clientes.csv";
-                //string path = @"c:\DadosAppBanco\contas.csv";
-                //string path = @"c:\DadosAppBanco\trasacoes.csv";
+
 
                 mtbCPFCadastro.TextMaskFormat = MaskFormat.IncludeLiterals;
                 string cpf = mtbCPFCadastro.Text;
@@ -166,17 +141,18 @@ namespace AppBancoWinForms
 
 
                 // cadastrar novo
-                if (EscreverArquivosBD.ProcurarCliente(path, cpf))
+                if (EscreverArquivosBD.ProcurarCliente(pathClientes, cpf))
                 {
                     MessageBox.Show("CPF já cadastrado!", "Falha no Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //Console.WriteLine("CPF já cadastrado");
                 }
                 else
                 {
-                    Cliente cliente = Cadastros.CadastrarCliente(path, cpf, nome, sobrenome, senha);
+                    Cliente cliente = Cadastros.CadastrarCliente(pathClientes, cpf, nome, sobrenome, senha);
                     MessageBox.Show("Novo cadastro realizado", "Cadastro concluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //Console.WriteLine("NOVO CADASTRO: " + cliente.ToString());
                     tabControl1.SelectedTab = tabPage7; // Ir para a tela de criação de conta
+                    btVoltarParaMenu.Visible = false;
                 }
             }
         }
@@ -300,23 +276,43 @@ namespace AppBancoWinForms
 
         private void btExtratoPoupanca_Click_1(object sender, EventArgs e)
         {
-
+            tabControl1.SelectedTab = tabPage8;
         }
 
         private void cbContaSelecionada_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            rbDepositar.Checked = false;
+            rbDepositar.Enabled = true;
+            rbSacar.Checked = false;
+            rbSacar.Enabled = true;
+            rbTransferenciaPoup.Checked = false;
+            rbTransferenciaPoup.Enabled = true;
+            rbDepositarSalario.Checked = false;
+            rbDepositarSalario.Enabled = true;
+            rbInvestir.Checked = false;
+            rbInvestir.Enabled = true;
+
             string tipoConta = cbContaSelecionada.Text.Split('-')[1].Trim();
             lblDadosConta.Text = cbContaSelecionada.Text.Split('-')[0].Trim() + "\n" + tipoConta;
+            /******************************************************************************/
+            // Mudar Switch para ler enums
+            /******************************************************************************/
             switch (tipoConta)
             {
                 case "Conta Poupança":
-                    tabControl3.SelectedTab = tabPoupanca;
+                    rbTransferenciaPoup.Enabled = false;
+                    rbDepositarSalario.Enabled = false;
+                    //tabControl3.SelectedTab = tabPoupanca;
                     break;
                 case "Conta Salário":
-                    tabControl3.SelectedTab = tabSalario;
+                    rbDepositar.Enabled = false;
+                    //tabControl3.SelectedTab = tabSalario;
                     break;
                 case "Conta Investimento":
-                    tabControl3.SelectedTab = tabInvestimento;
+                    rbInvestir.Enabled = false;
+                    rbDepositarSalario.Enabled = false;
+                    //tabControl3.SelectedTab = tabInvestimento;
                     break;
                 default: break;
             }
@@ -324,7 +320,80 @@ namespace AppBancoWinForms
 
         private void tabPage2_Enter(object sender, EventArgs e)
         {
-            lblDadosConta.Text = cliente.Nome;
+            DateTime agora = DateTime.Now;
+            string msg = "";
+            if (agora.Hour < 12)
+                msg = "Bom dia, ";
+            else if (agora.Hour < 18)
+                msg = "Boa Tarde, ";
+            else
+                msg = "Boa noite, ";
+            msg += cliente.Nome + "! Selecione sua conta:";
+            lblSelecioneConta.Text = msg;
+            //lblDadosConta.Text = cliente.Nome;
+            cbContaSelecionada.Items.Clear();
+            //cbContaSelecionada.Items.Add("0101 - Conta Poupança");
+            cbContaSelecionada.Items.Add("0127 - Conta Investimento");
+            cbContaSelecionada.Items.Add("0243 - Conta Salário");
+            cbContaSelecionada.Items.Add("0574 - Conta Poupança");
+            if (cbContaSelecionada.Items.Count > 0)
+            {
+                //comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+                cbContaSelecionada.SelectedIndex = 0;
+            }
+            else
+            {
+                //cbContaSelecionada.Visible = false;
+                //cbContaSelecionada.Enabled = false;
+                tabControl1.SelectedTab = tabPage7;
+            }
+        }
+
+        private void btVoltar_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabPage2;
+        }
+
+        private void btVoltarParaMenu_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabPage2;
+        }
+
+        private void btAbrirNovaConta_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabPage7;
+            btVoltarParaMenu.Visible = true;
+        }
+
+        private void btCadastrarNovaConta_Click(object sender, EventArgs e)
+        {
+            //Fazer validações
+            bool requisitosOK = true;
+            double saldoInicial = 0.0;
+            TipoConta tConta = TipoConta.ContaPoupanca;
+            if (rbPoupanca.Checked)
+            {
+                tConta = TipoConta.ContaPoupanca;
+                
+                if (tbDepInicialPoup.Text.Contains(".") || !double.TryParse(tbDepInicialPoup.Text, out saldoInicial) || saldoInicial < 500.00)
+                {
+                    requisitosOK = false;
+                }
+            } 
+            else if (rbSalario.Checked)
+            { // desenvolver validações
+                tConta = TipoConta.ContaSalario;
+            }
+            else if (rbInvestimento.Checked)
+            {// desenvolver validações
+                tConta = TipoConta.ContaInvestimento;
+            }
+            if (requisitosOK)
+            {
+                Cadastros.CadastrarConta(pathContas, tConta, cliente.Codigo, saldoInicial, DateTime.UtcNow);
+                tabControl1.SelectedTab = tabPage2;
+            }
+
         }
     }
 }

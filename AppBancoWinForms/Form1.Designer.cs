@@ -31,6 +31,7 @@
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.label10 = new System.Windows.Forms.Label();
             this.tbExtrato = new System.Windows.Forms.TextBox();
+            this.btVoltar = new System.Windows.Forms.Button();
             this.btExportarExtrato = new System.Windows.Forms.Button();
             this.btGerarextrato = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -42,19 +43,18 @@
             this.dtpFim = new System.Windows.Forms.DateTimePicker();
             this.dtpInicio = new System.Windows.Forms.DateTimePicker();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.btVoltarParaMenu = new System.Windows.Forms.Button();
+            this.btCadastrarNovaConta = new System.Windows.Forms.Button();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tbDepInicialPoup = new System.Windows.Forms.TextBox();
             this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.button3 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.rbInvestimento = new System.Windows.Forms.RadioButton();
@@ -82,13 +82,16 @@
             this.btCadastrar = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btAbrirNovaConta = new System.Windows.Forms.Button();
+            this.gbActions = new System.Windows.Forms.GroupBox();
+            this.rbDepositarSalario = new System.Windows.Forms.RadioButton();
+            this.rbDepositar = new System.Windows.Forms.RadioButton();
+            this.rbTransferenciaPoup = new System.Windows.Forms.RadioButton();
+            this.rbSacar = new System.Windows.Forms.RadioButton();
+            this.rbInvestir = new System.Windows.Forms.RadioButton();
             this.lblDadosConta = new System.Windows.Forms.Label();
-            this.tabControl3 = new System.Windows.Forms.TabControl();
-            this.tabPoupanca = new System.Windows.Forms.TabPage();
+            this.lblSelecioneConta = new System.Windows.Forms.Label();
             this.btExtratoPoupanca = new System.Windows.Forms.Button();
-            this.tabSalario = new System.Windows.Forms.TabPage();
-            this.tabInvestimento = new System.Windows.Forms.TabPage();
-            this.label14 = new System.Windows.Forms.Label();
             this.cbContaSelecionada = new System.Windows.Forms.ComboBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
@@ -100,7 +103,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.mtbCPFLogin = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linklblErroLogin = new System.Windows.Forms.LinkLabel();
             this.btEnter = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -121,8 +124,7 @@
             this.panel3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.tabControl3.SuspendLayout();
-            this.tabPoupanca.SuspendLayout();
+            this.gbActions.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -134,6 +136,7 @@
             // 
             this.tabPage8.Controls.Add(this.label10);
             this.tabPage8.Controls.Add(this.tbExtrato);
+            this.tabPage8.Controls.Add(this.btVoltar);
             this.tabPage8.Controls.Add(this.btExportarExtrato);
             this.tabPage8.Controls.Add(this.btGerarextrato);
             this.tabPage8.Controls.Add(this.groupBox3);
@@ -163,6 +166,16 @@
             this.tbExtrato.Name = "tbExtrato";
             this.tbExtrato.Size = new System.Drawing.Size(499, 344);
             this.tbExtrato.TabIndex = 1;
+            // 
+            // btVoltar
+            // 
+            this.btVoltar.Location = new System.Drawing.Point(67, 354);
+            this.btVoltar.Name = "btVoltar";
+            this.btVoltar.Size = new System.Drawing.Size(101, 23);
+            this.btVoltar.TabIndex = 2;
+            this.btVoltar.Text = "Voltar";
+            this.btVoltar.UseVisualStyleBackColor = true;
+            this.btVoltar.Click += new System.EventHandler(this.btVoltar_Click);
             // 
             // btExportarExtrato
             // 
@@ -274,6 +287,8 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.btVoltarParaMenu);
+            this.tabPage7.Controls.Add(this.btCadastrarNovaConta);
             this.tabPage7.Controls.Add(this.tabControl2);
             this.tabPage7.Controls.Add(this.rbInvestimento);
             this.tabPage7.Controls.Add(this.rbSalario);
@@ -286,6 +301,26 @@
             this.tabPage7.TabIndex = 3;
             this.tabPage7.Text = "Abrir Nova Conta";
             this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // btVoltarParaMenu
+            // 
+            this.btVoltarParaMenu.Location = new System.Drawing.Point(98, 303);
+            this.btVoltarParaMenu.Name = "btVoltarParaMenu";
+            this.btVoltarParaMenu.Size = new System.Drawing.Size(75, 23);
+            this.btVoltarParaMenu.TabIndex = 5;
+            this.btVoltarParaMenu.Text = "Voltar";
+            this.btVoltarParaMenu.UseVisualStyleBackColor = true;
+            this.btVoltarParaMenu.Click += new System.EventHandler(this.btVoltarParaMenu_Click);
+            // 
+            // btCadastrarNovaConta
+            // 
+            this.btCadastrarNovaConta.Location = new System.Drawing.Point(626, 346);
+            this.btCadastrarNovaConta.Name = "btCadastrarNovaConta";
+            this.btCadastrarNovaConta.Size = new System.Drawing.Size(75, 23);
+            this.btCadastrarNovaConta.TabIndex = 1;
+            this.btCadastrarNovaConta.Text = "Cadastrar";
+            this.btCadastrarNovaConta.UseVisualStyleBackColor = true;
+            this.btCadastrarNovaConta.Click += new System.EventHandler(this.btCadastrarNovaConta_Click);
             // 
             // tabControl2
             // 
@@ -301,7 +336,6 @@
             // tabPage9
             // 
             this.tabPage9.Controls.Add(this.panel9);
-            this.tabPage9.Controls.Add(this.button1);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
@@ -314,7 +348,7 @@
             // 
             this.panel9.Controls.Add(this.label15);
             this.panel9.Controls.Add(this.label11);
-            this.panel9.Controls.Add(this.textBox1);
+            this.panel9.Controls.Add(this.tbDepInicialPoup);
             this.panel9.Location = new System.Drawing.Point(73, 21);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(209, 72);
@@ -338,25 +372,17 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "Valor dep inicial";
             // 
-            // textBox1
+            // tbDepInicialPoup
             // 
-            this.textBox1.Location = new System.Drawing.Point(97, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(177, 153);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.tbDepInicialPoup.Location = new System.Drawing.Point(97, 12);
+            this.tbDepInicialPoup.Name = "tbDepInicialPoup";
+            this.tbDepInicialPoup.Size = new System.Drawing.Size(81, 20);
+            this.tbDepInicialPoup.TabIndex = 2;
+            this.tbDepInicialPoup.Text = "500,00";
+            this.tbDepInicialPoup.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tabPage10
             // 
-            this.tabPage10.Controls.Add(this.button2);
             this.tabPage10.Controls.Add(this.textBox2);
             this.tabPage10.Controls.Add(this.label12);
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
@@ -366,15 +392,6 @@
             this.tabPage10.TabIndex = 1;
             this.tabPage10.Text = "Salário";
             this.tabPage10.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(217, 168);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // textBox2
             // 
@@ -394,7 +411,6 @@
             // 
             // tabPage11
             // 
-            this.tabPage11.Controls.Add(this.button3);
             this.tabPage11.Controls.Add(this.textBox3);
             this.tabPage11.Controls.Add(this.label13);
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
@@ -404,15 +420,6 @@
             this.tabPage11.TabIndex = 2;
             this.tabPage11.Text = "Investimento";
             this.tabPage11.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(217, 168);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // textBox3
             // 
@@ -437,7 +444,6 @@
             this.rbInvestimento.Name = "rbInvestimento";
             this.rbInvestimento.Size = new System.Drawing.Size(116, 17);
             this.rbInvestimento.TabIndex = 1;
-            this.rbInvestimento.TabStop = true;
             this.rbInvestimento.Text = "Conta Investimento";
             this.rbInvestimento.UseVisualStyleBackColor = true;
             this.rbInvestimento.CheckedChanged += new System.EventHandler(this.rbInvestimento_CheckedChanged);
@@ -449,7 +455,6 @@
             this.rbSalario.Name = "rbSalario";
             this.rbSalario.Size = new System.Drawing.Size(88, 17);
             this.rbSalario.TabIndex = 2;
-            this.rbSalario.TabStop = true;
             this.rbSalario.Text = "Conta Salário";
             this.rbSalario.UseVisualStyleBackColor = true;
             this.rbSalario.CheckedChanged += new System.EventHandler(this.rbSalario_CheckedChanged);
@@ -457,6 +462,7 @@
             // rbPoupanca
             // 
             this.rbPoupanca.AutoSize = true;
+            this.rbPoupanca.Checked = true;
             this.rbPoupanca.Location = new System.Drawing.Point(40, 106);
             this.rbPoupanca.Name = "rbPoupanca";
             this.rbPoupanca.Size = new System.Drawing.Size(105, 17);
@@ -681,86 +687,124 @@
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.btAbrirNovaConta);
+            this.panel8.Controls.Add(this.gbActions);
             this.panel8.Controls.Add(this.lblDadosConta);
-            this.panel8.Controls.Add(this.tabControl3);
-            this.panel8.Controls.Add(this.label14);
+            this.panel8.Controls.Add(this.lblSelecioneConta);
+            this.panel8.Controls.Add(this.btExtratoPoupanca);
             this.panel8.Controls.Add(this.cbContaSelecionada);
             this.panel8.Location = new System.Drawing.Point(22, 20);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(730, 371);
             this.panel8.TabIndex = 0;
             // 
+            // btAbrirNovaConta
+            // 
+            this.btAbrirNovaConta.Location = new System.Drawing.Point(56, 298);
+            this.btAbrirNovaConta.Name = "btAbrirNovaConta";
+            this.btAbrirNovaConta.Size = new System.Drawing.Size(155, 23);
+            this.btAbrirNovaConta.TabIndex = 10;
+            this.btAbrirNovaConta.Text = "Abrir Nova Conta";
+            this.btAbrirNovaConta.UseVisualStyleBackColor = true;
+            this.btAbrirNovaConta.Click += new System.EventHandler(this.btAbrirNovaConta_Click);
+            // 
+            // gbActions
+            // 
+            this.gbActions.Controls.Add(this.rbDepositarSalario);
+            this.gbActions.Controls.Add(this.rbDepositar);
+            this.gbActions.Controls.Add(this.rbTransferenciaPoup);
+            this.gbActions.Controls.Add(this.rbSacar);
+            this.gbActions.Controls.Add(this.rbInvestir);
+            this.gbActions.Location = new System.Drawing.Point(388, 23);
+            this.gbActions.Name = "gbActions";
+            this.gbActions.Size = new System.Drawing.Size(200, 180);
+            this.gbActions.TabIndex = 9;
+            this.gbActions.TabStop = false;
+            this.gbActions.Text = "Selecione uma ação";
+            // 
+            // rbDepositarSalario
+            // 
+            this.rbDepositarSalario.AutoSize = true;
+            this.rbDepositarSalario.Location = new System.Drawing.Point(15, 139);
+            this.rbDepositarSalario.Name = "rbDepositarSalario";
+            this.rbDepositarSalario.Size = new System.Drawing.Size(105, 17);
+            this.rbDepositarSalario.TabIndex = 10;
+            this.rbDepositarSalario.TabStop = true;
+            this.rbDepositarSalario.Text = "Depositar Salário";
+            this.rbDepositarSalario.UseVisualStyleBackColor = true;
+            // 
+            // rbDepositar
+            // 
+            this.rbDepositar.AutoSize = true;
+            this.rbDepositar.Location = new System.Drawing.Point(15, 34);
+            this.rbDepositar.Name = "rbDepositar";
+            this.rbDepositar.Size = new System.Drawing.Size(70, 17);
+            this.rbDepositar.TabIndex = 5;
+            this.rbDepositar.TabStop = true;
+            this.rbDepositar.Text = "Depositar";
+            this.rbDepositar.UseVisualStyleBackColor = true;
+            // 
+            // rbTransferenciaPoup
+            // 
+            this.rbTransferenciaPoup.AutoSize = true;
+            this.rbTransferenciaPoup.Location = new System.Drawing.Point(15, 116);
+            this.rbTransferenciaPoup.Name = "rbTransferenciaPoup";
+            this.rbTransferenciaPoup.Size = new System.Drawing.Size(167, 17);
+            this.rbTransferenciaPoup.TabIndex = 8;
+            this.rbTransferenciaPoup.TabStop = true;
+            this.rbTransferenciaPoup.Text = "Transferência Para Poupança";
+            this.rbTransferenciaPoup.UseVisualStyleBackColor = true;
+            // 
+            // rbSacar
+            // 
+            this.rbSacar.AutoSize = true;
+            this.rbSacar.Location = new System.Drawing.Point(15, 58);
+            this.rbSacar.Name = "rbSacar";
+            this.rbSacar.Size = new System.Drawing.Size(53, 17);
+            this.rbSacar.TabIndex = 6;
+            this.rbSacar.TabStop = true;
+            this.rbSacar.Text = "Sacar";
+            this.rbSacar.UseVisualStyleBackColor = true;
+            // 
+            // rbInvestir
+            // 
+            this.rbInvestir.AutoSize = true;
+            this.rbInvestir.Location = new System.Drawing.Point(15, 87);
+            this.rbInvestir.Name = "rbInvestir";
+            this.rbInvestir.Size = new System.Drawing.Size(110, 17);
+            this.rbInvestir.TabIndex = 7;
+            this.rbInvestir.TabStop = true;
+            this.rbInvestir.Text = "Investir Em Ações";
+            this.rbInvestir.UseVisualStyleBackColor = true;
+            // 
             // lblDadosConta
             // 
             this.lblDadosConta.AutoSize = true;
-            this.lblDadosConta.Location = new System.Drawing.Point(99, 105);
+            this.lblDadosConta.Location = new System.Drawing.Point(80, 131);
             this.lblDadosConta.Name = "lblDadosConta";
             this.lblDadosConta.Size = new System.Drawing.Size(68, 13);
             this.lblDadosConta.TabIndex = 0;
             this.lblDadosConta.Text = "Dados conta";
             this.lblDadosConta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tabControl3
+            // lblSelecioneConta
             // 
-            this.tabControl3.Controls.Add(this.tabPoupanca);
-            this.tabControl3.Controls.Add(this.tabSalario);
-            this.tabControl3.Controls.Add(this.tabInvestimento);
-            this.tabControl3.Location = new System.Drawing.Point(293, 18);
-            this.tabControl3.Name = "tabControl3";
-            this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(418, 332);
-            this.tabControl3.TabIndex = 1;
-            this.tabControl3.TabStop = false;
-            // 
-            // tabPoupanca
-            // 
-            this.tabPoupanca.Controls.Add(this.btExtratoPoupanca);
-            this.tabPoupanca.Location = new System.Drawing.Point(4, 22);
-            this.tabPoupanca.Name = "tabPoupanca";
-            this.tabPoupanca.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPoupanca.Size = new System.Drawing.Size(410, 306);
-            this.tabPoupanca.TabIndex = 0;
-            this.tabPoupanca.Text = "Conta Poupança";
-            this.tabPoupanca.UseVisualStyleBackColor = true;
+            this.lblSelecioneConta.AutoSize = true;
+            this.lblSelecioneConta.Location = new System.Drawing.Point(17, 13);
+            this.lblSelecioneConta.Name = "lblSelecioneConta";
+            this.lblSelecioneConta.Size = new System.Drawing.Size(107, 13);
+            this.lblSelecioneConta.TabIndex = 2;
+            this.lblSelecioneConta.Text = "Selecione sua conta:";
             // 
             // btExtratoPoupanca
             // 
-            this.btExtratoPoupanca.Location = new System.Drawing.Point(17, 194);
+            this.btExtratoPoupanca.Location = new System.Drawing.Point(56, 256);
             this.btExtratoPoupanca.Name = "btExtratoPoupanca";
-            this.btExtratoPoupanca.Size = new System.Drawing.Size(75, 23);
+            this.btExtratoPoupanca.Size = new System.Drawing.Size(155, 23);
             this.btExtratoPoupanca.TabIndex = 0;
             this.btExtratoPoupanca.Text = "Extrato";
             this.btExtratoPoupanca.UseVisualStyleBackColor = true;
             this.btExtratoPoupanca.Click += new System.EventHandler(this.btExtratoPoupanca_Click_1);
-            // 
-            // tabSalario
-            // 
-            this.tabSalario.Location = new System.Drawing.Point(4, 22);
-            this.tabSalario.Name = "tabSalario";
-            this.tabSalario.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSalario.Size = new System.Drawing.Size(410, 306);
-            this.tabSalario.TabIndex = 1;
-            this.tabSalario.Text = "Conta Salário";
-            this.tabSalario.UseVisualStyleBackColor = true;
-            // 
-            // tabInvestimento
-            // 
-            this.tabInvestimento.Location = new System.Drawing.Point(4, 22);
-            this.tabInvestimento.Name = "tabInvestimento";
-            this.tabInvestimento.Padding = new System.Windows.Forms.Padding(3);
-            this.tabInvestimento.Size = new System.Drawing.Size(410, 306);
-            this.tabInvestimento.TabIndex = 2;
-            this.tabInvestimento.Text = "Conta Investimento";
-            this.tabInvestimento.UseVisualStyleBackColor = true;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(17, 18);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(107, 13);
-            this.label14.TabIndex = 2;
-            this.label14.Text = "Selecione sua conta:";
             // 
             // cbContaSelecionada
             // 
@@ -769,7 +813,7 @@
             this.cbContaSelecionada.DropDownWidth = 150;
             this.cbContaSelecionada.FormattingEnabled = true;
             this.cbContaSelecionada.IntegralHeight = false;
-            this.cbContaSelecionada.Location = new System.Drawing.Point(20, 49);
+            this.cbContaSelecionada.Location = new System.Drawing.Point(20, 43);
             this.cbContaSelecionada.Name = "cbContaSelecionada";
             this.cbContaSelecionada.Size = new System.Drawing.Size(222, 21);
             this.cbContaSelecionada.Sorted = true;
@@ -823,7 +867,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.Controls.Add(this.linkLabel2);
+            this.groupBox1.Controls.Add(this.linklblErroLogin);
             this.groupBox1.Controls.Add(this.btEnter);
             this.groupBox1.Location = new System.Drawing.Point(220, 106);
             this.groupBox1.Name = "groupBox1";
@@ -888,18 +932,19 @@
             this.label2.Text = "CPF";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // linkLabel2
+            // linklblErroLogin
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel2.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkLabel2.LinkColor = System.Drawing.Color.Red;
-            this.linkLabel2.Location = new System.Drawing.Point(113, 92);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(102, 16);
-            this.linkLabel2.TabIndex = 0;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Mensagem erro";
+            this.linklblErroLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.linklblErroLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklblErroLogin.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linklblErroLogin.LinkColor = System.Drawing.Color.Red;
+            this.linklblErroLogin.Location = new System.Drawing.Point(6, 92);
+            this.linklblErroLogin.Name = "linklblErroLogin";
+            this.linklblErroLogin.Size = new System.Drawing.Size(316, 22);
+            this.linklblErroLogin.TabIndex = 0;
+            this.linklblErroLogin.TabStop = true;
+            this.linklblErroLogin.Text = "Mensagem erro";
+            this.linklblErroLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btEnter
             // 
@@ -985,12 +1030,11 @@
             this.tabPage2.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            this.tabControl3.ResumeLayout(false);
-            this.tabPoupanca.ResumeLayout(false);
+            this.gbActions.ResumeLayout(false);
+            this.gbActions.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -1018,15 +1062,13 @@
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage9;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btCadastrarNovaConta;
+        private System.Windows.Forms.TextBox tbDepInicialPoup;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TabPage tabPage10;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TabPage tabPage11;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.RadioButton rbInvestimento;
@@ -1054,12 +1096,8 @@
         private System.Windows.Forms.Button btCadastrar;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.TabControl tabControl3;
-        private System.Windows.Forms.TabPage tabPoupanca;
         private System.Windows.Forms.Button btExtratoPoupanca;
-        private System.Windows.Forms.TabPage tabSalario;
-        private System.Windows.Forms.TabPage tabInvestimento;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblSelecioneConta;
         private System.Windows.Forms.ComboBox cbContaSelecionada;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.LinkLabel linkLabel4;
@@ -1071,13 +1109,22 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.MaskedTextBox mtbCPFLogin;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel linklblErroLogin;
         private System.Windows.Forms.Button btEnter;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Label lblDadosConta;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button btVoltar;
+        private System.Windows.Forms.GroupBox gbActions;
+        private System.Windows.Forms.RadioButton rbDepositar;
+        private System.Windows.Forms.RadioButton rbTransferenciaPoup;
+        private System.Windows.Forms.RadioButton rbSacar;
+        private System.Windows.Forms.RadioButton rbInvestir;
+        private System.Windows.Forms.RadioButton rbDepositarSalario;
+        private System.Windows.Forms.Button btVoltarParaMenu;
+        private System.Windows.Forms.Button btAbrirNovaConta;
     }
 }
 

@@ -10,14 +10,17 @@ namespace AppBancoWinForms.Entities
         public TipoConta TipoConta { get; set; }
         public int NumeroCliente { get; set; }
         public double Saldo { get; set; }
+        public DateTime DataCriacao { get; set; }
 
 
-        protected Conta(int numeroConta, TipoConta tipoConta, int numeroCliente, double saldo)
+
+        protected Conta(int numeroConta, TipoConta tipoConta, int numeroCliente, double saldo, DateTime dataCriacao)
         {
             NumeroConta = numeroConta;
             TipoConta = tipoConta;
-            NumeroCliente = numeroConta;
+            NumeroCliente = numeroCliente;
             Saldo = saldo;
+            DataCriacao = dataCriacao;
         }
 
         public void Depositar(double valor)

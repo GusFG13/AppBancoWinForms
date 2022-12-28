@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AppBancoWinForms.Entities;
+using AppBancoWinForms.Entities.Enums;
 
 namespace AppBancoWinForms.Utils
 {
@@ -25,18 +26,34 @@ namespace AppBancoWinForms.Utils
         }
 
 
-        public static int CadastrarConta(string path, string tipoConta, int numCliente, double saldo)
+        public static Conta CadastrarConta(string path, TipoConta tipoConta, int numCliente, double saldo, DateTime dataCriacao)
         {
+            Conta novaConta;
             int novoCodigo = 1;
             // Descobrir próximo código para cadastro de novo cliente
             if (File.Exists(path))
             {
                 novoCodigo = int.Parse(EscreverArquivosBD.LerUltimaLinha(path).Split(';')[0]) + 1;
             }
+            
+            switch (tipoConta)
+            {
+                case TipoConta.ContaPoupanca:
+                    novaConta = new ContaPoupanca(novoCodigo, tipoConta, numCliente, saldo, dataCriacao);
+                    break;
+                case TipoConta.ContaInvestimento:
+                    novaConta = new ContaInvestimento(novoCodigo, tipoConta, numCliente, saldo, dataCriacao);
+                    break;
+                case TipoConta.ContaSalario:
+                    novaConta = new ContaSalario(novoCodigo, tipoConta, numCliente, saldo, dataCriacao);
+                    break;
+                default:
+                    novaConta = null;
+                    break;
+            }
 
-            string dados = novoCodigo + ";" + tipoConta + ";" + numCliente + ";" + saldo;
-            EscreverArquivosBD.EscreverNovoItem(path, dados);
-            return novoCodigo;
+            EscreverArquivosBD.EscreverNovoItem(path, novaConta.ToString());
+            return novaConta;
         }
 
     }
