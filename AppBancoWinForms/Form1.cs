@@ -31,6 +31,16 @@ namespace AppBancoWinForms
             this.MaximizeBox = false;
             //this.MinimizeBox = false;
             linklblErroLogin.Text = "";
+
+            // Esconde abas do tabCtrlTipoConta (na aba Abrir Nova Conta de tabCtrlTelasApp)
+            //tabCtrlTipoConta.Appearance = TabAppearance.FlatButtons;
+            //tabCtrlTipoConta.ItemSize = new Size(0, 1);
+            //tabCtrlTipoConta.SizeMode = TabSizeMode.Fixed;
+
+            // Esconde abas do tabCtrlTelasApp (tela principal)
+            //tabCtrlTelasApp.Appearance = TabAppearance.FlatButtons;
+            //tabCtrlTelasApp.ItemSize = new Size(0, 1);
+            //tabCtrlTelasApp.SizeMode = TabSizeMode.Fixed;
         }
 
         private void btEnter_Click(object sender, EventArgs e)
@@ -54,7 +64,7 @@ namespace AppBancoWinForms
                         cliente.Nome = aux[2];
                         cliente.Sobrenome = aux[3];
                         cliente.Perfil = (PerfilInvestidor)Enum.Parse(typeof(PerfilInvestidor), aux[4]);
-                        tabControl1.SelectedTab = tabPage2; // ir para a página de seleção de conta
+                        tabCtrlTelasApp.SelectedTab = tabPage2; // ir para a página de seleção de conta
                     }
                     else
                     {
@@ -151,7 +161,7 @@ namespace AppBancoWinForms
                     Cliente cliente = Cadastros.CadastrarCliente(pathClientes, cpf, nome, sobrenome, senha);
                     MessageBox.Show("Novo cadastro realizado", "Cadastro concluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //Console.WriteLine("NOVO CADASTRO: " + cliente.ToString());
-                    tabControl1.SelectedTab = tabPage7; // Ir para a tela de criação de conta
+                    tabCtrlTelasApp.SelectedTab = tabPage7; // Ir para a tela de criação de conta
                     btVoltarParaMenu.Visible = false;
                 }
             }
@@ -159,13 +169,13 @@ namespace AppBancoWinForms
 
         private void btNovoCadastro_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = tabPage6;
+            tabCtrlTelasApp.SelectedTab = tabPage6;
             mtbCPFCadastro.Focus();
         }
 
         private void btExtratoPoupanca_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = tabPage8;
+            tabCtrlTelasApp.SelectedTab = tabPage8;
         }
 
         private void tabPage8_Enter(object sender, EventArgs e)
@@ -259,24 +269,25 @@ namespace AppBancoWinForms
             }
         }
 
+        /******************** Seleção tipo de conta a ser criada ********************/
         private void rbPoupanca_CheckedChanged(object sender, EventArgs e)
         {
-            tabControl2.SelectedTab = tabPage9;
+            tabCtrlTipoConta.SelectedTab = tabPagePoupanca;
         }
 
         private void rbSalario_CheckedChanged(object sender, EventArgs e)
         {
-            tabControl2.SelectedTab = tabPage10;
+            tabCtrlTipoConta.SelectedTab = tabPageSalario;
         }
 
         private void rbInvestimento_CheckedChanged(object sender, EventArgs e)
         {
-            tabControl2.SelectedTab = tabPage11;
+            tabCtrlTipoConta.SelectedTab = tabPageInvestimento;
         }
-
+        /**************************************************************************/
         private void btExtratoPoupanca_Click_1(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = tabPage8;
+            tabCtrlTelasApp.SelectedTab = tabPage8;
         }
 
         private void cbContaSelecionada_SelectedIndexChanged(object sender, EventArgs e)
@@ -345,23 +356,23 @@ namespace AppBancoWinForms
             {
                 //cbContaSelecionada.Visible = false;
                 //cbContaSelecionada.Enabled = false;
-                tabControl1.SelectedTab = tabPage7;
+                tabCtrlTelasApp.SelectedTab = tabPage7;
             }
         }
 
         private void btVoltar_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = tabPage2;
+            tabCtrlTelasApp.SelectedTab = tabPage2;
         }
 
         private void btVoltarParaMenu_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = tabPage2;
+            tabCtrlTelasApp.SelectedTab = tabPage2;
         }
 
         private void btAbrirNovaConta_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = tabPage7;
+            tabCtrlTelasApp.SelectedTab = tabPage7;
             btVoltarParaMenu.Visible = true;
         }
 
@@ -391,7 +402,7 @@ namespace AppBancoWinForms
             if (requisitosOK)
             {
                 Cadastros.CadastrarConta(pathContas, tConta, cliente.Codigo, saldoInicial, DateTime.UtcNow);
-                tabControl1.SelectedTab = tabPage2;
+                tabCtrlTelasApp.SelectedTab = tabPage2;
             }
 
         }

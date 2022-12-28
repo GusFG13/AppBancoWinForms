@@ -45,16 +45,16 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.btVoltarParaMenu = new System.Windows.Forms.Button();
             this.btCadastrarNovaConta = new System.Windows.Forms.Button();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.tabCtrlTipoConta = new System.Windows.Forms.TabControl();
+            this.tabPagePoupanca = new System.Windows.Forms.TabPage();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.tbDepInicialPoup = new System.Windows.Forms.TextBox();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.tabPageSalario = new System.Windows.Forms.TabPage();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.tabPageInvestimento = new System.Windows.Forms.TabPage();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.rbInvestimento = new System.Windows.Forms.RadioButton();
@@ -106,15 +106,15 @@
             this.linklblErroLogin = new System.Windows.Forms.LinkLabel();
             this.btEnter = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabCtrlTelasApp = new System.Windows.Forms.TabControl();
             this.tabPage8.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPage7.SuspendLayout();
-            this.tabControl2.SuspendLayout();
-            this.tabPage9.SuspendLayout();
+            this.tabCtrlTipoConta.SuspendLayout();
+            this.tabPagePoupanca.SuspendLayout();
             this.panel9.SuspendLayout();
-            this.tabPage10.SuspendLayout();
-            this.tabPage11.SuspendLayout();
+            this.tabPageSalario.SuspendLayout();
+            this.tabPageInvestimento.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -129,7 +129,7 @@
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tabCtrlTelasApp.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage8
@@ -289,7 +289,7 @@
             // 
             this.tabPage7.Controls.Add(this.btVoltarParaMenu);
             this.tabPage7.Controls.Add(this.btCadastrarNovaConta);
-            this.tabPage7.Controls.Add(this.tabControl2);
+            this.tabPage7.Controls.Add(this.tabCtrlTipoConta);
             this.tabPage7.Controls.Add(this.rbInvestimento);
             this.tabPage7.Controls.Add(this.rbSalario);
             this.tabPage7.Controls.Add(this.rbPoupanca);
@@ -322,27 +322,27 @@
             this.btCadastrarNovaConta.UseVisualStyleBackColor = true;
             this.btCadastrarNovaConta.Click += new System.EventHandler(this.btCadastrarNovaConta_Click);
             // 
-            // tabControl2
+            // tabCtrlTipoConta
             // 
-            this.tabControl2.Controls.Add(this.tabPage9);
-            this.tabControl2.Controls.Add(this.tabPage10);
-            this.tabControl2.Controls.Add(this.tabPage11);
-            this.tabControl2.Location = new System.Drawing.Point(337, 72);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(368, 268);
-            this.tabControl2.TabIndex = 0;
+            this.tabCtrlTipoConta.Controls.Add(this.tabPagePoupanca);
+            this.tabCtrlTipoConta.Controls.Add(this.tabPageSalario);
+            this.tabCtrlTipoConta.Controls.Add(this.tabPageInvestimento);
+            this.tabCtrlTipoConta.Location = new System.Drawing.Point(337, 72);
+            this.tabCtrlTipoConta.Name = "tabCtrlTipoConta";
+            this.tabCtrlTipoConta.SelectedIndex = 0;
+            this.tabCtrlTipoConta.Size = new System.Drawing.Size(368, 268);
+            this.tabCtrlTipoConta.TabIndex = 0;
             // 
-            // tabPage9
+            // tabPagePoupanca
             // 
-            this.tabPage9.Controls.Add(this.panel9);
-            this.tabPage9.Location = new System.Drawing.Point(4, 22);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(360, 242);
-            this.tabPage9.TabIndex = 0;
-            this.tabPage9.Text = "Poupança";
-            this.tabPage9.UseVisualStyleBackColor = true;
+            this.tabPagePoupanca.Controls.Add(this.panel9);
+            this.tabPagePoupanca.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePoupanca.Name = "tabPagePoupanca";
+            this.tabPagePoupanca.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPagePoupanca.Size = new System.Drawing.Size(360, 242);
+            this.tabPagePoupanca.TabIndex = 0;
+            this.tabPagePoupanca.Text = "Poupança";
+            this.tabPagePoupanca.UseVisualStyleBackColor = true;
             // 
             // panel9
             // 
@@ -381,17 +381,17 @@
             this.tbDepInicialPoup.Text = "500,00";
             this.tbDepInicialPoup.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // tabPage10
+            // tabPageSalario
             // 
-            this.tabPage10.Controls.Add(this.textBox2);
-            this.tabPage10.Controls.Add(this.label12);
-            this.tabPage10.Location = new System.Drawing.Point(4, 22);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(360, 242);
-            this.tabPage10.TabIndex = 1;
-            this.tabPage10.Text = "Salário";
-            this.tabPage10.UseVisualStyleBackColor = true;
+            this.tabPageSalario.Controls.Add(this.textBox2);
+            this.tabPageSalario.Controls.Add(this.label12);
+            this.tabPageSalario.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSalario.Name = "tabPageSalario";
+            this.tabPageSalario.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageSalario.Size = new System.Drawing.Size(360, 242);
+            this.tabPageSalario.TabIndex = 1;
+            this.tabPageSalario.Text = "Salário";
+            this.tabPageSalario.UseVisualStyleBackColor = true;
             // 
             // textBox2
             // 
@@ -409,17 +409,17 @@
             this.label12.TabIndex = 2;
             this.label12.Text = "Dados holerite";
             // 
-            // tabPage11
+            // tabPageInvestimento
             // 
-            this.tabPage11.Controls.Add(this.textBox3);
-            this.tabPage11.Controls.Add(this.label13);
-            this.tabPage11.Location = new System.Drawing.Point(4, 22);
-            this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(360, 242);
-            this.tabPage11.TabIndex = 2;
-            this.tabPage11.Text = "Investimento";
-            this.tabPage11.UseVisualStyleBackColor = true;
+            this.tabPageInvestimento.Controls.Add(this.textBox3);
+            this.tabPageInvestimento.Controls.Add(this.label13);
+            this.tabPageInvestimento.Location = new System.Drawing.Point(4, 22);
+            this.tabPageInvestimento.Name = "tabPageInvestimento";
+            this.tabPageInvestimento.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageInvestimento.Size = new System.Drawing.Size(360, 242);
+            this.tabPageInvestimento.TabIndex = 2;
+            this.tabPageInvestimento.Text = "Investimento";
+            this.tabPageInvestimento.UseVisualStyleBackColor = true;
             // 
             // textBox3
             // 
@@ -837,11 +837,12 @@
             // 
             // linkLabel4
             // 
+            this.linkLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.linkLabel4.AutoSize = true;
             this.linkLabel4.Enabled = false;
             this.linkLabel4.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel4.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel4.Location = new System.Drawing.Point(6, 381);
+            this.linkLabel4.Location = new System.Drawing.Point(3, 381);
             this.linkLabel4.Name = "linkLabel4";
             this.linkLabel4.Size = new System.Drawing.Size(490, 13);
             this.linkLabel4.TabIndex = 8;
@@ -976,28 +977,28 @@
             this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.linkLabel1.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             // 
-            // tabControl1
+            // tabCtrlTelasApp
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Controls.Add(this.tabPage7);
-            this.tabControl1.Controls.Add(this.tabPage8);
-            this.tabControl1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tabControl1.ItemSize = new System.Drawing.Size(58, 21);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(776, 426);
-            this.tabControl1.TabIndex = 0;
-            this.tabControl1.TabStop = false;
+            this.tabCtrlTelasApp.Controls.Add(this.tabPage1);
+            this.tabCtrlTelasApp.Controls.Add(this.tabPage2);
+            this.tabCtrlTelasApp.Controls.Add(this.tabPage6);
+            this.tabCtrlTelasApp.Controls.Add(this.tabPage7);
+            this.tabCtrlTelasApp.Controls.Add(this.tabPage8);
+            this.tabCtrlTelasApp.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabCtrlTelasApp.ItemSize = new System.Drawing.Size(58, 21);
+            this.tabCtrlTelasApp.Location = new System.Drawing.Point(12, 12);
+            this.tabCtrlTelasApp.Name = "tabCtrlTelasApp";
+            this.tabCtrlTelasApp.SelectedIndex = 0;
+            this.tabCtrlTelasApp.Size = new System.Drawing.Size(776, 426);
+            this.tabCtrlTelasApp.TabIndex = 0;
+            this.tabCtrlTelasApp.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabCtrlTelasApp);
             this.Name = "Form1";
             this.Text = "AppBanco - Grupo 5";
             this.tabPage8.ResumeLayout(false);
@@ -1006,14 +1007,14 @@
             this.groupBox3.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
-            this.tabControl2.ResumeLayout(false);
-            this.tabPage9.ResumeLayout(false);
+            this.tabCtrlTipoConta.ResumeLayout(false);
+            this.tabPagePoupanca.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            this.tabPage10.ResumeLayout(false);
-            this.tabPage10.PerformLayout();
-            this.tabPage11.ResumeLayout(false);
-            this.tabPage11.PerformLayout();
+            this.tabPageSalario.ResumeLayout(false);
+            this.tabPageSalario.PerformLayout();
+            this.tabPageInvestimento.ResumeLayout(false);
+            this.tabPageInvestimento.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -1039,7 +1040,7 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
+            this.tabCtrlTelasApp.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1060,15 +1061,15 @@
         private System.Windows.Forms.DateTimePicker dtpFim;
         private System.Windows.Forms.DateTimePicker dtpInicio;
         private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.TabControl tabControl2;
-        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.TabControl tabCtrlTipoConta;
+        private System.Windows.Forms.TabPage tabPagePoupanca;
         private System.Windows.Forms.Button btCadastrarNovaConta;
         private System.Windows.Forms.TextBox tbDepInicialPoup;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TabPage tabPage10;
+        private System.Windows.Forms.TabPage tabPageSalario;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TabPage tabPage11;
+        private System.Windows.Forms.TabPage tabPageInvestimento;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.RadioButton rbInvestimento;
@@ -1112,7 +1113,7 @@
         private System.Windows.Forms.LinkLabel linklblErroLogin;
         private System.Windows.Forms.Button btEnter;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabCtrlTelasApp;
         private System.Windows.Forms.Label lblDadosConta;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label15;
