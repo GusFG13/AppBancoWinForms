@@ -82,6 +82,14 @@
             this.btCadastrar = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.chkBoxMostrarSaldo = new System.Windows.Forms.CheckBox();
+            this.lblSaldoAtual = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.lblTipoConta = new System.Windows.Forms.Label();
+            this.lblDataAbertura = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.btLogout = new System.Windows.Forms.Button();
             this.btAbrirNovaConta = new System.Windows.Forms.Button();
             this.gbActions = new System.Windows.Forms.GroupBox();
@@ -90,7 +98,7 @@
             this.rbTransferenciaPoup = new System.Windows.Forms.RadioButton();
             this.rbSacar = new System.Windows.Forms.RadioButton();
             this.rbInvestir = new System.Windows.Forms.RadioButton();
-            this.lblDadosConta = new System.Windows.Forms.Label();
+            this.lblNumConta = new System.Windows.Forms.Label();
             this.lblSelecioneConta = new System.Windows.Forms.Label();
             this.btExtratoPoupanca = new System.Windows.Forms.Button();
             this.cbContaSelecionada = new System.Windows.Forms.ComboBox();
@@ -108,6 +116,7 @@
             this.btEnter = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.tabCtrlTelasApp = new System.Windows.Forms.TabControl();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.tabPage8.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPage7.SuspendLayout();
@@ -131,6 +140,7 @@
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabCtrlTelasApp.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage8
@@ -688,10 +698,10 @@
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.panel10);
             this.panel8.Controls.Add(this.btLogout);
             this.panel8.Controls.Add(this.btAbrirNovaConta);
             this.panel8.Controls.Add(this.gbActions);
-            this.panel8.Controls.Add(this.lblDadosConta);
             this.panel8.Controls.Add(this.lblSelecioneConta);
             this.panel8.Controls.Add(this.btExtratoPoupanca);
             this.panel8.Controls.Add(this.cbContaSelecionada);
@@ -700,9 +710,83 @@
             this.panel8.Size = new System.Drawing.Size(730, 371);
             this.panel8.TabIndex = 0;
             // 
+            // chkBoxMostrarSaldo
+            // 
+            this.chkBoxMostrarSaldo.AutoSize = true;
+            this.chkBoxMostrarSaldo.Location = new System.Drawing.Point(59, 105);
+            this.chkBoxMostrarSaldo.Name = "chkBoxMostrarSaldo";
+            this.chkBoxMostrarSaldo.Size = new System.Drawing.Size(91, 17);
+            this.chkBoxMostrarSaldo.TabIndex = 19;
+            this.chkBoxMostrarSaldo.Text = "Mostrar Saldo";
+            this.chkBoxMostrarSaldo.UseVisualStyleBackColor = true;
+            this.chkBoxMostrarSaldo.CheckedChanged += new System.EventHandler(this.chkBoxMostrarSaldo_CheckedChanged);
+            // 
+            // lblSaldoAtual
+            // 
+            this.lblSaldoAtual.Location = new System.Drawing.Point(96, 82);
+            this.lblSaldoAtual.Name = "lblSaldoAtual";
+            this.lblSaldoAtual.Size = new System.Drawing.Size(102, 13);
+            this.lblSaldoAtual.TabIndex = 18;
+            this.lblSaldoAtual.Text = "R$ 1,00";
+            this.lblSaldoAtual.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(42, 82);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(37, 13);
+            this.label18.TabIndex = 17;
+            this.label18.Text = "Saldo:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(17, 17);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(62, 13);
+            this.label17.TabIndex = 16;
+            this.label17.Text = "Tipo Conta:";
+            // 
+            // lblTipoConta
+            // 
+            this.lblTipoConta.Location = new System.Drawing.Point(96, 17);
+            this.lblTipoConta.Name = "lblTipoConta";
+            this.lblTipoConta.Size = new System.Drawing.Size(102, 13);
+            this.lblTipoConta.TabIndex = 15;
+            this.lblTipoConta.Text = "TipoConta";
+            this.lblTipoConta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblDataAbertura
+            // 
+            this.lblDataAbertura.Location = new System.Drawing.Point(96, 60);
+            this.lblDataAbertura.Name = "lblDataAbertura";
+            this.lblDataAbertura.Size = new System.Drawing.Size(102, 13);
+            this.lblDataAbertura.TabIndex = 14;
+            this.lblDataAbertura.Text = "01/01/1900";
+            this.lblDataAbertura.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(4, 60);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(75, 13);
+            this.label16.TabIndex = 13;
+            this.label16.Text = "Data abertura:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(26, 39);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(53, 13);
+            this.label14.TabIndex = 12;
+            this.label14.Text = "Nº Conta:";
+            // 
             // btLogout
             // 
-            this.btLogout.Location = new System.Drawing.Point(56, 328);
+            this.btLogout.Location = new System.Drawing.Point(60, 328);
             this.btLogout.Name = "btLogout";
             this.btLogout.Size = new System.Drawing.Size(155, 23);
             this.btLogout.TabIndex = 11;
@@ -712,7 +796,7 @@
             // 
             // btAbrirNovaConta
             // 
-            this.btAbrirNovaConta.Location = new System.Drawing.Point(56, 298);
+            this.btAbrirNovaConta.Location = new System.Drawing.Point(60, 298);
             this.btAbrirNovaConta.Name = "btAbrirNovaConta";
             this.btAbrirNovaConta.Size = new System.Drawing.Size(155, 23);
             this.btAbrirNovaConta.TabIndex = 10;
@@ -737,7 +821,7 @@
             // rbDepositarSalario
             // 
             this.rbDepositarSalario.AutoSize = true;
-            this.rbDepositarSalario.Location = new System.Drawing.Point(15, 139);
+            this.rbDepositarSalario.Location = new System.Drawing.Point(15, 138);
             this.rbDepositarSalario.Name = "rbDepositarSalario";
             this.rbDepositarSalario.Size = new System.Drawing.Size(105, 17);
             this.rbDepositarSalario.TabIndex = 10;
@@ -759,7 +843,7 @@
             // rbTransferenciaPoup
             // 
             this.rbTransferenciaPoup.AutoSize = true;
-            this.rbTransferenciaPoup.Location = new System.Drawing.Point(15, 116);
+            this.rbTransferenciaPoup.Location = new System.Drawing.Point(15, 112);
             this.rbTransferenciaPoup.Name = "rbTransferenciaPoup";
             this.rbTransferenciaPoup.Size = new System.Drawing.Size(167, 17);
             this.rbTransferenciaPoup.TabIndex = 8;
@@ -770,7 +854,7 @@
             // rbSacar
             // 
             this.rbSacar.AutoSize = true;
-            this.rbSacar.Location = new System.Drawing.Point(15, 58);
+            this.rbSacar.Location = new System.Drawing.Point(15, 60);
             this.rbSacar.Name = "rbSacar";
             this.rbSacar.Size = new System.Drawing.Size(53, 17);
             this.rbSacar.TabIndex = 6;
@@ -781,7 +865,7 @@
             // rbInvestir
             // 
             this.rbInvestir.AutoSize = true;
-            this.rbInvestir.Location = new System.Drawing.Point(15, 87);
+            this.rbInvestir.Location = new System.Drawing.Point(15, 86);
             this.rbInvestir.Name = "rbInvestir";
             this.rbInvestir.Size = new System.Drawing.Size(110, 17);
             this.rbInvestir.TabIndex = 7;
@@ -789,15 +873,14 @@
             this.rbInvestir.Text = "Investir Em Ações";
             this.rbInvestir.UseVisualStyleBackColor = true;
             // 
-            // lblDadosConta
+            // lblNumConta
             // 
-            this.lblDadosConta.AutoSize = true;
-            this.lblDadosConta.Location = new System.Drawing.Point(80, 131);
-            this.lblDadosConta.Name = "lblDadosConta";
-            this.lblDadosConta.Size = new System.Drawing.Size(68, 13);
-            this.lblDadosConta.TabIndex = 0;
-            this.lblDadosConta.Text = "Dados conta";
-            this.lblDadosConta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNumConta.Location = new System.Drawing.Point(96, 39);
+            this.lblNumConta.Name = "lblNumConta";
+            this.lblNumConta.Size = new System.Drawing.Size(102, 13);
+            this.lblNumConta.TabIndex = 0;
+            this.lblNumConta.Text = "0";
+            this.lblNumConta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblSelecioneConta
             // 
@@ -810,7 +893,7 @@
             // 
             // btExtratoPoupanca
             // 
-            this.btExtratoPoupanca.Location = new System.Drawing.Point(56, 256);
+            this.btExtratoPoupanca.Location = new System.Drawing.Point(60, 256);
             this.btExtratoPoupanca.Name = "btExtratoPoupanca";
             this.btExtratoPoupanca.Size = new System.Drawing.Size(155, 23);
             this.btExtratoPoupanca.TabIndex = 0;
@@ -825,7 +908,7 @@
             this.cbContaSelecionada.DropDownWidth = 150;
             this.cbContaSelecionada.FormattingEnabled = true;
             this.cbContaSelecionada.IntegralHeight = false;
-            this.cbContaSelecionada.Location = new System.Drawing.Point(20, 43);
+            this.cbContaSelecionada.Location = new System.Drawing.Point(26, 41);
             this.cbContaSelecionada.Name = "cbContaSelecionada";
             this.cbContaSelecionada.Size = new System.Drawing.Size(222, 21);
             this.cbContaSelecionada.TabIndex = 3;
@@ -1004,6 +1087,22 @@
             this.tabCtrlTelasApp.TabIndex = 0;
             this.tabCtrlTelasApp.TabStop = false;
             // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.label17);
+            this.panel10.Controls.Add(this.chkBoxMostrarSaldo);
+            this.panel10.Controls.Add(this.lblNumConta);
+            this.panel10.Controls.Add(this.lblSaldoAtual);
+            this.panel10.Controls.Add(this.label14);
+            this.panel10.Controls.Add(this.label18);
+            this.panel10.Controls.Add(this.label16);
+            this.panel10.Controls.Add(this.lblDataAbertura);
+            this.panel10.Controls.Add(this.lblTipoConta);
+            this.panel10.Location = new System.Drawing.Point(33, 81);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(209, 140);
+            this.panel10.TabIndex = 20;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1053,6 +1152,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabCtrlTelasApp.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1126,7 +1227,7 @@
         private System.Windows.Forms.Button btEnter;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.TabControl tabCtrlTelasApp;
-        private System.Windows.Forms.Label lblDadosConta;
+        private System.Windows.Forms.Label lblNumConta;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button btVoltar;
@@ -1139,6 +1240,15 @@
         private System.Windows.Forms.Button btVoltarParaMenu;
         private System.Windows.Forms.Button btAbrirNovaConta;
         private System.Windows.Forms.Button btLogout;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.CheckBox chkBoxMostrarSaldo;
+        private System.Windows.Forms.Label lblSaldoAtual;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lblTipoConta;
+        private System.Windows.Forms.Label lblDataAbertura;
+        private System.Windows.Forms.Panel panel10;
     }
 }
 

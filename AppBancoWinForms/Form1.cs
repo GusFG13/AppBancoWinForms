@@ -22,6 +22,8 @@ namespace AppBancoWinForms
         Cliente cliente = new Cliente();
         Conta contaAtual = new Conta();
         int contaSelecionada = 0;
+        List<string> listaContas;
+
         string pathClientes = @"c:\DadosAppBanco\clientes.csv";
         string pathContas = @"c:\DadosAppBanco\contas.csv";
         string pathTransacoes = @"c:\DadosAppBanco\trasacoes.csv";
@@ -311,9 +313,14 @@ namespace AppBancoWinForms
             rbInvestir.Checked = false;
             rbInvestir.Enabled = true;
 
-
-            string tipoConta = cbContaSelecionada.Text.Split('-')[1].Trim().Replace(" ", "").Replace("ç", "c");
-            lblDadosConta.Text = cbContaSelecionada.Text.Split('-')[0].Trim() + "\n" + tipoConta;
+            contaSelecionada = cbContaSelecionada.SelectedIndex;
+            //string tipoConta = cbContaSelecionada.Text.Split('-')[1].Trim().Replace(" ", "").Replace("ç", "c");
+            string[] auxDadosConta = listaContas[contaSelecionada].Split(';');
+            string tipoConta = auxDadosConta[1];
+            lblNumConta.Text = auxDadosConta[0];
+            
+            lblDataAbertura.Text = DateTime.Parse(auxDadosConta[4]).ToString("dd/MM/yyyy");
+            lblSaldoAtual.Text = "R$ " + auxDadosConta[3];
             /******************************************************************************/
             // Mudar Switch para ler enums
             /******************************************************************************/
@@ -323,15 +330,18 @@ namespace AppBancoWinForms
                 case TipoConta.ContaPoupanca:
                     rbTransferenciaPoup.Enabled = false;
                     rbDepositarSalario.Enabled = false;
+                    lblTipoConta.Text = "Conta Poupança";
                     //tabControl3.SelectedTab = tabPoupanca;
                     break;
                 case TipoConta.ContaSalario:
                     rbDepositar.Enabled = false;
+                    lblTipoConta.Text = "Conta Salário";
                     //tabControl3.SelectedTab = tabSalario;
                     break;
                 case TipoConta.ContaInvestimento:
                     rbInvestir.Enabled = false;
                     rbDepositarSalario.Enabled = false;
+                    lblTipoConta.Text = "Conta Investimento";
                     //tabControl3.SelectedTab = tabInvestimento;
                     break;
                 default: break;
@@ -350,6 +360,8 @@ namespace AppBancoWinForms
                 msg = "Boa noite, ";
             msg += cliente.Nome + "! Selecione sua conta:";
             lblSelecioneConta.Text = msg;
+            chkBoxMostrarSaldo.Checked = false;
+            lblSaldoAtual.Visible = false;
             //lblDadosConta.Text = cliente.Nome;
             //
             ////cbContaSelecionada.Items.Add("0101 - Conta Poupança");
@@ -358,7 +370,7 @@ namespace AppBancoWinForms
             //cbContaSelecionada.Items.Add("0574 - Conta Poupança");
             /******* Buscar contas do cliente adicionar no comboBox ***********/
             cbContaSelecionada.Items.Clear();
-            List<string> listaContas = EscreverArquivosBD.ProcurarContasCliente(pathContas, cliente.Codigo);
+            listaContas = EscreverArquivosBD.ProcurarContasCliente(pathContas, cliente.Codigo);
             foreach (string c in listaContas)
             {
                 cbContaSelecionada.Items.Add(c.Split(';')[0] + " - " + c.Split(';')[1]);
@@ -446,7 +458,17 @@ namespace AppBancoWinForms
             }
         }
 
-
-
+        private void chkBoxMostrarSaldo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkBoxMostrarSaldo.Checked) 
+            {
+                lblSaldoAtual.Visible = true;
+            }
+            else
+            {
+                lblSaldoAtual.Visible = false;
+            }
+                
+        }
     }
 }
