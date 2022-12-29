@@ -64,17 +64,32 @@ namespace AppBancoWinForms.Utils
             return dadosCliente;
         }
 
-        public static bool ProcurarConta(string path, int numConta)
+        public static List<string> ProcurarContasCliente(string path, int numTitular)
         { // implementar código
-            bool contaExiste = false;
+
+            List<string> listaContas = new List<string>();
             if (File.Exists(path))
             {
-                string dados = LerUltimaLinha(path);
-                int numUltimaConta = int.Parse(dados.Split(';')[0]);
-                if (numUltimaConta >= numConta)
-                    contaExiste = true;
+                // Open the file to read from.
+                using (StreamReader sr = File.OpenText(path))
+                {
+                    string s = "";
+                    while ((s = sr.ReadLine()) != null)
+                    {
+                        if (int.Parse(s.Split(';')[2]) == numTitular)
+                        {
+                            listaContas.Add(s);
+                            
+                        }
+                    }
+                    sr.Close();
+                }
             }
-            return contaExiste;
+            //else
+            //{
+            //    Console.WriteLine("Arquivo informado não existe.");
+            //}
+            return listaContas;
         }
 
 

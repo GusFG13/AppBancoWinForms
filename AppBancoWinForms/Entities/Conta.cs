@@ -12,7 +12,9 @@ namespace AppBancoWinForms.Entities
         public double Saldo { get; set; }
         public DateTime DataCriacao { get; set; }
 
-
+        public Conta()
+        {
+        }
 
         protected Conta(int numeroConta, TipoConta tipoConta, int numeroCliente, double saldo, DateTime dataCriacao)
         {

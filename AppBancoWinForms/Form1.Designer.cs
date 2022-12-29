@@ -82,6 +82,7 @@
             this.btCadastrar = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btLogout = new System.Windows.Forms.Button();
             this.btAbrirNovaConta = new System.Windows.Forms.Button();
             this.gbActions = new System.Windows.Forms.GroupBox();
             this.rbDepositarSalario = new System.Windows.Forms.RadioButton();
@@ -687,6 +688,7 @@
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.btLogout);
             this.panel8.Controls.Add(this.btAbrirNovaConta);
             this.panel8.Controls.Add(this.gbActions);
             this.panel8.Controls.Add(this.lblDadosConta);
@@ -697,6 +699,16 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(730, 371);
             this.panel8.TabIndex = 0;
+            // 
+            // btLogout
+            // 
+            this.btLogout.Location = new System.Drawing.Point(56, 328);
+            this.btLogout.Name = "btLogout";
+            this.btLogout.Size = new System.Drawing.Size(155, 23);
+            this.btLogout.TabIndex = 11;
+            this.btLogout.Text = "Sair";
+            this.btLogout.UseVisualStyleBackColor = true;
+            this.btLogout.Click += new System.EventHandler(this.btLogout_Click);
             // 
             // btAbrirNovaConta
             // 
@@ -816,7 +828,6 @@
             this.cbContaSelecionada.Location = new System.Drawing.Point(20, 43);
             this.cbContaSelecionada.Name = "cbContaSelecionada";
             this.cbContaSelecionada.Size = new System.Drawing.Size(222, 21);
-            this.cbContaSelecionada.Sorted = true;
             this.cbContaSelecionada.TabIndex = 3;
             this.cbContaSelecionada.SelectedIndexChanged += new System.EventHandler(this.cbContaSelecionada_SelectedIndexChanged);
             // 
@@ -1001,6 +1012,7 @@
             this.Controls.Add(this.tabCtrlTelasApp);
             this.Name = "Form1";
             this.Text = "AppBanco - Grupo 5";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -1126,6 +1138,7 @@
         private System.Windows.Forms.RadioButton rbDepositarSalario;
         private System.Windows.Forms.Button btVoltarParaMenu;
         private System.Windows.Forms.Button btAbrirNovaConta;
+        private System.Windows.Forms.Button btLogout;
     }
 }
 
