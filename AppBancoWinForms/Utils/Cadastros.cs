@@ -26,7 +26,7 @@ namespace AppBancoWinForms.Utils
         }
 
 
-        public static Conta CadastrarConta(string path, TipoConta tipoConta, int numCliente, double saldo, DateTime dataCriacao)
+        public static Conta CadastrarConta(string path, TipoConta tipoConta, int numCliente, double saldo, DateTime dataCriacao, Holerite holerite)
         {
             Conta novaConta;
             int novoCodigo = 1;
@@ -45,7 +45,7 @@ namespace AppBancoWinForms.Utils
                     novaConta = new ContaInvestimento(novoCodigo, tipoConta, numCliente, saldo, dataCriacao);
                     break;
                 case TipoConta.ContaSalario:
-                    novaConta = new ContaSalario(novoCodigo, tipoConta, numCliente, saldo, dataCriacao);
+                    novaConta = new ContaSalario(novoCodigo, tipoConta, numCliente, saldo, dataCriacao, holerite);
                     break;
                 default:
                     novaConta = null;

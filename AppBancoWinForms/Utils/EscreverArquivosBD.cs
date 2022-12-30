@@ -172,7 +172,34 @@ namespace AppBancoWinForms.Utils
                 }
             }
         }
-        public static void AtualizarSaldo(string path) { }
+
+
+
+        public static void GravarSaldoContaAtualizado(string path, Conta conta)
+        {
+            if (File.Exists(path))
+            {
+                string[] contasCSV = File.ReadAllLines(path);
+                for (int i = 0; i < contasCSV.Length; i++)
+                {
+                    if (int.Parse(contasCSV[i].Split(';')[0]) == conta.NumeroConta)
+                    {
+                        contasCSV[i] = conta.ToString();
+                        break;
+                    }
+                }
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < contasCSV.Length; i++)
+                {
+                    sb.AppendLine(contasCSV[i]);
+                }
+                using (StreamWriter writer = new StreamWriter(path, false))
+                {
+                    writer.Write(sb.ToString());
+                }
+            }
+        }
+
 
     }
 }

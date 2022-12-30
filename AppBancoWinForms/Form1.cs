@@ -34,24 +34,24 @@ namespace AppBancoWinForms
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             //this.MinimizeBox = false;
-            linklblErroLogin.Text = "";
+            lblErroLogin.Text = "";
 
             // Esconde abas do tabCtrlTipoConta (na aba Abrir Nova Conta de tabCtrlTelasApp)
-            //tabCtrlTipoConta.Appearance = TabAppearance.FlatButtons;
-            //tabCtrlTipoConta.ItemSize = new Size(0, 1);
-            //tabCtrlTipoConta.SizeMode = TabSizeMode.Fixed;
+            tabCtrlTipoConta.Appearance = TabAppearance.FlatButtons;
+            tabCtrlTipoConta.ItemSize = new Size(0, 1);
+            tabCtrlTipoConta.SizeMode = TabSizeMode.Fixed;
 
             // Esconde abas do tabCtrlTelasApp (tela principal)
-            //tabCtrlTelasApp.Appearance = TabAppearance.FlatButtons;
-            //tabCtrlTelasApp.ItemSize = new Size(0, 1);
-            //tabCtrlTelasApp.SizeMode = TabSizeMode.Fixed;
+            tabCtrlTelasApp.Appearance = TabAppearance.FlatButtons;
+            tabCtrlTelasApp.ItemSize = new Size(0, 1);
+            tabCtrlTelasApp.SizeMode = TabSizeMode.Fixed;
         }
 
         private void btEnter_Click(object sender, EventArgs e)
         {
 
             string numerosCPF;
-            linklblErroLogin.Text = "";
+            lblErroLogin.Text = "";
             mtbCPFLogin.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             numerosCPF = mtbCPFLogin.Text;
             if (numerosCPF.Length == 11 || double.TryParse(numerosCPF, out _))
@@ -75,20 +75,20 @@ namespace AppBancoWinForms
                     }
                     else
                     {
-                        linklblErroLogin.Text = "Senha incorreta";
+                        lblErroLogin.Text = "Senha incorreta";
                         mtbSenhaLogin.Focus();
                     }
                 }
                 else
                 {
-                    linklblErroLogin.Text = "CPF não encontrado no cadastro";
+                    lblErroLogin.Text = "CPF não encontrado no cadastro";
                     mtbCPFLogin.Focus();
                 }
             }
             else
             {
                 mtbCPFLogin.Focus();
-                linklblErroLogin.Text = "Formato do CPF incorreto";
+                lblErroLogin.Text = "Formato do CPF incorreto";
             }
         }
 
@@ -315,22 +315,25 @@ namespace AppBancoWinForms
 
             contaSelecionada = cbContaSelecionada.SelectedIndex;
             //string tipoConta = cbContaSelecionada.Text.Split('-')[1].Trim().Replace(" ", "").Replace("ç", "c");
-            string[] auxDadosConta = listaContas[contaSelecionada].Split(';');
-            string tipoConta = auxDadosConta[1];
-            lblNumConta.Text = auxDadosConta[0];
-            
-            lblDataAbertura.Text = DateTime.Parse(auxDadosConta[4]).ToString("dd/MM/yyyy");
-            lblSaldoAtual.Text = "R$ " + auxDadosConta[3];
-            /******************************************************************************/
-            // Mudar Switch para ler enums
-            /******************************************************************************/
+            //****** apagar essa parte ***********/
+            //string[] auxDadosConta = listaContas[contaSelecionada].Split(';');
+            //string tipoConta = auxDadosConta[1];
+            //lblNumConta.Text = auxDadosConta[0];
 
-            switch ((TipoConta)Enum.Parse(typeof(TipoConta), tipoConta))
+            //lblDataAbertura.Text = DateTime.Parse(auxDadosConta[4]).ToString("dd/MM/yyyy");
+            //lblSaldoAtual.Text = "R$ " + auxDadosConta[3];
+
+            contaAtual = Controles.SelecionarConta(listaContas[contaSelecionada]);
+            lblNumConta.Text = contaAtual.NumeroConta.ToString();
+            lblDataAbertura.Text = contaAtual.DataCriacao.ToLocalTime().ToString("dd/MM/yyyy");
+            lblSaldoAtual.Text = "R$ " + contaAtual.Saldo.ToString("F2");
+            switch (contaAtual.TipoConta)
             {
                 case TipoConta.ContaPoupanca:
                     rbTransferenciaPoup.Enabled = false;
                     rbDepositarSalario.Enabled = false;
                     lblTipoConta.Text = "Conta Poupança";
+                    //Atualizar +++++++ contaAtual
                     //tabControl3.SelectedTab = tabPoupanca;
                     break;
                 case TipoConta.ContaSalario:
@@ -411,6 +414,8 @@ namespace AppBancoWinForms
             bool requisitosOK = true;
             double saldoInicial = 0.0;
             TipoConta tConta = TipoConta.ContaPoupanca;
+            Holerite holerite = new Holerite();
+
             if (rbPoupanca.Checked)
             {
                 tConta = TipoConta.ContaPoupanca;
@@ -423,6 +428,9 @@ namespace AppBancoWinForms
             else if (rbSalario.Checked)
             { // desenvolver validações
                 tConta = TipoConta.ContaSalario;
+                
+                //holerite.Cnpj = ;
+                //holerite.NomeFontePagadora =;
             }
             else if (rbInvestimento.Checked)
             {// desenvolver validações
@@ -430,7 +438,7 @@ namespace AppBancoWinForms
             }
             if (requisitosOK)
             {
-                Cadastros.CadastrarConta(pathContas, tConta, cliente.Codigo, saldoInicial, DateTime.UtcNow);
+                contaAtual = Cadastros.CadastrarConta(pathContas, tConta, cliente.Codigo, saldoInicial, DateTime.UtcNow, holerite);
                 contaSelecionada = cbContaSelecionada.Items.Count;
                 tabCtrlTelasApp.SelectedTab = tabPage2;
             }
@@ -439,19 +447,25 @@ namespace AppBancoWinForms
 
         private void btLogout_Click(object sender, EventArgs e)
         {
-            //mtbCPFLogin.Text = string.Empty;
-            //mtbSenhaLogin.Text = string.Empty;
-            cliente = new Cliente();
-            contaAtual = new Conta();
-            cbContaSelecionada.Items.Clear();
-            contaSelecionada = 0;
-            Controles.LimpaCaixasTextos(tabCtrlTelasApp.Controls);
-            tabCtrlTelasApp.SelectedTab = tabPage1;
+            DialogResult resposta = MessageBox.Show("Deseja realmente sair?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (resposta == DialogResult.Yes)
+            {
+                //mtbCPFLogin.Text = string.Empty;
+                //mtbSenhaLogin.Text = string.Empty;
+                cliente = new Cliente();
+                contaAtual = new Conta();
+                cbContaSelecionada.Items.Clear();
+                contaSelecionada = 0;
+                listaContas.Clear();
+                Controles.LimpaCaixasTextos(tabCtrlTelasApp.Controls);
+                tabCtrlTelasApp.SelectedTab = tabPage1;
+            }
+
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {// evita fechamento do app por engano ao clicar no botão fechar janela ou pressionar Alt + F4
-            DialogResult resposta = MessageBox.Show("Deseja realmente sair?", "Fechar App", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult resposta = MessageBox.Show("Deseja realmente fechar o programa?", "Fechar App", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (resposta == DialogResult.No)
             {
                 e.Cancel = true;
@@ -460,7 +474,7 @@ namespace AppBancoWinForms
 
         private void chkBoxMostrarSaldo_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkBoxMostrarSaldo.Checked) 
+            if (chkBoxMostrarSaldo.Checked)
             {
                 lblSaldoAtual.Visible = true;
             }
@@ -468,7 +482,84 @@ namespace AppBancoWinForms
             {
                 lblSaldoAtual.Visible = false;
             }
-                
+
+        }
+
+        private void rbDepositar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbDepositar.Checked) { btMovimentoConta.Text = "Depositar"; }
+        }
+
+        private void rbSacar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbSacar.Checked) { btMovimentoConta.Text = "Sacar"; }
+        }
+
+        private void rbInvestir_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbInvestir.Checked) { btMovimentoConta.Text = "Investir"; }
+        }
+
+        private void rbTransferenciaPoup_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbTransferenciaPoup.Checked) { btMovimentoConta.Text = "Transferir"; }
+        }
+
+        private void rbDepositarSalario_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbDepositarSalario.Checked) { btMovimentoConta.Text = "Dep. Salário"; }
+        }
+
+        private void btMovimentoConta_Click(object sender, EventArgs e)
+        {
+            //tbDepInicialPoup.Text.Contains(".")
+            //|| !double.TryParse(tbDepInicialPoup.Text, out saldoInicial)
+            //|| saldoInicial < 500.00
+
+
+            if (double.TryParse(tbValorMovimento.Text.Replace('.', ','), out double val))
+            {
+                DateTime horaTrasacao = DateTime.UtcNow;
+                if (rbDepositar.Checked)
+                {
+                    if (val > 0) 
+                    {
+                        contaAtual.Depositar(val);
+                        // Atualizar registro no arquivo contas.csv
+                        EscreverArquivosBD.GravarSaldoContaAtualizado(pathContas, contaAtual);
+                        // Escrever movimentação em transacoes.csv
+                    }
+                }
+                else if (rbSacar.Checked)
+                {
+                    if (val > 0 && val <= contaAtual.Saldo)
+                    {
+                        contaAtual.Sacar(val);
+                        // Atualizar registro no arquivo contas.csv
+                        EscreverArquivosBD.GravarSaldoContaAtualizado(pathContas, contaAtual);
+                        // Escrever movimentação em transacoes.csv
+                    }
+                }
+                else if (rbInvestir.Checked)
+                {
+
+                }
+                else if (rbTransferenciaPoup.Checked)
+                {
+
+                }
+                else if (rbDepositarSalario.Checked)
+                {
+
+                }
+                lblSaldoAtual.Text = contaAtual.Saldo.ToString("F2");
+            }
+            else
+            {
+                tbDepInicialPoup.Focus();
+            }
+
+
         }
     }
 }

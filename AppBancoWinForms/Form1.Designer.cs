@@ -60,7 +60,6 @@
             this.rbInvestimento = new System.Windows.Forms.RadioButton();
             this.rbSalario = new System.Windows.Forms.RadioButton();
             this.rbPoupanca = new System.Windows.Forms.RadioButton();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -82,14 +81,16 @@
             this.btCadastrar = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.chkBoxMostrarSaldo = new System.Windows.Forms.CheckBox();
-            this.lblSaldoAtual = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.lblTipoConta = new System.Windows.Forms.Label();
-            this.lblDataAbertura = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.btMovimentoConta = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.tbValorMovimento = new System.Windows.Forms.TextBox();
             this.btLogout = new System.Windows.Forms.Button();
             this.btAbrirNovaConta = new System.Windows.Forms.Button();
             this.gbActions = new System.Windows.Forms.GroupBox();
@@ -98,12 +99,10 @@
             this.rbTransferenciaPoup = new System.Windows.Forms.RadioButton();
             this.rbSacar = new System.Windows.Forms.RadioButton();
             this.rbInvestir = new System.Windows.Forms.RadioButton();
-            this.lblNumConta = new System.Windows.Forms.Label();
             this.lblSelecioneConta = new System.Windows.Forms.Label();
             this.btExtratoPoupanca = new System.Windows.Forms.Button();
             this.cbContaSelecionada = new System.Windows.Forms.ComboBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.btNovoCadastro = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -112,10 +111,25 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.mtbCPFLogin = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.linklblErroLogin = new System.Windows.Forms.LinkLabel();
             this.btEnter = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.tabCtrlTelasApp = new System.Windows.Forms.TabControl();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.lblErroLogin = new System.Windows.Forms.Label();
+            this.lblTipoConta = new System.Windows.Forms.Label();
+            this.lblDataAbertura = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lblSaldoAtual = new System.Windows.Forms.Label();
+            this.lblNumConta = new System.Windows.Forms.Label();
+            this.chkBoxMostrarSaldo = new System.Windows.Forms.CheckBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.tabPage8.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -134,6 +148,9 @@
             this.panel3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.gbActions.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -145,6 +162,7 @@
             // 
             // tabPage8
             // 
+            this.tabPage8.Controls.Add(this.label26);
             this.tabPage8.Controls.Add(this.label10);
             this.tabPage8.Controls.Add(this.tbExtrato);
             this.tabPage8.Controls.Add(this.btVoltar);
@@ -163,6 +181,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label10.Location = new System.Drawing.Point(247, 20);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(95, 13);
@@ -217,7 +236,7 @@
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.dtpFim);
             this.groupBox3.Controls.Add(this.dtpInicio);
-            this.groupBox3.Location = new System.Drawing.Point(17, 36);
+            this.groupBox3.Location = new System.Drawing.Point(16, 53);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(200, 192);
             this.groupBox3.TabIndex = 4;
@@ -298,13 +317,14 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.label36);
+            this.tabPage7.Controls.Add(this.label25);
             this.tabPage7.Controls.Add(this.btVoltarParaMenu);
             this.tabPage7.Controls.Add(this.btCadastrarNovaConta);
             this.tabPage7.Controls.Add(this.tabCtrlTipoConta);
             this.tabPage7.Controls.Add(this.rbInvestimento);
             this.tabPage7.Controls.Add(this.rbSalario);
             this.tabPage7.Controls.Add(this.rbPoupanca);
-            this.tabPage7.Controls.Add(this.linkLabel3);
             this.tabPage7.Location = new System.Drawing.Point(4, 25);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
@@ -483,22 +503,9 @@
             this.rbPoupanca.UseVisualStyleBackColor = true;
             this.rbPoupanca.CheckedChanged += new System.EventHandler(this.rbPoupanca_CheckedChanged);
             // 
-            // linkLabel3
-            // 
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel3.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkLabel3.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel3.Location = new System.Drawing.Point(26, 50);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(227, 18);
-            this.linkLabel3.TabIndex = 4;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "Que tipo de conta deseja abrir?";
-            this.linkLabel3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.label24);
             this.tabPage6.Controls.Add(this.groupBox2);
             this.tabPage6.Location = new System.Drawing.Point(4, 25);
             this.tabPage6.Name = "tabPage6";
@@ -517,7 +524,7 @@
             this.groupBox2.Controls.Add(this.panel6);
             this.groupBox2.Controls.Add(this.panel3);
             this.groupBox2.Controls.Add(this.btCadastrar);
-            this.groupBox2.Location = new System.Drawing.Point(233, 38);
+            this.groupBox2.Location = new System.Drawing.Point(214, 79);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(340, 239);
             this.groupBox2.TabIndex = 50;
@@ -527,7 +534,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(47, 190);
+            this.checkBox2.Location = new System.Drawing.Point(77, 195);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(92, 17);
             this.checkBox2.TabIndex = 11;
@@ -539,7 +546,7 @@
             // 
             this.panel7.Controls.Add(this.mtbSenhaCadastroRepetir);
             this.panel7.Controls.Add(this.label7);
-            this.panel7.Location = new System.Drawing.Point(47, 151);
+            this.panel7.Location = new System.Drawing.Point(77, 156);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(186, 27);
             this.panel7.TabIndex = 8;
@@ -568,7 +575,7 @@
             // 
             this.panel5.Controls.Add(this.mtbSenhaCadastro);
             this.panel5.Controls.Add(this.label5);
-            this.panel5.Location = new System.Drawing.Point(47, 118);
+            this.panel5.Location = new System.Drawing.Point(77, 123);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(186, 27);
             this.panel5.TabIndex = 6;
@@ -597,7 +604,7 @@
             // 
             this.panel4.Controls.Add(this.tbSobrenomeCadastro);
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Location = new System.Drawing.Point(47, 85);
+            this.panel4.Location = new System.Drawing.Point(77, 90);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(186, 27);
             this.panel4.TabIndex = 4;
@@ -624,7 +631,7 @@
             // 
             this.panel6.Controls.Add(this.tbNomeCadastro);
             this.panel6.Controls.Add(this.label6);
-            this.panel6.Location = new System.Drawing.Point(47, 52);
+            this.panel6.Location = new System.Drawing.Point(77, 57);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(186, 27);
             this.panel6.TabIndex = 2;
@@ -651,7 +658,7 @@
             // 
             this.panel3.Controls.Add(this.mtbCPFCadastro);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(47, 19);
+            this.panel3.Location = new System.Drawing.Point(77, 24);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(186, 27);
             this.panel3.TabIndex = 0;
@@ -676,7 +683,7 @@
             // 
             // btCadastrar
             // 
-            this.btCadastrar.Location = new System.Drawing.Point(158, 186);
+            this.btCadastrar.Location = new System.Drawing.Point(188, 191);
             this.btCadastrar.Name = "btCadastrar";
             this.btCadastrar.Size = new System.Drawing.Size(75, 23);
             this.btCadastrar.TabIndex = 10;
@@ -698,6 +705,10 @@
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.label27);
+            this.panel8.Controls.Add(this.panel13);
+            this.panel8.Controls.Add(this.panel12);
+            this.panel8.Controls.Add(this.panel11);
             this.panel8.Controls.Add(this.panel10);
             this.panel8.Controls.Add(this.btLogout);
             this.panel8.Controls.Add(this.btAbrirNovaConta);
@@ -710,83 +721,95 @@
             this.panel8.Size = new System.Drawing.Size(730, 371);
             this.panel8.TabIndex = 0;
             // 
-            // chkBoxMostrarSaldo
+            // panel13
             // 
-            this.chkBoxMostrarSaldo.AutoSize = true;
-            this.chkBoxMostrarSaldo.Location = new System.Drawing.Point(59, 105);
-            this.chkBoxMostrarSaldo.Name = "chkBoxMostrarSaldo";
-            this.chkBoxMostrarSaldo.Size = new System.Drawing.Size(91, 17);
-            this.chkBoxMostrarSaldo.TabIndex = 19;
-            this.chkBoxMostrarSaldo.Text = "Mostrar Saldo";
-            this.chkBoxMostrarSaldo.UseVisualStyleBackColor = true;
-            this.chkBoxMostrarSaldo.CheckedChanged += new System.EventHandler(this.chkBoxMostrarSaldo_CheckedChanged);
+            this.panel13.Controls.Add(this.textBox4);
+            this.panel13.Controls.Add(this.label21);
+            this.panel13.Location = new System.Drawing.Point(509, 96);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(201, 52);
+            this.panel13.TabIndex = 23;
             // 
-            // lblSaldoAtual
+            // textBox4
             // 
-            this.lblSaldoAtual.Location = new System.Drawing.Point(96, 82);
-            this.lblSaldoAtual.Name = "lblSaldoAtual";
-            this.lblSaldoAtual.Size = new System.Drawing.Size(102, 13);
-            this.lblSaldoAtual.TabIndex = 18;
-            this.lblSaldoAtual.Text = "R$ 1,00";
-            this.lblSaldoAtual.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.textBox4.Location = new System.Drawing.Point(91, 16);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.TabIndex = 1;
             // 
-            // label18
+            // label21
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(42, 82);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(37, 13);
-            this.label18.TabIndex = 17;
-            this.label18.Text = "Saldo:";
+            this.label21.Location = new System.Drawing.Point(16, 9);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(69, 35);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "Nº Conta Destinatária";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label17
+            // panel12
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(17, 17);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(62, 13);
-            this.label17.TabIndex = 16;
-            this.label17.Text = "Tipo Conta:";
+            this.panel12.Controls.Add(this.textBox1);
+            this.panel12.Controls.Add(this.label20);
+            this.panel12.Location = new System.Drawing.Point(509, 154);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(201, 52);
+            this.panel12.TabIndex = 23;
             // 
-            // lblTipoConta
+            // textBox1
             // 
-            this.lblTipoConta.Location = new System.Drawing.Point(96, 17);
-            this.lblTipoConta.Name = "lblTipoConta";
-            this.lblTipoConta.Size = new System.Drawing.Size(102, 13);
-            this.lblTipoConta.TabIndex = 15;
-            this.lblTipoConta.Text = "TipoConta";
-            this.lblTipoConta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.textBox1.Location = new System.Drawing.Point(91, 16);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 1;
             // 
-            // lblDataAbertura
+            // label20
             // 
-            this.lblDataAbertura.Location = new System.Drawing.Point(96, 60);
-            this.lblDataAbertura.Name = "lblDataAbertura";
-            this.lblDataAbertura.Size = new System.Drawing.Size(102, 13);
-            this.lblDataAbertura.TabIndex = 14;
-            this.lblDataAbertura.Text = "01/01/1900";
-            this.lblDataAbertura.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label20.Location = new System.Drawing.Point(10, 10);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(75, 32);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "CNPJ Fonte Pagadora";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label16
+            // panel11
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(4, 60);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(75, 13);
-            this.label16.TabIndex = 13;
-            this.label16.Text = "Data abertura:";
+            this.panel11.Controls.Add(this.btMovimentoConta);
+            this.panel11.Controls.Add(this.label19);
+            this.panel11.Controls.Add(this.tbValorMovimento);
+            this.panel11.Location = new System.Drawing.Point(509, 212);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(201, 77);
+            this.panel11.TabIndex = 22;
             // 
-            // label14
+            // btMovimentoConta
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(26, 39);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(53, 13);
-            this.label14.TabIndex = 12;
-            this.label14.Text = "Nº Conta:";
+            this.btMovimentoConta.Location = new System.Drawing.Point(63, 42);
+            this.btMovimentoConta.Name = "btMovimentoConta";
+            this.btMovimentoConta.Size = new System.Drawing.Size(75, 23);
+            this.btMovimentoConta.TabIndex = 23;
+            this.btMovimentoConta.Text = "Ok";
+            this.btMovimentoConta.UseVisualStyleBackColor = true;
+            this.btMovimentoConta.Click += new System.EventHandler(this.btMovimentoConta_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(51, 13);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(31, 13);
+            this.label19.TabIndex = 22;
+            this.label19.Text = "Valor";
+            // 
+            // tbValorMovimento
+            // 
+            this.tbValorMovimento.Location = new System.Drawing.Point(91, 9);
+            this.tbValorMovimento.Name = "tbValorMovimento";
+            this.tbValorMovimento.Size = new System.Drawing.Size(100, 20);
+            this.tbValorMovimento.TabIndex = 21;
             // 
             // btLogout
             // 
-            this.btLogout.Location = new System.Drawing.Point(60, 328);
+            this.btLogout.Location = new System.Drawing.Point(521, 317);
             this.btLogout.Name = "btLogout";
             this.btLogout.Size = new System.Drawing.Size(155, 23);
             this.btLogout.TabIndex = 11;
@@ -796,7 +819,7 @@
             // 
             // btAbrirNovaConta
             // 
-            this.btAbrirNovaConta.Location = new System.Drawing.Point(60, 298);
+            this.btAbrirNovaConta.Location = new System.Drawing.Point(288, 317);
             this.btAbrirNovaConta.Name = "btAbrirNovaConta";
             this.btAbrirNovaConta.Size = new System.Drawing.Size(155, 23);
             this.btAbrirNovaConta.TabIndex = 10;
@@ -811,7 +834,7 @@
             this.gbActions.Controls.Add(this.rbTransferenciaPoup);
             this.gbActions.Controls.Add(this.rbSacar);
             this.gbActions.Controls.Add(this.rbInvestir);
-            this.gbActions.Location = new System.Drawing.Point(388, 23);
+            this.gbActions.Location = new System.Drawing.Point(275, 109);
             this.gbActions.Name = "gbActions";
             this.gbActions.Size = new System.Drawing.Size(200, 180);
             this.gbActions.TabIndex = 9;
@@ -828,6 +851,7 @@
             this.rbDepositarSalario.TabStop = true;
             this.rbDepositarSalario.Text = "Depositar Salário";
             this.rbDepositarSalario.UseVisualStyleBackColor = true;
+            this.rbDepositarSalario.CheckedChanged += new System.EventHandler(this.rbDepositarSalario_CheckedChanged);
             // 
             // rbDepositar
             // 
@@ -839,6 +863,7 @@
             this.rbDepositar.TabStop = true;
             this.rbDepositar.Text = "Depositar";
             this.rbDepositar.UseVisualStyleBackColor = true;
+            this.rbDepositar.CheckedChanged += new System.EventHandler(this.rbDepositar_CheckedChanged);
             // 
             // rbTransferenciaPoup
             // 
@@ -850,6 +875,7 @@
             this.rbTransferenciaPoup.TabStop = true;
             this.rbTransferenciaPoup.Text = "Transferência Para Poupança";
             this.rbTransferenciaPoup.UseVisualStyleBackColor = true;
+            this.rbTransferenciaPoup.CheckedChanged += new System.EventHandler(this.rbTransferenciaPoup_CheckedChanged);
             // 
             // rbSacar
             // 
@@ -861,6 +887,7 @@
             this.rbSacar.TabStop = true;
             this.rbSacar.Text = "Sacar";
             this.rbSacar.UseVisualStyleBackColor = true;
+            this.rbSacar.CheckedChanged += new System.EventHandler(this.rbSacar_CheckedChanged);
             // 
             // rbInvestir
             // 
@@ -872,20 +899,12 @@
             this.rbInvestir.TabStop = true;
             this.rbInvestir.Text = "Investir Em Ações";
             this.rbInvestir.UseVisualStyleBackColor = true;
-            // 
-            // lblNumConta
-            // 
-            this.lblNumConta.Location = new System.Drawing.Point(96, 39);
-            this.lblNumConta.Name = "lblNumConta";
-            this.lblNumConta.Size = new System.Drawing.Size(102, 13);
-            this.lblNumConta.TabIndex = 0;
-            this.lblNumConta.Text = "0";
-            this.lblNumConta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rbInvestir.CheckedChanged += new System.EventHandler(this.rbInvestir_CheckedChanged);
             // 
             // lblSelecioneConta
             // 
             this.lblSelecioneConta.AutoSize = true;
-            this.lblSelecioneConta.Location = new System.Drawing.Point(17, 13);
+            this.lblSelecioneConta.Location = new System.Drawing.Point(23, 70);
             this.lblSelecioneConta.Name = "lblSelecioneConta";
             this.lblSelecioneConta.Size = new System.Drawing.Size(107, 13);
             this.lblSelecioneConta.TabIndex = 2;
@@ -893,7 +912,7 @@
             // 
             // btExtratoPoupanca
             // 
-            this.btExtratoPoupanca.Location = new System.Drawing.Point(60, 256);
+            this.btExtratoPoupanca.Location = new System.Drawing.Point(55, 317);
             this.btExtratoPoupanca.Name = "btExtratoPoupanca";
             this.btExtratoPoupanca.Size = new System.Drawing.Size(155, 23);
             this.btExtratoPoupanca.TabIndex = 0;
@@ -908,7 +927,7 @@
             this.cbContaSelecionada.DropDownWidth = 150;
             this.cbContaSelecionada.FormattingEnabled = true;
             this.cbContaSelecionada.IntegralHeight = false;
-            this.cbContaSelecionada.Location = new System.Drawing.Point(26, 41);
+            this.cbContaSelecionada.Location = new System.Drawing.Point(26, 96);
             this.cbContaSelecionada.Name = "cbContaSelecionada";
             this.cbContaSelecionada.Size = new System.Drawing.Size(222, 21);
             this.cbContaSelecionada.TabIndex = 3;
@@ -916,10 +935,10 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.linkLabel4);
+            this.tabPage1.Controls.Add(this.label23);
+            this.tabPage1.Controls.Add(this.label22);
             this.tabPage1.Controls.Add(this.btNovoCadastro);
             this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(this.linkLabel1);
             this.tabPage1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
@@ -928,22 +947,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Página Inicial";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // linkLabel4
-            // 
-            this.linkLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.linkLabel4.AutoSize = true;
-            this.linkLabel4.Enabled = false;
-            this.linkLabel4.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkLabel4.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel4.Location = new System.Drawing.Point(3, 381);
-            this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.Size = new System.Drawing.Size(490, 13);
-            this.linkLabel4.TabIndex = 8;
-            this.linkLabel4.TabStop = true;
-            this.linkLabel4.Text = "Desenvolvido por: Danielle Rodrigues, Edson Sousa, Filipe Poeta, Gustavo Gonçalve" +
-    "s, Leandro Paiva";
-            this.linkLabel4.UseWaitCursor = true;
             // 
             // btNovoCadastro
             // 
@@ -960,9 +963,9 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.lblErroLogin);
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.Controls.Add(this.linklblErroLogin);
             this.groupBox1.Controls.Add(this.btEnter);
             this.groupBox1.Location = new System.Drawing.Point(220, 106);
             this.groupBox1.Name = "groupBox1";
@@ -975,7 +978,7 @@
             // 
             this.panel2.Controls.Add(this.mtbSenhaLogin);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(71, 52);
+            this.panel2.Location = new System.Drawing.Point(71, 61);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(186, 27);
             this.panel2.TabIndex = 3;
@@ -1004,7 +1007,7 @@
             // 
             this.panel1.Controls.Add(this.mtbCPFLogin);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(71, 19);
+            this.panel1.Location = new System.Drawing.Point(71, 29);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(186, 27);
             this.panel1.TabIndex = 1;
@@ -1027,49 +1030,15 @@
             this.label2.Text = "CPF";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // linklblErroLogin
-            // 
-            this.linklblErroLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.linklblErroLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linklblErroLogin.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linklblErroLogin.LinkColor = System.Drawing.Color.Red;
-            this.linklblErroLogin.Location = new System.Drawing.Point(6, 92);
-            this.linklblErroLogin.Name = "linklblErroLogin";
-            this.linklblErroLogin.Size = new System.Drawing.Size(316, 22);
-            this.linklblErroLogin.TabIndex = 0;
-            this.linklblErroLogin.TabStop = true;
-            this.linklblErroLogin.Text = "Mensagem erro";
-            this.linklblErroLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // btEnter
             // 
-            this.btEnter.Location = new System.Drawing.Point(127, 117);
+            this.btEnter.Location = new System.Drawing.Point(127, 121);
             this.btEnter.Name = "btEnter";
             this.btEnter.Size = new System.Drawing.Size(75, 23);
             this.btEnter.TabIndex = 5;
             this.btEnter.Text = "Entrar";
             this.btEnter.UseVisualStyleBackColor = true;
             this.btEnter.Click += new System.EventHandler(this.btEnter_Click);
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.DisabledLinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkLabel1.Enabled = false;
-            this.linkLabel1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkLabel1.LinkColor = System.Drawing.SystemColors.ControlText;
-            this.linkLabel1.LinkVisited = true;
-            this.linkLabel1.Location = new System.Drawing.Point(238, 13);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(276, 54);
-            this.linkLabel1.TabIndex = 7;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Bem-vindo ao AppBanco\r\nGrupo 5";
-            this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.linkLabel1.VisitedLinkColor = System.Drawing.SystemColors.ControlText;
             // 
             // tabCtrlTelasApp
             // 
@@ -1087,6 +1056,180 @@
             this.tabCtrlTelasApp.TabIndex = 0;
             this.tabCtrlTelasApp.TabStop = false;
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(8, 375);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(490, 13);
+            this.label22.TabIndex = 9;
+            this.label22.Text = "Desenvolvido por: Danielle Rodrigues, Edson Sousa, Filipe Poeta, Gustavo Gonçalve" +
+    "s, Leandro Paiva";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Blue;
+            this.label23.Location = new System.Drawing.Point(238, 14);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(292, 70);
+            this.label23.TabIndex = 10;
+            this.label23.Text = "Bem-vindo ao AppBanco\r\nGrupo 5";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.Blue;
+            this.label24.Location = new System.Drawing.Point(271, 24);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(226, 35);
+            this.label24.TabIndex = 52;
+            this.label24.Text = "AppBanco Grupo 5";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.Blue;
+            this.label25.Location = new System.Drawing.Point(271, 9);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(226, 35);
+            this.label25.TabIndex = 53;
+            this.label25.Text = "AppBanco Grupo 5";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.Blue;
+            this.label26.Location = new System.Drawing.Point(22, 10);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(179, 27);
+            this.label26.TabIndex = 54;
+            this.label26.Text = "AppBanco Grupo 5";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.Color.Blue;
+            this.label27.Location = new System.Drawing.Point(279, 16);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(196, 30);
+            this.label27.TabIndex = 54;
+            this.label27.Text = "AppBanco Grupo 5";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(17, 57);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(230, 20);
+            this.label36.TabIndex = 54;
+            this.label36.Text = "Que tipo de conta deseja abrir?";
+            // 
+            // lblErroLogin
+            // 
+            this.lblErroLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErroLogin.ForeColor = System.Drawing.Color.Red;
+            this.lblErroLogin.Location = new System.Drawing.Point(37, 93);
+            this.lblErroLogin.Name = "lblErroLogin";
+            this.lblErroLogin.Size = new System.Drawing.Size(254, 23);
+            this.lblErroLogin.TabIndex = 11;
+            this.lblErroLogin.Text = "Mensagem erro";
+            this.lblErroLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTipoConta
+            // 
+            this.lblTipoConta.Location = new System.Drawing.Point(106, 17);
+            this.lblTipoConta.Name = "lblTipoConta";
+            this.lblTipoConta.Size = new System.Drawing.Size(103, 13);
+            this.lblTipoConta.TabIndex = 15;
+            this.lblTipoConta.Text = "Conta Poupança";
+            this.lblTipoConta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblDataAbertura
+            // 
+            this.lblDataAbertura.Location = new System.Drawing.Point(106, 60);
+            this.lblDataAbertura.Name = "lblDataAbertura";
+            this.lblDataAbertura.Size = new System.Drawing.Size(100, 13);
+            this.lblDataAbertura.TabIndex = 14;
+            this.lblDataAbertura.Text = "01/01/1900";
+            this.lblDataAbertura.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(14, 60);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(75, 13);
+            this.label16.TabIndex = 13;
+            this.label16.Text = "Data abertura:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(52, 82);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(37, 13);
+            this.label18.TabIndex = 17;
+            this.label18.Text = "Saldo:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(36, 39);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(53, 13);
+            this.label14.TabIndex = 12;
+            this.label14.Text = "Nº Conta:";
+            // 
+            // lblSaldoAtual
+            // 
+            this.lblSaldoAtual.Location = new System.Drawing.Point(106, 82);
+            this.lblSaldoAtual.Name = "lblSaldoAtual";
+            this.lblSaldoAtual.Size = new System.Drawing.Size(100, 13);
+            this.lblSaldoAtual.TabIndex = 18;
+            this.lblSaldoAtual.Text = "R$ 1,00";
+            this.lblSaldoAtual.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblNumConta
+            // 
+            this.lblNumConta.Location = new System.Drawing.Point(106, 39);
+            this.lblNumConta.Name = "lblNumConta";
+            this.lblNumConta.Size = new System.Drawing.Size(103, 13);
+            this.lblNumConta.TabIndex = 0;
+            this.lblNumConta.Text = "0";
+            this.lblNumConta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // chkBoxMostrarSaldo
+            // 
+            this.chkBoxMostrarSaldo.AutoSize = true;
+            this.chkBoxMostrarSaldo.Location = new System.Drawing.Point(69, 105);
+            this.chkBoxMostrarSaldo.Name = "chkBoxMostrarSaldo";
+            this.chkBoxMostrarSaldo.Size = new System.Drawing.Size(91, 17);
+            this.chkBoxMostrarSaldo.TabIndex = 19;
+            this.chkBoxMostrarSaldo.Text = "Mostrar Saldo";
+            this.chkBoxMostrarSaldo.UseVisualStyleBackColor = true;
+            this.chkBoxMostrarSaldo.CheckedChanged += new System.EventHandler(this.chkBoxMostrarSaldo_CheckedChanged);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(27, 17);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(62, 13);
+            this.label17.TabIndex = 16;
+            this.label17.Text = "Tipo Conta:";
+            // 
             // panel10
             // 
             this.panel10.Controls.Add(this.label17);
@@ -1098,7 +1241,7 @@
             this.panel10.Controls.Add(this.label16);
             this.panel10.Controls.Add(this.lblDataAbertura);
             this.panel10.Controls.Add(this.lblTipoConta);
-            this.panel10.Location = new System.Drawing.Point(33, 81);
+            this.panel10.Location = new System.Drawing.Point(26, 149);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(209, 140);
             this.panel10.TabIndex = 20;
@@ -1127,6 +1270,7 @@
             this.tabPageInvestimento.ResumeLayout(false);
             this.tabPageInvestimento.PerformLayout();
             this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -1142,6 +1286,12 @@
             this.tabPage2.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.gbActions.ResumeLayout(false);
             this.gbActions.PerformLayout();
             this.tabPage1.ResumeLayout(false);
@@ -1188,7 +1338,6 @@
         private System.Windows.Forms.RadioButton rbInvestimento;
         private System.Windows.Forms.RadioButton rbSalario;
         private System.Windows.Forms.RadioButton rbPoupanca;
-        private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox checkBox2;
@@ -1214,7 +1363,6 @@
         private System.Windows.Forms.Label lblSelecioneConta;
         private System.Windows.Forms.ComboBox cbContaSelecionada;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.LinkLabel linkLabel4;
         private System.Windows.Forms.Button btNovoCadastro;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel2;
@@ -1223,11 +1371,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.MaskedTextBox mtbCPFLogin;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.LinkLabel linklblErroLogin;
         private System.Windows.Forms.Button btEnter;
-        private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.TabControl tabCtrlTelasApp;
-        private System.Windows.Forms.Label lblNumConta;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button btVoltar;
@@ -1240,15 +1385,34 @@
         private System.Windows.Forms.Button btVoltarParaMenu;
         private System.Windows.Forms.Button btAbrirNovaConta;
         private System.Windows.Forms.Button btLogout;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.CheckBox chkBoxMostrarSaldo;
-        private System.Windows.Forms.Label lblSaldoAtual;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label lblTipoConta;
-        private System.Windows.Forms.Label lblDataAbertura;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Button btMovimentoConta;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox tbValorMovimento;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label lblErroLogin;
         private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.CheckBox chkBoxMostrarSaldo;
+        private System.Windows.Forms.Label lblNumConta;
+        private System.Windows.Forms.Label lblSaldoAtual;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblDataAbertura;
+        private System.Windows.Forms.Label lblTipoConta;
     }
 }
 
