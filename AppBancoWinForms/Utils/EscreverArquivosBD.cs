@@ -21,7 +21,7 @@ namespace AppBancoWinForms.Utils
                     string s = "";
                     while ((s = sr.ReadLine()) != null)
                     {
-                        if (s.Substring(2, 14) == CpfProcurado)
+                        if (s.Split(';')[1] == CpfProcurado)
                         {
                             sr.Close();
                             encontrou = true;
@@ -48,7 +48,7 @@ namespace AppBancoWinForms.Utils
                     string s = "";
                     while ((s = sr.ReadLine()) != null)
                     {
-                        if (s.Substring(2, 14) == CpfProcurado)
+                        if (s.Split(';')[1] == CpfProcurado)
                         {
                             dadosCliente = s;
                             sr.Close();

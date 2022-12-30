@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.label26 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tbExtrato = new System.Windows.Forms.TextBox();
             this.btVoltar = new System.Windows.Forms.Button();
@@ -43,6 +44,8 @@
             this.dtpFim = new System.Windows.Forms.DateTimePicker();
             this.dtpInicio = new System.Windows.Forms.DateTimePicker();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.btVoltarParaMenu = new System.Windows.Forms.Button();
             this.btCadastrarNovaConta = new System.Windows.Forms.Button();
             this.tabCtrlTipoConta = new System.Windows.Forms.TabControl();
@@ -61,6 +64,7 @@
             this.rbSalario = new System.Windows.Forms.RadioButton();
             this.rbPoupanca = new System.Windows.Forms.RadioButton();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label24 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -81,6 +85,7 @@
             this.btCadastrar = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.label27 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -91,6 +96,16 @@
             this.btMovimentoConta = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.tbValorMovimento = new System.Windows.Forms.TextBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.chkBoxMostrarSaldo = new System.Windows.Forms.CheckBox();
+            this.lblNumConta = new System.Windows.Forms.Label();
+            this.lblSaldoAtual = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.lblDataAbertura = new System.Windows.Forms.Label();
+            this.lblTipoConta = new System.Windows.Forms.Label();
             this.btLogout = new System.Windows.Forms.Button();
             this.btAbrirNovaConta = new System.Windows.Forms.Button();
             this.gbActions = new System.Windows.Forms.GroupBox();
@@ -103,8 +118,11 @@
             this.btExtratoPoupanca = new System.Windows.Forms.Button();
             this.cbContaSelecionada = new System.Windows.Forms.ComboBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.btNovoCadastro = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblErroLogin = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.mtbSenhaLogin = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -113,24 +131,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btEnter = new System.Windows.Forms.Button();
             this.tabCtrlTelasApp = new System.Windows.Forms.TabControl();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.lblErroLogin = new System.Windows.Forms.Label();
-            this.lblTipoConta = new System.Windows.Forms.Label();
-            this.lblDataAbertura = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lblSaldoAtual = new System.Windows.Forms.Label();
-            this.lblNumConta = new System.Windows.Forms.Label();
-            this.chkBoxMostrarSaldo = new System.Windows.Forms.CheckBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
             this.tabPage8.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPage7.SuspendLayout();
@@ -151,17 +151,18 @@
             this.panel13.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel11.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.gbActions.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabCtrlTelasApp.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage8
             // 
+            this.tabPage8.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.tabPage8.Controls.Add(this.label26);
             this.tabPage8.Controls.Add(this.label10);
             this.tabPage8.Controls.Add(this.tbExtrato);
@@ -172,11 +173,22 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 25);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(768, 397);
+            this.tabPage8.Size = new System.Drawing.Size(768, 398);
             this.tabPage8.TabIndex = 4;
             this.tabPage8.Text = "Extrato";
-            this.tabPage8.UseVisualStyleBackColor = true;
             this.tabPage8.Enter += new System.EventHandler(this.tabPage8_Enter);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label26.Location = new System.Drawing.Point(22, 10);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(179, 27);
+            this.label26.TabIndex = 54;
+            this.label26.Text = "AppBanco Grupo 5";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label10
             // 
@@ -184,12 +196,13 @@
             this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label10.Location = new System.Drawing.Point(247, 20);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(95, 13);
+            this.label10.Size = new System.Drawing.Size(95, 14);
             this.label10.TabIndex = 0;
             this.label10.Text = "Extrato do período";
             // 
             // tbExtrato
             // 
+            this.tbExtrato.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.tbExtrato.Enabled = false;
             this.tbExtrato.Location = new System.Drawing.Point(250, 36);
             this.tbExtrato.Multiline = true;
@@ -248,7 +261,7 @@
             this.rb30dias.AutoSize = true;
             this.rb30dias.Location = new System.Drawing.Point(27, 144);
             this.rb30dias.Name = "rb30dias";
-            this.rb30dias.Size = new System.Drawing.Size(96, 17);
+            this.rb30dias.Size = new System.Drawing.Size(97, 18);
             this.rb30dias.TabIndex = 0;
             this.rb30dias.TabStop = true;
             this.rb30dias.Text = "Últimos 30 dias";
@@ -260,7 +273,7 @@
             this.rb15dias.AutoSize = true;
             this.rb15dias.Location = new System.Drawing.Point(27, 121);
             this.rb15dias.Name = "rb15dias";
-            this.rb15dias.Size = new System.Drawing.Size(96, 17);
+            this.rb15dias.Size = new System.Drawing.Size(97, 18);
             this.rb15dias.TabIndex = 1;
             this.rb15dias.TabStop = true;
             this.rb15dias.Text = "Últimos 15 dias";
@@ -272,7 +285,7 @@
             this.rb7dias.AutoSize = true;
             this.rb7dias.Location = new System.Drawing.Point(27, 98);
             this.rb7dias.Name = "rb7dias";
-            this.rb7dias.Size = new System.Drawing.Size(90, 17);
+            this.rb7dias.Size = new System.Drawing.Size(91, 18);
             this.rb7dias.TabIndex = 2;
             this.rb7dias.TabStop = true;
             this.rb7dias.Text = "Últimos 7 dias";
@@ -284,7 +297,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(35, 66);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(26, 13);
+            this.label9.Size = new System.Drawing.Size(26, 14);
             this.label9.TabIndex = 3;
             this.label9.Text = "Fim:";
             // 
@@ -293,7 +306,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(24, 27);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 13);
+            this.label8.Size = new System.Drawing.Size(34, 14);
             this.label8.TabIndex = 4;
             this.label8.Text = "Início:";
             // 
@@ -317,6 +330,7 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.tabPage7.Controls.Add(this.label36);
             this.tabPage7.Controls.Add(this.label25);
             this.tabPage7.Controls.Add(this.btVoltarParaMenu);
@@ -328,10 +342,31 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 25);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(768, 397);
+            this.tabPage7.Size = new System.Drawing.Size(768, 398);
             this.tabPage7.TabIndex = 3;
             this.tabPage7.Text = "Abrir Nova Conta";
-            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(17, 57);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(227, 18);
+            this.label36.TabIndex = 54;
+            this.label36.Text = "Que tipo de conta deseja abrir?";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label25.Location = new System.Drawing.Point(271, 9);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(226, 35);
+            this.label25.TabIndex = 53;
+            this.label25.Text = "AppBanco Grupo 5";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btVoltarParaMenu
             // 
@@ -366,14 +401,14 @@
             // 
             // tabPagePoupanca
             // 
+            this.tabPagePoupanca.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.tabPagePoupanca.Controls.Add(this.panel9);
-            this.tabPagePoupanca.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePoupanca.Location = new System.Drawing.Point(4, 23);
             this.tabPagePoupanca.Name = "tabPagePoupanca";
             this.tabPagePoupanca.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePoupanca.Size = new System.Drawing.Size(360, 242);
+            this.tabPagePoupanca.Size = new System.Drawing.Size(360, 241);
             this.tabPagePoupanca.TabIndex = 0;
             this.tabPagePoupanca.Text = "Poupança";
-            this.tabPagePoupanca.UseVisualStyleBackColor = true;
             // 
             // panel9
             // 
@@ -390,7 +425,7 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(42, 43);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(124, 13);
+            this.label15.Size = new System.Drawing.Size(122, 14);
             this.label15.TabIndex = 0;
             this.label15.Text = "Valor mínimo: R$ 500.00";
             // 
@@ -399,7 +434,7 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(12, 15);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(81, 13);
+            this.label11.Size = new System.Drawing.Size(82, 14);
             this.label11.TabIndex = 1;
             this.label11.Text = "Valor dep inicial";
             // 
@@ -414,15 +449,15 @@
             // 
             // tabPageSalario
             // 
+            this.tabPageSalario.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.tabPageSalario.Controls.Add(this.textBox2);
             this.tabPageSalario.Controls.Add(this.label12);
-            this.tabPageSalario.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSalario.Location = new System.Drawing.Point(4, 23);
             this.tabPageSalario.Name = "tabPageSalario";
             this.tabPageSalario.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSalario.Size = new System.Drawing.Size(360, 242);
+            this.tabPageSalario.Size = new System.Drawing.Size(360, 241);
             this.tabPageSalario.TabIndex = 1;
             this.tabPageSalario.Text = "Salário";
-            this.tabPageSalario.UseVisualStyleBackColor = true;
             // 
             // textBox2
             // 
@@ -436,21 +471,21 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(68, 51);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(75, 13);
+            this.label12.Size = new System.Drawing.Size(76, 14);
             this.label12.TabIndex = 2;
             this.label12.Text = "Dados holerite";
             // 
             // tabPageInvestimento
             // 
+            this.tabPageInvestimento.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.tabPageInvestimento.Controls.Add(this.textBox3);
             this.tabPageInvestimento.Controls.Add(this.label13);
-            this.tabPageInvestimento.Location = new System.Drawing.Point(4, 22);
+            this.tabPageInvestimento.Location = new System.Drawing.Point(4, 23);
             this.tabPageInvestimento.Name = "tabPageInvestimento";
             this.tabPageInvestimento.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageInvestimento.Size = new System.Drawing.Size(360, 242);
+            this.tabPageInvestimento.Size = new System.Drawing.Size(360, 241);
             this.tabPageInvestimento.TabIndex = 2;
             this.tabPageInvestimento.Text = "Investimento";
-            this.tabPageInvestimento.UseVisualStyleBackColor = true;
             // 
             // textBox3
             // 
@@ -464,7 +499,7 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(68, 51);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(81, 13);
+            this.label13.Size = new System.Drawing.Size(82, 14);
             this.label13.TabIndex = 2;
             this.label13.Text = "Valor dep inicial";
             // 
@@ -473,7 +508,7 @@
             this.rbInvestimento.AutoSize = true;
             this.rbInvestimento.Location = new System.Drawing.Point(40, 154);
             this.rbInvestimento.Name = "rbInvestimento";
-            this.rbInvestimento.Size = new System.Drawing.Size(116, 17);
+            this.rbInvestimento.Size = new System.Drawing.Size(116, 18);
             this.rbInvestimento.TabIndex = 1;
             this.rbInvestimento.Text = "Conta Investimento";
             this.rbInvestimento.UseVisualStyleBackColor = true;
@@ -484,7 +519,7 @@
             this.rbSalario.AutoSize = true;
             this.rbSalario.Location = new System.Drawing.Point(40, 130);
             this.rbSalario.Name = "rbSalario";
-            this.rbSalario.Size = new System.Drawing.Size(88, 17);
+            this.rbSalario.Size = new System.Drawing.Size(89, 18);
             this.rbSalario.TabIndex = 2;
             this.rbSalario.Text = "Conta Salário";
             this.rbSalario.UseVisualStyleBackColor = true;
@@ -496,7 +531,7 @@
             this.rbPoupanca.Checked = true;
             this.rbPoupanca.Location = new System.Drawing.Point(40, 106);
             this.rbPoupanca.Name = "rbPoupanca";
-            this.rbPoupanca.Size = new System.Drawing.Size(105, 17);
+            this.rbPoupanca.Size = new System.Drawing.Size(104, 18);
             this.rbPoupanca.TabIndex = 3;
             this.rbPoupanca.TabStop = true;
             this.rbPoupanca.Text = "Conta Poupança";
@@ -505,15 +540,27 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.tabPage6.Controls.Add(this.label24);
             this.tabPage6.Controls.Add(this.groupBox2);
             this.tabPage6.Location = new System.Drawing.Point(4, 25);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(768, 397);
+            this.tabPage6.Size = new System.Drawing.Size(768, 398);
             this.tabPage6.TabIndex = 2;
             this.tabPage6.Text = "Novo Cadastro";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label24.Location = new System.Drawing.Point(271, 24);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(226, 35);
+            this.label24.TabIndex = 52;
+            this.label24.Text = "AppBanco Grupo 5";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox2
             // 
@@ -536,7 +583,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Location = new System.Drawing.Point(77, 195);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(92, 17);
+            this.checkBox2.Size = new System.Drawing.Size(93, 18);
             this.checkBox2.TabIndex = 11;
             this.checkBox2.Text = "Mostra Senha";
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -566,7 +613,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(4, 7);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 13);
+            this.label7.Size = new System.Drawing.Size(74, 14);
             this.label7.TabIndex = 1;
             this.label7.Text = "Repetir senha";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -595,7 +642,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(39, 7);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.Size = new System.Drawing.Size(38, 14);
             this.label5.TabIndex = 1;
             this.label5.Text = "Senha";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -622,7 +669,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(16, 7);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
+            this.label4.Size = new System.Drawing.Size(62, 14);
             this.label4.TabIndex = 1;
             this.label4.Text = "Sobrenome";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -649,7 +696,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(42, 7);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.Size = new System.Drawing.Size(34, 14);
             this.label6.TabIndex = 1;
             this.label6.Text = "Nome";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -676,7 +723,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(50, 7);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(27, 13);
+            this.label3.Size = new System.Drawing.Size(26, 14);
             this.label3.TabIndex = 1;
             this.label3.Text = "CPF";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -693,14 +740,14 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.tabPage2.Controls.Add(this.panel8);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(768, 397);
+            this.tabPage2.Size = new System.Drawing.Size(768, 398);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Seleção Conta";
-            this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Enter += new System.EventHandler(this.tabPage2_Enter);
             // 
             // panel8
@@ -716,10 +763,22 @@
             this.panel8.Controls.Add(this.lblSelecioneConta);
             this.panel8.Controls.Add(this.btExtratoPoupanca);
             this.panel8.Controls.Add(this.cbContaSelecionada);
-            this.panel8.Location = new System.Drawing.Point(22, 20);
+            this.panel8.Location = new System.Drawing.Point(19, 14);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(730, 371);
             this.panel8.TabIndex = 0;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label27.Location = new System.Drawing.Point(279, 16);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(196, 30);
+            this.label27.TabIndex = 54;
+            this.label27.Text = "AppBanco Grupo 5";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel13
             // 
@@ -796,7 +855,7 @@
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(51, 13);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(31, 13);
+            this.label19.Size = new System.Drawing.Size(32, 14);
             this.label19.TabIndex = 22;
             this.label19.Text = "Valor";
             // 
@@ -807,9 +866,110 @@
             this.tbValorMovimento.Size = new System.Drawing.Size(100, 20);
             this.tbValorMovimento.TabIndex = 21;
             // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.label17);
+            this.panel10.Controls.Add(this.chkBoxMostrarSaldo);
+            this.panel10.Controls.Add(this.lblNumConta);
+            this.panel10.Controls.Add(this.lblSaldoAtual);
+            this.panel10.Controls.Add(this.label14);
+            this.panel10.Controls.Add(this.label18);
+            this.panel10.Controls.Add(this.label16);
+            this.panel10.Controls.Add(this.lblDataAbertura);
+            this.panel10.Controls.Add(this.lblTipoConta);
+            this.panel10.Location = new System.Drawing.Point(26, 149);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(209, 140);
+            this.panel10.TabIndex = 20;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(27, 17);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(61, 14);
+            this.label17.TabIndex = 16;
+            this.label17.Text = "Tipo Conta:";
+            // 
+            // chkBoxMostrarSaldo
+            // 
+            this.chkBoxMostrarSaldo.AutoSize = true;
+            this.chkBoxMostrarSaldo.Location = new System.Drawing.Point(69, 105);
+            this.chkBoxMostrarSaldo.Name = "chkBoxMostrarSaldo";
+            this.chkBoxMostrarSaldo.Size = new System.Drawing.Size(93, 18);
+            this.chkBoxMostrarSaldo.TabIndex = 19;
+            this.chkBoxMostrarSaldo.Text = "Mostrar Saldo";
+            this.chkBoxMostrarSaldo.UseVisualStyleBackColor = true;
+            this.chkBoxMostrarSaldo.CheckedChanged += new System.EventHandler(this.chkBoxMostrarSaldo_CheckedChanged);
+            // 
+            // lblNumConta
+            // 
+            this.lblNumConta.Location = new System.Drawing.Point(106, 39);
+            this.lblNumConta.Name = "lblNumConta";
+            this.lblNumConta.Size = new System.Drawing.Size(100, 13);
+            this.lblNumConta.TabIndex = 0;
+            this.lblNumConta.Text = "0";
+            this.lblNumConta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblSaldoAtual
+            // 
+            this.lblSaldoAtual.Location = new System.Drawing.Point(106, 82);
+            this.lblSaldoAtual.Name = "lblSaldoAtual";
+            this.lblSaldoAtual.Size = new System.Drawing.Size(100, 13);
+            this.lblSaldoAtual.TabIndex = 18;
+            this.lblSaldoAtual.Text = "R$ 1,00";
+            this.lblSaldoAtual.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(36, 39);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(53, 14);
+            this.label14.TabIndex = 12;
+            this.label14.Text = "Nº Conta:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(52, 82);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(37, 14);
+            this.label18.TabIndex = 17;
+            this.label18.Text = "Saldo:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(14, 60);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(76, 14);
+            this.label16.TabIndex = 13;
+            this.label16.Text = "Data abertura:";
+            // 
+            // lblDataAbertura
+            // 
+            this.lblDataAbertura.Location = new System.Drawing.Point(106, 60);
+            this.lblDataAbertura.Name = "lblDataAbertura";
+            this.lblDataAbertura.Size = new System.Drawing.Size(100, 13);
+            this.lblDataAbertura.TabIndex = 14;
+            this.lblDataAbertura.Text = "01/01/1900";
+            this.lblDataAbertura.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblTipoConta
+            // 
+            this.lblTipoConta.Location = new System.Drawing.Point(106, 17);
+            this.lblTipoConta.Name = "lblTipoConta";
+            this.lblTipoConta.Size = new System.Drawing.Size(100, 13);
+            this.lblTipoConta.TabIndex = 15;
+            this.lblTipoConta.Text = "Conta Investimento";
+            this.lblTipoConta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // btLogout
             // 
-            this.btLogout.Location = new System.Drawing.Point(521, 317);
+            this.btLogout.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btLogout.Location = new System.Drawing.Point(521, 345);
             this.btLogout.Name = "btLogout";
             this.btLogout.Size = new System.Drawing.Size(155, 23);
             this.btLogout.TabIndex = 11;
@@ -819,7 +979,9 @@
             // 
             // btAbrirNovaConta
             // 
-            this.btAbrirNovaConta.Location = new System.Drawing.Point(288, 317);
+            this.btAbrirNovaConta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btAbrirNovaConta.Location = new System.Drawing.Point(288, 345);
             this.btAbrirNovaConta.Name = "btAbrirNovaConta";
             this.btAbrirNovaConta.Size = new System.Drawing.Size(155, 23);
             this.btAbrirNovaConta.TabIndex = 10;
@@ -846,7 +1008,7 @@
             this.rbDepositarSalario.AutoSize = true;
             this.rbDepositarSalario.Location = new System.Drawing.Point(15, 138);
             this.rbDepositarSalario.Name = "rbDepositarSalario";
-            this.rbDepositarSalario.Size = new System.Drawing.Size(105, 17);
+            this.rbDepositarSalario.Size = new System.Drawing.Size(107, 18);
             this.rbDepositarSalario.TabIndex = 10;
             this.rbDepositarSalario.TabStop = true;
             this.rbDepositarSalario.Text = "Depositar Salário";
@@ -858,7 +1020,7 @@
             this.rbDepositar.AutoSize = true;
             this.rbDepositar.Location = new System.Drawing.Point(15, 34);
             this.rbDepositar.Name = "rbDepositar";
-            this.rbDepositar.Size = new System.Drawing.Size(70, 17);
+            this.rbDepositar.Size = new System.Drawing.Size(71, 18);
             this.rbDepositar.TabIndex = 5;
             this.rbDepositar.TabStop = true;
             this.rbDepositar.Text = "Depositar";
@@ -870,7 +1032,7 @@
             this.rbTransferenciaPoup.AutoSize = true;
             this.rbTransferenciaPoup.Location = new System.Drawing.Point(15, 112);
             this.rbTransferenciaPoup.Name = "rbTransferenciaPoup";
-            this.rbTransferenciaPoup.Size = new System.Drawing.Size(167, 17);
+            this.rbTransferenciaPoup.Size = new System.Drawing.Size(169, 18);
             this.rbTransferenciaPoup.TabIndex = 8;
             this.rbTransferenciaPoup.TabStop = true;
             this.rbTransferenciaPoup.Text = "Transferência Para Poupança";
@@ -882,7 +1044,7 @@
             this.rbSacar.AutoSize = true;
             this.rbSacar.Location = new System.Drawing.Point(15, 60);
             this.rbSacar.Name = "rbSacar";
-            this.rbSacar.Size = new System.Drawing.Size(53, 17);
+            this.rbSacar.Size = new System.Drawing.Size(54, 18);
             this.rbSacar.TabIndex = 6;
             this.rbSacar.TabStop = true;
             this.rbSacar.Text = "Sacar";
@@ -894,7 +1056,7 @@
             this.rbInvestir.AutoSize = true;
             this.rbInvestir.Location = new System.Drawing.Point(15, 86);
             this.rbInvestir.Name = "rbInvestir";
-            this.rbInvestir.Size = new System.Drawing.Size(110, 17);
+            this.rbInvestir.Size = new System.Drawing.Size(111, 18);
             this.rbInvestir.TabIndex = 7;
             this.rbInvestir.TabStop = true;
             this.rbInvestir.Text = "Investir Em Ações";
@@ -906,13 +1068,15 @@
             this.lblSelecioneConta.AutoSize = true;
             this.lblSelecioneConta.Location = new System.Drawing.Point(23, 70);
             this.lblSelecioneConta.Name = "lblSelecioneConta";
-            this.lblSelecioneConta.Size = new System.Drawing.Size(107, 13);
+            this.lblSelecioneConta.Size = new System.Drawing.Size(108, 14);
             this.lblSelecioneConta.TabIndex = 2;
             this.lblSelecioneConta.Text = "Selecione sua conta:";
             // 
             // btExtratoPoupanca
             // 
-            this.btExtratoPoupanca.Location = new System.Drawing.Point(55, 317);
+            this.btExtratoPoupanca.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btExtratoPoupanca.Location = new System.Drawing.Point(55, 345);
             this.btExtratoPoupanca.Name = "btExtratoPoupanca";
             this.btExtratoPoupanca.Size = new System.Drawing.Size(155, 23);
             this.btExtratoPoupanca.TabIndex = 0;
@@ -929,12 +1093,13 @@
             this.cbContaSelecionada.IntegralHeight = false;
             this.cbContaSelecionada.Location = new System.Drawing.Point(26, 96);
             this.cbContaSelecionada.Name = "cbContaSelecionada";
-            this.cbContaSelecionada.Size = new System.Drawing.Size(222, 21);
+            this.cbContaSelecionada.Size = new System.Drawing.Size(222, 22);
             this.cbContaSelecionada.TabIndex = 3;
             this.cbContaSelecionada.SelectedIndexChanged += new System.EventHandler(this.cbContaSelecionada_SelectedIndexChanged);
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.tabPage1.Controls.Add(this.label23);
             this.tabPage1.Controls.Add(this.label22);
             this.tabPage1.Controls.Add(this.btNovoCadastro);
@@ -943,13 +1108,37 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(768, 397);
+            this.tabPage1.Size = new System.Drawing.Size(768, 398);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Página Inicial";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label23.Location = new System.Drawing.Point(238, 14);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(292, 70);
+            this.label23.TabIndex = 10;
+            this.label23.Text = "Bem-vindo ao AppBanco\r\nGrupo 5";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label22
+            // 
+            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(6, 376);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(493, 14);
+            this.label22.TabIndex = 9;
+            this.label22.Text = "Desenvolvido por: Danielle Rodrigues, Edson Sousa, Filipe Poeta, Gustavo Gonçalve" +
+    "s, Leandro Paiva";
             // 
             // btNovoCadastro
             // 
+            this.btNovoCadastro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btNovoCadastro.Location = new System.Drawing.Point(281, 298);
             this.btNovoCadastro.Name = "btNovoCadastro";
             this.btNovoCadastro.Size = new System.Drawing.Size(206, 39);
@@ -969,10 +1158,21 @@
             this.groupBox1.Controls.Add(this.btEnter);
             this.groupBox1.Location = new System.Drawing.Point(220, 106);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(328, 157);
+            this.groupBox1.Size = new System.Drawing.Size(328, 158);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Login";
+            // 
+            // lblErroLogin
+            // 
+            this.lblErroLogin.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErroLogin.ForeColor = System.Drawing.Color.Red;
+            this.lblErroLogin.Location = new System.Drawing.Point(37, 93);
+            this.lblErroLogin.Name = "lblErroLogin";
+            this.lblErroLogin.Size = new System.Drawing.Size(254, 23);
+            this.lblErroLogin.TabIndex = 11;
+            this.lblErroLogin.Text = "Mensagem erro";
+            this.lblErroLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -998,7 +1198,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.Size = new System.Drawing.Size(38, 14);
             this.label1.TabIndex = 0;
             this.label1.Text = "Senha";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1025,7 +1225,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(23, 7);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 13);
+            this.label2.Size = new System.Drawing.Size(26, 14);
             this.label2.TabIndex = 0;
             this.label2.Text = "CPF";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1048,208 +1248,20 @@
             this.tabCtrlTelasApp.Controls.Add(this.tabPage7);
             this.tabCtrlTelasApp.Controls.Add(this.tabPage8);
             this.tabCtrlTelasApp.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabCtrlTelasApp.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabCtrlTelasApp.ItemSize = new System.Drawing.Size(58, 21);
             this.tabCtrlTelasApp.Location = new System.Drawing.Point(12, 12);
             this.tabCtrlTelasApp.Name = "tabCtrlTelasApp";
             this.tabCtrlTelasApp.SelectedIndex = 0;
-            this.tabCtrlTelasApp.Size = new System.Drawing.Size(776, 426);
+            this.tabCtrlTelasApp.Size = new System.Drawing.Size(776, 427);
             this.tabCtrlTelasApp.TabIndex = 0;
             this.tabCtrlTelasApp.TabStop = false;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(8, 375);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(490, 13);
-            this.label22.TabIndex = 9;
-            this.label22.Text = "Desenvolvido por: Danielle Rodrigues, Edson Sousa, Filipe Poeta, Gustavo Gonçalve" +
-    "s, Leandro Paiva";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.Blue;
-            this.label23.Location = new System.Drawing.Point(238, 14);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(292, 70);
-            this.label23.TabIndex = 10;
-            this.label23.Text = "Bem-vindo ao AppBanco\r\nGrupo 5";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.Blue;
-            this.label24.Location = new System.Drawing.Point(271, 24);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(226, 35);
-            this.label24.TabIndex = 52;
-            this.label24.Text = "AppBanco Grupo 5";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.Blue;
-            this.label25.Location = new System.Drawing.Point(271, 9);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(226, 35);
-            this.label25.TabIndex = 53;
-            this.label25.Text = "AppBanco Grupo 5";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.Blue;
-            this.label26.Location = new System.Drawing.Point(22, 10);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(179, 27);
-            this.label26.TabIndex = 54;
-            this.label26.Text = "AppBanco Grupo 5";
-            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.ForeColor = System.Drawing.Color.Blue;
-            this.label27.Location = new System.Drawing.Point(279, 16);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(196, 30);
-            this.label27.TabIndex = 54;
-            this.label27.Text = "AppBanco Grupo 5";
-            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(17, 57);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(230, 20);
-            this.label36.TabIndex = 54;
-            this.label36.Text = "Que tipo de conta deseja abrir?";
-            // 
-            // lblErroLogin
-            // 
-            this.lblErroLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErroLogin.ForeColor = System.Drawing.Color.Red;
-            this.lblErroLogin.Location = new System.Drawing.Point(37, 93);
-            this.lblErroLogin.Name = "lblErroLogin";
-            this.lblErroLogin.Size = new System.Drawing.Size(254, 23);
-            this.lblErroLogin.TabIndex = 11;
-            this.lblErroLogin.Text = "Mensagem erro";
-            this.lblErroLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblTipoConta
-            // 
-            this.lblTipoConta.Location = new System.Drawing.Point(106, 17);
-            this.lblTipoConta.Name = "lblTipoConta";
-            this.lblTipoConta.Size = new System.Drawing.Size(103, 13);
-            this.lblTipoConta.TabIndex = 15;
-            this.lblTipoConta.Text = "Conta Poupança";
-            this.lblTipoConta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblDataAbertura
-            // 
-            this.lblDataAbertura.Location = new System.Drawing.Point(106, 60);
-            this.lblDataAbertura.Name = "lblDataAbertura";
-            this.lblDataAbertura.Size = new System.Drawing.Size(100, 13);
-            this.lblDataAbertura.TabIndex = 14;
-            this.lblDataAbertura.Text = "01/01/1900";
-            this.lblDataAbertura.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(14, 60);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(75, 13);
-            this.label16.TabIndex = 13;
-            this.label16.Text = "Data abertura:";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(52, 82);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(37, 13);
-            this.label18.TabIndex = 17;
-            this.label18.Text = "Saldo:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(36, 39);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(53, 13);
-            this.label14.TabIndex = 12;
-            this.label14.Text = "Nº Conta:";
-            // 
-            // lblSaldoAtual
-            // 
-            this.lblSaldoAtual.Location = new System.Drawing.Point(106, 82);
-            this.lblSaldoAtual.Name = "lblSaldoAtual";
-            this.lblSaldoAtual.Size = new System.Drawing.Size(100, 13);
-            this.lblSaldoAtual.TabIndex = 18;
-            this.lblSaldoAtual.Text = "R$ 1,00";
-            this.lblSaldoAtual.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblNumConta
-            // 
-            this.lblNumConta.Location = new System.Drawing.Point(106, 39);
-            this.lblNumConta.Name = "lblNumConta";
-            this.lblNumConta.Size = new System.Drawing.Size(103, 13);
-            this.lblNumConta.TabIndex = 0;
-            this.lblNumConta.Text = "0";
-            this.lblNumConta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // chkBoxMostrarSaldo
-            // 
-            this.chkBoxMostrarSaldo.AutoSize = true;
-            this.chkBoxMostrarSaldo.Location = new System.Drawing.Point(69, 105);
-            this.chkBoxMostrarSaldo.Name = "chkBoxMostrarSaldo";
-            this.chkBoxMostrarSaldo.Size = new System.Drawing.Size(91, 17);
-            this.chkBoxMostrarSaldo.TabIndex = 19;
-            this.chkBoxMostrarSaldo.Text = "Mostrar Saldo";
-            this.chkBoxMostrarSaldo.UseVisualStyleBackColor = true;
-            this.chkBoxMostrarSaldo.CheckedChanged += new System.EventHandler(this.chkBoxMostrarSaldo_CheckedChanged);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(27, 17);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(62, 13);
-            this.label17.TabIndex = 16;
-            this.label17.Text = "Tipo Conta:";
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.label17);
-            this.panel10.Controls.Add(this.chkBoxMostrarSaldo);
-            this.panel10.Controls.Add(this.lblNumConta);
-            this.panel10.Controls.Add(this.lblSaldoAtual);
-            this.panel10.Controls.Add(this.label14);
-            this.panel10.Controls.Add(this.label18);
-            this.panel10.Controls.Add(this.label16);
-            this.panel10.Controls.Add(this.lblDataAbertura);
-            this.panel10.Controls.Add(this.lblTipoConta);
-            this.panel10.Location = new System.Drawing.Point(26, 149);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(209, 140);
-            this.panel10.TabIndex = 20;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.RoyalBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabCtrlTelasApp);
             this.Name = "Form1";
@@ -1292,6 +1304,8 @@
             this.panel12.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.gbActions.ResumeLayout(false);
             this.gbActions.PerformLayout();
             this.tabPage1.ResumeLayout(false);
@@ -1302,8 +1316,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabCtrlTelasApp.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
             this.ResumeLayout(false);
 
         }
