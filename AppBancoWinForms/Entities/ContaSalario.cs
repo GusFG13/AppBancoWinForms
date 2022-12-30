@@ -12,5 +12,17 @@ namespace AppBancoWinForms.Entities
         {
             Holerite = holerite;
         }
+
+
+        public override string ToString()
+        {
+            return NumeroConta
+                + ";" + TipoConta.ToString()
+                + ";" + NumeroCliente
+                + ";" + Saldo.ToString("F2")
+                + ";" + DataCriacao.ToString("yyyy-MM-ddTHH:mm:ssZ")
+                + ";" + Holerite.Cnpj
+                + ";" + Holerite.NomeFontePagadora;
+        }
     }
 }

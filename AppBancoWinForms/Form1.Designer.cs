@@ -55,11 +55,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.tbDepInicialPoup = new System.Windows.Forms.TextBox();
             this.tabPageSalario = new System.Windows.Forms.TabPage();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.tabPageInvestimento = new System.Windows.Forms.TabPage();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.rbInvestimento = new System.Windows.Forms.RadioButton();
             this.rbSalario = new System.Windows.Forms.RadioButton();
             this.rbPoupanca = new System.Windows.Forms.RadioButton();
@@ -86,13 +82,12 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
-            this.panel13 = new System.Windows.Forms.Panel();
+            this.pnlNumContaDestino = new System.Windows.Forms.Panel();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pnlCnpj = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
+            this.pnlValor = new System.Windows.Forms.Panel();
             this.btMovimentoConta = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.tbValorMovimento = new System.Windows.Forms.TextBox();
@@ -131,6 +126,23 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btEnter = new System.Windows.Forms.Button();
             this.tabCtrlTelasApp = new System.Windows.Forms.TabControl();
+            this.btCancelarNovoCadastro = new System.Windows.Forms.Button();
+            this.mtbCnpjDepositoSal = new System.Windows.Forms.MaskedTextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.label28 = new System.Windows.Forms.Label();
+            this.mtbCnpjCadastroContaSal = new System.Windows.Forms.MaskedTextBox();
+            this.tbNomeFontePag = new System.Windows.Forms.TextBox();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.label30 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.rbPerfil1 = new System.Windows.Forms.RadioButton();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.rbPerfil2 = new System.Windows.Forms.RadioButton();
+            this.rbPerfil3 = new System.Windows.Forms.RadioButton();
             this.tabPage8.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPage7.SuspendLayout();
@@ -148,9 +160,9 @@
             this.panel3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel13.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.panel11.SuspendLayout();
+            this.pnlNumContaDestino.SuspendLayout();
+            this.pnlCnpj.SuspendLayout();
+            this.pnlValor.SuspendLayout();
             this.panel10.SuspendLayout();
             this.gbActions.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -158,6 +170,12 @@
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabCtrlTelasApp.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage8
@@ -331,14 +349,11 @@
             // tabPage7
             // 
             this.tabPage7.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.tabPage7.Controls.Add(this.label36);
+            this.tabPage7.Controls.Add(this.panel13);
             this.tabPage7.Controls.Add(this.label25);
             this.tabPage7.Controls.Add(this.btVoltarParaMenu);
             this.tabPage7.Controls.Add(this.btCadastrarNovaConta);
             this.tabPage7.Controls.Add(this.tabCtrlTipoConta);
-            this.tabPage7.Controls.Add(this.rbInvestimento);
-            this.tabPage7.Controls.Add(this.rbSalario);
-            this.tabPage7.Controls.Add(this.rbPoupanca);
             this.tabPage7.Location = new System.Drawing.Point(4, 25);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
@@ -350,7 +365,7 @@
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(17, 57);
+            this.label36.Location = new System.Drawing.Point(9, 11);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(227, 18);
             this.label36.TabIndex = 54;
@@ -370,7 +385,7 @@
             // 
             // btVoltarParaMenu
             // 
-            this.btVoltarParaMenu.Location = new System.Drawing.Point(98, 303);
+            this.btVoltarParaMenu.Location = new System.Drawing.Point(563, 356);
             this.btVoltarParaMenu.Name = "btVoltarParaMenu";
             this.btVoltarParaMenu.Size = new System.Drawing.Size(75, 23);
             this.btVoltarParaMenu.TabIndex = 5;
@@ -380,7 +395,7 @@
             // 
             // btCadastrarNovaConta
             // 
-            this.btCadastrarNovaConta.Location = new System.Drawing.Point(626, 346);
+            this.btCadastrarNovaConta.Location = new System.Drawing.Point(663, 356);
             this.btCadastrarNovaConta.Name = "btCadastrarNovaConta";
             this.btCadastrarNovaConta.Size = new System.Drawing.Size(75, 23);
             this.btCadastrarNovaConta.TabIndex = 1;
@@ -393,7 +408,7 @@
             this.tabCtrlTipoConta.Controls.Add(this.tabPagePoupanca);
             this.tabCtrlTipoConta.Controls.Add(this.tabPageSalario);
             this.tabCtrlTipoConta.Controls.Add(this.tabPageInvestimento);
-            this.tabCtrlTipoConta.Location = new System.Drawing.Point(337, 72);
+            this.tabCtrlTipoConta.Location = new System.Drawing.Point(370, 58);
             this.tabCtrlTipoConta.Name = "tabCtrlTipoConta";
             this.tabCtrlTipoConta.SelectedIndex = 0;
             this.tabCtrlTipoConta.Size = new System.Drawing.Size(368, 268);
@@ -415,43 +430,42 @@
             this.panel9.Controls.Add(this.label15);
             this.panel9.Controls.Add(this.label11);
             this.panel9.Controls.Add(this.tbDepInicialPoup);
-            this.panel9.Location = new System.Drawing.Point(73, 21);
+            this.panel9.Location = new System.Drawing.Point(76, 81);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(209, 72);
+            this.panel9.Size = new System.Drawing.Size(209, 79);
             this.panel9.TabIndex = 0;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(42, 43);
+            this.label15.Location = new System.Drawing.Point(43, 53);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(122, 14);
             this.label15.TabIndex = 0;
-            this.label15.Text = "Valor mínimo: R$ 500.00";
+            this.label15.Text = "Valor mínimo: R$ 500,00";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 15);
+            this.label11.Location = new System.Drawing.Point(21, 11);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(82, 14);
+            this.label11.Size = new System.Drawing.Size(77, 28);
             this.label11.TabIndex = 1;
-            this.label11.Text = "Valor dep inicial";
+            this.label11.Text = "Valor Depósito\r\nInicial (R$)";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tbDepInicialPoup
             // 
-            this.tbDepInicialPoup.Location = new System.Drawing.Point(97, 12);
+            this.tbDepInicialPoup.Location = new System.Drawing.Point(106, 15);
             this.tbDepInicialPoup.Name = "tbDepInicialPoup";
             this.tbDepInicialPoup.Size = new System.Drawing.Size(81, 20);
             this.tbDepInicialPoup.TabIndex = 2;
-            this.tbDepInicialPoup.Text = "500,00";
             this.tbDepInicialPoup.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tabPageSalario
             // 
             this.tabPageSalario.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.tabPageSalario.Controls.Add(this.textBox2);
-            this.tabPageSalario.Controls.Add(this.label12);
+            this.tabPageSalario.Controls.Add(this.groupBox4);
             this.tabPageSalario.Location = new System.Drawing.Point(4, 23);
             this.tabPageSalario.Name = "tabPageSalario";
             this.tabPageSalario.Padding = new System.Windows.Forms.Padding(3);
@@ -459,54 +473,23 @@
             this.tabPageSalario.TabIndex = 1;
             this.tabPageSalario.Text = "Salário";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(193, 51);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(68, 51);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(76, 14);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "Dados holerite";
-            // 
             // tabPageInvestimento
             // 
             this.tabPageInvestimento.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.tabPageInvestimento.Controls.Add(this.textBox3);
-            this.tabPageInvestimento.Controls.Add(this.label13);
+            this.tabPageInvestimento.Controls.Add(this.groupBox5);
+            this.tabPageInvestimento.Controls.Add(this.panel14);
             this.tabPageInvestimento.Location = new System.Drawing.Point(4, 23);
             this.tabPageInvestimento.Name = "tabPageInvestimento";
             this.tabPageInvestimento.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageInvestimento.Size = new System.Drawing.Size(360, 241);
             this.tabPageInvestimento.TabIndex = 2;
             this.tabPageInvestimento.Text = "Investimento";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(193, 51);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 1;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(68, 51);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(82, 14);
-            this.label13.TabIndex = 2;
-            this.label13.Text = "Valor dep inicial";
+            this.tabPageInvestimento.Enter += new System.EventHandler(this.tabPageInvestimento_Enter);
             // 
             // rbInvestimento
             // 
             this.rbInvestimento.AutoSize = true;
-            this.rbInvestimento.Location = new System.Drawing.Point(40, 154);
+            this.rbInvestimento.Location = new System.Drawing.Point(36, 104);
             this.rbInvestimento.Name = "rbInvestimento";
             this.rbInvestimento.Size = new System.Drawing.Size(116, 18);
             this.rbInvestimento.TabIndex = 1;
@@ -517,7 +500,7 @@
             // rbSalario
             // 
             this.rbSalario.AutoSize = true;
-            this.rbSalario.Location = new System.Drawing.Point(40, 130);
+            this.rbSalario.Location = new System.Drawing.Point(36, 80);
             this.rbSalario.Name = "rbSalario";
             this.rbSalario.Size = new System.Drawing.Size(89, 18);
             this.rbSalario.TabIndex = 2;
@@ -529,7 +512,7 @@
             // 
             this.rbPoupanca.AutoSize = true;
             this.rbPoupanca.Checked = true;
-            this.rbPoupanca.Location = new System.Drawing.Point(40, 106);
+            this.rbPoupanca.Location = new System.Drawing.Point(36, 56);
             this.rbPoupanca.Name = "rbPoupanca";
             this.rbPoupanca.Size = new System.Drawing.Size(104, 18);
             this.rbPoupanca.TabIndex = 3;
@@ -564,6 +547,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btCancelarNovoCadastro);
             this.groupBox2.Controls.Add(this.checkBox2);
             this.groupBox2.Controls.Add(this.panel7);
             this.groupBox2.Controls.Add(this.panel5);
@@ -573,7 +557,7 @@
             this.groupBox2.Controls.Add(this.btCadastrar);
             this.groupBox2.Location = new System.Drawing.Point(214, 79);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(340, 239);
+            this.groupBox2.Size = new System.Drawing.Size(340, 261);
             this.groupBox2.TabIndex = 50;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Novo Cadastro";
@@ -753,9 +737,9 @@
             // panel8
             // 
             this.panel8.Controls.Add(this.label27);
-            this.panel8.Controls.Add(this.panel13);
-            this.panel8.Controls.Add(this.panel12);
-            this.panel8.Controls.Add(this.panel11);
+            this.panel8.Controls.Add(this.pnlNumContaDestino);
+            this.panel8.Controls.Add(this.pnlCnpj);
+            this.panel8.Controls.Add(this.pnlValor);
             this.panel8.Controls.Add(this.panel10);
             this.panel8.Controls.Add(this.btLogout);
             this.panel8.Controls.Add(this.btAbrirNovaConta);
@@ -780,21 +764,22 @@
             this.label27.Text = "AppBanco Grupo 5";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel13
+            // pnlNumContaDestino
             // 
-            this.panel13.Controls.Add(this.textBox4);
-            this.panel13.Controls.Add(this.label21);
-            this.panel13.Location = new System.Drawing.Point(509, 96);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(201, 52);
-            this.panel13.TabIndex = 23;
+            this.pnlNumContaDestino.Controls.Add(this.textBox4);
+            this.pnlNumContaDestino.Controls.Add(this.label21);
+            this.pnlNumContaDestino.Location = new System.Drawing.Point(509, 96);
+            this.pnlNumContaDestino.Name = "pnlNumContaDestino";
+            this.pnlNumContaDestino.Size = new System.Drawing.Size(210, 52);
+            this.pnlNumContaDestino.TabIndex = 23;
             // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(91, 16);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.Size = new System.Drawing.Size(112, 20);
             this.textBox4.TabIndex = 1;
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label21
             // 
@@ -805,21 +790,14 @@
             this.label21.Text = "Nº Conta Destinatária";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // panel12
+            // pnlCnpj
             // 
-            this.panel12.Controls.Add(this.textBox1);
-            this.panel12.Controls.Add(this.label20);
-            this.panel12.Location = new System.Drawing.Point(509, 154);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(201, 52);
-            this.panel12.TabIndex = 23;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(91, 16);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.pnlCnpj.Controls.Add(this.label20);
+            this.pnlCnpj.Controls.Add(this.mtbCnpjDepositoSal);
+            this.pnlCnpj.Location = new System.Drawing.Point(509, 154);
+            this.pnlCnpj.Name = "pnlCnpj";
+            this.pnlCnpj.Size = new System.Drawing.Size(210, 52);
+            this.pnlCnpj.TabIndex = 23;
             // 
             // label20
             // 
@@ -830,15 +808,15 @@
             this.label20.Text = "CNPJ Fonte Pagadora";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // panel11
+            // pnlValor
             // 
-            this.panel11.Controls.Add(this.btMovimentoConta);
-            this.panel11.Controls.Add(this.label19);
-            this.panel11.Controls.Add(this.tbValorMovimento);
-            this.panel11.Location = new System.Drawing.Point(509, 212);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(201, 77);
-            this.panel11.TabIndex = 22;
+            this.pnlValor.Controls.Add(this.btMovimentoConta);
+            this.pnlValor.Controls.Add(this.label19);
+            this.pnlValor.Controls.Add(this.tbValorMovimento);
+            this.pnlValor.Location = new System.Drawing.Point(509, 212);
+            this.pnlValor.Name = "pnlValor";
+            this.pnlValor.Size = new System.Drawing.Size(210, 77);
+            this.pnlValor.TabIndex = 22;
             // 
             // btMovimentoConta
             // 
@@ -853,17 +831,17 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(51, 13);
+            this.label19.Location = new System.Drawing.Point(37, 12);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(32, 14);
+            this.label19.Size = new System.Drawing.Size(48, 14);
             this.label19.TabIndex = 22;
-            this.label19.Text = "Valor";
+            this.label19.Text = "Valor R$";
             // 
             // tbValorMovimento
             // 
             this.tbValorMovimento.Location = new System.Drawing.Point(91, 9);
             this.tbValorMovimento.Name = "tbValorMovimento";
-            this.tbValorMovimento.Size = new System.Drawing.Size(100, 20);
+            this.tbValorMovimento.Size = new System.Drawing.Size(112, 20);
             this.tbValorMovimento.TabIndex = 21;
             // 
             // panel10
@@ -1191,6 +1169,7 @@
             this.mtbSenhaLogin.PromptChar = ' ';
             this.mtbSenhaLogin.Size = new System.Drawing.Size(100, 20);
             this.mtbSenhaLogin.TabIndex = 4;
+            this.mtbSenhaLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mtbSenhaLogin.UseSystemPasswordChar = true;
             // 
             // label1
@@ -1219,6 +1198,7 @@
             this.mtbCPFLogin.Name = "mtbCPFLogin";
             this.mtbCPFLogin.Size = new System.Drawing.Size(100, 20);
             this.mtbCPFLogin.TabIndex = 2;
+            this.mtbCPFLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -1257,6 +1237,173 @@
             this.tabCtrlTelasApp.TabIndex = 0;
             this.tabCtrlTelasApp.TabStop = false;
             // 
+            // btCancelarNovoCadastro
+            // 
+            this.btCancelarNovoCadastro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btCancelarNovoCadastro.Location = new System.Drawing.Point(133, 226);
+            this.btCancelarNovoCadastro.Name = "btCancelarNovoCadastro";
+            this.btCancelarNovoCadastro.Size = new System.Drawing.Size(75, 23);
+            this.btCancelarNovoCadastro.TabIndex = 12;
+            this.btCancelarNovoCadastro.Text = "Cancelar";
+            this.btCancelarNovoCadastro.UseVisualStyleBackColor = true;
+            this.btCancelarNovoCadastro.Click += new System.EventHandler(this.btCancelarNovoCadastro_Click);
+            // 
+            // mtbCnpjDepositoSal
+            // 
+            this.mtbCnpjDepositoSal.Location = new System.Drawing.Point(91, 16);
+            this.mtbCnpjDepositoSal.Mask = "00\\.000\\.000/0000-00";
+            this.mtbCnpjDepositoSal.Name = "mtbCnpjDepositoSal";
+            this.mtbCnpjDepositoSal.Size = new System.Drawing.Size(112, 20);
+            this.mtbCnpjDepositoSal.TabIndex = 55;
+            this.mtbCnpjDepositoSal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.panel12);
+            this.groupBox4.Controls.Add(this.panel11);
+            this.groupBox4.Location = new System.Drawing.Point(50, 17);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(260, 206);
+            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Dados Holerite";
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.label28);
+            this.panel11.Controls.Add(this.mtbCnpjCadastroContaSal);
+            this.panel11.Location = new System.Drawing.Point(25, 48);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(210, 52);
+            this.panel11.TabIndex = 24;
+            // 
+            // label28
+            // 
+            this.label28.Location = new System.Drawing.Point(10, 10);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(75, 32);
+            this.label28.TabIndex = 0;
+            this.label28.Text = "CNPJ Fonte Pagadora";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // mtbCnpjCadastroContaSal
+            // 
+            this.mtbCnpjCadastroContaSal.Location = new System.Drawing.Point(91, 16);
+            this.mtbCnpjCadastroContaSal.Mask = "00\\.000\\.000/0000-00";
+            this.mtbCnpjCadastroContaSal.Name = "mtbCnpjCadastroContaSal";
+            this.mtbCnpjCadastroContaSal.Size = new System.Drawing.Size(112, 20);
+            this.mtbCnpjCadastroContaSal.TabIndex = 55;
+            this.mtbCnpjCadastroContaSal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tbNomeFontePag
+            // 
+            this.tbNomeFontePag.Location = new System.Drawing.Point(91, 16);
+            this.tbNomeFontePag.Name = "tbNomeFontePag";
+            this.tbNomeFontePag.Size = new System.Drawing.Size(112, 20);
+            this.tbNomeFontePag.TabIndex = 1;
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.label12);
+            this.panel12.Controls.Add(this.tbNomeFontePag);
+            this.panel12.Location = new System.Drawing.Point(25, 106);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(210, 52);
+            this.panel12.TabIndex = 25;
+            // 
+            // label12
+            // 
+            this.label12.Location = new System.Drawing.Point(10, 10);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(75, 32);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Nome Fonte Pagadora";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.label36);
+            this.panel13.Controls.Add(this.rbPoupanca);
+            this.panel13.Controls.Add(this.rbSalario);
+            this.panel13.Controls.Add(this.rbInvestimento);
+            this.panel13.Location = new System.Drawing.Point(38, 107);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(270, 144);
+            this.panel13.TabIndex = 55;
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.label30);
+            this.panel14.Controls.Add(this.textBox1);
+            this.panel14.Location = new System.Drawing.Point(76, 153);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(209, 55);
+            this.panel14.TabIndex = 3;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(21, 13);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(77, 28);
+            this.label30.TabIndex = 1;
+            this.label30.Text = "Valor Depósito\r\nInicial (R$)";
+            this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(106, 17);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(81, 20);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // rbPerfil1
+            // 
+            this.rbPerfil1.AutoSize = true;
+            this.rbPerfil1.Location = new System.Drawing.Point(24, 25);
+            this.rbPerfil1.Name = "rbPerfil1";
+            this.rbPerfil1.Size = new System.Drawing.Size(65, 18);
+            this.rbPerfil1.TabIndex = 4;
+            this.rbPerfil1.TabStop = true;
+            this.rbPerfil1.Text = "rbPerfil1";
+            this.rbPerfil1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.rbPerfil3);
+            this.groupBox5.Controls.Add(this.rbPerfil2);
+            this.groupBox5.Controls.Add(this.rbPerfil1);
+            this.groupBox5.Location = new System.Drawing.Point(76, 33);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(209, 100);
+            this.groupBox5.TabIndex = 5;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Perfil Investidor";
+            // 
+            // rbPerfil2
+            // 
+            this.rbPerfil2.AutoSize = true;
+            this.rbPerfil2.Location = new System.Drawing.Point(24, 46);
+            this.rbPerfil2.Name = "rbPerfil2";
+            this.rbPerfil2.Size = new System.Drawing.Size(65, 18);
+            this.rbPerfil2.TabIndex = 5;
+            this.rbPerfil2.TabStop = true;
+            this.rbPerfil2.Text = "rbPerfil2";
+            this.rbPerfil2.UseVisualStyleBackColor = true;
+            // 
+            // rbPerfil3
+            // 
+            this.rbPerfil3.AutoSize = true;
+            this.rbPerfil3.Location = new System.Drawing.Point(24, 67);
+            this.rbPerfil3.Name = "rbPerfil3";
+            this.rbPerfil3.Size = new System.Drawing.Size(65, 18);
+            this.rbPerfil3.TabIndex = 6;
+            this.rbPerfil3.TabStop = true;
+            this.rbPerfil3.Text = "rbPerfil3";
+            this.rbPerfil3.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1278,9 +1425,7 @@
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.tabPageSalario.ResumeLayout(false);
-            this.tabPageSalario.PerformLayout();
             this.tabPageInvestimento.ResumeLayout(false);
-            this.tabPageInvestimento.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1298,12 +1443,12 @@
             this.tabPage2.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
+            this.pnlNumContaDestino.ResumeLayout(false);
+            this.pnlNumContaDestino.PerformLayout();
+            this.pnlCnpj.ResumeLayout(false);
+            this.pnlCnpj.PerformLayout();
+            this.pnlValor.ResumeLayout(false);
+            this.pnlValor.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.gbActions.ResumeLayout(false);
@@ -1316,6 +1461,17 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabCtrlTelasApp.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1342,11 +1498,7 @@
         private System.Windows.Forms.TextBox tbDepInicialPoup;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TabPage tabPageSalario;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TabPage tabPageInvestimento;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.RadioButton rbInvestimento;
         private System.Windows.Forms.RadioButton rbSalario;
         private System.Windows.Forms.RadioButton rbPoupanca;
@@ -1397,15 +1549,14 @@
         private System.Windows.Forms.Button btVoltarParaMenu;
         private System.Windows.Forms.Button btAbrirNovaConta;
         private System.Windows.Forms.Button btLogout;
-        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel pnlValor;
         private System.Windows.Forms.Button btMovimentoConta;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox tbValorMovimento;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel pnlCnpj;
+        private System.Windows.Forms.Panel pnlNumContaDestino;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label25;
@@ -1425,6 +1576,23 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label lblDataAbertura;
         private System.Windows.Forms.Label lblTipoConta;
+        private System.Windows.Forms.Button btCancelarNovoCadastro;
+        private System.Windows.Forms.MaskedTextBox mtbCnpjDepositoSal;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox tbNomeFontePag;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.MaskedTextBox mtbCnpjCadastroContaSal;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.RadioButton rbPerfil3;
+        private System.Windows.Forms.RadioButton rbPerfil2;
+        private System.Windows.Forms.RadioButton rbPerfil1;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

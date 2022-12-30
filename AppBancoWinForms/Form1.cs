@@ -365,6 +365,8 @@ namespace AppBancoWinForms
             lblSelecioneConta.Text = msg;
             chkBoxMostrarSaldo.Checked = false;
             lblSaldoAtual.Visible = false;
+            pnlCnpj.Enabled = false;
+            pnlNumContaDestino.Enabled = false;
             //lblDadosConta.Text = cliente.Nome;
             //
             ////cbContaSelecionada.Items.Add("0101 - Conta Poupança");
@@ -429,11 +431,13 @@ namespace AppBancoWinForms
             { // desenvolver validações
                 tConta = TipoConta.ContaSalario;
                 
-                //holerite.Cnpj = ;
-                //holerite.NomeFontePagadora =;
+                holerite.Cnpj = mtbCnpjCadastroContaSal.Text;
+                holerite.NomeFontePagadora = tbNomeFontePag.Text;
             }
             else if (rbInvestimento.Checked)
             {// desenvolver validações
+
+                //verificar radioButton selecionado e atualizar cadastro do cliente em clientes.csv
                 tConta = TipoConta.ContaInvestimento;
             }
             if (requisitosOK)
@@ -497,17 +501,41 @@ namespace AppBancoWinForms
 
         private void rbInvestir_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbInvestir.Checked) { btMovimentoConta.Text = "Investir"; }
+            if (rbInvestir.Checked) 
+            { 
+                btMovimentoConta.Text = "Investir";
+                pnlNumContaDestino.Enabled = true;
+            }
+            else
+            {
+                pnlNumContaDestino.Enabled = false;
+            }
         }
 
         private void rbTransferenciaPoup_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbTransferenciaPoup.Checked) { btMovimentoConta.Text = "Transferir"; }
+            if (rbTransferenciaPoup.Checked) 
+            { 
+                btMovimentoConta.Text = "Transferir";
+                pnlNumContaDestino.Enabled = true;
+            }
+            else
+            {
+                pnlNumContaDestino.Enabled = false;
+            }
         }
 
         private void rbDepositarSalario_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbDepositarSalario.Checked) { btMovimentoConta.Text = "Dep. Salário"; }
+            if (rbDepositarSalario.Checked) 
+            { 
+                btMovimentoConta.Text = "Dep. Salário"; 
+                pnlCnpj.Enabled = true;
+            }
+            else
+            {
+                pnlCnpj.Enabled = false;
+            }
         }
 
         private void btMovimentoConta_Click(object sender, EventArgs e)
@@ -559,6 +587,20 @@ namespace AppBancoWinForms
                 tbDepInicialPoup.Focus();
             }
 
+
+        }
+
+        private void btCancelarNovoCadastro_Click(object sender, EventArgs e)
+        {
+            tabCtrlTelasApp.SelectedTab = tabPage1;
+        }
+
+        private void tabPageInvestimento_Enter(object sender, EventArgs e)
+        {
+            rbPerfil1.Text = PerfilInvestidor.Conservador.ToString(); 
+            rbPerfil2.Text = PerfilInvestidor.Moderado.ToString();
+            rbPerfil3.Text = PerfilInvestidor.Arrojado.ToString();
+            rbPerfil1.Checked = true;
 
         }
     }
