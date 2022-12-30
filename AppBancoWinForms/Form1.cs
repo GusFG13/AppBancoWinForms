@@ -330,7 +330,7 @@ namespace AppBancoWinForms
             switch (contaAtual.TipoConta)
             {
                 case TipoConta.ContaPoupanca:
-                    rbTransferenciaPoup.Enabled = false;
+                    //rbTransferenciaPoup.Enabled = false;
                     rbDepositarSalario.Enabled = false;
                     lblTipoConta.Text = "Conta Poupança";
                     //Atualizar +++++++ contaAtual
@@ -362,6 +362,7 @@ namespace AppBancoWinForms
             else
                 msg = "Boa noite, ";
             msg += cliente.Nome + "! Selecione sua conta:";
+            lblErroContaDest.Visible = false;
             lblSelecioneConta.Text = msg;
             chkBoxMostrarSaldo.Checked = false;
             lblSaldoAtual.Visible = false;
@@ -430,7 +431,7 @@ namespace AppBancoWinForms
             else if (rbSalario.Checked)
             { // desenvolver validações
                 tConta = TipoConta.ContaSalario;
-                
+
                 holerite.Cnpj = mtbCnpjCadastroContaSal.Text;
                 holerite.NomeFontePagadora = tbNomeFontePag.Text;
             }
@@ -501,8 +502,8 @@ namespace AppBancoWinForms
 
         private void rbInvestir_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbInvestir.Checked) 
-            { 
+            if (rbInvestir.Checked)
+            {
                 btMovimentoConta.Text = "Investir";
                 pnlNumContaDestino.Enabled = true;
             }
@@ -514,8 +515,8 @@ namespace AppBancoWinForms
 
         private void rbTransferenciaPoup_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbTransferenciaPoup.Checked) 
-            { 
+            if (rbTransferenciaPoup.Checked)
+            {
                 btMovimentoConta.Text = "Transferir";
                 pnlNumContaDestino.Enabled = true;
             }
@@ -527,9 +528,9 @@ namespace AppBancoWinForms
 
         private void rbDepositarSalario_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbDepositarSalario.Checked) 
-            { 
-                btMovimentoConta.Text = "Dep. Salário"; 
+            if (rbDepositarSalario.Checked)
+            {
+                btMovimentoConta.Text = "Dep. Salário";
                 pnlCnpj.Enabled = true;
             }
             else
@@ -547,14 +548,16 @@ namespace AppBancoWinForms
 
             if (double.TryParse(tbValorMovimento.Text.Replace('.', ','), out double val))
             {
-                DateTime horaTrasacao = DateTime.UtcNow;
+                DateTime horaTransacao = DateTime.UtcNow;
                 if (rbDepositar.Checked)
                 {
-                    if (val > 0) 
+                    if (val > 0)
                     {
                         contaAtual.Depositar(val);
-                        // Atualizar registro no arquivo contas.csv
                         EscreverArquivosBD.GravarSaldoContaAtualizado(pathContas, contaAtual);
+                        Extrato movimento = new Extrato(horaTransacao, "Depósito", contaAtual.NumeroConta, val);
+                        EscreverArquivosBD.EscreverNovoItem(pathTransacoes, movimento.ToString());
+                        // Atualizar registro no arquivo contas.csv
                         // Escrever movimentação em transacoes.csv
                     }
                 }
@@ -563,9 +566,12 @@ namespace AppBancoWinForms
                     if (val > 0 && val <= contaAtual.Saldo)
                     {
                         contaAtual.Sacar(val);
-                        // Atualizar registro no arquivo contas.csv
                         EscreverArquivosBD.GravarSaldoContaAtualizado(pathContas, contaAtual);
                         // Escrever movimentação em transacoes.csv
+                        double taxaCobrada = contaAtual.CalcularValorTarifa(val);
+                        // Escrever movimentação em transacoes.csv
+                        Extrato movimento = new Extrato(horaTransacao, "Saque", contaAtual.NumeroConta, val, taxaCobrada);
+                        EscreverArquivosBD.EscreverNovoItem(pathTransacoes, movimento.ToString());
                     }
                 }
                 else if (rbInvestir.Checked)
@@ -574,11 +580,48 @@ namespace AppBancoWinForms
                 }
                 else if (rbTransferenciaPoup.Checked)
                 {
+                    if (!String.IsNullOrEmpty(tbContaDestino.Text) && int.TryParse(tbContaDestino.Text, out int numContaDest))
+                    {
+                        if (val > 0 && val <= contaAtual.Saldo && numContaDest != contaAtual.NumeroConta)
+                        {
+                            Conta contaDest = contaAtual.TranferenciaParaPoupanca(val, numContaDest, pathContas);
+                            if (contaDest != null)
+                            {
+                                EscreverArquivosBD.GravarSaldoContaAtualizado(pathContas, contaAtual);
+                                // Escrever movimentação em transacoes.csv
+                                EscreverArquivosBD.GravarSaldoContaAtualizado(pathContas, contaDest);
+                                // Escrever movimentação em transacoes.csv
+                                if (contaAtual.NumeroCliente == contaDest.NumeroCliente)
+                                {
+                                    tabCtrlTelasApp.SelectedTab = tabPage6;
+                                    tabCtrlTelasApp.SelectedTab = tabPage2;
+                                }
+                            }
+                            else 
+                            {
+                                lblErroContaDest.Text = "Conta inexistente";
+                                lblErroContaDest.Visible = true;
+                            }
 
+                        }
+                    }
+                    else
+                    {
+                        lblErroContaDest.Text = "Número inválido";
+                        lblErroContaDest.Visible = true;
+                        tbContaDestino.Focus();
+                    }
                 }
                 else if (rbDepositarSalario.Checked)
                 {
-
+                    //ContaSalario contaTemp = contaAtual as ContaSalario;
+                    //if (mtbCnpjDepositoSal.Text == contaTemp.H)
+                    //{
+                    //    contaAtual.Depositar(tbValorMovimento);
+                    //    EscreverArquivosBD.GravarSaldoContaAtualizado(pathContas, contaAtual);
+                    //    Extrato movimento = new Extrato(horaTransacao, "Depósito Salário", contaAtual.NumeroConta, val);
+                    //    EscreverArquivosBD.EscreverNovoItem(pathTransacoes, movimento.ToString());
+                    //}
                 }
                 lblSaldoAtual.Text = contaAtual.Saldo.ToString("F2");
             }
@@ -597,11 +640,13 @@ namespace AppBancoWinForms
 
         private void tabPageInvestimento_Enter(object sender, EventArgs e)
         {
-            rbPerfil1.Text = PerfilInvestidor.Conservador.ToString(); 
+            rbPerfil1.Text = PerfilInvestidor.Conservador.ToString();
             rbPerfil2.Text = PerfilInvestidor.Moderado.ToString();
             rbPerfil3.Text = PerfilInvestidor.Arrojado.ToString();
             rbPerfil1.Checked = true;
 
         }
+
+
     }
 }

@@ -83,7 +83,7 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
             this.pnlNumContaDestino = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbContaDestino = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.pnlCnpj = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
@@ -143,6 +143,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.rbPerfil2 = new System.Windows.Forms.RadioButton();
             this.rbPerfil3 = new System.Windows.Forms.RadioButton();
+            this.lblErroContaDest = new System.Windows.Forms.Label();
             this.tabPage8.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPage7.SuspendLayout();
@@ -221,6 +222,7 @@
             // tbExtrato
             // 
             this.tbExtrato.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.tbExtrato.Cursor = System.Windows.Forms.Cursors.No;
             this.tbExtrato.Enabled = false;
             this.tbExtrato.Location = new System.Drawing.Point(250, 36);
             this.tbExtrato.Multiline = true;
@@ -766,20 +768,21 @@
             // 
             // pnlNumContaDestino
             // 
-            this.pnlNumContaDestino.Controls.Add(this.textBox4);
+            this.pnlNumContaDestino.Controls.Add(this.lblErroContaDest);
+            this.pnlNumContaDestino.Controls.Add(this.tbContaDestino);
             this.pnlNumContaDestino.Controls.Add(this.label21);
-            this.pnlNumContaDestino.Location = new System.Drawing.Point(509, 96);
+            this.pnlNumContaDestino.Location = new System.Drawing.Point(509, 70);
             this.pnlNumContaDestino.Name = "pnlNumContaDestino";
-            this.pnlNumContaDestino.Size = new System.Drawing.Size(210, 52);
+            this.pnlNumContaDestino.Size = new System.Drawing.Size(210, 78);
             this.pnlNumContaDestino.TabIndex = 23;
             // 
-            // textBox4
+            // tbContaDestino
             // 
-            this.textBox4.Location = new System.Drawing.Point(91, 16);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(112, 20);
-            this.textBox4.TabIndex = 1;
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbContaDestino.Location = new System.Drawing.Point(91, 16);
+            this.tbContaDestino.Name = "tbContaDestino";
+            this.tbContaDestino.Size = new System.Drawing.Size(112, 20);
+            this.tbContaDestino.TabIndex = 1;
+            this.tbContaDestino.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label21
             // 
@@ -1404,6 +1407,17 @@
             this.rbPerfil3.Text = "rbPerfil3";
             this.rbPerfil3.UseVisualStyleBackColor = true;
             // 
+            // lblErroContaDest
+            // 
+            this.lblErroContaDest.AutoSize = true;
+            this.lblErroContaDest.ForeColor = System.Drawing.Color.Red;
+            this.lblErroContaDest.Location = new System.Drawing.Point(66, 53);
+            this.lblErroContaDest.Name = "lblErroContaDest";
+            this.lblErroContaDest.Size = new System.Drawing.Size(79, 14);
+            this.lblErroContaDest.TabIndex = 55;
+            this.lblErroContaDest.Text = "MensagemErro";
+            this.lblErroContaDest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1555,7 +1569,7 @@
         private System.Windows.Forms.TextBox tbValorMovimento;
         private System.Windows.Forms.Panel pnlCnpj;
         private System.Windows.Forms.Panel pnlNumContaDestino;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbContaDestino;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label26;
@@ -1593,6 +1607,7 @@
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblErroContaDest;
     }
 }
 

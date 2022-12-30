@@ -1,5 +1,6 @@
 ﻿using AppBancoWinForms.Entities.Enums;
 using System;
+using System.IO;
 
 namespace AppBancoWinForms.Entities
 {
@@ -10,5 +11,6 @@ namespace AppBancoWinForms.Entities
         {
 
         }
+
     }
 }
