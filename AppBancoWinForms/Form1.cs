@@ -110,13 +110,14 @@ namespace AppBancoWinForms
         private void btCadastrar_Click(object sender, EventArgs e)
         {
             bool dadosOK = true;
-            string numerosCPF;
-            mtbCPFCadastro.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-            numerosCPF = mtbCPFCadastro.Text;
-            if (numerosCPF.Length != 11 || !double.TryParse(numerosCPF, out _)) // melhorar validação
+            //string numerosCPF;
+            //mtbCPFCadastro.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            //numerosCPF = mtbCPFCadastro.Text;
+            //if (numerosCPF.Length != 11 || !double.TryParse(numerosCPF, out _)) // melhorar validação
+            if (!mtbCPFCadastro.MaskFull) // melhorar validação
             {
                 dadosOK = false;
-                MessageBox.Show("Porfavor, preencha o campo CPF corretamente.", "CPF Inválido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Por favor, preencha o campo CPF corretamente.", "CPF Inválido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 mtbCPFCadastro.Focus();
             }
             else if (String.IsNullOrWhiteSpace(tbNomeCadastro.Text))
@@ -150,7 +151,7 @@ namespace AppBancoWinForms
 
 
 
-                mtbCPFCadastro.TextMaskFormat = MaskFormat.IncludeLiterals;
+                //mtbCPFCadastro.TextMaskFormat = MaskFormat.IncludeLiterals;
                 string cpf = mtbCPFCadastro.Text;
                 string nome = tbNomeCadastro.Text;
                 string sobrenome = tbSobrenomeCadastro.Text;
@@ -181,16 +182,10 @@ namespace AppBancoWinForms
             mtbCPFCadastro.Focus();
         }
 
-        private void btExtratoPoupanca_Click(object sender, EventArgs e)
-        {
-            tabCtrlTelasApp.SelectedTab = tabPage8;
-        }
-
         private void tabPage8_Enter(object sender, EventArgs e)
         {
             rb7dias.Checked = true;
-            tbExtrato.Text = string.Empty;
-            tbExtrato.BackColor = Color.PaleGoldenrod;
+            rtbExtrato.Text = string.Empty;
         }
 
         private void rb7dias_CheckedChanged(object sender, EventArgs e)
@@ -204,7 +199,7 @@ namespace AppBancoWinForms
                 dtpFim.ValueChanged -= dtpFim_ValueChanged;
                 dtpFim.Value = hoje;
                 dtpFim.ValueChanged += dtpFim_ValueChanged;
-                tbExtrato.Text = "";
+                rtbExtrato.Text = "";
             }
         }
 
@@ -219,7 +214,7 @@ namespace AppBancoWinForms
                 dtpFim.ValueChanged -= dtpFim_ValueChanged;
                 dtpFim.Value = hoje;
                 dtpFim.ValueChanged += dtpFim_ValueChanged;
-                tbExtrato.Text = "";
+                rtbExtrato.Text = "";
             }
         }
 
@@ -234,7 +229,7 @@ namespace AppBancoWinForms
                 dtpFim.ValueChanged -= dtpFim_ValueChanged;
                 dtpFim.Value = hoje;
                 dtpFim.ValueChanged += dtpFim_ValueChanged;
-                tbExtrato.Text = "";
+                rtbExtrato.Text = "";
             }
         }
 
@@ -243,7 +238,7 @@ namespace AppBancoWinForms
             rb7dias.Checked = false;
             rb15dias.Checked = false;
             rb30dias.Checked = false;
-            tbExtrato.Text = "";
+            rtbExtrato.Text = "";
         }
 
         private void dtpFim_ValueChanged(object sender, EventArgs e)
@@ -251,7 +246,7 @@ namespace AppBancoWinForms
             rb7dias.Checked = false;
             rb15dias.Checked = false;
             rb30dias.Checked = false;
-            tbExtrato.Text = "";
+            rtbExtrato.Text = "";
         }
 
         private void btGerarextrato_Click(object sender, EventArgs e)
@@ -263,25 +258,42 @@ namespace AppBancoWinForms
             }
             else
             {
-                
                 List<string> listaTransacoes = EscreverArquivosBD.BuscarTransacoes(pathTransacoes, contaAtual.NumeroConta, dtpInicio.Value.Date, dtpFim.Value.Date);
                 if (listaTransacoes.Count > 0)
                 {
                     StringBuilder sb = new StringBuilder();
-                    foreach(string item in listaTransacoes)
+                    sb.AppendLine($"Nome titular: {cliente.Nome} {cliente.Sobrenome}; CPF: {cliente.Cpf}; Nº cadastro: {cliente.Codigo}");
+                    sb.AppendLine($"Operações em Conta Nº {contaAtual.NumeroConta}; Tipo Conta: {contaAtual.TipoConta.ToString().Replace("Conta","")}");
+                    sb.AppendLine($"Período selecionado: de {dtpInicio.Value.Date.ToString("dd/MM/yyyy")} a {dtpFim.Value.Date.ToString("dd/MM/yyyy")}");
+                    sb.AppendLine($"Extrato gerado em: {DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")}");
+                    sb.AppendLine("+--------------------+----------------------+---------------+--------------+--------------+----------------+---------------+");
+                    sb.AppendLine("|                    |         Tipo         |    Nº Conta   |              | Taxa Cobrada | Saldo Anterior |  Saldo Atual  |");
+                    sb.AppendLine("|    Data - Hora     |       Operação       |  Destinatária |  Valor (R$)  |     (R$)     |       (R$)     |      (R$)     |");
+                    sb.AppendLine("+--------------------+----------------------+---------------+--------------+--------------+----------------+---------------+");
+                    var table = new DataTable();
+                    foreach (string item in listaTransacoes)
                     {
-                        sb.AppendLine(item);
+                        string[] strAux = item.Split(';');
+                        //sb.AppendLine(item);
+                        DateTime dataHoraAux = DateTime.Parse(strAux[0]).ToLocalTime();
+                        sb.AppendLine($"| {dataHoraAux.ToString("dd/MM/yyyy - HH:mm")} | {strAux[1].PadRight(20)} | {PadBoth(strAux[3], 13)} | {strAux[4].PadLeft(12)} | {strAux[5].PadLeft(12)} | {strAux[6].PadLeft(14)} | {strAux[7].PadLeft(13)} |");
                     }
-                    tbExtrato.Text = sb.ToString();
-                    tbExtrato.BackColor = Color.White;
+                    sb.AppendLine("+--------------------+----------------------+---------------+--------------+--------------+----------------+---------------+");
+                    rtbExtrato.Text = sb.ToString();
                 }
-                //tbExtrato.Text = $"Extrato. Período {dtpInicio.Value.ToString("dd/MM/yyyy")} até {dtpFim.Value.ToString("dd/MM/yyyy")}";
             }
+        }
+        public string PadBoth(string source, int length)
+        {
+            int spaces = length - source.Length;
+            int padLeft = spaces / 2 + source.Length;
+            return source.PadLeft(padLeft).PadRight(length);
+
         }
 
         private void btExportarExtrato_Click(object sender, EventArgs e)
         {
-            if (tbExtrato.Text.Length == 0)
+            if (rtbExtrato.Text.Length == 0)
             {
                 MessageBox.Show("Por favor, gerar o extrato para o período.", "Extrato Indisponível", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -307,7 +319,7 @@ namespace AppBancoWinForms
             tabCtrlTipoConta.SelectedTab = tabPageInvestimento;
         }
         /**************************************************************************/
-        private void btExtratoPoupanca_Click_1(object sender, EventArgs e)
+        private void btIrParaPagExtrato_Click(object sender, EventArgs e)
         {
             contaSelecionada = cbContaSelecionada.SelectedIndex;
             tabCtrlTelasApp.SelectedTab = tabPage8;
@@ -443,11 +455,26 @@ namespace AppBancoWinForms
                 }
             }
             else if (rbSalario.Checked)
-            { // desenvolver validações
-                tConta = TipoConta.ContaSalario;
-
-                holerite.Cnpj = mtbCnpjCadastroContaSal.Text;
-                holerite.NomeFontePagadora = tbNomeFontePag.Text;
+            { 
+                if (mtbCnpjCadastroContaSal.MaskFull) // cnpj preenchido?
+                {
+                    if (String.IsNullOrWhiteSpace(tbNomeFontePag.Text)) // nome preenchido?
+                    {
+                        tbNomeFontePag.Focus();
+                        requisitosOK = false;
+                    } 
+                    else
+                    {
+                        tConta = TipoConta.ContaSalario;
+                        holerite.Cnpj = mtbCnpjCadastroContaSal.Text;
+                        holerite.NomeFontePagadora = tbNomeFontePag.Text;
+                    }
+                } 
+                else
+                {
+                    mtbCnpjCadastroContaSal.Focus();
+                    requisitosOK = false;
+                }
             }
             else if (rbInvestimento.Checked)
             {// desenvolver validações
@@ -563,13 +590,14 @@ namespace AppBancoWinForms
             if (double.TryParse(tbValorMovimento.Text.Replace('.', ','), out double val))
             {
                 DateTime horaTransacao = DateTime.UtcNow;
+                double saldoAnterior = contaAtual.Saldo;// salvar saldo anterior para exibir no extrato
                 if (rbDepositar.Checked)
                 {
                     if (val > 0)
                     {
                         contaAtual.Depositar(val);
                         EscreverArquivosBD.GravarSaldoContaAtualizado(pathContas, contaAtual);
-                        Extrato movimento = new Extrato(horaTransacao, "Depósito", contaAtual.NumeroConta, val);
+                        Extrato movimento = new Extrato(horaTransacao, "Depósito", contaAtual.NumeroConta, val, saldoAnterior, contaAtual.Saldo);
                         EscreverArquivosBD.EscreverNovoItem(pathTransacoes, movimento.ToString());
                         // Atualizar registro no arquivo contas.csv
                         // Escrever movimentação em transacoes.csv
@@ -581,10 +609,9 @@ namespace AppBancoWinForms
                     {
                         contaAtual.Sacar(val);
                         EscreverArquivosBD.GravarSaldoContaAtualizado(pathContas, contaAtual);
-                        // Escrever movimentação em transacoes.csv
                         double taxaCobrada = contaAtual.CalcularValorTarifa(val);
                         // Escrever movimentação em transacoes.csv
-                        Extrato movimento = new Extrato(horaTransacao, "Saque", contaAtual.NumeroConta, val, taxaCobrada);
+                        Extrato movimento = new Extrato(horaTransacao, "Saque", contaAtual.NumeroConta, val, taxaCobrada, saldoAnterior, contaAtual.Saldo);
                         EscreverArquivosBD.EscreverNovoItem(pathTransacoes, movimento.ToString());
                     }
                 }
@@ -636,7 +663,7 @@ namespace AppBancoWinForms
                         {
                             contaAtual.Depositar(val);
                             EscreverArquivosBD.GravarSaldoContaAtualizado(pathContas, contaAtual);
-                            Extrato movimento = new Extrato(horaTransacao, "Depósito Salário", contaAtual.NumeroConta, val);
+                            Extrato movimento = new Extrato(horaTransacao, "Depósito Salário", contaAtual.NumeroConta, val, saldoAnterior, contaAtual.Saldo);
                             EscreverArquivosBD.EscreverNovoItem(pathTransacoes, movimento.ToString());
                             tabCtrlTelasApp.SelectedTab = tabPage6;
                             tabCtrlTelasApp.SelectedTab = tabPage2;
@@ -674,7 +701,6 @@ namespace AppBancoWinForms
             rbPerfil1.Checked = true;
 
         }
-
 
     }
 }

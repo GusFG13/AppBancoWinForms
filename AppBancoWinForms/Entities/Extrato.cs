@@ -15,33 +15,41 @@ namespace AppBancoWinForms.Entities
         public int NumeroContaDestino { get; set; }
         public double Valor { get; set; }
         public double TaxaCobrada { get; set; }
+        public double SaldoAnterior { get; set; }
+        public double SaltoAtual { get; set; }
 
-        public Extrato(DateTime dataTransacao, string tipoMovimento, int numeroContaOrigem, int numeroContaDestino, double valor, double taxaCobrada)
-        {
+        public Extrato(DateTime dataTransacao, string tipoMovimento, int numeroContaOrigem, int numeroContaDestino, double valor, double taxaCobrada, double saldoAnterior, double saltoAtual)
+        { // para transferencias
             DataTransacao = dataTransacao;
             TipoMovimento = tipoMovimento;
             NumeroContaOrigem = numeroContaOrigem;
             NumeroContaDestino = numeroContaDestino;
             Valor = valor;
             TaxaCobrada = taxaCobrada;
+            SaldoAnterior = saldoAnterior;
+            SaltoAtual = saltoAtual;
         }
-        public Extrato(DateTime dataTransacao, string tipoMovimento, int numeroContaOrigem, double valor, double taxaCobrada)//para saque
-        {
+        public Extrato(DateTime dataTransacao, string tipoMovimento, int numeroContaOrigem, double valor, double taxaCobrada, double saldoAnterior, double saltoAtual)
+        { // para saques
             DataTransacao = dataTransacao;
             TipoMovimento = tipoMovimento;
             NumeroContaOrigem = numeroContaOrigem;
             NumeroContaDestino = 0;
             Valor = valor;
             TaxaCobrada = taxaCobrada;
+            SaldoAnterior = saldoAnterior;
+            SaltoAtual = saltoAtual;
         }
-        public Extrato(DateTime dataTransacao, string tipoMovimento, int numeroContaOrigem, double valor) // para depósitos
-        {
+        public Extrato(DateTime dataTransacao, string tipoMovimento, int numeroContaOrigem, double valor, double saldoAnterior, double saltoAtual)
+        { // para depósitos
             DataTransacao = dataTransacao;
             TipoMovimento = tipoMovimento;
             NumeroContaOrigem = numeroContaOrigem;
             NumeroContaDestino = 0;
             Valor = valor;
             TaxaCobrada = 0.0;
+            SaldoAnterior = saldoAnterior;
+            SaltoAtual = saltoAtual;
         }
 
         public override string ToString()
@@ -51,7 +59,9 @@ namespace AppBancoWinForms.Entities
                 + ";" + NumeroContaOrigem.ToString()
                 + ";" + (NumeroContaDestino != 0 ? NumeroContaDestino.ToString() : "")
                 + ";" + Valor.ToString("F2")
-                + ";" + (TaxaCobrada != 0 ? TaxaCobrada.ToString("F2") : "");
+                + ";" + (TaxaCobrada != 0 ? TaxaCobrada.ToString("F2") : "")
+                + ";" + SaldoAnterior.ToString("F2")
+                + ";" + SaltoAtual.ToString("F2");
         }
     }
 }

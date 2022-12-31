@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.rtbExtrato = new System.Windows.Forms.RichTextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.tbExtrato = new System.Windows.Forms.TextBox();
             this.btVoltar = new System.Windows.Forms.Button();
             this.btExportarExtrato = new System.Windows.Forms.Button();
             this.btGerarextrato = new System.Windows.Forms.Button();
@@ -99,13 +99,13 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
             this.pnlNumContaDestino = new System.Windows.Forms.Panel();
-            this.lblErroContaDest = new System.Windows.Forms.Label();
             this.tbContaDestino = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.pnlCnpj = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
             this.mtbCnpjDepositoSal = new System.Windows.Forms.MaskedTextBox();
             this.pnlValor = new System.Windows.Forms.Panel();
+            this.lblErroContaDest = new System.Windows.Forms.Label();
             this.btMovimentoConta = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.tbValorMovimento = new System.Windows.Forms.TextBox();
@@ -128,7 +128,7 @@
             this.rbSacar = new System.Windows.Forms.RadioButton();
             this.rbInvestir = new System.Windows.Forms.RadioButton();
             this.lblSelecioneConta = new System.Windows.Forms.Label();
-            this.btExtratoPoupanca = new System.Windows.Forms.Button();
+            this.btIrParaPagExtrato = new System.Windows.Forms.Button();
             this.cbContaSelecionada = new System.Windows.Forms.ComboBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label23 = new System.Windows.Forms.Label();
@@ -182,9 +182,9 @@
             // tabPage8
             // 
             this.tabPage8.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.tabPage8.Controls.Add(this.rtbExtrato);
             this.tabPage8.Controls.Add(this.label26);
             this.tabPage8.Controls.Add(this.label10);
-            this.tabPage8.Controls.Add(this.tbExtrato);
             this.tabPage8.Controls.Add(this.btVoltar);
             this.tabPage8.Controls.Add(this.btExportarExtrato);
             this.tabPage8.Controls.Add(this.btGerarextrato);
@@ -197,12 +197,22 @@
             this.tabPage8.Text = "Extrato";
             this.tabPage8.Enter += new System.EventHandler(this.tabPage8_Enter);
             // 
+            // rtbExtrato
+            // 
+            this.rtbExtrato.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbExtrato.Location = new System.Drawing.Point(222, 36);
+            this.rtbExtrato.Name = "rtbExtrato";
+            this.rtbExtrato.Size = new System.Drawing.Size(540, 356);
+            this.rtbExtrato.TabIndex = 55;
+            this.rtbExtrato.Text = "";
+            this.rtbExtrato.WordWrap = false;
+            // 
             // label26
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label26.Location = new System.Drawing.Point(22, 10);
+            this.label26.Location = new System.Drawing.Point(21, 19);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(179, 27);
             this.label26.TabIndex = 54;
@@ -212,27 +222,17 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label10.Location = new System.Drawing.Point(247, 20);
+            this.label10.Location = new System.Drawing.Point(219, 17);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(95, 14);
+            this.label10.Size = new System.Drawing.Size(113, 16);
             this.label10.TabIndex = 0;
             this.label10.Text = "Extrato do período";
             // 
-            // tbExtrato
-            // 
-            this.tbExtrato.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.tbExtrato.Cursor = System.Windows.Forms.Cursors.No;
-            this.tbExtrato.Enabled = false;
-            this.tbExtrato.Location = new System.Drawing.Point(250, 36);
-            this.tbExtrato.Multiline = true;
-            this.tbExtrato.Name = "tbExtrato";
-            this.tbExtrato.Size = new System.Drawing.Size(499, 344);
-            this.tbExtrato.TabIndex = 1;
-            // 
             // btVoltar
             // 
-            this.btVoltar.Location = new System.Drawing.Point(67, 354);
+            this.btVoltar.Location = new System.Drawing.Point(60, 342);
             this.btVoltar.Name = "btVoltar";
             this.btVoltar.Size = new System.Drawing.Size(101, 23);
             this.btVoltar.TabIndex = 2;
@@ -242,7 +242,7 @@
             // 
             // btExportarExtrato
             // 
-            this.btExportarExtrato.Location = new System.Drawing.Point(67, 325);
+            this.btExportarExtrato.Location = new System.Drawing.Point(60, 307);
             this.btExportarExtrato.Name = "btExportarExtrato";
             this.btExportarExtrato.Size = new System.Drawing.Size(101, 23);
             this.btExportarExtrato.TabIndex = 2;
@@ -252,7 +252,7 @@
             // 
             // btGerarextrato
             // 
-            this.btGerarextrato.Location = new System.Drawing.Point(67, 296);
+            this.btGerarextrato.Location = new System.Drawing.Point(60, 272);
             this.btGerarextrato.Name = "btGerarextrato";
             this.btGerarextrato.Size = new System.Drawing.Size(101, 23);
             this.btGerarextrato.TabIndex = 3;
@@ -269,7 +269,7 @@
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.dtpFim);
             this.groupBox3.Controls.Add(this.dtpInicio);
-            this.groupBox3.Location = new System.Drawing.Point(16, 53);
+            this.groupBox3.Location = new System.Drawing.Point(10, 49);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(200, 192);
             this.groupBox3.TabIndex = 4;
@@ -279,7 +279,7 @@
             // rb30dias
             // 
             this.rb30dias.AutoSize = true;
-            this.rb30dias.Location = new System.Drawing.Point(27, 144);
+            this.rb30dias.Location = new System.Drawing.Point(27, 154);
             this.rb30dias.Name = "rb30dias";
             this.rb30dias.Size = new System.Drawing.Size(97, 18);
             this.rb30dias.TabIndex = 0;
@@ -291,7 +291,7 @@
             // rb15dias
             // 
             this.rb15dias.AutoSize = true;
-            this.rb15dias.Location = new System.Drawing.Point(27, 121);
+            this.rb15dias.Location = new System.Drawing.Point(27, 131);
             this.rb15dias.Name = "rb15dias";
             this.rb15dias.Size = new System.Drawing.Size(97, 18);
             this.rb15dias.TabIndex = 1;
@@ -303,7 +303,7 @@
             // rb7dias
             // 
             this.rb7dias.AutoSize = true;
-            this.rb7dias.Location = new System.Drawing.Point(27, 98);
+            this.rb7dias.Location = new System.Drawing.Point(27, 108);
             this.rb7dias.Name = "rb7dias";
             this.rb7dias.Size = new System.Drawing.Size(91, 18);
             this.rb7dias.TabIndex = 2;
@@ -905,7 +905,7 @@
             this.panel8.Controls.Add(this.btAbrirNovaConta);
             this.panel8.Controls.Add(this.gbActions);
             this.panel8.Controls.Add(this.lblSelecioneConta);
-            this.panel8.Controls.Add(this.btExtratoPoupanca);
+            this.panel8.Controls.Add(this.btIrParaPagExtrato);
             this.panel8.Controls.Add(this.cbContaSelecionada);
             this.panel8.Location = new System.Drawing.Point(19, 14);
             this.panel8.Name = "panel8";
@@ -932,17 +932,6 @@
             this.pnlNumContaDestino.Name = "pnlNumContaDestino";
             this.pnlNumContaDestino.Size = new System.Drawing.Size(210, 52);
             this.pnlNumContaDestino.TabIndex = 23;
-            // 
-            // lblErroContaDest
-            // 
-            this.lblErroContaDest.AutoSize = true;
-            this.lblErroContaDest.ForeColor = System.Drawing.Color.Red;
-            this.lblErroContaDest.Location = new System.Drawing.Point(66, 35);
-            this.lblErroContaDest.Name = "lblErroContaDest";
-            this.lblErroContaDest.Size = new System.Drawing.Size(79, 14);
-            this.lblErroContaDest.TabIndex = 55;
-            this.lblErroContaDest.Text = "MensagemErro";
-            this.lblErroContaDest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tbContaDestino
             // 
@@ -998,6 +987,17 @@
             this.pnlValor.Name = "pnlValor";
             this.pnlValor.Size = new System.Drawing.Size(210, 90);
             this.pnlValor.TabIndex = 22;
+            // 
+            // lblErroContaDest
+            // 
+            this.lblErroContaDest.AutoSize = true;
+            this.lblErroContaDest.ForeColor = System.Drawing.Color.Red;
+            this.lblErroContaDest.Location = new System.Drawing.Point(66, 35);
+            this.lblErroContaDest.Name = "lblErroContaDest";
+            this.lblErroContaDest.Size = new System.Drawing.Size(79, 14);
+            this.lblErroContaDest.TabIndex = 55;
+            this.lblErroContaDest.Text = "MensagemErro";
+            this.lblErroContaDest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btMovimentoConta
             // 
@@ -1231,17 +1231,17 @@
             this.lblSelecioneConta.TabIndex = 2;
             this.lblSelecioneConta.Text = "Selecione sua conta:";
             // 
-            // btExtratoPoupanca
+            // btIrParaPagExtrato
             // 
-            this.btExtratoPoupanca.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.btIrParaPagExtrato.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btExtratoPoupanca.Location = new System.Drawing.Point(55, 345);
-            this.btExtratoPoupanca.Name = "btExtratoPoupanca";
-            this.btExtratoPoupanca.Size = new System.Drawing.Size(155, 23);
-            this.btExtratoPoupanca.TabIndex = 0;
-            this.btExtratoPoupanca.Text = "Extrato";
-            this.btExtratoPoupanca.UseVisualStyleBackColor = true;
-            this.btExtratoPoupanca.Click += new System.EventHandler(this.btExtratoPoupanca_Click_1);
+            this.btIrParaPagExtrato.Location = new System.Drawing.Point(55, 345);
+            this.btIrParaPagExtrato.Name = "btIrParaPagExtrato";
+            this.btIrParaPagExtrato.Size = new System.Drawing.Size(155, 23);
+            this.btIrParaPagExtrato.TabIndex = 0;
+            this.btIrParaPagExtrato.Text = "Extrato";
+            this.btIrParaPagExtrato.UseVisualStyleBackColor = true;
+            this.btIrParaPagExtrato.Click += new System.EventHandler(this.btIrParaPagExtrato_Click);
             // 
             // cbContaSelecionada
             // 
@@ -1494,7 +1494,6 @@
 
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox tbExtrato;
         private System.Windows.Forms.Button btExportarExtrato;
         private System.Windows.Forms.Button btGerarextrato;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -1537,7 +1536,7 @@
         private System.Windows.Forms.Button btCadastrar;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button btExtratoPoupanca;
+        private System.Windows.Forms.Button btIrParaPagExtrato;
         private System.Windows.Forms.Label lblSelecioneConta;
         private System.Windows.Forms.ComboBox cbContaSelecionada;
         private System.Windows.Forms.TabPage tabPage1;
@@ -1608,6 +1607,7 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblErroContaDest;
+        private System.Windows.Forms.RichTextBox rtbExtrato;
     }
 }
 
