@@ -91,7 +91,31 @@ namespace AppBancoWinForms.Utils
             //}
             return listaContas;
         }
-
+        public static List<string> BuscarTransacoes(string path, int numConta, DateTime inicioPeriodo, DateTime fimPeriodo)
+        {
+            List<string> listaTransacoes = new List<string>();
+            if (File.Exists(path))
+            {
+                // Open the file to read from.
+                using (StreamReader sr = File.OpenText(path))
+                {
+                    string s = "";
+                    while ((s = sr.ReadLine()) != null)
+                    {
+                        if (int.Parse(s.Split(';')[2]) == numConta)
+                        {
+                            DateTime dataMovimento = DateTime.Parse(s.Split(';')[0]).ToLocalTime().Date;
+                            if (dataMovimento >= inicioPeriodo && dataMovimento <= fimPeriodo)
+                            {
+                                listaTransacoes.Add(s);
+                            }
+                        }
+                    }
+                    sr.Close();
+                }
+            }
+            return listaTransacoes;
+        }
 
         public static void EscreverNovoItem(string path, string dados)
         {

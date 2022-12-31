@@ -1,7 +1,7 @@
 ﻿
 namespace AppBancoWinForms.Entities
 {
-    public class Holerite
+    internal class Holerite
     {
         public string Cnpj { get; set; }
         public string NomeFontePagadora { get; set; }

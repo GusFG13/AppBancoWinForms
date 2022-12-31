@@ -56,12 +56,8 @@ namespace AppBancoWinForms.Utils
                     conta = null;
                     break;
             }
-
             return conta;
         }
 
-
-
     }
-
 }

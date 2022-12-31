@@ -189,6 +189,8 @@ namespace AppBancoWinForms
         private void tabPage8_Enter(object sender, EventArgs e)
         {
             rb7dias.Checked = true;
+            tbExtrato.Text = string.Empty;
+            tbExtrato.BackColor = Color.PaleGoldenrod;
         }
 
         private void rb7dias_CheckedChanged(object sender, EventArgs e)
@@ -261,7 +263,19 @@ namespace AppBancoWinForms
             }
             else
             {
-                tbExtrato.Text = $"Extrato. Período {dtpInicio.Value.ToString("dd/MM/yyyy")} até {dtpFim.Value.ToString("dd/MM/yyyy")}";
+                
+                List<string> listaTransacoes = EscreverArquivosBD.BuscarTransacoes(pathTransacoes, contaAtual.NumeroConta, dtpInicio.Value.Date, dtpFim.Value.Date);
+                if (listaTransacoes.Count > 0)
+                {
+                    StringBuilder sb = new StringBuilder();
+                    foreach(string item in listaTransacoes)
+                    {
+                        sb.AppendLine(item);
+                    }
+                    tbExtrato.Text = sb.ToString();
+                    tbExtrato.BackColor = Color.White;
+                }
+                //tbExtrato.Text = $"Extrato. Período {dtpInicio.Value.ToString("dd/MM/yyyy")} até {dtpFim.Value.ToString("dd/MM/yyyy")}";
             }
         }
 
@@ -597,7 +611,7 @@ namespace AppBancoWinForms
                                     tabCtrlTelasApp.SelectedTab = tabPage2;
                                 }
                             }
-                            else 
+                            else
                             {
                                 lblErroContaDest.Text = "Conta inexistente";
                                 lblErroContaDest.Visible = true;
@@ -614,14 +628,28 @@ namespace AppBancoWinForms
                 }
                 else if (rbDepositarSalario.Checked)
                 {
-                    //ContaSalario contaTemp = contaAtual as ContaSalario;
-                    //if (mtbCnpjDepositoSal.Text == contaTemp.H)
-                    //{
-                    //    contaAtual.Depositar(tbValorMovimento);
-                    //    EscreverArquivosBD.GravarSaldoContaAtualizado(pathContas, contaAtual);
-                    //    Extrato movimento = new Extrato(horaTransacao, "Depósito Salário", contaAtual.NumeroConta, val);
-                    //    EscreverArquivosBD.EscreverNovoItem(pathTransacoes, movimento.ToString());
-                    //}
+
+                    if (contaAtual is ContaSalario)
+                    {
+                        ContaSalario contaTemp = contaAtual as ContaSalario;
+                        if (mtbCnpjDepositoSal.Text == contaTemp.Holerite.Cnpj) 
+                        {
+                            contaAtual.Depositar(val);
+                            EscreverArquivosBD.GravarSaldoContaAtualizado(pathContas, contaAtual);
+                            Extrato movimento = new Extrato(horaTransacao, "Depósito Salário", contaAtual.NumeroConta, val);
+                            EscreverArquivosBD.EscreverNovoItem(pathTransacoes, movimento.ToString());
+                            tabCtrlTelasApp.SelectedTab = tabPage6;
+                            tabCtrlTelasApp.SelectedTab = tabPage2;
+                        }
+                        else
+                        {
+                            lblErroContaDest.Text = "CNPJ informado não é o cadastrado.";
+                            lblErroContaDest.Visible = true;
+                            mtbCnpjDepositoSal.Focus();
+                        }
+
+                    }
+
                 }
                 lblSaldoAtual.Text = contaAtual.Saldo.ToString("F2");
             }

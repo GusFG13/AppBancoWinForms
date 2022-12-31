@@ -44,7 +44,11 @@
             this.dtpFim = new System.Windows.Forms.DateTimePicker();
             this.dtpInicio = new System.Windows.Forms.DateTimePicker();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.panel13 = new System.Windows.Forms.Panel();
             this.label36 = new System.Windows.Forms.Label();
+            this.rbPoupanca = new System.Windows.Forms.RadioButton();
+            this.rbSalario = new System.Windows.Forms.RadioButton();
+            this.rbInvestimento = new System.Windows.Forms.RadioButton();
             this.label25 = new System.Windows.Forms.Label();
             this.btVoltarParaMenu = new System.Windows.Forms.Button();
             this.btCadastrarNovaConta = new System.Windows.Forms.Button();
@@ -55,13 +59,25 @@
             this.label11 = new System.Windows.Forms.Label();
             this.tbDepInicialPoup = new System.Windows.Forms.TextBox();
             this.tabPageSalario = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tbNomeFontePag = new System.Windows.Forms.TextBox();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.label28 = new System.Windows.Forms.Label();
+            this.mtbCnpjCadastroContaSal = new System.Windows.Forms.MaskedTextBox();
             this.tabPageInvestimento = new System.Windows.Forms.TabPage();
-            this.rbInvestimento = new System.Windows.Forms.RadioButton();
-            this.rbSalario = new System.Windows.Forms.RadioButton();
-            this.rbPoupanca = new System.Windows.Forms.RadioButton();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.rbPerfil3 = new System.Windows.Forms.RadioButton();
+            this.rbPerfil2 = new System.Windows.Forms.RadioButton();
+            this.rbPerfil1 = new System.Windows.Forms.RadioButton();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.label30 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.label24 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btCancelarNovoCadastro = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.mtbSenhaCadastroRepetir = new System.Windows.Forms.MaskedTextBox();
@@ -83,10 +99,12 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
             this.pnlNumContaDestino = new System.Windows.Forms.Panel();
+            this.lblErroContaDest = new System.Windows.Forms.Label();
             this.tbContaDestino = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.pnlCnpj = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
+            this.mtbCnpjDepositoSal = new System.Windows.Forms.MaskedTextBox();
             this.pnlValor = new System.Windows.Forms.Panel();
             this.btMovimentoConta = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
@@ -126,32 +144,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btEnter = new System.Windows.Forms.Button();
             this.tabCtrlTelasApp = new System.Windows.Forms.TabControl();
-            this.btCancelarNovoCadastro = new System.Windows.Forms.Button();
-            this.mtbCnpjDepositoSal = new System.Windows.Forms.MaskedTextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.label28 = new System.Windows.Forms.Label();
-            this.mtbCnpjCadastroContaSal = new System.Windows.Forms.MaskedTextBox();
-            this.tbNomeFontePag = new System.Windows.Forms.TextBox();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.label30 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.rbPerfil1 = new System.Windows.Forms.RadioButton();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.rbPerfil2 = new System.Windows.Forms.RadioButton();
-            this.rbPerfil3 = new System.Windows.Forms.RadioButton();
-            this.lblErroContaDest = new System.Windows.Forms.Label();
             this.tabPage8.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPage7.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.tabCtrlTipoConta.SuspendLayout();
             this.tabPagePoupanca.SuspendLayout();
             this.panel9.SuspendLayout();
             this.tabPageSalario.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.tabPageInvestimento.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.panel14.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -171,12 +177,6 @@
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabCtrlTelasApp.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.panel13.SuspendLayout();
-            this.panel14.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage8
@@ -363,6 +363,17 @@
             this.tabPage7.TabIndex = 3;
             this.tabPage7.Text = "Abrir Nova Conta";
             // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.label36);
+            this.panel13.Controls.Add(this.rbPoupanca);
+            this.panel13.Controls.Add(this.rbSalario);
+            this.panel13.Controls.Add(this.rbInvestimento);
+            this.panel13.Location = new System.Drawing.Point(38, 107);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(270, 144);
+            this.panel13.TabIndex = 55;
+            // 
             // label36
             // 
             this.label36.AutoSize = true;
@@ -372,6 +383,41 @@
             this.label36.Size = new System.Drawing.Size(227, 18);
             this.label36.TabIndex = 54;
             this.label36.Text = "Que tipo de conta deseja abrir?";
+            // 
+            // rbPoupanca
+            // 
+            this.rbPoupanca.AutoSize = true;
+            this.rbPoupanca.Checked = true;
+            this.rbPoupanca.Location = new System.Drawing.Point(36, 56);
+            this.rbPoupanca.Name = "rbPoupanca";
+            this.rbPoupanca.Size = new System.Drawing.Size(104, 18);
+            this.rbPoupanca.TabIndex = 3;
+            this.rbPoupanca.TabStop = true;
+            this.rbPoupanca.Text = "Conta Poupança";
+            this.rbPoupanca.UseVisualStyleBackColor = true;
+            this.rbPoupanca.CheckedChanged += new System.EventHandler(this.rbPoupanca_CheckedChanged);
+            // 
+            // rbSalario
+            // 
+            this.rbSalario.AutoSize = true;
+            this.rbSalario.Location = new System.Drawing.Point(36, 80);
+            this.rbSalario.Name = "rbSalario";
+            this.rbSalario.Size = new System.Drawing.Size(89, 18);
+            this.rbSalario.TabIndex = 2;
+            this.rbSalario.Text = "Conta Salário";
+            this.rbSalario.UseVisualStyleBackColor = true;
+            this.rbSalario.CheckedChanged += new System.EventHandler(this.rbSalario_CheckedChanged);
+            // 
+            // rbInvestimento
+            // 
+            this.rbInvestimento.AutoSize = true;
+            this.rbInvestimento.Location = new System.Drawing.Point(36, 104);
+            this.rbInvestimento.Name = "rbInvestimento";
+            this.rbInvestimento.Size = new System.Drawing.Size(116, 18);
+            this.rbInvestimento.TabIndex = 1;
+            this.rbInvestimento.Text = "Conta Investimento";
+            this.rbInvestimento.UseVisualStyleBackColor = true;
+            this.rbInvestimento.CheckedChanged += new System.EventHandler(this.rbInvestimento_CheckedChanged);
             // 
             // label25
             // 
@@ -475,6 +521,69 @@
             this.tabPageSalario.TabIndex = 1;
             this.tabPageSalario.Text = "Salário";
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.panel12);
+            this.groupBox4.Controls.Add(this.panel11);
+            this.groupBox4.Location = new System.Drawing.Point(50, 17);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(260, 206);
+            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Dados Holerite";
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.label12);
+            this.panel12.Controls.Add(this.tbNomeFontePag);
+            this.panel12.Location = new System.Drawing.Point(25, 106);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(210, 52);
+            this.panel12.TabIndex = 25;
+            // 
+            // label12
+            // 
+            this.label12.Location = new System.Drawing.Point(10, 10);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(75, 32);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Nome Fonte Pagadora";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tbNomeFontePag
+            // 
+            this.tbNomeFontePag.Location = new System.Drawing.Point(91, 16);
+            this.tbNomeFontePag.Name = "tbNomeFontePag";
+            this.tbNomeFontePag.Size = new System.Drawing.Size(112, 20);
+            this.tbNomeFontePag.TabIndex = 1;
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.label28);
+            this.panel11.Controls.Add(this.mtbCnpjCadastroContaSal);
+            this.panel11.Location = new System.Drawing.Point(25, 48);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(210, 52);
+            this.panel11.TabIndex = 24;
+            // 
+            // label28
+            // 
+            this.label28.Location = new System.Drawing.Point(10, 10);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(75, 32);
+            this.label28.TabIndex = 0;
+            this.label28.Text = "CNPJ Fonte Pagadora";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // mtbCnpjCadastroContaSal
+            // 
+            this.mtbCnpjCadastroContaSal.Location = new System.Drawing.Point(91, 16);
+            this.mtbCnpjCadastroContaSal.Mask = "00\\.000\\.000/0000-00";
+            this.mtbCnpjCadastroContaSal.Name = "mtbCnpjCadastroContaSal";
+            this.mtbCnpjCadastroContaSal.Size = new System.Drawing.Size(112, 20);
+            this.mtbCnpjCadastroContaSal.TabIndex = 55;
+            this.mtbCnpjCadastroContaSal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // tabPageInvestimento
             // 
             this.tabPageInvestimento.BackColor = System.Drawing.Color.PaleGoldenrod;
@@ -488,40 +597,77 @@
             this.tabPageInvestimento.Text = "Investimento";
             this.tabPageInvestimento.Enter += new System.EventHandler(this.tabPageInvestimento_Enter);
             // 
-            // rbInvestimento
+            // groupBox5
             // 
-            this.rbInvestimento.AutoSize = true;
-            this.rbInvestimento.Location = new System.Drawing.Point(36, 104);
-            this.rbInvestimento.Name = "rbInvestimento";
-            this.rbInvestimento.Size = new System.Drawing.Size(116, 18);
-            this.rbInvestimento.TabIndex = 1;
-            this.rbInvestimento.Text = "Conta Investimento";
-            this.rbInvestimento.UseVisualStyleBackColor = true;
-            this.rbInvestimento.CheckedChanged += new System.EventHandler(this.rbInvestimento_CheckedChanged);
+            this.groupBox5.Controls.Add(this.rbPerfil3);
+            this.groupBox5.Controls.Add(this.rbPerfil2);
+            this.groupBox5.Controls.Add(this.rbPerfil1);
+            this.groupBox5.Location = new System.Drawing.Point(76, 33);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(209, 100);
+            this.groupBox5.TabIndex = 5;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Perfil Investidor";
             // 
-            // rbSalario
+            // rbPerfil3
             // 
-            this.rbSalario.AutoSize = true;
-            this.rbSalario.Location = new System.Drawing.Point(36, 80);
-            this.rbSalario.Name = "rbSalario";
-            this.rbSalario.Size = new System.Drawing.Size(89, 18);
-            this.rbSalario.TabIndex = 2;
-            this.rbSalario.Text = "Conta Salário";
-            this.rbSalario.UseVisualStyleBackColor = true;
-            this.rbSalario.CheckedChanged += new System.EventHandler(this.rbSalario_CheckedChanged);
+            this.rbPerfil3.AutoSize = true;
+            this.rbPerfil3.Location = new System.Drawing.Point(24, 67);
+            this.rbPerfil3.Name = "rbPerfil3";
+            this.rbPerfil3.Size = new System.Drawing.Size(65, 18);
+            this.rbPerfil3.TabIndex = 6;
+            this.rbPerfil3.TabStop = true;
+            this.rbPerfil3.Text = "rbPerfil3";
+            this.rbPerfil3.UseVisualStyleBackColor = true;
             // 
-            // rbPoupanca
+            // rbPerfil2
             // 
-            this.rbPoupanca.AutoSize = true;
-            this.rbPoupanca.Checked = true;
-            this.rbPoupanca.Location = new System.Drawing.Point(36, 56);
-            this.rbPoupanca.Name = "rbPoupanca";
-            this.rbPoupanca.Size = new System.Drawing.Size(104, 18);
-            this.rbPoupanca.TabIndex = 3;
-            this.rbPoupanca.TabStop = true;
-            this.rbPoupanca.Text = "Conta Poupança";
-            this.rbPoupanca.UseVisualStyleBackColor = true;
-            this.rbPoupanca.CheckedChanged += new System.EventHandler(this.rbPoupanca_CheckedChanged);
+            this.rbPerfil2.AutoSize = true;
+            this.rbPerfil2.Location = new System.Drawing.Point(24, 46);
+            this.rbPerfil2.Name = "rbPerfil2";
+            this.rbPerfil2.Size = new System.Drawing.Size(65, 18);
+            this.rbPerfil2.TabIndex = 5;
+            this.rbPerfil2.TabStop = true;
+            this.rbPerfil2.Text = "rbPerfil2";
+            this.rbPerfil2.UseVisualStyleBackColor = true;
+            // 
+            // rbPerfil1
+            // 
+            this.rbPerfil1.AutoSize = true;
+            this.rbPerfil1.Location = new System.Drawing.Point(24, 25);
+            this.rbPerfil1.Name = "rbPerfil1";
+            this.rbPerfil1.Size = new System.Drawing.Size(65, 18);
+            this.rbPerfil1.TabIndex = 4;
+            this.rbPerfil1.TabStop = true;
+            this.rbPerfil1.Text = "rbPerfil1";
+            this.rbPerfil1.UseVisualStyleBackColor = true;
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.label30);
+            this.panel14.Controls.Add(this.textBox1);
+            this.panel14.Location = new System.Drawing.Point(76, 153);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(209, 55);
+            this.panel14.TabIndex = 3;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(21, 13);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(77, 28);
+            this.label30.TabIndex = 1;
+            this.label30.Text = "Valor Depósito\r\nInicial (R$)";
+            this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(106, 17);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(81, 20);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tabPage6
             // 
@@ -563,6 +709,18 @@
             this.groupBox2.TabIndex = 50;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Novo Cadastro";
+            // 
+            // btCancelarNovoCadastro
+            // 
+            this.btCancelarNovoCadastro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btCancelarNovoCadastro.Location = new System.Drawing.Point(133, 226);
+            this.btCancelarNovoCadastro.Name = "btCancelarNovoCadastro";
+            this.btCancelarNovoCadastro.Size = new System.Drawing.Size(75, 23);
+            this.btCancelarNovoCadastro.TabIndex = 12;
+            this.btCancelarNovoCadastro.Text = "Cancelar";
+            this.btCancelarNovoCadastro.UseVisualStyleBackColor = true;
+            this.btCancelarNovoCadastro.Click += new System.EventHandler(this.btCancelarNovoCadastro_Click);
             // 
             // checkBox2
             // 
@@ -768,13 +926,23 @@
             // 
             // pnlNumContaDestino
             // 
-            this.pnlNumContaDestino.Controls.Add(this.lblErroContaDest);
             this.pnlNumContaDestino.Controls.Add(this.tbContaDestino);
             this.pnlNumContaDestino.Controls.Add(this.label21);
-            this.pnlNumContaDestino.Location = new System.Drawing.Point(509, 70);
+            this.pnlNumContaDestino.Location = new System.Drawing.Point(509, 96);
             this.pnlNumContaDestino.Name = "pnlNumContaDestino";
-            this.pnlNumContaDestino.Size = new System.Drawing.Size(210, 78);
+            this.pnlNumContaDestino.Size = new System.Drawing.Size(210, 52);
             this.pnlNumContaDestino.TabIndex = 23;
+            // 
+            // lblErroContaDest
+            // 
+            this.lblErroContaDest.AutoSize = true;
+            this.lblErroContaDest.ForeColor = System.Drawing.Color.Red;
+            this.lblErroContaDest.Location = new System.Drawing.Point(66, 35);
+            this.lblErroContaDest.Name = "lblErroContaDest";
+            this.lblErroContaDest.Size = new System.Drawing.Size(79, 14);
+            this.lblErroContaDest.TabIndex = 55;
+            this.lblErroContaDest.Text = "MensagemErro";
+            this.lblErroContaDest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tbContaDestino
             // 
@@ -811,19 +979,29 @@
             this.label20.Text = "CNPJ Fonte Pagadora";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // mtbCnpjDepositoSal
+            // 
+            this.mtbCnpjDepositoSal.Location = new System.Drawing.Point(91, 16);
+            this.mtbCnpjDepositoSal.Mask = "00\\.000\\.000/0000-00";
+            this.mtbCnpjDepositoSal.Name = "mtbCnpjDepositoSal";
+            this.mtbCnpjDepositoSal.Size = new System.Drawing.Size(112, 20);
+            this.mtbCnpjDepositoSal.TabIndex = 55;
+            this.mtbCnpjDepositoSal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // pnlValor
             // 
+            this.pnlValor.Controls.Add(this.lblErroContaDest);
             this.pnlValor.Controls.Add(this.btMovimentoConta);
             this.pnlValor.Controls.Add(this.label19);
             this.pnlValor.Controls.Add(this.tbValorMovimento);
             this.pnlValor.Location = new System.Drawing.Point(509, 212);
             this.pnlValor.Name = "pnlValor";
-            this.pnlValor.Size = new System.Drawing.Size(210, 77);
+            this.pnlValor.Size = new System.Drawing.Size(210, 90);
             this.pnlValor.TabIndex = 22;
             // 
             // btMovimentoConta
             // 
-            this.btMovimentoConta.Location = new System.Drawing.Point(63, 42);
+            this.btMovimentoConta.Location = new System.Drawing.Point(69, 60);
             this.btMovimentoConta.Name = "btMovimentoConta";
             this.btMovimentoConta.Size = new System.Drawing.Size(75, 23);
             this.btMovimentoConta.TabIndex = 23;
@@ -1240,184 +1418,6 @@
             this.tabCtrlTelasApp.TabIndex = 0;
             this.tabCtrlTelasApp.TabStop = false;
             // 
-            // btCancelarNovoCadastro
-            // 
-            this.btCancelarNovoCadastro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btCancelarNovoCadastro.Location = new System.Drawing.Point(133, 226);
-            this.btCancelarNovoCadastro.Name = "btCancelarNovoCadastro";
-            this.btCancelarNovoCadastro.Size = new System.Drawing.Size(75, 23);
-            this.btCancelarNovoCadastro.TabIndex = 12;
-            this.btCancelarNovoCadastro.Text = "Cancelar";
-            this.btCancelarNovoCadastro.UseVisualStyleBackColor = true;
-            this.btCancelarNovoCadastro.Click += new System.EventHandler(this.btCancelarNovoCadastro_Click);
-            // 
-            // mtbCnpjDepositoSal
-            // 
-            this.mtbCnpjDepositoSal.Location = new System.Drawing.Point(91, 16);
-            this.mtbCnpjDepositoSal.Mask = "00\\.000\\.000/0000-00";
-            this.mtbCnpjDepositoSal.Name = "mtbCnpjDepositoSal";
-            this.mtbCnpjDepositoSal.Size = new System.Drawing.Size(112, 20);
-            this.mtbCnpjDepositoSal.TabIndex = 55;
-            this.mtbCnpjDepositoSal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.panel12);
-            this.groupBox4.Controls.Add(this.panel11);
-            this.groupBox4.Location = new System.Drawing.Point(50, 17);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(260, 206);
-            this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Dados Holerite";
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.label28);
-            this.panel11.Controls.Add(this.mtbCnpjCadastroContaSal);
-            this.panel11.Location = new System.Drawing.Point(25, 48);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(210, 52);
-            this.panel11.TabIndex = 24;
-            // 
-            // label28
-            // 
-            this.label28.Location = new System.Drawing.Point(10, 10);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(75, 32);
-            this.label28.TabIndex = 0;
-            this.label28.Text = "CNPJ Fonte Pagadora";
-            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // mtbCnpjCadastroContaSal
-            // 
-            this.mtbCnpjCadastroContaSal.Location = new System.Drawing.Point(91, 16);
-            this.mtbCnpjCadastroContaSal.Mask = "00\\.000\\.000/0000-00";
-            this.mtbCnpjCadastroContaSal.Name = "mtbCnpjCadastroContaSal";
-            this.mtbCnpjCadastroContaSal.Size = new System.Drawing.Size(112, 20);
-            this.mtbCnpjCadastroContaSal.TabIndex = 55;
-            this.mtbCnpjCadastroContaSal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // tbNomeFontePag
-            // 
-            this.tbNomeFontePag.Location = new System.Drawing.Point(91, 16);
-            this.tbNomeFontePag.Name = "tbNomeFontePag";
-            this.tbNomeFontePag.Size = new System.Drawing.Size(112, 20);
-            this.tbNomeFontePag.TabIndex = 1;
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.label12);
-            this.panel12.Controls.Add(this.tbNomeFontePag);
-            this.panel12.Location = new System.Drawing.Point(25, 106);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(210, 52);
-            this.panel12.TabIndex = 25;
-            // 
-            // label12
-            // 
-            this.label12.Location = new System.Drawing.Point(10, 10);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(75, 32);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Nome Fonte Pagadora";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.label36);
-            this.panel13.Controls.Add(this.rbPoupanca);
-            this.panel13.Controls.Add(this.rbSalario);
-            this.panel13.Controls.Add(this.rbInvestimento);
-            this.panel13.Location = new System.Drawing.Point(38, 107);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(270, 144);
-            this.panel13.TabIndex = 55;
-            // 
-            // panel14
-            // 
-            this.panel14.Controls.Add(this.label30);
-            this.panel14.Controls.Add(this.textBox1);
-            this.panel14.Location = new System.Drawing.Point(76, 153);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(209, 55);
-            this.panel14.TabIndex = 3;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(21, 13);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(77, 28);
-            this.label30.TabIndex = 1;
-            this.label30.Text = "Valor Depósito\r\nInicial (R$)";
-            this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(106, 17);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(81, 20);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // rbPerfil1
-            // 
-            this.rbPerfil1.AutoSize = true;
-            this.rbPerfil1.Location = new System.Drawing.Point(24, 25);
-            this.rbPerfil1.Name = "rbPerfil1";
-            this.rbPerfil1.Size = new System.Drawing.Size(65, 18);
-            this.rbPerfil1.TabIndex = 4;
-            this.rbPerfil1.TabStop = true;
-            this.rbPerfil1.Text = "rbPerfil1";
-            this.rbPerfil1.UseVisualStyleBackColor = true;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.rbPerfil3);
-            this.groupBox5.Controls.Add(this.rbPerfil2);
-            this.groupBox5.Controls.Add(this.rbPerfil1);
-            this.groupBox5.Location = new System.Drawing.Point(76, 33);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(209, 100);
-            this.groupBox5.TabIndex = 5;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Perfil Investidor";
-            // 
-            // rbPerfil2
-            // 
-            this.rbPerfil2.AutoSize = true;
-            this.rbPerfil2.Location = new System.Drawing.Point(24, 46);
-            this.rbPerfil2.Name = "rbPerfil2";
-            this.rbPerfil2.Size = new System.Drawing.Size(65, 18);
-            this.rbPerfil2.TabIndex = 5;
-            this.rbPerfil2.TabStop = true;
-            this.rbPerfil2.Text = "rbPerfil2";
-            this.rbPerfil2.UseVisualStyleBackColor = true;
-            // 
-            // rbPerfil3
-            // 
-            this.rbPerfil3.AutoSize = true;
-            this.rbPerfil3.Location = new System.Drawing.Point(24, 67);
-            this.rbPerfil3.Name = "rbPerfil3";
-            this.rbPerfil3.Size = new System.Drawing.Size(65, 18);
-            this.rbPerfil3.TabIndex = 6;
-            this.rbPerfil3.TabStop = true;
-            this.rbPerfil3.Text = "rbPerfil3";
-            this.rbPerfil3.UseVisualStyleBackColor = true;
-            // 
-            // lblErroContaDest
-            // 
-            this.lblErroContaDest.AutoSize = true;
-            this.lblErroContaDest.ForeColor = System.Drawing.Color.Red;
-            this.lblErroContaDest.Location = new System.Drawing.Point(66, 53);
-            this.lblErroContaDest.Name = "lblErroContaDest";
-            this.lblErroContaDest.Size = new System.Drawing.Size(79, 14);
-            this.lblErroContaDest.TabIndex = 55;
-            this.lblErroContaDest.Text = "MensagemErro";
-            this.lblErroContaDest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1434,12 +1434,23 @@
             this.groupBox3.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
             this.tabCtrlTipoConta.ResumeLayout(false);
             this.tabPagePoupanca.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.tabPageSalario.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.tabPageInvestimento.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1475,17 +1486,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabCtrlTelasApp.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
-            this.panel14.ResumeLayout(false);
-            this.panel14.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
