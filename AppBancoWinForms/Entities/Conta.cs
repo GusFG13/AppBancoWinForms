@@ -44,9 +44,9 @@ namespace AppBancoWinForms.Entities
         }
 
 
-        public Conta TranferenciaParaPoupanca(double valor, int numContaDestino, string path)
+        public Conta TranferirParaConta(double valor, int numContaDestino, string path)
         {
-            ContaPoupanca contaDestinataria = null;
+            Conta contaDestinataria = null;
             string dadosContaDestinataria = "";
 
             if (File.Exists(path))
@@ -65,21 +65,32 @@ namespace AppBancoWinForms.Entities
             if (dadosContaDestinataria != "")
             {
                 string[] dadosConta = dadosContaDestinataria.Split(';');
-                int numConta = int.Parse(dadosConta[0]);
-                TipoConta tipoConta = (TipoConta)Enum.Parse(typeof(TipoConta), dadosConta[1]);
-                int numcliente = int.Parse(dadosConta[2]);
-                double saldo = double.Parse(dadosConta[3]);
-                DateTime dataCriacao = DateTime.Parse(dadosConta[4]);
+                int numContaDest = int.Parse(dadosConta[0]);
+                TipoConta tipoContaDest = (TipoConta)Enum.Parse(typeof(TipoConta), dadosConta[1]);
+                int numClienteDest = int.Parse(dadosConta[2]);
+                double saldoDest = double.Parse(dadosConta[3]);
+                DateTime dataCriacaoDest = DateTime.Parse(dadosConta[4]);
 
-                if (tipoConta == TipoConta.ContaPoupanca) 
+
+                switch (tipoContaDest)
                 {
-                    contaDestinataria = new ContaPoupanca(numConta, tipoConta, numcliente, saldo, dataCriacao);
+                    case TipoConta.ContaPoupanca:
+                        contaDestinataria = new ContaPoupanca(numContaDest, tipoContaDest, numClienteDest, saldoDest, dataCriacaoDest);
+                        break;
+                    case TipoConta.ContaInvestimento:
+                        contaDestinataria = new ContaInvestimento(numContaDest, tipoContaDest, numClienteDest, saldoDest, dataCriacaoDest);
+                        break;
+                    case TipoConta.ContaSalario:      
+                    default:
+                        contaDestinataria = null;
+                        break;
+                }
 
+                if (contaDestinataria != null)
+                {
                     Sacar(valor);
                     contaDestinataria.Depositar(valor);
-                    
                 }
-                
             }
             return contaDestinataria;
         }

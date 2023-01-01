@@ -105,7 +105,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.mtbCnpjDepositoSal = new System.Windows.Forms.MaskedTextBox();
             this.pnlValor = new System.Windows.Forms.Panel();
-            this.lblErroContaDest = new System.Windows.Forms.Label();
+            this.lblErroMovimentacao = new System.Windows.Forms.Label();
             this.btMovimentoConta = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.tbValorMovimento = new System.Windows.Forms.TextBox();
@@ -122,12 +122,12 @@
             this.btLogout = new System.Windows.Forms.Button();
             this.btAbrirNovaConta = new System.Windows.Forms.Button();
             this.gbActions = new System.Windows.Forms.GroupBox();
+            this.btInvestirAcoes = new System.Windows.Forms.Button();
             this.rbDepositarSalario = new System.Windows.Forms.RadioButton();
             this.rbDepositar = new System.Windows.Forms.RadioButton();
-            this.rbTransferenciaPoup = new System.Windows.Forms.RadioButton();
+            this.rbTransferencia = new System.Windows.Forms.RadioButton();
             this.rbSacar = new System.Windows.Forms.RadioButton();
-            this.rbInvestir = new System.Windows.Forms.RadioButton();
-            this.lblSelecioneConta = new System.Windows.Forms.Label();
+            this.lblSaudacao = new System.Windows.Forms.Label();
             this.btIrParaPagExtrato = new System.Windows.Forms.Button();
             this.cbContaSelecionada = new System.Windows.Forms.ComboBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -144,6 +144,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btEnter = new System.Windows.Forms.Button();
             this.tabCtrlTelasApp = new System.Windows.Forms.TabControl();
+            this.tabPageAcoes = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.colSelecao = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colAcoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValorAcao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColQuant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btCancelarPagAcoes = new System.Windows.Forms.Button();
+            this.label29 = new System.Windows.Forms.Label();
             this.tabPage8.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPage7.SuspendLayout();
@@ -177,6 +186,8 @@
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabCtrlTelasApp.SuspendLayout();
+            this.tabPageAcoes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage8
@@ -202,6 +213,7 @@
             this.rtbExtrato.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbExtrato.Location = new System.Drawing.Point(222, 36);
             this.rtbExtrato.Name = "rtbExtrato";
+            this.rtbExtrato.ReadOnly = true;
             this.rtbExtrato.Size = new System.Drawing.Size(540, 356);
             this.rtbExtrato.TabIndex = 55;
             this.rtbExtrato.Text = "";
@@ -896,6 +908,7 @@
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.label29);
             this.panel8.Controls.Add(this.label27);
             this.panel8.Controls.Add(this.pnlNumContaDestino);
             this.panel8.Controls.Add(this.pnlCnpj);
@@ -904,7 +917,7 @@
             this.panel8.Controls.Add(this.btLogout);
             this.panel8.Controls.Add(this.btAbrirNovaConta);
             this.panel8.Controls.Add(this.gbActions);
-            this.panel8.Controls.Add(this.lblSelecioneConta);
+            this.panel8.Controls.Add(this.lblSaudacao);
             this.panel8.Controls.Add(this.btIrParaPagExtrato);
             this.panel8.Controls.Add(this.cbContaSelecionada);
             this.panel8.Location = new System.Drawing.Point(19, 14);
@@ -979,29 +992,28 @@
             // 
             // pnlValor
             // 
-            this.pnlValor.Controls.Add(this.lblErroContaDest);
+            this.pnlValor.Controls.Add(this.lblErroMovimentacao);
             this.pnlValor.Controls.Add(this.btMovimentoConta);
             this.pnlValor.Controls.Add(this.label19);
             this.pnlValor.Controls.Add(this.tbValorMovimento);
             this.pnlValor.Location = new System.Drawing.Point(509, 212);
             this.pnlValor.Name = "pnlValor";
-            this.pnlValor.Size = new System.Drawing.Size(210, 90);
+            this.pnlValor.Size = new System.Drawing.Size(210, 99);
             this.pnlValor.TabIndex = 22;
             // 
-            // lblErroContaDest
+            // lblErroMovimentacao
             // 
-            this.lblErroContaDest.AutoSize = true;
-            this.lblErroContaDest.ForeColor = System.Drawing.Color.Red;
-            this.lblErroContaDest.Location = new System.Drawing.Point(66, 35);
-            this.lblErroContaDest.Name = "lblErroContaDest";
-            this.lblErroContaDest.Size = new System.Drawing.Size(79, 14);
-            this.lblErroContaDest.TabIndex = 55;
-            this.lblErroContaDest.Text = "MensagemErro";
-            this.lblErroContaDest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblErroMovimentacao.ForeColor = System.Drawing.Color.Red;
+            this.lblErroMovimentacao.Location = new System.Drawing.Point(3, 32);
+            this.lblErroMovimentacao.Name = "lblErroMovimentacao";
+            this.lblErroMovimentacao.Size = new System.Drawing.Size(204, 39);
+            this.lblErroMovimentacao.TabIndex = 55;
+            this.lblErroMovimentacao.Text = "MensagemErro";
+            this.lblErroMovimentacao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btMovimentoConta
             // 
-            this.btMovimentoConta.Location = new System.Drawing.Point(69, 60);
+            this.btMovimentoConta.Location = new System.Drawing.Point(68, 73);
             this.btMovimentoConta.Name = "btMovimentoConta";
             this.btMovimentoConta.Size = new System.Drawing.Size(75, 23);
             this.btMovimentoConta.TabIndex = 23;
@@ -1150,22 +1162,32 @@
             // 
             // gbActions
             // 
+            this.gbActions.Controls.Add(this.btInvestirAcoes);
             this.gbActions.Controls.Add(this.rbDepositarSalario);
             this.gbActions.Controls.Add(this.rbDepositar);
-            this.gbActions.Controls.Add(this.rbTransferenciaPoup);
+            this.gbActions.Controls.Add(this.rbTransferencia);
             this.gbActions.Controls.Add(this.rbSacar);
-            this.gbActions.Controls.Add(this.rbInvestir);
             this.gbActions.Location = new System.Drawing.Point(275, 109);
             this.gbActions.Name = "gbActions";
             this.gbActions.Size = new System.Drawing.Size(200, 180);
             this.gbActions.TabIndex = 9;
             this.gbActions.TabStop = false;
-            this.gbActions.Text = "Selecione uma ação";
+            this.gbActions.Text = "Selecione uma operação";
+            // 
+            // btInvestirAcoes
+            // 
+            this.btInvestirAcoes.Location = new System.Drawing.Point(13, 145);
+            this.btInvestirAcoes.Name = "btInvestirAcoes";
+            this.btInvestirAcoes.Size = new System.Drawing.Size(113, 23);
+            this.btInvestirAcoes.TabIndex = 11;
+            this.btInvestirAcoes.Text = "Investir em Ações";
+            this.btInvestirAcoes.UseVisualStyleBackColor = true;
+            this.btInvestirAcoes.Click += new System.EventHandler(this.btInvestirAcoes_Click);
             // 
             // rbDepositarSalario
             // 
             this.rbDepositarSalario.AutoSize = true;
-            this.rbDepositarSalario.Location = new System.Drawing.Point(15, 138);
+            this.rbDepositarSalario.Location = new System.Drawing.Point(13, 115);
             this.rbDepositarSalario.Name = "rbDepositarSalario";
             this.rbDepositarSalario.Size = new System.Drawing.Size(107, 18);
             this.rbDepositarSalario.TabIndex = 10;
@@ -1177,7 +1199,7 @@
             // rbDepositar
             // 
             this.rbDepositar.AutoSize = true;
-            this.rbDepositar.Location = new System.Drawing.Point(15, 34);
+            this.rbDepositar.Location = new System.Drawing.Point(13, 25);
             this.rbDepositar.Name = "rbDepositar";
             this.rbDepositar.Size = new System.Drawing.Size(71, 18);
             this.rbDepositar.TabIndex = 5;
@@ -1186,22 +1208,22 @@
             this.rbDepositar.UseVisualStyleBackColor = true;
             this.rbDepositar.CheckedChanged += new System.EventHandler(this.rbDepositar_CheckedChanged);
             // 
-            // rbTransferenciaPoup
+            // rbTransferencia
             // 
-            this.rbTransferenciaPoup.AutoSize = true;
-            this.rbTransferenciaPoup.Location = new System.Drawing.Point(15, 112);
-            this.rbTransferenciaPoup.Name = "rbTransferenciaPoup";
-            this.rbTransferenciaPoup.Size = new System.Drawing.Size(169, 18);
-            this.rbTransferenciaPoup.TabIndex = 8;
-            this.rbTransferenciaPoup.TabStop = true;
-            this.rbTransferenciaPoup.Text = "Transferência Para Poupança";
-            this.rbTransferenciaPoup.UseVisualStyleBackColor = true;
-            this.rbTransferenciaPoup.CheckedChanged += new System.EventHandler(this.rbTransferenciaPoup_CheckedChanged);
+            this.rbTransferencia.AutoSize = true;
+            this.rbTransferencia.Location = new System.Drawing.Point(13, 85);
+            this.rbTransferencia.Name = "rbTransferencia";
+            this.rbTransferencia.Size = new System.Drawing.Size(93, 18);
+            this.rbTransferencia.TabIndex = 8;
+            this.rbTransferencia.TabStop = true;
+            this.rbTransferencia.Text = "Transferência";
+            this.rbTransferencia.UseVisualStyleBackColor = true;
+            this.rbTransferencia.CheckedChanged += new System.EventHandler(this.rbTransferenciaPoup_CheckedChanged);
             // 
             // rbSacar
             // 
             this.rbSacar.AutoSize = true;
-            this.rbSacar.Location = new System.Drawing.Point(15, 60);
+            this.rbSacar.Location = new System.Drawing.Point(13, 55);
             this.rbSacar.Name = "rbSacar";
             this.rbSacar.Size = new System.Drawing.Size(54, 18);
             this.rbSacar.TabIndex = 6;
@@ -1210,26 +1232,15 @@
             this.rbSacar.UseVisualStyleBackColor = true;
             this.rbSacar.CheckedChanged += new System.EventHandler(this.rbSacar_CheckedChanged);
             // 
-            // rbInvestir
+            // lblSaudacao
             // 
-            this.rbInvestir.AutoSize = true;
-            this.rbInvestir.Location = new System.Drawing.Point(15, 86);
-            this.rbInvestir.Name = "rbInvestir";
-            this.rbInvestir.Size = new System.Drawing.Size(111, 18);
-            this.rbInvestir.TabIndex = 7;
-            this.rbInvestir.TabStop = true;
-            this.rbInvestir.Text = "Investir Em Ações";
-            this.rbInvestir.UseVisualStyleBackColor = true;
-            this.rbInvestir.CheckedChanged += new System.EventHandler(this.rbInvestir_CheckedChanged);
-            // 
-            // lblSelecioneConta
-            // 
-            this.lblSelecioneConta.AutoSize = true;
-            this.lblSelecioneConta.Location = new System.Drawing.Point(23, 70);
-            this.lblSelecioneConta.Name = "lblSelecioneConta";
-            this.lblSelecioneConta.Size = new System.Drawing.Size(108, 14);
-            this.lblSelecioneConta.TabIndex = 2;
-            this.lblSelecioneConta.Text = "Selecione sua conta:";
+            this.lblSaudacao.AutoSize = true;
+            this.lblSaudacao.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSaudacao.Location = new System.Drawing.Point(23, 56);
+            this.lblSaudacao.Name = "lblSaudacao";
+            this.lblSaudacao.Size = new System.Drawing.Size(65, 16);
+            this.lblSaudacao.TabIndex = 2;
+            this.lblSaudacao.Text = "Saudação";
             // 
             // btIrParaPagExtrato
             // 
@@ -1408,6 +1419,7 @@
             this.tabCtrlTelasApp.Controls.Add(this.tabPage6);
             this.tabCtrlTelasApp.Controls.Add(this.tabPage7);
             this.tabCtrlTelasApp.Controls.Add(this.tabPage8);
+            this.tabCtrlTelasApp.Controls.Add(this.tabPageAcoes);
             this.tabCtrlTelasApp.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabCtrlTelasApp.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabCtrlTelasApp.ItemSize = new System.Drawing.Size(58, 21);
@@ -1417,6 +1429,103 @@
             this.tabCtrlTelasApp.Size = new System.Drawing.Size(776, 427);
             this.tabCtrlTelasApp.TabIndex = 0;
             this.tabCtrlTelasApp.TabStop = false;
+            // 
+            // tabPageAcoes
+            // 
+            this.tabPageAcoes.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.tabPageAcoes.Controls.Add(this.dataGridView1);
+            this.tabPageAcoes.Controls.Add(this.label13);
+            this.tabPageAcoes.Controls.Add(this.btCancelarPagAcoes);
+            this.tabPageAcoes.Location = new System.Drawing.Point(4, 25);
+            this.tabPageAcoes.Name = "tabPageAcoes";
+            this.tabPageAcoes.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAcoes.Size = new System.Drawing.Size(768, 398);
+            this.tabPageAcoes.TabIndex = 5;
+            this.tabPageAcoes.Text = "Ações";
+            this.tabPageAcoes.Enter += new System.EventHandler(this.tabPageAcoes_Enter);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.ColumnHeadersHeight = 22;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colSelecao,
+            this.colAcoes,
+            this.colValorAcao,
+            this.ColQuant});
+            this.dataGridView1.Location = new System.Drawing.Point(17, 17);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dataGridView1.Size = new System.Drawing.Size(208, 243);
+            this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            // 
+            // colSelecao
+            // 
+            this.colSelecao.FalseValue = "false";
+            this.colSelecao.HeaderText = "";
+            this.colSelecao.Name = "colSelecao";
+            this.colSelecao.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colSelecao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colSelecao.TrueValue = "true";
+            this.colSelecao.Width = 25;
+            // 
+            // colAcoes
+            // 
+            this.colAcoes.HeaderText = "Ações";
+            this.colAcoes.Name = "colAcoes";
+            this.colAcoes.ReadOnly = true;
+            this.colAcoes.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colAcoes.Width = 50;
+            // 
+            // colValorAcao
+            // 
+            this.colValorAcao.HeaderText = "Valor / Ação";
+            this.colValorAcao.Name = "colValorAcao";
+            this.colValorAcao.ReadOnly = true;
+            this.colValorAcao.Width = 80;
+            // 
+            // ColQuant
+            // 
+            this.ColQuant.HeaderText = "Qtd.";
+            this.ColQuant.Name = "ColQuant";
+            this.ColQuant.Width = 50;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(102, 314);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(41, 14);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "label13";
+            // 
+            // btCancelarPagAcoes
+            // 
+            this.btCancelarPagAcoes.Location = new System.Drawing.Point(365, 349);
+            this.btCancelarPagAcoes.Name = "btCancelarPagAcoes";
+            this.btCancelarPagAcoes.Size = new System.Drawing.Size(75, 23);
+            this.btCancelarPagAcoes.TabIndex = 0;
+            this.btCancelarPagAcoes.Text = "Cancelar";
+            this.btCancelarPagAcoes.UseVisualStyleBackColor = true;
+            this.btCancelarPagAcoes.Click += new System.EventHandler(this.btCancelarPagAcoes_Click);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(23, 79);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(108, 14);
+            this.label29.TabIndex = 55;
+            this.label29.Text = "Selecione sua conta:";
             // 
             // Form1
             // 
@@ -1486,6 +1595,9 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabCtrlTelasApp.ResumeLayout(false);
+            this.tabPageAcoes.ResumeLayout(false);
+            this.tabPageAcoes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1537,7 +1649,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button btIrParaPagExtrato;
-        private System.Windows.Forms.Label lblSelecioneConta;
+        private System.Windows.Forms.Label lblSaudacao;
         private System.Windows.Forms.ComboBox cbContaSelecionada;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button btNovoCadastro;
@@ -1555,9 +1667,8 @@
         private System.Windows.Forms.Button btVoltar;
         private System.Windows.Forms.GroupBox gbActions;
         private System.Windows.Forms.RadioButton rbDepositar;
-        private System.Windows.Forms.RadioButton rbTransferenciaPoup;
+        private System.Windows.Forms.RadioButton rbTransferencia;
         private System.Windows.Forms.RadioButton rbSacar;
-        private System.Windows.Forms.RadioButton rbInvestir;
         private System.Windows.Forms.RadioButton rbDepositarSalario;
         private System.Windows.Forms.Button btVoltarParaMenu;
         private System.Windows.Forms.Button btAbrirNovaConta;
@@ -1606,8 +1717,18 @@
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label lblErroContaDest;
+        private System.Windows.Forms.Label lblErroMovimentacao;
         private System.Windows.Forms.RichTextBox rtbExtrato;
+        private System.Windows.Forms.Button btInvestirAcoes;
+        private System.Windows.Forms.TabPage tabPageAcoes;
+        private System.Windows.Forms.Button btCancelarPagAcoes;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colSelecao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAcoes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colValorAcao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColQuant;
+        private System.Windows.Forms.Label label29;
     }
 }
 

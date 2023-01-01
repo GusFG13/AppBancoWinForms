@@ -13,7 +13,10 @@ namespace AppBancoWinForms.Entities
             Holerite = holerite;
         }
 
-
+        public override double CalcularValorTarifa(double valor)
+        {
+            return 0.03 * valor;
+        }
         public override string ToString()
         {
             return NumeroConta
