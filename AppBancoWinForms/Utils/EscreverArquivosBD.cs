@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AppBancoWinForms.Entities;
 using System.Text;
+using AppBancoWinForms.Entities.Enums;
 
 namespace AppBancoWinForms.Utils
 {
@@ -222,6 +223,35 @@ namespace AppBancoWinForms.Utils
                     writer.Write(sb.ToString());
                 }
             }
+        }
+
+        public static ContaSalario BuscarContaSalario(string path, int numContaSalario)
+        {
+            ContaSalario contaSalarioDestino = null;
+            if (File.Exists(path))
+            {
+                string[] contasCSV = File.ReadAllLines(path);
+                for (int i = 0; i < contasCSV.Length; i++)
+                {
+                    if (int.Parse(contasCSV[i].Split(';')[0]) == numContaSalario)
+                    {
+                        string[] dadosContaSalario = contasCSV[i].Split(';');
+                        TipoConta tipoConta = (TipoConta)Enum.Parse(typeof(TipoConta), dadosContaSalario[1]);
+                        if (tipoConta == TipoConta.ContaSalario)
+                        {
+                            int numCliente = int.Parse(dadosContaSalario[2]);
+                            double saldo = double.Parse(dadosContaSalario[3]);
+                            DateTime dataCriacao = DateTime.Parse(dadosContaSalario[4]);
+                            Holerite dadosHolerite = new Holerite();
+                            dadosHolerite.Cnpj = dadosContaSalario[5];
+                            dadosHolerite.NomeFontePagadora = dadosContaSalario[6];
+                            contaSalarioDestino = new ContaSalario(numContaSalario, tipoConta, numCliente, saldo, dataCriacao, dadosHolerite);
+                        }
+                        break;
+                    }
+                }
+            }
+            return contaSalarioDestino;
         }
 
 

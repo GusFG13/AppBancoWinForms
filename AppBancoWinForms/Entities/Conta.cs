@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using AppBancoWinForms.Entities.Enums;
 using AppBancoWinForms.Utils;
+using AppBancoWinForms.Entities;
 
 namespace AppBancoWinForms.Entities
 {
@@ -40,7 +41,21 @@ namespace AppBancoWinForms.Entities
 
         public virtual double CalcularValorTarifa(double valor)
         {
-            return 0.0 * valor;
+            double taxa = 0;
+            switch (this.TipoConta)
+            {
+                case TipoConta.ContaSalario:
+                    taxa = TaxasAdmin.TxContaSalario;
+                    break;
+                case TipoConta.ContaPoupanca:
+                    taxa = TaxasAdmin.TxContaPoupanca;
+                    break;
+                case TipoConta.ContaInvestimento:
+                    taxa = TaxasAdmin.TxContaInvestimento;
+                    break;
+                default: break;
+            }
+            return taxa * valor;
         }
 
 

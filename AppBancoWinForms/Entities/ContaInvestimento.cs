@@ -12,10 +12,10 @@ namespace AppBancoWinForms.Entities
 
         }
 
-        public override double CalcularValorTarifa(double valor)
-        {
-            return 0.08 * valor;
-        }
+        //public override double CalcularValorTarifa(double valor)
+        //{
+        //    return 0.08 * valor;
+        //}
 
 
         public override string ToString()

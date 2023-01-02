@@ -311,7 +311,16 @@ namespace AppBancoWinForms
             }
             else
             {
-                MessageBox.Show("Implementar função.", "Exportar Extrato", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "Arquivo de texto | *.txt";
+                sfd.Title = "Salvar Extrato Gerado";
+                //sfd.ShowDialog();
+                sfd.FileName = $"Extrato_Conta_{contaAtual.NumeroConta}_{DateTime.Now.ToString("yyyyMMddHHmmss")}";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    File.WriteAllText(sfd.FileName, rtbExtrato.Text);
+                }
+
             }
         }
 
@@ -787,6 +796,110 @@ namespace AppBancoWinForms
             label13.Text = "Valor Total: " + total;
         }
 
+        private void btCancelarTelaDepSal_Click(object sender, EventArgs e)
+        {
+            tabCtrlTelasApp.SelectedTab = tabPage1;
+        }
 
+        private void btIrParaDepSalario_Click(object sender, EventArgs e)
+        {
+            tabCtrlTelasApp.SelectedTab = tbDepContaSalario;
+        }
+
+        private void btDepositarSalario_Click(object sender, EventArgs e)
+        {
+            bool camposOk = true;
+            int numContaSalDep = 0;
+            double valorDeposito = 0;
+            // testa preenchimento dos campos
+            if (!int.TryParse(tbNumContaDepSal.Text, out numContaSalDep)){
+                lblErroTelaDepSal.Text = "Insira um Nº válido.";
+                tbNumContaDepSal.Focus();
+                camposOk = false;
+            }
+            else if (!mtbCpfDepSalario.MaskFull)
+            {
+                lblErroTelaDepSal.Text = "Campo CPF incorreto.";
+                mtbCpfDepSalario.Focus();
+                camposOk = false;
+            }
+            else if (!mtbCnpjDepSalario.MaskFull)
+            {
+                lblErroTelaDepSal.Text = "Campo CNPJ incorreto.";
+                mtbCnpjDepSalario.Focus();
+                camposOk = false;
+            }
+            else if (!double.TryParse(tbValorSalario.Text.Replace('.', ','), out valorDeposito))
+            {
+                lblErroTelaDepSal.Text = "Valor inválido";
+                tbValorSalario.Focus();
+                camposOk = false;
+            }
+
+            if (camposOk)
+            {
+                if (valorDeposito > 0)
+                {
+                    string infoCliente = EscreverArquivosBD.RetornarDadosCliente(pathClientes, mtbCpfDepSalario.Text);
+                    if (infoCliente != "")
+                    {
+                        ContaSalario contaSalDeposito = EscreverArquivosBD.BuscarContaSalario(pathContas, numContaSalDep);
+                        if (contaSalDeposito != null) 
+                        {
+                            if (contaSalDeposito.Holerite.Cnpj == mtbCnpjDepSalario.Text) 
+                            {
+                                if (int.Parse(infoCliente.Split(';')[0]) == contaSalDeposito.NumeroCliente)
+                                {
+                                    //ok para depósito
+                                    DateTime horaTransacao = DateTime.UtcNow;
+                                    double saldoAnterior = contaSalDeposito.Saldo;// salvar saldo anterior para exibir no extrato
+                                    bool movConcluido = false;
+                                    contaSalDeposito.Depositar(valorDeposito);
+                                    EscreverArquivosBD.GravarSaldoContaAtualizado(pathContas, contaSalDeposito);
+                                    Extrato movimento = new Extrato(horaTransacao, "Depósito Salário", contaSalDeposito.NumeroConta, valorDeposito, saldoAnterior, contaSalDeposito.Saldo);
+                                    EscreverArquivosBD.EscreverNovoItem(pathTransacoes, movimento.ToString());
+
+                                    MessageBox.Show("Operação concluída!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    lblErroTelaDepSal.Text = "";
+                                    tbNumContaDepSal.Clear();
+                                    mtbCpfDepSalario.Clear();
+                                    mtbCnpjDepSalario.Clear();
+                                    tbValorSalario.Clear();
+                                }
+                                else
+                                {
+                                    lblErroTelaDepSal.Text = "CPF não corresponde ao cadastro\nda conta informada.";
+                                    mtbCpfDepSalario.Focus();
+                                }
+                            }
+                            else
+                            {
+                                lblErroTelaDepSal.Text = "CNPJ não corresponde ao cadastro\nda conta informada.";
+                                mtbCnpjDepSalario.Focus();
+                            }
+                        }
+                        else
+                        {
+                            lblErroTelaDepSal.Text = "Nº informado não encontrado\nou não é uma Conta Salário.";
+                            tbNumContaDepSal.Focus();
+                        }
+                    }
+                    else 
+                    {
+                        lblErroTelaDepSal.Text = "CPF informado não encontrado\nno cadastro de clientes.";
+                    }
+                }
+                else
+                {
+                    lblErroTelaDepSal.Text = "Insira um valor maior que zero.";
+                    tbValorSalario.Focus();
+                }
+            }
+        }// btDepositarSalario_Click
+
+        private void tabCtrlTelasApp_Enter(object sender, EventArgs e)
+        {
+            lblErroTelaDepSal.Text = "";
+        }
     }
 }
