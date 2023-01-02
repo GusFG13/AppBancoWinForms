@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Acoes.cs" />
+    <Compile Include="Entities\Enums\Acoes.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Conta.cs" />
     <Compile Include="Entities\ContaInvestimento.cs" />

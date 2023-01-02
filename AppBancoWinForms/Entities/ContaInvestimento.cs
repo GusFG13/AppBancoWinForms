@@ -7,9 +7,19 @@ namespace AppBancoWinForms.Entities
     class ContaInvestimento : Conta
     {
         // public PerfilInvestidor Perfil { get; set; }
+
+        public Acoes Investir { get; set; }
+        public double ValorInvestido { get; set; }
         public ContaInvestimento(int numeroConta, TipoConta tipoConta, int numeroCliente, double saldo, DateTime dataCriacao) : base(numeroConta, tipoConta, numeroCliente, saldo, dataCriacao)
         {
 
+        }
+
+        public void InvestirAcoes(Acoes investir, double valorInvestido)
+        {
+            Investir = investir;
+            ValorInvestido = valorInvestido;
+            Saldo += valorInvestido + 3;
         }
 
         //public override double CalcularValorTarifa(double valor)

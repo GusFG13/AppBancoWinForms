@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace AppBancoWinForms.Entities
 {
-    internal class Acoes
+    public enum Acoes
     {
+        TesouroDireto = 1,
+        LetrasDeCredito = 2,
+        CDB = 3,
+        Imoveis = 4
     }
 }
