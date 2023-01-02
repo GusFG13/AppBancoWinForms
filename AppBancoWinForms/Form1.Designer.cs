@@ -73,7 +73,7 @@
             this.rbPerfil1 = new System.Windows.Forms.RadioButton();
             this.panel14 = new System.Windows.Forms.Panel();
             this.label30 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbDepIniInvest = new System.Windows.Forms.TextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.label24 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -97,6 +97,7 @@
             this.btCadastrar = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btExibirDadosCliente = new System.Windows.Forms.Button();
             this.label29 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.pnlNumContaDestino = new System.Windows.Forms.Panel();
@@ -132,6 +133,8 @@
             this.btIrParaPagExtrato = new System.Windows.Forms.Button();
             this.cbContaSelecionada = new System.Windows.Forms.ComboBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btFecharPrograma = new System.Windows.Forms.Button();
+            this.btIrParaDepSalario = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.btNovoCadastro = new System.Windows.Forms.Button();
@@ -146,6 +149,8 @@
             this.btEnter = new System.Windows.Forms.Button();
             this.tabCtrlTelasApp = new System.Windows.Forms.TabControl();
             this.tabPageAcoes = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.colSelecao = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colAcoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -154,22 +159,21 @@
             this.label13 = new System.Windows.Forms.Label();
             this.btCancelarPagAcoes = new System.Windows.Forms.Button();
             this.tbDepContaSalario = new System.Windows.Forms.TabPage();
-            this.tbNumContaDepSal = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.tbValorSalario = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
+            this.tbNumContaDepSal = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.mtbCnpjDepSalario = new System.Windows.Forms.MaskedTextBox();
-            this.lblErroTelaDepSal = new System.Windows.Forms.Label();
-            this.btDepositarSalario = new System.Windows.Forms.Button();
-            this.label34 = new System.Windows.Forms.Label();
-            this.tbValorSalario = new System.Windows.Forms.TextBox();
             this.mtbCpfDepSalario = new System.Windows.Forms.MaskedTextBox();
             this.label35 = new System.Windows.Forms.Label();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.lblErroTelaDepSal = new System.Windows.Forms.Label();
             this.btCancelarTelaDepSal = new System.Windows.Forms.Button();
-            this.btIrParaDepSalario = new System.Windows.Forms.Button();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
+            this.btDepositarSalario = new System.Windows.Forms.Button();
             this.tabPage8.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPage7.SuspendLayout();
@@ -677,7 +681,7 @@
             // panel14
             // 
             this.panel14.Controls.Add(this.label30);
-            this.panel14.Controls.Add(this.textBox1);
+            this.panel14.Controls.Add(this.tbDepIniInvest);
             this.panel14.Location = new System.Drawing.Point(76, 153);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(209, 55);
@@ -693,13 +697,13 @@
             this.label30.Text = "Valor Depósito\r\nInicial (R$)";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox1
+            // tbDepIniInvest
             // 
-            this.textBox1.Location = new System.Drawing.Point(106, 17);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(81, 20);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbDepIniInvest.Location = new System.Drawing.Point(106, 17);
+            this.tbDepIniInvest.Name = "tbDepIniInvest";
+            this.tbDepIniInvest.Size = new System.Drawing.Size(81, 20);
+            this.tbDepIniInvest.TabIndex = 2;
+            this.tbDepIniInvest.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tabPage6
             // 
@@ -928,6 +932,7 @@
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.btExibirDadosCliente);
             this.panel8.Controls.Add(this.label29);
             this.panel8.Controls.Add(this.label27);
             this.panel8.Controls.Add(this.pnlNumContaDestino);
@@ -944,6 +949,16 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(730, 371);
             this.panel8.TabIndex = 0;
+            // 
+            // btExibirDadosCliente
+            // 
+            this.btExibirDadosCliente.Location = new System.Drawing.Point(55, 305);
+            this.btExibirDadosCliente.Name = "btExibirDadosCliente";
+            this.btExibirDadosCliente.Size = new System.Drawing.Size(155, 23);
+            this.btExibirDadosCliente.TabIndex = 56;
+            this.btExibirDadosCliente.Text = "Dados Cadastro Cliente";
+            this.btExibirDadosCliente.UseVisualStyleBackColor = true;
+            this.btExibirDadosCliente.Click += new System.EventHandler(this.btExibirDadosCliente_Click);
             // 
             // label29
             // 
@@ -1299,6 +1314,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.tabPage1.Controls.Add(this.btFecharPrograma);
             this.tabPage1.Controls.Add(this.btIrParaDepSalario);
             this.tabPage1.Controls.Add(this.label23);
             this.tabPage1.Controls.Add(this.label22);
@@ -1312,12 +1328,36 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Página Inicial";
             // 
+            // btFecharPrograma
+            // 
+            this.btFecharPrograma.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btFecharPrograma.Location = new System.Drawing.Point(322, 336);
+            this.btFecharPrograma.Name = "btFecharPrograma";
+            this.btFecharPrograma.Size = new System.Drawing.Size(125, 25);
+            this.btFecharPrograma.TabIndex = 11;
+            this.btFecharPrograma.Text = "Fechar programa";
+            this.btFecharPrograma.UseVisualStyleBackColor = true;
+            this.btFecharPrograma.Click += new System.EventHandler(this.btFecharPrograma_Click);
+            // 
+            // btIrParaDepSalario
+            // 
+            this.btIrParaDepSalario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btIrParaDepSalario.Location = new System.Drawing.Point(296, 295);
+            this.btIrParaDepSalario.Name = "btIrParaDepSalario";
+            this.btIrParaDepSalario.Size = new System.Drawing.Size(176, 30);
+            this.btIrParaDepSalario.TabIndex = 7;
+            this.btIrParaDepSalario.Text = "Depósito em Conta Salário";
+            this.btIrParaDepSalario.UseVisualStyleBackColor = true;
+            this.btIrParaDepSalario.Click += new System.EventHandler(this.btIrParaDepSalario_Click);
+            // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label23.Location = new System.Drawing.Point(238, 14);
+            this.label23.Location = new System.Drawing.Point(238, 3);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(292, 70);
             this.label23.TabIndex = 10;
@@ -1339,9 +1379,9 @@
             // 
             this.btNovoCadastro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btNovoCadastro.Location = new System.Drawing.Point(281, 280);
+            this.btNovoCadastro.Location = new System.Drawing.Point(296, 254);
             this.btNovoCadastro.Name = "btNovoCadastro";
-            this.btNovoCadastro.Size = new System.Drawing.Size(206, 39);
+            this.btNovoCadastro.Size = new System.Drawing.Size(176, 30);
             this.btNovoCadastro.TabIndex = 6;
             this.btNovoCadastro.Text = "Cadastrar Agora";
             this.btNovoCadastro.UseVisualStyleBackColor = true;
@@ -1356,7 +1396,7 @@
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Controls.Add(this.btEnter);
-            this.groupBox1.Location = new System.Drawing.Point(220, 106);
+            this.groupBox1.Location = new System.Drawing.Point(220, 80);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(328, 158);
             this.groupBox1.TabIndex = 0;
@@ -1465,6 +1505,8 @@
             // tabPageAcoes
             // 
             this.tabPageAcoes.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.tabPageAcoes.Controls.Add(this.button2);
+            this.tabPageAcoes.Controls.Add(this.button1);
             this.tabPageAcoes.Controls.Add(this.dataGridView1);
             this.tabPageAcoes.Controls.Add(this.label13);
             this.tabPageAcoes.Controls.Add(this.btCancelarPagAcoes);
@@ -1475,6 +1517,24 @@
             this.tabPageAcoes.TabIndex = 5;
             this.tabPageAcoes.Text = "Ações";
             this.tabPageAcoes.Enter += new System.EventHandler(this.tabPageAcoes_Enter);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(481, 172);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(278, 173);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -1563,13 +1623,62 @@
             this.tbDepContaSalario.TabIndex = 6;
             this.tbDepContaSalario.Text = "Dep. Conta Salario";
             // 
-            // tbNumContaDepSal
+            // label38
             // 
-            this.tbNumContaDepSal.Location = new System.Drawing.Point(110, 17);
-            this.tbNumContaDepSal.Name = "tbNumContaDepSal";
-            this.tbNumContaDepSal.Size = new System.Drawing.Size(112, 20);
-            this.tbNumContaDepSal.TabIndex = 1;
-            this.tbNumContaDepSal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(278, 56);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(212, 19);
+            this.label38.TabIndex = 56;
+            this.label38.Text = "Depósito em Conta Salário";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label37.Location = new System.Drawing.Point(286, 16);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(196, 30);
+            this.label37.TabIndex = 55;
+            this.label37.Text = "AppBanco Grupo 5";
+            this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.panel15);
+            this.groupBox6.Controls.Add(this.lblErroTelaDepSal);
+            this.groupBox6.Controls.Add(this.btCancelarTelaDepSal);
+            this.groupBox6.Controls.Add(this.btDepositarSalario);
+            this.groupBox6.Location = new System.Drawing.Point(247, 87);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(274, 272);
+            this.groupBox6.TabIndex = 28;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Dados Conta Salário";
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.tbValorSalario);
+            this.panel15.Controls.Add(this.label31);
+            this.panel15.Controls.Add(this.tbNumContaDepSal);
+            this.panel15.Controls.Add(this.label34);
+            this.panel15.Controls.Add(this.label32);
+            this.panel15.Controls.Add(this.mtbCnpjDepSalario);
+            this.panel15.Controls.Add(this.mtbCpfDepSalario);
+            this.panel15.Controls.Add(this.label35);
+            this.panel15.Location = new System.Drawing.Point(12, 19);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(250, 156);
+            this.panel15.TabIndex = 29;
+            // 
+            // tbValorSalario
+            // 
+            this.tbValorSalario.Location = new System.Drawing.Point(110, 119);
+            this.tbValorSalario.Name = "tbValorSalario";
+            this.tbValorSalario.Size = new System.Drawing.Size(112, 20);
+            this.tbValorSalario.TabIndex = 21;
             // 
             // label31
             // 
@@ -1579,6 +1688,23 @@
             this.label31.TabIndex = 0;
             this.label31.Text = "Nº Conta Destinatária";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tbNumContaDepSal
+            // 
+            this.tbNumContaDepSal.Location = new System.Drawing.Point(110, 17);
+            this.tbNumContaDepSal.Name = "tbNumContaDepSal";
+            this.tbNumContaDepSal.Size = new System.Drawing.Size(112, 20);
+            this.tbNumContaDepSal.TabIndex = 1;
+            this.tbNumContaDepSal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(56, 122);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(48, 14);
+            this.label34.TabIndex = 22;
+            this.label34.Text = "Valor R$";
             // 
             // label32
             // 
@@ -1596,42 +1722,6 @@
             this.mtbCnpjDepSalario.Name = "mtbCnpjDepSalario";
             this.mtbCnpjDepSalario.Size = new System.Drawing.Size(112, 20);
             this.mtbCnpjDepSalario.TabIndex = 55;
-            // 
-            // lblErroTelaDepSal
-            // 
-            this.lblErroTelaDepSal.ForeColor = System.Drawing.Color.Red;
-            this.lblErroTelaDepSal.Location = new System.Drawing.Point(35, 226);
-            this.lblErroTelaDepSal.Name = "lblErroTelaDepSal";
-            this.lblErroTelaDepSal.Size = new System.Drawing.Size(204, 39);
-            this.lblErroTelaDepSal.TabIndex = 55;
-            this.lblErroTelaDepSal.Text = "MensagemErro";
-            this.lblErroTelaDepSal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btDepositarSalario
-            // 
-            this.btDepositarSalario.Location = new System.Drawing.Point(148, 193);
-            this.btDepositarSalario.Name = "btDepositarSalario";
-            this.btDepositarSalario.Size = new System.Drawing.Size(75, 23);
-            this.btDepositarSalario.TabIndex = 23;
-            this.btDepositarSalario.Text = "Depositar";
-            this.btDepositarSalario.UseVisualStyleBackColor = true;
-            this.btDepositarSalario.Click += new System.EventHandler(this.btDepositarSalario_Click);
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(56, 122);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(48, 14);
-            this.label34.TabIndex = 22;
-            this.label34.Text = "Valor R$";
-            // 
-            // tbValorSalario
-            // 
-            this.tbValorSalario.Location = new System.Drawing.Point(110, 119);
-            this.tbValorSalario.Name = "tbValorSalario";
-            this.tbValorSalario.Size = new System.Drawing.Size(112, 20);
-            this.tbValorSalario.TabIndex = 21;
             // 
             // mtbCpfDepSalario
             // 
@@ -1651,18 +1741,15 @@
             this.label35.Text = "CPF Titular";
             this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // groupBox6
+            // lblErroTelaDepSal
             // 
-            this.groupBox6.Controls.Add(this.panel15);
-            this.groupBox6.Controls.Add(this.lblErroTelaDepSal);
-            this.groupBox6.Controls.Add(this.btCancelarTelaDepSal);
-            this.groupBox6.Controls.Add(this.btDepositarSalario);
-            this.groupBox6.Location = new System.Drawing.Point(247, 87);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(274, 272);
-            this.groupBox6.TabIndex = 28;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Dados Conta Salário";
+            this.lblErroTelaDepSal.ForeColor = System.Drawing.Color.Red;
+            this.lblErroTelaDepSal.Location = new System.Drawing.Point(35, 226);
+            this.lblErroTelaDepSal.Name = "lblErroTelaDepSal";
+            this.lblErroTelaDepSal.Size = new System.Drawing.Size(204, 39);
+            this.lblErroTelaDepSal.TabIndex = 55;
+            this.lblErroTelaDepSal.Text = "MensagemErro";
+            this.lblErroTelaDepSal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btCancelarTelaDepSal
             // 
@@ -1674,54 +1761,15 @@
             this.btCancelarTelaDepSal.UseVisualStyleBackColor = true;
             this.btCancelarTelaDepSal.Click += new System.EventHandler(this.btCancelarTelaDepSal_Click);
             // 
-            // btIrParaDepSalario
+            // btDepositarSalario
             // 
-            this.btIrParaDepSalario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btIrParaDepSalario.Location = new System.Drawing.Point(281, 325);
-            this.btIrParaDepSalario.Name = "btIrParaDepSalario";
-            this.btIrParaDepSalario.Size = new System.Drawing.Size(206, 39);
-            this.btIrParaDepSalario.TabIndex = 7;
-            this.btIrParaDepSalario.Text = "Depósito em Conta Salário";
-            this.btIrParaDepSalario.UseVisualStyleBackColor = true;
-            this.btIrParaDepSalario.Click += new System.EventHandler(this.btIrParaDepSalario_Click);
-            // 
-            // panel15
-            // 
-            this.panel15.Controls.Add(this.tbValorSalario);
-            this.panel15.Controls.Add(this.label31);
-            this.panel15.Controls.Add(this.tbNumContaDepSal);
-            this.panel15.Controls.Add(this.label34);
-            this.panel15.Controls.Add(this.label32);
-            this.panel15.Controls.Add(this.mtbCnpjDepSalario);
-            this.panel15.Controls.Add(this.mtbCpfDepSalario);
-            this.panel15.Controls.Add(this.label35);
-            this.panel15.Location = new System.Drawing.Point(12, 19);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(250, 156);
-            this.panel15.TabIndex = 29;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label37.Location = new System.Drawing.Point(286, 16);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(196, 30);
-            this.label37.TabIndex = 55;
-            this.label37.Text = "AppBanco Grupo 5";
-            this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(278, 56);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(212, 19);
-            this.label38.TabIndex = 56;
-            this.label38.Text = "Depósito em Conta Salário";
+            this.btDepositarSalario.Location = new System.Drawing.Point(148, 193);
+            this.btDepositarSalario.Name = "btDepositarSalario";
+            this.btDepositarSalario.Size = new System.Drawing.Size(75, 23);
+            this.btDepositarSalario.TabIndex = 23;
+            this.btDepositarSalario.Text = "Depositar";
+            this.btDepositarSalario.UseVisualStyleBackColor = true;
+            this.btDepositarSalario.Click += new System.EventHandler(this.btDepositarSalario_Click);
             // 
             // Form1
             // 
@@ -1917,7 +1965,7 @@
         private System.Windows.Forms.RadioButton rbPerfil1;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbDepIniInvest;
         private System.Windows.Forms.Label lblErroMovimentacao;
         private System.Windows.Forms.RichTextBox rtbExtrato;
         private System.Windows.Forms.Button btInvestirAcoes;
@@ -1947,6 +1995,10 @@
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Button btFecharPrograma;
+        private System.Windows.Forms.Button btExibirDadosCliente;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
 

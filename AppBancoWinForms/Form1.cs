@@ -52,7 +52,7 @@ namespace AppBancoWinForms
         {
             lblErroLogin.Text = "";
             //string numerosCPF;
-            
+
             //mtbCPFLogin.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             //numerosCPF = mtbCPFLogin.Text;
             // if (numerosCPF.Length == 11 || double.TryParse(numerosCPF, out _))
@@ -70,6 +70,7 @@ namespace AppBancoWinForms
                         cliente.Nome = aux[2];
                         cliente.Sobrenome = aux[3];
                         cliente.Perfil = (PerfilInvestidor)Enum.Parse(typeof(PerfilInvestidor), aux[4]);
+                        cliente.Senha = aux[5];
 
                         tabCtrlTelasApp.SelectedTab = tabPage2; // ir para a página de seleção de conta
 
@@ -327,17 +328,20 @@ namespace AppBancoWinForms
         /******************** Seleção tipo de conta a ser criada ********************/
         private void rbPoupanca_CheckedChanged(object sender, EventArgs e)
         {
-            tabCtrlTipoConta.SelectedTab = tabPagePoupanca;
+            if (rbPoupanca.Checked)
+                tabCtrlTipoConta.SelectedTab = tabPagePoupanca;
         }
 
         private void rbSalario_CheckedChanged(object sender, EventArgs e)
         {
-            tabCtrlTipoConta.SelectedTab = tabPageSalario;
+            if (rbSalario.Checked)
+                tabCtrlTipoConta.SelectedTab = tabPageSalario;
         }
 
         private void rbInvestimento_CheckedChanged(object sender, EventArgs e)
         {
-            tabCtrlTipoConta.SelectedTab = tabPageInvestimento;
+            if (rbInvestimento.Checked)
+                tabCtrlTipoConta.SelectedTab = tabPageInvestimento;
         }
         /**************************************************************************/
         private void btIrParaPagExtrato_Click(object sender, EventArgs e)
@@ -457,9 +461,19 @@ namespace AppBancoWinForms
             {
                 tConta = TipoConta.ContaPoupanca;
 
-                if (tbDepInicialPoup.Text.Contains(".") || !double.TryParse(tbDepInicialPoup.Text, out saldoInicial) || saldoInicial < 500.00)
+                if (!tbDepInicialPoup.Text.Contains(".") && double.TryParse(tbDepInicialPoup.Text, out saldoInicial))
+                {
+                    if (saldoInicial < 500.00)
+                    {
+                        requisitosOK = false;
+                        tbDepInicialPoup.Focus();
+                    }
+
+                }
+                else
                 {
                     requisitosOK = false;
+                    tbDepInicialPoup.Focus();
                 }
             }
             else if (rbSalario.Checked)
@@ -485,18 +499,52 @@ namespace AppBancoWinForms
                 }
             }
             else if (rbInvestimento.Checked)
-            {// desenvolver validações
-
-                //verificar radioButton selecionado e atualizar cadastro do cliente em clientes.csv
+            {
                 tConta = TipoConta.ContaInvestimento;
+                if (!tbDepIniInvest.Text.Contains(".") && double.TryParse(tbDepIniInvest.Text, out saldoInicial))
+                {
+                    if (saldoInicial >= 0) 
+                    {
+                        //verificar radioButton selecionado e atualizar cadastro do cliente em clientes.csv
+                        if (rbPerfil1.Checked)
+                        {
+                            cliente.Perfil = (PerfilInvestidor)Enum.Parse(typeof(PerfilInvestidor), rbPerfil1.Text);
+                        }
+                        else if (rbPerfil2.Checked)
+                        {
+                            cliente.Perfil = (PerfilInvestidor)Enum.Parse(typeof(PerfilInvestidor), rbPerfil2.Text);
+                        }
+                        else if (rbPerfil3.Checked)
+                        {
+                            cliente.Perfil = (PerfilInvestidor)Enum.Parse(typeof(PerfilInvestidor), rbPerfil3.Text);
+                        }
+                        else
+                        {
+                            requisitosOK = false;
+                        }
+                    }
+                    else
+                    {
+                        tbDepIniInvest.Focus();
+                        requisitosOK = false;
+                    }     
+                }
+                else
+                {
+                    requisitosOK = false;
+                    tbDepIniInvest.Focus();
+                }
             }
             if (requisitosOK)
             {
                 contaAtual = Cadastros.CadastrarConta(pathContas, tConta, cliente.Codigo, saldoInicial, DateTime.UtcNow, holerite);
+                if (rbInvestimento.Checked) //atualizar perfil investidor no cadastro do cliente (clientes.csv)
+                {
+                    cliente.EditarCadastroCliente(pathClientes);
+                }
                 contaSelecionada = cbContaSelecionada.Items.Count;
                 tabCtrlTelasApp.SelectedTab = tabPage2;
             }
-
         }
 
         private void btLogout_Click(object sender, EventArgs e)
@@ -541,8 +589,8 @@ namespace AppBancoWinForms
 
         private void rbDepositar_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbDepositar.Checked) 
-            { 
+            if (rbDepositar.Checked)
+            {
                 btMovimentoConta.Text = "Depositar";
                 lblErroMovimentacao.Text = "";
             }
@@ -550,8 +598,8 @@ namespace AppBancoWinForms
 
         private void rbSacar_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbSacar.Checked) 
-            { 
+            if (rbSacar.Checked)
+            {
                 btMovimentoConta.Text = "Sacar";
                 lblErroMovimentacao.Text = "";
             }
@@ -812,7 +860,8 @@ namespace AppBancoWinForms
             int numContaSalDep = 0;
             double valorDeposito = 0;
             // testa preenchimento dos campos
-            if (!int.TryParse(tbNumContaDepSal.Text, out numContaSalDep)){
+            if (!int.TryParse(tbNumContaDepSal.Text, out numContaSalDep))
+            {
                 lblErroTelaDepSal.Text = "Insira um Nº válido.";
                 tbNumContaDepSal.Focus();
                 camposOk = false;
@@ -844,9 +893,9 @@ namespace AppBancoWinForms
                     if (infoCliente != "")
                     {
                         ContaSalario contaSalDeposito = EscreverArquivosBD.BuscarContaSalario(pathContas, numContaSalDep);
-                        if (contaSalDeposito != null) 
+                        if (contaSalDeposito != null)
                         {
-                            if (contaSalDeposito.Holerite.Cnpj == mtbCnpjDepSalario.Text) 
+                            if (contaSalDeposito.Holerite.Cnpj == mtbCnpjDepSalario.Text)
                             {
                                 if (int.Parse(infoCliente.Split(';')[0]) == contaSalDeposito.NumeroCliente)
                                 {
@@ -884,7 +933,7 @@ namespace AppBancoWinForms
                             tbNumContaDepSal.Focus();
                         }
                     }
-                    else 
+                    else
                     {
                         lblErroTelaDepSal.Text = "CPF informado não encontrado\nno cadastro de clientes.";
                     }
@@ -900,6 +949,16 @@ namespace AppBancoWinForms
         private void tabCtrlTelasApp_Enter(object sender, EventArgs e)
         {
             lblErroTelaDepSal.Text = "";
+        }
+
+        private void btFecharPrograma_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
+
+        private void btExibirDadosCliente_Click(object sender, EventArgs e)
+        {
+            cliente.MostrarDadosCliente();
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AppBancoWinForms.Entities;
 using System.Text;
 using AppBancoWinForms.Entities.Enums;
+using System.Drawing;
 
 namespace AppBancoWinForms.Utils
 {
@@ -31,10 +32,6 @@ namespace AppBancoWinForms.Utils
                     }
                 }
             }
-            //else
-            //{
-            //    Console.WriteLine("Arquivo informado não existe.");
-            //}
             return encontrou;
         }
 
@@ -58,10 +55,6 @@ namespace AppBancoWinForms.Utils
                     }
                 }
             }
-            //else
-            //{
-            //    Console.WriteLine("Arquivo informado não existe.");
-            //}
             return dadosCliente;
         }
 
@@ -86,10 +79,6 @@ namespace AppBancoWinForms.Utils
                     sr.Close();
                 }
             }
-            //else
-            //{
-            //    Console.WriteLine("Arquivo informado não existe.");
-            //}
             return listaContas;
         }
         public static List<string> BuscarTransacoes(string path, int numConta, DateTime inicioPeriodo, DateTime fimPeriodo)
@@ -120,12 +109,9 @@ namespace AppBancoWinForms.Utils
 
         public static void EscreverNovoItem(string path, string dados)
         {
-            //string path = @"c:\DadosAppBanco\clientes.csv";
             // This text is added only once to the file.
             if (File.Exists(path))
             {
-                // This text is always added, making the file longer over time
-                // if it is not deleted.
                 using (StreamWriter sw = File.AppendText(path))
                 {
                     sw.WriteLine(dados);
@@ -152,51 +138,11 @@ namespace AppBancoWinForms.Utils
             }
             else
             {
-                //Console.WriteLine("Arquivo informado não existe.");
                 return String.Empty;
             }
         }
 
-        public static void EditarCadastroCliente(string path, int numCliente, Cliente novosDadosCliente)
-        {
-            if (File.Exists(path))
-            {
-                string[] LinhasCSV = File.ReadAllLines(path);
-                string[][] cadastros = new string[LinhasCSV.Length][]; //cria um array onde cada elemento também é um array
-                // atribui vetores de palavras (colunas) para cada elemento da matrizDePalavrasCSV (linhas)
-                for (int i = 0; i < LinhasCSV.Length; i++)
-                {
-                    cadastros[i] = LinhasCSV[i].Split(';');
-                }
-                for (int i = 0; i < LinhasCSV.Length; i++)
-                {
-                    if (int.Parse(cadastros[i][0]) == numCliente)
-                    {
-                        cadastros[i][1] = novosDadosCliente.Cpf;
-                        cadastros[i][2] = novosDadosCliente.Nome;
-                        cadastros[i][3] = novosDadosCliente.Sobrenome;
-                        break;
-                    }
-                    cadastros[i] = LinhasCSV[i].Split(';');
-                }
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < cadastros.Length; i++)
-                {
-                    //sb.AppendJoin<string>(';', cadastros[i]); // funciona no aplicativo console
-                    foreach (string item in cadastros[i])
-                    {
-                        sb.Append(item + ";");
-                    }
-                    sb.Remove(sb.Length - 1, 1);
-                    sb.AppendLine();
-                    
-                }
-                using (StreamWriter writer = new StreamWriter(path, false))
-                {
-                    writer.Write(sb.ToString());
-                }
-            }
-        }
+
 
 
 
