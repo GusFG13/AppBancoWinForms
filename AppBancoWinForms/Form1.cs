@@ -28,7 +28,7 @@ namespace AppBancoWinForms
         string pathClientes = @"c:\DadosAppBanco\clientes.csv";
         string pathContas = @"c:\DadosAppBanco\contas.csv";
         string pathTransacoes = @"c:\DadosAppBanco\trasacoes.csv";
-        string pathInvestimentos = @"c:\DadosAppBanco\investimentos.csv"; 
+        string pathInvestimentos = @"c:\DadosAppBanco\investimentos.csv";
 
         public Form1()
         {
@@ -321,7 +321,7 @@ namespace AppBancoWinForms
                 string horaExtratoSalvo = "";
                 int pos = rtbExtrato.Find("Extrato gerado em: ");
                 if (pos != 1)
-                {  
+                {
                     if (DateTime.TryParse(rtbExtrato.Text.Substring(pos + 19, 19), out DateTime horaExtratoGerado))
                     { // conseguiu ler do texto a hora que o extrato foi gerado
                         horaExtratoSalvo = horaExtratoGerado.ToString("yyyyMMddHHmmss");
@@ -784,6 +784,8 @@ namespace AppBancoWinForms
         {
             lblSaldoDisponivel.Text = contaAtual.Saldo.ToString("F2");
             lblSaldoInvestido.Text = "";
+            lblValorVenda.Text = "";
+            lblValorCompra.Text = "";
             // inicialização tabela ações
             Random precoAcao = new Random();
             dtGridViewAcoes.Rows.Clear();
@@ -819,13 +821,13 @@ namespace AppBancoWinForms
                     {
 
                         double valorTotalAcaoAtual = dictAcoes[ac.Key] * ac.Value.Quantidade;
-                        dtGridViewCarteira.Rows.Add(false, 
-                             ac.Key, 
-                             ac.Value.Valor, 
-                             ac.Value.Quantidade, 
-                             (ac.Value.Valor * ac.Value.Quantidade).ToString("F2"), 
-                             dictAcoes[ac.Key], 
-                             (valorTotalAcaoAtual).ToString("F2"), 
+                        dtGridViewCarteira.Rows.Add(false,
+                             ac.Key,
+                             ac.Value.Valor,
+                             ac.Value.Quantidade,
+                             (ac.Value.Valor * ac.Value.Quantidade).ToString("F2"),
+                             dictAcoes[ac.Key],
+                             (valorTotalAcaoAtual).ToString("F2"),
                              0);
                         saldoInvestido += valorTotalAcaoAtual;
                     }
@@ -840,21 +842,73 @@ namespace AppBancoWinForms
             //MessageBox.Show(sb.ToString());
         }
 
-        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void dtGridViewCarteira_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-            double total = 0;
+            if (e.ColumnIndex == dtGridViewCarteira.Columns["TabCarteiraQtdVender"].Index) // 1 should be your column index
+            {
+                int num;
+                if (!int.TryParse(Convert.ToString(e.FormattedValue), out num) || num < 0)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    int qtdDisponivel = int.Parse(dtGridViewCarteira.Rows[e.RowIndex].Cells["TabCarteiraQtdEmCart"].Value.ToString());
+                    if (num > qtdDisponivel)
+                    {
+                        e.Cancel = true;
+                    }
+                }
+            }
+        }
+        private void dtGridViewCarteira_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            double totalVenda = 0;
+            foreach (DataGridViewRow row in dtGridViewCarteira.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells["TabCarteiraChk"].Value))
+                {
+                    totalVenda += Convert.ToDouble(row.Cells["TabCarteiraValAtual"].Value) * Convert.ToDouble(row.Cells["TabCarteiraQtdVender"].Value);
+                }
+            }
+            lblValorVenda.Text = totalVenda.ToString("F2");
+        }
+
+        private void dtGridViewAcoes_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            if (e.ColumnIndex == dtGridViewAcoes.Columns["TabMercadoQtdComprar"].Index)
+            {
+                if (!int.TryParse(Convert.ToString(e.FormattedValue), out int num) || num < 0)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+        private void dtGridViewAcoes_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            double totalCompra = 0;
             foreach (DataGridViewRow row in dtGridViewAcoes.Rows)
             {
-                //Convert.ToInt32(dataGridView1.Rows[i].Cells[1].Value)
-                if (Convert.ToBoolean(row.Cells[0].Value))
+                //convert.toint32(datagridview1.rows[i].cells[1].value)
+                if (Convert.ToBoolean(row.Cells["TabMercadoChk"].Value))
                 {
-                    //MessageBox.Show(row.Cells[2].Value.ToString());
-                    total += Convert.ToDouble(row.Cells[2].Value) * Convert.ToDouble(row.Cells[3].Value);
+                    //messagebox.show(row.cells[2].value.tostring());
+                    totalCompra += Convert.ToDouble(row.Cells["TabMercadoValorAcao"].Value) * Convert.ToDouble(row.Cells["TabMercadoQtdComprar"].Value);
 
                 }
             }
-            //label13.Text = "Valor Total: " + total;
+            lblValorCompra.Text = totalCompra.ToString("F2");
+            if (totalCompra > contaAtual.Saldo)
+            {
+                lblAvisoSaldoIndisp.Visible = true;
+            }
+            else
+            {
+                lblAvisoSaldoIndisp.Visible = false;
+            }
         }
+
+
 
         private void btCancelarTelaDepSal_Click(object sender, EventArgs e)
         {
@@ -971,5 +1025,7 @@ namespace AppBancoWinForms
         {
             cliente.MostrarDadosCliente();
         }
+
+
     }
 }

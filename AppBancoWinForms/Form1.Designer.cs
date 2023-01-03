@@ -145,27 +145,28 @@
             this.btEnter = new System.Windows.Forms.Button();
             this.tabCtrlTelasApp = new System.Windows.Forms.TabControl();
             this.tabPageAcoes = new System.Windows.Forms.TabPage();
+            this.lblAvisoSaldoIndisp = new System.Windows.Forms.Label();
+            this.lblSaldoInvestido = new System.Windows.Forms.Label();
+            this.lblValorCompra = new System.Windows.Forms.Label();
+            this.lblValorVenda = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.lblSaldoDisponivel = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.btVenderAcoes = new System.Windows.Forms.Button();
             this.btComprarAcoes = new System.Windows.Forms.Button();
-            this.dtGridViewCarteira = new System.Windows.Forms.DataGridView();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QtdCarteira = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValTotalPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValTotalAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtGridViewAcoes = new System.Windows.Forms.DataGridView();
-            this.colSelecao = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colAcoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colValorAcao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColQuant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btCancelarPagAcoes = new System.Windows.Forms.Button();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.dtGridViewAcoes = new System.Windows.Forms.DataGridView();
+            this.TabMercadoChk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colAcoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabMercadoValorAcao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabMercadoQtdComprar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtGridViewCarteira = new System.Windows.Forms.DataGridView();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
             this.tbDepContaSalario = new System.Windows.Forms.TabPage();
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
@@ -182,13 +183,14 @@
             this.lblErroTelaDepSal = new System.Windows.Forms.Label();
             this.btCancelarTelaDepSal = new System.Windows.Forms.Button();
             this.btDepositarSalario = new System.Windows.Forms.Button();
-            this.lblSaldoDisponivel = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.lblSaldoInvestido = new System.Windows.Forms.Label();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
+            this.TabCarteiraChk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.TabCarteiraAcoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabCarteiraValorMedPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabCarteiraQtdEmCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabCarteiraValTotPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabCarteiraValAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabCarteiraValTotAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabCarteiraQtdVender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage8.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPage7.SuspendLayout();
@@ -222,12 +224,12 @@
             this.panel1.SuspendLayout();
             this.tabCtrlTelasApp.SuspendLayout();
             this.tabPageAcoes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewCarteira)).BeginInit();
+            this.panel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewAcoes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewCarteira)).BeginInit();
             this.tbDepContaSalario.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.panel15.SuspendLayout();
-            this.panel16.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage8
@@ -1480,9 +1482,10 @@
             // tabPageAcoes
             // 
             this.tabPageAcoes.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.tabPageAcoes.Controls.Add(this.lblAvisoSaldoIndisp);
             this.tabPageAcoes.Controls.Add(this.lblSaldoInvestido);
-            this.tabPageAcoes.Controls.Add(this.label43);
-            this.tabPageAcoes.Controls.Add(this.label45);
+            this.tabPageAcoes.Controls.Add(this.lblValorCompra);
+            this.tabPageAcoes.Controls.Add(this.lblValorVenda);
             this.tabPageAcoes.Controls.Add(this.label44);
             this.tabPageAcoes.Controls.Add(this.lblSaldoDisponivel);
             this.tabPageAcoes.Controls.Add(this.label41);
@@ -1500,6 +1503,68 @@
             this.tabPageAcoes.Text = "Ações";
             this.tabPageAcoes.Enter += new System.EventHandler(this.tabPageAcoes_Enter);
             // 
+            // lblAvisoSaldoIndisp
+            // 
+            this.lblAvisoSaldoIndisp.AutoSize = true;
+            this.lblAvisoSaldoIndisp.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvisoSaldoIndisp.ForeColor = System.Drawing.Color.Red;
+            this.lblAvisoSaldoIndisp.Location = new System.Drawing.Point(126, 310);
+            this.lblAvisoSaldoIndisp.Name = "lblAvisoSaldoIndisp";
+            this.lblAvisoSaldoIndisp.Size = new System.Drawing.Size(74, 28);
+            this.lblAvisoSaldoIndisp.TabIndex = 10;
+            this.lblAvisoSaldoIndisp.Text = "Saldo\r\nindisponível";
+            this.lblAvisoSaldoIndisp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblAvisoSaldoIndisp.Visible = false;
+            // 
+            // lblSaldoInvestido
+            // 
+            this.lblSaldoInvestido.BackColor = System.Drawing.Color.FloralWhite;
+            this.lblSaldoInvestido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSaldoInvestido.Location = new System.Drawing.Point(573, 358);
+            this.lblSaldoInvestido.Name = "lblSaldoInvestido";
+            this.lblSaldoInvestido.Size = new System.Drawing.Size(88, 26);
+            this.lblSaldoInvestido.TabIndex = 8;
+            this.lblSaldoInvestido.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblValorCompra
+            // 
+            this.lblValorCompra.BackColor = System.Drawing.Color.FloralWhite;
+            this.lblValorCompra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblValorCompra.Location = new System.Drawing.Point(31, 310);
+            this.lblValorCompra.Name = "lblValorCompra";
+            this.lblValorCompra.Size = new System.Drawing.Size(88, 26);
+            this.lblValorCompra.TabIndex = 8;
+            this.lblValorCompra.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblValorVenda
+            // 
+            this.lblValorVenda.BackColor = System.Drawing.Color.FloralWhite;
+            this.lblValorVenda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblValorVenda.Location = new System.Drawing.Point(302, 314);
+            this.lblValorVenda.Name = "lblValorVenda";
+            this.lblValorVenda.Size = new System.Drawing.Size(88, 26);
+            this.lblValorVenda.TabIndex = 8;
+            this.lblValorVenda.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(284, 297);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(80, 14);
+            this.label44.TabIndex = 3;
+            this.label44.Text = "Valor da venda";
+            // 
+            // lblSaldoDisponivel
+            // 
+            this.lblSaldoDisponivel.BackColor = System.Drawing.Color.FloralWhite;
+            this.lblSaldoDisponivel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSaldoDisponivel.Location = new System.Drawing.Point(573, 305);
+            this.lblSaldoDisponivel.Name = "lblSaldoDisponivel";
+            this.lblSaldoDisponivel.Size = new System.Drawing.Size(88, 26);
+            this.lblSaldoDisponivel.TabIndex = 8;
+            this.lblSaldoDisponivel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // label41
             // 
             this.label41.AutoSize = true;
@@ -1509,6 +1574,15 @@
             this.label41.TabIndex = 3;
             this.label41.Text = "Valor da compra";
             // 
+            // label42
+            // 
+            this.label42.Location = new System.Drawing.Point(470, 353);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(87, 31);
+            this.label42.TabIndex = 7;
+            this.label42.Text = "Saldo Investido (R$)";
+            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // label39
             // 
             this.label39.Location = new System.Drawing.Point(469, 303);
@@ -1517,26 +1591,6 @@
             this.label39.TabIndex = 7;
             this.label39.Text = "Saldo em conta Disponível (R$)";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(266, 9);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(135, 18);
-            this.label33.TabIndex = 6;
-            this.label33.Text = "Carteira de Ações";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(10, 9);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(140, 18);
-            this.label20.TabIndex = 6;
-            this.label20.Text = "Mercado de Ações";
             // 
             // btVenderAcoes
             // 
@@ -1556,98 +1610,41 @@
             this.btComprarAcoes.Text = "Comprar Ações Selecionadas";
             this.btComprarAcoes.UseVisualStyleBackColor = true;
             // 
-            // dtGridViewCarteira
+            // btCancelarPagAcoes
             // 
-            this.dtGridViewCarteira.AllowUserToAddRows = false;
-            this.dtGridViewCarteira.AllowUserToDeleteRows = false;
-            this.dtGridViewCarteira.AllowUserToResizeColumns = false;
-            this.dtGridViewCarteira.AllowUserToResizeRows = false;
-            this.dtGridViewCarteira.BackgroundColor = System.Drawing.Color.PaleGoldenrod;
-            this.dtGridViewCarteira.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtGridViewCarteira.ColumnHeadersHeight = 40;
-            this.dtGridViewCarteira.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dtGridViewCarteira.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewCheckBoxColumn1,
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.QtdCarteira,
-            this.ValTotalPago,
-            this.ValAtual,
-            this.ValTotalAtual,
-            this.dataGridViewTextBoxColumn3});
-            this.dtGridViewCarteira.Location = new System.Drawing.Point(269, 30);
-            this.dtGridViewCarteira.Name = "dtGridViewCarteira";
-            this.dtGridViewCarteira.RowHeadersVisible = false;
-            this.dtGridViewCarteira.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dtGridViewCarteira.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dtGridViewCarteira.Size = new System.Drawing.Size(450, 246);
-            this.dtGridViewCarteira.TabIndex = 4;
-            this.dtGridViewCarteira.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            this.btCancelarPagAcoes.Location = new System.Drawing.Point(687, 361);
+            this.btCancelarPagAcoes.Name = "btCancelarPagAcoes";
+            this.btCancelarPagAcoes.Size = new System.Drawing.Size(75, 23);
+            this.btCancelarPagAcoes.TabIndex = 0;
+            this.btCancelarPagAcoes.Text = "Cancelar";
+            this.btCancelarPagAcoes.UseVisualStyleBackColor = true;
+            this.btCancelarPagAcoes.Click += new System.EventHandler(this.btCancelarPagAcoes_Click);
             // 
-            // dataGridViewCheckBoxColumn1
+            // panel16
             // 
-            this.dataGridViewCheckBoxColumn1.FalseValue = "false";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewCheckBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewCheckBoxColumn1.TrueValue = "true";
-            this.dataGridViewCheckBoxColumn1.Width = 25;
+            this.panel16.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel16.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.panel16.Controls.Add(this.label13);
+            this.panel16.Controls.Add(this.dtGridViewAcoes);
+            this.panel16.Controls.Add(this.dtGridViewCarteira);
+            this.panel16.Controls.Add(this.label20);
+            this.panel16.Controls.Add(this.label33);
+            this.panel16.Location = new System.Drawing.Point(18, 6);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(733, 281);
+            this.panel16.TabIndex = 9;
             // 
-            // dataGridViewTextBoxColumn1
+            // label13
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Ações";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn1.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Valor Médio Pago / Ação";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn2.Width = 80;
-            // 
-            // QtdCarteira
-            // 
-            this.QtdCarteira.HeaderText = "Qtd. em Carteira";
-            this.QtdCarteira.Name = "QtdCarteira";
-            this.QtdCarteira.ReadOnly = true;
-            this.QtdCarteira.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.QtdCarteira.Width = 55;
-            // 
-            // ValTotalPago
-            // 
-            this.ValTotalPago.HeaderText = "Valor Total Pago";
-            this.ValTotalPago.Name = "ValTotalPago";
-            this.ValTotalPago.ReadOnly = true;
-            this.ValTotalPago.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ValTotalPago.Width = 70;
-            // 
-            // ValAtual
-            // 
-            this.ValAtual.HeaderText = "Valor Atual";
-            this.ValAtual.Name = "ValAtual";
-            this.ValAtual.ReadOnly = true;
-            this.ValAtual.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ValAtual.Width = 50;
-            // 
-            // ValTotalAtual
-            // 
-            this.ValTotalAtual.HeaderText = "Valor Total Atual";
-            this.ValTotalAtual.Name = "ValTotalAtual";
-            this.ValTotalAtual.ReadOnly = true;
-            this.ValTotalAtual.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ValTotalAtual.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Qtd.";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn3.Width = 45;
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label13.Location = new System.Drawing.Point(565, 4);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(154, 23);
+            this.label13.TabIndex = 55;
+            this.label13.Text = "Grupo 5 Corretora";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dtGridViewAcoes
             // 
@@ -1660,10 +1657,10 @@
             this.dtGridViewAcoes.ColumnHeadersHeight = 40;
             this.dtGridViewAcoes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtGridViewAcoes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colSelecao,
+            this.TabMercadoChk,
             this.colAcoes,
-            this.colValorAcao,
-            this.ColQuant});
+            this.TabMercadoValorAcao,
+            this.TabMercadoQtdComprar});
             this.dtGridViewAcoes.Location = new System.Drawing.Point(13, 30);
             this.dtGridViewAcoes.Name = "dtGridViewAcoes";
             this.dtGridViewAcoes.RowHeadersVisible = false;
@@ -1671,17 +1668,18 @@
             this.dtGridViewAcoes.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dtGridViewAcoes.Size = new System.Drawing.Size(175, 246);
             this.dtGridViewAcoes.TabIndex = 4;
-            this.dtGridViewAcoes.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            this.dtGridViewAcoes.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dtGridViewAcoes_CellValidating);
+            this.dtGridViewAcoes.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewAcoes_CellValueChanged);
             // 
-            // colSelecao
+            // TabMercadoChk
             // 
-            this.colSelecao.FalseValue = "false";
-            this.colSelecao.HeaderText = "";
-            this.colSelecao.Name = "colSelecao";
-            this.colSelecao.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colSelecao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colSelecao.TrueValue = "true";
-            this.colSelecao.Width = 25;
+            this.TabMercadoChk.FalseValue = "false";
+            this.TabMercadoChk.HeaderText = "";
+            this.TabMercadoChk.Name = "TabMercadoChk";
+            this.TabMercadoChk.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TabMercadoChk.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.TabMercadoChk.TrueValue = "true";
+            this.TabMercadoChk.Width = 25;
             // 
             // colAcoes
             // 
@@ -1691,30 +1689,69 @@
             this.colAcoes.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.colAcoes.Width = 50;
             // 
-            // colValorAcao
+            // TabMercadoValorAcao
             // 
-            this.colValorAcao.HeaderText = "Valor / Ação";
-            this.colValorAcao.Name = "colValorAcao";
-            this.colValorAcao.ReadOnly = true;
-            this.colValorAcao.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colValorAcao.Width = 50;
+            this.TabMercadoValorAcao.HeaderText = "Valor / Ação";
+            this.TabMercadoValorAcao.Name = "TabMercadoValorAcao";
+            this.TabMercadoValorAcao.ReadOnly = true;
+            this.TabMercadoValorAcao.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TabMercadoValorAcao.Width = 50;
             // 
-            // ColQuant
+            // TabMercadoQtdComprar
             // 
-            this.ColQuant.HeaderText = "Qtd.";
-            this.ColQuant.Name = "ColQuant";
-            this.ColQuant.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ColQuant.Width = 45;
+            this.TabMercadoQtdComprar.HeaderText = "Qtd.";
+            this.TabMercadoQtdComprar.Name = "TabMercadoQtdComprar";
+            this.TabMercadoQtdComprar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TabMercadoQtdComprar.Width = 45;
             // 
-            // btCancelarPagAcoes
+            // dtGridViewCarteira
             // 
-            this.btCancelarPagAcoes.Location = new System.Drawing.Point(687, 361);
-            this.btCancelarPagAcoes.Name = "btCancelarPagAcoes";
-            this.btCancelarPagAcoes.Size = new System.Drawing.Size(75, 23);
-            this.btCancelarPagAcoes.TabIndex = 0;
-            this.btCancelarPagAcoes.Text = "Cancelar";
-            this.btCancelarPagAcoes.UseVisualStyleBackColor = true;
-            this.btCancelarPagAcoes.Click += new System.EventHandler(this.btCancelarPagAcoes_Click);
+            this.dtGridViewCarteira.AllowUserToAddRows = false;
+            this.dtGridViewCarteira.AllowUserToDeleteRows = false;
+            this.dtGridViewCarteira.AllowUserToResizeColumns = false;
+            this.dtGridViewCarteira.AllowUserToResizeRows = false;
+            this.dtGridViewCarteira.BackgroundColor = System.Drawing.Color.PaleGoldenrod;
+            this.dtGridViewCarteira.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtGridViewCarteira.ColumnHeadersHeight = 40;
+            this.dtGridViewCarteira.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dtGridViewCarteira.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TabCarteiraChk,
+            this.TabCarteiraAcoes,
+            this.TabCarteiraValorMedPago,
+            this.TabCarteiraQtdEmCart,
+            this.TabCarteiraValTotPago,
+            this.TabCarteiraValAtual,
+            this.TabCarteiraValTotAtual,
+            this.TabCarteiraQtdVender});
+            this.dtGridViewCarteira.Location = new System.Drawing.Point(269, 30);
+            this.dtGridViewCarteira.Name = "dtGridViewCarteira";
+            this.dtGridViewCarteira.RowHeadersVisible = false;
+            this.dtGridViewCarteira.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dtGridViewCarteira.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dtGridViewCarteira.Size = new System.Drawing.Size(450, 246);
+            this.dtGridViewCarteira.TabIndex = 4;
+            this.dtGridViewCarteira.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dtGridViewCarteira_CellValidating);
+            this.dtGridViewCarteira.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewCarteira_CellValueChanged);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(10, 9);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(140, 18);
+            this.label20.TabIndex = 6;
+            this.label20.Text = "Mercado de Ações";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(266, 9);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(135, 18);
+            this.label33.TabIndex = 6;
+            this.label33.Text = "Carteira de Ações";
             // 
             // tbDepContaSalario
             // 
@@ -1877,76 +1914,70 @@
             this.btDepositarSalario.UseVisualStyleBackColor = true;
             this.btDepositarSalario.Click += new System.EventHandler(this.btDepositarSalario_Click);
             // 
-            // lblSaldoDisponivel
+            // TabCarteiraChk
             // 
-            this.lblSaldoDisponivel.BackColor = System.Drawing.Color.FloralWhite;
-            this.lblSaldoDisponivel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSaldoDisponivel.Location = new System.Drawing.Point(573, 305);
-            this.lblSaldoDisponivel.Name = "lblSaldoDisponivel";
-            this.lblSaldoDisponivel.Size = new System.Drawing.Size(88, 26);
-            this.lblSaldoDisponivel.TabIndex = 8;
-            this.lblSaldoDisponivel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TabCarteiraChk.FalseValue = "false";
+            this.TabCarteiraChk.HeaderText = "";
+            this.TabCarteiraChk.Name = "TabCarteiraChk";
+            this.TabCarteiraChk.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.TabCarteiraChk.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.TabCarteiraChk.TrueValue = "true";
+            this.TabCarteiraChk.Width = 25;
             // 
-            // label42
+            // TabCarteiraAcoes
             // 
-            this.label42.Location = new System.Drawing.Point(470, 353);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(87, 31);
-            this.label42.TabIndex = 7;
-            this.label42.Text = "Saldo Investido (R$)";
-            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TabCarteiraAcoes.HeaderText = "Ações";
+            this.TabCarteiraAcoes.Name = "TabCarteiraAcoes";
+            this.TabCarteiraAcoes.ReadOnly = true;
+            this.TabCarteiraAcoes.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TabCarteiraAcoes.Width = 50;
             // 
-            // lblSaldoInvestido
+            // TabCarteiraValorMedPago
             // 
-            this.lblSaldoInvestido.BackColor = System.Drawing.Color.FloralWhite;
-            this.lblSaldoInvestido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSaldoInvestido.Location = new System.Drawing.Point(573, 358);
-            this.lblSaldoInvestido.Name = "lblSaldoInvestido";
-            this.lblSaldoInvestido.Size = new System.Drawing.Size(88, 26);
-            this.lblSaldoInvestido.TabIndex = 8;
-            this.lblSaldoInvestido.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TabCarteiraValorMedPago.HeaderText = "Valor Médio Pago / Ação";
+            this.TabCarteiraValorMedPago.Name = "TabCarteiraValorMedPago";
+            this.TabCarteiraValorMedPago.ReadOnly = true;
+            this.TabCarteiraValorMedPago.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TabCarteiraValorMedPago.Width = 80;
             // 
-            // panel16
+            // TabCarteiraQtdEmCart
             // 
-            this.panel16.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.panel16.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.panel16.Controls.Add(this.dtGridViewAcoes);
-            this.panel16.Controls.Add(this.dtGridViewCarteira);
-            this.panel16.Controls.Add(this.label20);
-            this.panel16.Controls.Add(this.label33);
-            this.panel16.Location = new System.Drawing.Point(18, 6);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(733, 281);
-            this.panel16.TabIndex = 9;
+            this.TabCarteiraQtdEmCart.HeaderText = "Qtd. em Carteira";
+            this.TabCarteiraQtdEmCart.Name = "TabCarteiraQtdEmCart";
+            this.TabCarteiraQtdEmCart.ReadOnly = true;
+            this.TabCarteiraQtdEmCart.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TabCarteiraQtdEmCart.Width = 55;
             // 
-            // label43
+            // TabCarteiraValTotPago
             // 
-            this.label43.BackColor = System.Drawing.Color.FloralWhite;
-            this.label43.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label43.Location = new System.Drawing.Point(31, 310);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(88, 26);
-            this.label43.TabIndex = 8;
-            this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TabCarteiraValTotPago.HeaderText = "Valor Total Pago";
+            this.TabCarteiraValTotPago.Name = "TabCarteiraValTotPago";
+            this.TabCarteiraValTotPago.ReadOnly = true;
+            this.TabCarteiraValTotPago.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TabCarteiraValTotPago.Width = 70;
             // 
-            // label44
+            // TabCarteiraValAtual
             // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(284, 297);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(80, 14);
-            this.label44.TabIndex = 3;
-            this.label44.Text = "Valor da venda";
+            this.TabCarteiraValAtual.HeaderText = "Valor Atual";
+            this.TabCarteiraValAtual.Name = "TabCarteiraValAtual";
+            this.TabCarteiraValAtual.ReadOnly = true;
+            this.TabCarteiraValAtual.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TabCarteiraValAtual.Width = 50;
             // 
-            // label45
+            // TabCarteiraValTotAtual
             // 
-            this.label45.BackColor = System.Drawing.Color.FloralWhite;
-            this.label45.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label45.Location = new System.Drawing.Point(302, 314);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(88, 26);
-            this.label45.TabIndex = 8;
-            this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TabCarteiraValTotAtual.HeaderText = "Valor Total Atual";
+            this.TabCarteiraValTotAtual.Name = "TabCarteiraValTotAtual";
+            this.TabCarteiraValTotAtual.ReadOnly = true;
+            this.TabCarteiraValTotAtual.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TabCarteiraValTotAtual.Width = 70;
+            // 
+            // TabCarteiraQtdVender
+            // 
+            this.TabCarteiraQtdVender.HeaderText = "Qtd.";
+            this.TabCarteiraQtdVender.Name = "TabCarteiraQtdVender";
+            this.TabCarteiraQtdVender.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TabCarteiraQtdVender.Width = 45;
             // 
             // Form1
             // 
@@ -2016,15 +2047,15 @@
             this.tabCtrlTelasApp.ResumeLayout(false);
             this.tabPageAcoes.ResumeLayout(false);
             this.tabPageAcoes.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewCarteira)).EndInit();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewAcoes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewCarteira)).EndInit();
             this.tbDepContaSalario.ResumeLayout(false);
             this.tbDepContaSalario.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2171,27 +2202,29 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button btVenderAcoes;
         private System.Windows.Forms.DataGridView dtGridViewCarteira;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn QtdCarteira;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ValTotalPago;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ValAtual;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ValTotalAtual;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colSelecao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAcoes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colValorAcao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColQuant;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label lblSaldoDisponivel;
         private System.Windows.Forms.Label lblSaldoInvestido;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label lblValorCompra;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label lblValorVenda;
         private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblAvisoSaldoIndisp;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn TabMercadoChk;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAcoes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TabMercadoValorAcao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TabMercadoQtdComprar;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn TabCarteiraChk;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TabCarteiraAcoes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TabCarteiraValorMedPago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TabCarteiraQtdEmCart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TabCarteiraValTotPago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TabCarteiraValAtual;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TabCarteiraValTotAtual;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TabCarteiraQtdVender;
     }
 }
 
