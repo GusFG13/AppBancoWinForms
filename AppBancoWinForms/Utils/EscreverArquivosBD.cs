@@ -10,7 +10,8 @@ using System.Drawing;
 
 namespace AppBancoWinForms.Utils
 {
-    internal class EscreverArquivosBD
+    //Verificar a possibilidade da Classe EscreverArquivo herdar de Conta
+    public class EscreverArquivosBD
     {
         public static bool ProcurarCliente(string path, string CpfProcurado)
         {

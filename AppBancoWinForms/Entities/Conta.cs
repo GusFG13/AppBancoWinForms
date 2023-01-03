@@ -8,13 +8,13 @@ using AppBancoWinForms.Entities;
 
 namespace AppBancoWinForms.Entities
 {
-    internal class Conta
+    public class Conta
     {
-        public int NumeroConta { get; set; }
+        public int NumeroConta { get; protected set; }
         public TipoConta TipoConta { get; set; }
-        public int NumeroCliente { get; set; }
-        public double Saldo { get; set; }
-        public DateTime DataCriacao { get; set; }
+        public int NumeroCliente { get;protected set; }
+        public double Saldo { get; protected set; }
+        public DateTime DataCriacao { get; protected set; }
 
         public Conta()
         {

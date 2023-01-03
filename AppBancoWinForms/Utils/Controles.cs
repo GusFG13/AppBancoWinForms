@@ -5,6 +5,8 @@ using AppBancoWinForms.Entities.Enums;
 
 namespace AppBancoWinForms.Utils
 {
+    //Verificar possibilidade da classe Controles herdar de Control, o código
+    //ficará mais limpo eu acho
     internal class Controles
     {
         public static void LimpaCaixasTextos(Control.ControlCollection parentControl)
@@ -29,6 +31,7 @@ namespace AppBancoWinForms.Utils
 
         public static Conta SelecionarConta(string c)
         {
+            //Verificar a possibilidade de usar esse metodo onde for necessário
             string[] dadosConta = c.Split(';');
             int numConta = int.Parse(dadosConta[0]);
             TipoConta tipoConta = (TipoConta)Enum.Parse(typeof(TipoConta), dadosConta[1]);

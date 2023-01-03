@@ -11,6 +11,9 @@ namespace AppBancoWinForms.Utils
 {
     internal class Cadastros
     {
+        /*Verificar a possibilidade da classe Cadastros herdar de Conta
+         * para um maior uso de POO
+         */
         public static Cliente CadastrarCliente(string path, string cpf, string nome, string sobrenome, string senha)
         {
             int novoCodigo = 1;
@@ -38,6 +41,7 @@ namespace AppBancoWinForms.Utils
             
             switch (tipoConta)
             {
+                //Verificar possibilidade de transformar em metodo logica de seleção de conta
                 case TipoConta.ContaPoupanca:
                     novaConta = new ContaPoupanca(novoCodigo, tipoConta, numCliente, saldo, dataCriacao);
                     break;

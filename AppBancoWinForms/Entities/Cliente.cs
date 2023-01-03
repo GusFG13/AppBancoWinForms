@@ -6,18 +6,20 @@ using System.Windows.Forms;
 using AppBancoWinForms.Entities.Enums;
 namespace AppBancoWinForms.Entities
 {
-    class Cliente
+    public class Cliente
     {
-        public int Codigo { get; set; }
+        public int Codigo { get;set; }
+        //Verificar possibilidade de deixar a propriedade CPF private ou protected
         public string Cpf { get; set; }
-        public string Nome { get; set; }
-        public string Sobrenome { get; set; }
+        //Verificar possibilidade de deixar a propriedade Nome(set) protected
+        public string Nome { get;set; }
+        //Verificar possibilidade de deixar a propriedade Sobrenome(set) protected
+        public string Sobrenome { get;set; }
         public PerfilInvestidor Perfil { get; set; }
+        //Verificar possibilidade de deixar a propriedade Senha private ou protected
         public string Senha { get; set; }
 
-
         public Cliente() { }
-
         public Cliente(int codigo, string cpf, string nome, string sobrenome, PerfilInvestidor perfil, string senha)
         {
             Codigo = codigo;

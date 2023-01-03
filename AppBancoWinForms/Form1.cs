@@ -66,13 +66,17 @@ namespace AppBancoWinForms
                     string[] aux = dadosCliente.Split(';');
                     if (aux[5] == mtbSenhaLogin.Text)
                     {
+                        //Foi usado o construtor da classe para seja possível mudar o modificador de acesso
+                        //foi testado e não funcionou
+                        //Cliente cliente = new Cliente(int.Parse(aux[0]), aux[1], aux[2], aux[3], (PerfilInvestidor)Enum.Parse(typeof(PerfilInvestidor), aux[4]), aux[5]);
+                        
                         cliente.Codigo = int.Parse(aux[0]);
                         cliente.Cpf = aux[1];
                         cliente.Nome = aux[2];
                         cliente.Sobrenome = aux[3];
                         cliente.Perfil = (PerfilInvestidor)Enum.Parse(typeof(PerfilInvestidor), aux[4]);
                         cliente.Senha = aux[5];
-
+                        
                         tabCtrlTelasApp.SelectedTab = tabPage2; // ir para a página de seleção de conta
 
                     }
@@ -261,6 +265,7 @@ namespace AppBancoWinForms
             }
             else
             {
+                //É possível escrever o metodo extrato na classe conta?
                 string tempCnpj = "";
                 if (contaAtual is ContaSalario)
                 {
@@ -313,6 +318,7 @@ namespace AppBancoWinForms
             }
             else
             {
+                //É possível escrever o metodo ExportarExtrato na classe conta?
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Filter = "Arquivo de texto | *.txt";
                 sfd.Title = "Salvar Extrato Gerado";
@@ -408,6 +414,7 @@ namespace AppBancoWinForms
 
         private void tabPage2_Enter(object sender, EventArgs e)
         {
+            //Metodo de boas vindas é possível ficar na classe Cliente?
             DateTime agora = DateTime.Now;
             string msg = "";
             if (agora.Hour < 12)
@@ -480,7 +487,6 @@ namespace AppBancoWinForms
                         requisitosOK = false;
                         tbDepInicialPoup.Focus();
                     }
-
                 }
                 else
                 {
