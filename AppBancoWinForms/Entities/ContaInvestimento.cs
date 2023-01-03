@@ -16,7 +16,10 @@ namespace AppBancoWinForms.Entities
         //{
         //    return 0.08 * valor;
         //}
-
+        public void ComprarAcao(double valor)
+        {
+            Saldo -= valor;
+        }
 
         public override string ToString()
         {

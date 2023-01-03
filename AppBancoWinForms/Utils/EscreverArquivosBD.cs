@@ -248,6 +248,15 @@ namespace AppBancoWinForms.Utils
                     writer.Write(sb.ToString());
                 }
             }
+            else
+            {
+                // Create a file to write to.
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine(dadosAtualizados);
+                    sw.Close();
+                }
+            }
         }
 
 

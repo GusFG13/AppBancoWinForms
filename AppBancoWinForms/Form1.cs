@@ -911,7 +911,91 @@ namespace AppBancoWinForms
 
         private void btComprarAcoes_Click(object sender, EventArgs e)
         {
+            double valCompra = 0;
+            StringBuilder mensagem = new StringBuilder();
+            mensagem.AppendLine("Deseja realmente comprar as ações abaixo?\n");
 
+
+            //verifica ações em carteira
+            Dictionary<string, Acoes> dictAcoesEmCarteira = new Dictionary<string, Acoes>();
+            for (int i = 0; i < dtGridViewCarteira.RowCount; i++)
+            {
+                dictAcoesEmCarteira.Add(dtGridViewCarteira.Rows[i].Cells["TabCarteiraAcoes"].Value.ToString(),
+                    new Acoes(Convert.ToInt32(dtGridViewCarteira.Rows[i].Cells["TabCarteiraQtdEmCart"].Value),
+                    Convert.ToDouble(dtGridViewCarteira.Rows[i].Cells["TabCarteiraValorMedPago"].Value)));
+            }
+            foreach (DataGridViewRow row in dtGridViewAcoes.Rows)
+            {
+                //convert.toint32(datagridview1.rows[i].cells[1].value)
+                if (Convert.ToBoolean(row.Cells["TabMercadoChk"].Value))
+                {
+                    string nomeAcao = row.Cells["TabMercadoNomeAcao"].Value.ToString();
+                    double valAcao = Convert.ToDouble(row.Cells["TabMercadoValorAcao"].Value);
+                    int qtdComprar = Convert.ToInt32(row.Cells["TabMercadoQtdComprar"].Value);
+                    //messagebox.show(row.cells[2].value.tostring());
+                    valCompra += valAcao * qtdComprar;
+                    if (qtdComprar > 0)
+                    {
+                        // Verificar se ação já existe em carteira e calcular o valor médio
+                        if (dictAcoesEmCarteira.ContainsKey(nomeAcao))
+                        {// calcula preço médio das ações
+                            double novoValorMedio = ((dictAcoesEmCarteira[nomeAcao].Quantidade * dictAcoesEmCarteira[nomeAcao].Valor) + (qtdComprar * valAcao)) / (dictAcoesEmCarteira[nomeAcao].Quantidade + qtdComprar);
+                            //sb.Append($";{nomeAcao};{qtdComprar + dictAcoesEmCarteira[nomeAcao].Quantidade};{novoValorMedio.ToString("F4")}");
+                            dictAcoesEmCarteira[nomeAcao].Valor = novoValorMedio;
+                            dictAcoesEmCarteira[nomeAcao].Quantidade += qtdComprar;
+                        }
+                        else
+                        {
+                            dictAcoesEmCarteira.Add(nomeAcao, new Acoes(qtdComprar, valAcao));
+                            //sb.Append($";{nomeAcao};{qtdComprar};{valAcao.ToString("F4")}");
+                        }
+                        mensagem.AppendLine($"{nomeAcao} (qtd.: {qtdComprar}) por R$ {(valAcao * qtdComprar).ToString("F2")}");
+                    }
+                }
+            }
+            if (valCompra <= contaAtual.Saldo && valCompra > 0)
+            {
+                mensagem.AppendLine($"\nValor total: R$ {valCompra.ToString("F2")}");
+                DialogResult confirmarCompra = MessageBox.Show(mensagem.ToString(), "Confirmar Venda", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirmarCompra == DialogResult.Yes)
+                {
+                    DateTime horaTransacao = DateTime.UtcNow;
+                    double saldoAnterior = contaAtual.Saldo;
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append($"{contaAtual.NumeroConta}");
+                    foreach (KeyValuePair<string, Acoes> ac in dictAcoesEmCarteira)
+                    {
+                        sb.Append($";{ac.Key};{ac.Value.Quantidade};{ac.Value.Valor.ToString("F4")}");
+                    }
+                    // Gravar operações nos bancos (.csv)
+ 
+                    //if (contaAtual is ContaInvestimento)
+                    //{
+                    //    ContaInvestimento cTemp = contaAtual as ContaInvestimento;
+                    //    cTemp.ComprarAcao(valCompra);
+                    //}
+
+                    ContaInvestimento cTemp = contaAtual as ContaInvestimento;
+                    cTemp.ComprarAcao(valCompra);
+                    EscreverArquivosBD.GravarSaldoContaAtualizado(pathContas, contaAtual);
+                    Extrato movimento = new Extrato(horaTransacao, "Compra Ações", cTemp.NumeroConta, valCompra, saldoAnterior, cTemp.Saldo);
+                    EscreverArquivosBD.EscreverNovoItem(pathTransacoes, movimento.ToString());
+                    EscreverArquivosBD.GravarCarteiraAtualizada(pathInvestimentos, contaAtual.NumeroConta, sb.ToString());
+
+                    tabCtrlTelasApp.SelectedTab = tabPage2;
+                    tabCtrlTelasApp.SelectedTab = tabPageAcoes;
+                    MessageBox.Show("Operação concluída!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                }
+                //MessageBox.Show($"{mensagem.ToString()}\n\n{sb.ToString()} ");
+                lblAvisoSaldoIndisp.Visible = false;
+            }
+            else
+            {
+                if (valCompra != 0)
+                    lblAvisoSaldoIndisp.Visible = true;
+            }
         }
 
         private void btVenderAcoes_Click(object sender, EventArgs e)
@@ -952,9 +1036,9 @@ namespace AppBancoWinForms
 
             if (valVenda > 0)
             {
-                mensagem.AppendLine($"Valor total: R$ {valVenda.ToString("F2")}");
-                DialogResult confirmarVenda = MessageBox.Show(mensagem.ToString(),"Confirmar Venda", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-                if (confirmarVenda == DialogResult.Yes) 
+                mensagem.AppendLine($"\nValor total: R$ {valVenda.ToString("F2")}");
+                DialogResult confirmarVenda = MessageBox.Show(mensagem.ToString(), "Confirmar Venda", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirmarVenda == DialogResult.Yes)
                 {
                     DateTime horaTransacao = DateTime.UtcNow;
                     double saldoAnterior = contaAtual.Saldo;
