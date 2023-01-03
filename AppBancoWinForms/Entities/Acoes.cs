@@ -9,6 +9,17 @@ namespace AppBancoWinForms.Entities
 {
     internal class Acoes
     {
+        public int Quantidade { get; set; }
+        public double Valor { get; set; }
+
+        public Acoes(int quantidade, double valor)
+        {
+            Quantidade = quantidade;
+            Valor = valor;
+        }
+
+
+
 
 
         //public void InvestirAcoes(Acoes investir, double valorInvestido)

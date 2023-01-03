@@ -28,6 +28,7 @@ namespace AppBancoWinForms
         string pathClientes = @"c:\DadosAppBanco\clientes.csv";
         string pathContas = @"c:\DadosAppBanco\contas.csv";
         string pathTransacoes = @"c:\DadosAppBanco\trasacoes.csv";
+        string pathInvestimentos = @"c:\DadosAppBanco\investimentos.csv"; 
 
         public Form1()
         {
@@ -316,7 +317,22 @@ namespace AppBancoWinForms
                 sfd.Filter = "Arquivo de texto | *.txt";
                 sfd.Title = "Salvar Extrato Gerado";
                 //sfd.ShowDialog();
-                sfd.FileName = $"Extrato_Conta_{contaAtual.NumeroConta}_{DateTime.Now.ToString("yyyyMMddHHmmss")}";
+
+                string horaExtratoSalvo = "";
+                int pos = rtbExtrato.Find("Extrato gerado em: ");
+                if (pos != 1)
+                {  
+                    if (DateTime.TryParse(rtbExtrato.Text.Substring(pos + 19, 19), out DateTime horaExtratoGerado))
+                    { // conseguiu ler do texto a hora que o extrato foi gerado
+                        horaExtratoSalvo = horaExtratoGerado.ToString("yyyyMMddHHmmss");
+                    }
+                    else
+                    { // senão salva pega a hora atual para criar o nome
+                        horaExtratoSalvo = DateTime.Now.ToString("yyyyMMddHHmmss");
+                    }
+                }
+                //sfd.FileName = $"Extrato_Conta_{contaAtual.NumeroConta}_{DateTime.Now.ToString("yyyyMMddHHmmss")}";
+                sfd.FileName = $"Extrato_Conta_{contaAtual.NumeroConta}_{horaExtratoSalvo}";
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
                     File.WriteAllText(sfd.FileName, rtbExtrato.Text);
@@ -359,8 +375,6 @@ namespace AppBancoWinForms
             rbSacar.Enabled = false;
             rbTransferencia.Checked = false;
             rbTransferencia.Enabled = false;
-            rbDepositarSalario.Checked = false;
-            rbDepositarSalario.Enabled = false;
             btInvestirAcoes.Enabled = false;
 
             contaSelecionada = cbContaSelecionada.SelectedIndex;
@@ -379,7 +393,6 @@ namespace AppBancoWinForms
                 case TipoConta.ContaSalario:
                     rbSacar.Enabled = true;
                     rbTransferencia.Enabled = true;
-                    rbDepositarSalario.Enabled = true;
                     lblTipoConta.Text = "Conta Salário";
                     break;
                 case TipoConta.ContaInvestimento:
@@ -408,7 +421,6 @@ namespace AppBancoWinForms
             lblSaudacao.Text = msg;
             chkBoxMostrarSaldo.Checked = false;
             lblSaldoAtual.Visible = false;
-            pnlCnpj.Enabled = false;
             pnlNumContaDestino.Enabled = false;
             btMovimentoConta.Text = "Ok";
 
@@ -503,7 +515,7 @@ namespace AppBancoWinForms
                 tConta = TipoConta.ContaInvestimento;
                 if (!tbDepIniInvest.Text.Contains(".") && double.TryParse(tbDepIniInvest.Text, out saldoInicial))
                 {
-                    if (saldoInicial >= 0) 
+                    if (saldoInicial >= 0)
                     {
                         //verificar radioButton selecionado e atualizar cadastro do cliente em clientes.csv
                         if (rbPerfil1.Checked)
@@ -527,7 +539,7 @@ namespace AppBancoWinForms
                     {
                         tbDepIniInvest.Focus();
                         requisitosOK = false;
-                    }     
+                    }
                 }
                 else
                 {
@@ -616,20 +628,6 @@ namespace AppBancoWinForms
             else
             {
                 pnlNumContaDestino.Enabled = false;
-            }
-        }
-
-        private void rbDepositarSalario_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbDepositarSalario.Checked)
-            {
-                btMovimentoConta.Text = "Dep. Salário";
-                pnlCnpj.Enabled = true;
-                lblErroMovimentacao.Text = "";
-            }
-            else
-            {
-                pnlCnpj.Enabled = false;
             }
         }
 
@@ -731,26 +729,6 @@ namespace AppBancoWinForms
                             tbContaDestino.Focus();
                         }
                     }
-                    else if (rbDepositarSalario.Checked)
-                    {
-                        if (contaAtual is ContaSalario)
-                        {
-                            ContaSalario contaTemp = contaAtual as ContaSalario;
-                            if (mtbCnpjDepositoSal.Text == contaTemp.Holerite.Cnpj)
-                            {
-                                contaAtual.Depositar(val);
-                                EscreverArquivosBD.GravarSaldoContaAtualizado(pathContas, contaAtual);
-                                Extrato movimento = new Extrato(horaTransacao, "Depósito Salário", contaAtual.NumeroConta, val, saldoAnterior, contaAtual.Saldo);
-                                EscreverArquivosBD.EscreverNovoItem(pathTransacoes, movimento.ToString());
-                                movConcluido = true;
-                            }
-                            else
-                            {
-                                lblErroMovimentacao.Text = "CNPJ informado não é o cadastrado.";
-                                mtbCnpjDepositoSal.Focus();
-                            }
-                        }
-                    }
                     else
                     {
                         lblErroMovimentacao.Text = "Selecione uma operação";
@@ -760,7 +738,6 @@ namespace AppBancoWinForms
                         MessageBox.Show("Operação concluída!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         tabCtrlTelasApp.SelectedTab = tabPage6;
                         tabCtrlTelasApp.SelectedTab = tabPage2;
-                        mtbCnpjDepositoSal.Text = "";
                         tbContaDestino.Text = "";
                         tbValorMovimento.Text = "";
                         lblSaldoAtual.Text = "R$ " + contaAtual.Saldo.ToString("F2");
@@ -805,33 +782,68 @@ namespace AppBancoWinForms
 
         private void tabPageAcoes_Enter(object sender, EventArgs e)
         {
+            lblSaldoDisponivel.Text = contaAtual.Saldo.ToString("F2");
+            lblSaldoInvestido.Text = "";
+            // inicialização tabela ações
             Random precoAcao = new Random();
+            dtGridViewAcoes.Rows.Clear();
+            dtGridViewAcoes.Rows.Add(false, "ABC", (10.0 * precoAcao.NextDouble()).ToString("F4"), 0);
+            dtGridViewAcoes.Rows.Add(false, "DEF", (10.0 * precoAcao.NextDouble()).ToString("F4"), 0);
+            dtGridViewAcoes.Rows.Add(false, "GHI", (10.0 * precoAcao.NextDouble()).ToString("F4"), 0);
+            dtGridViewAcoes.Rows.Add(false, "JKL", (10.0 * precoAcao.NextDouble()).ToString("F4"), 0);
+            dtGridViewAcoes.Rows.Add(false, "MNO", (10.0 * precoAcao.NextDouble()).ToString("F4"), 0);
+            dtGridViewAcoes.Rows.Add(false, "PQR", (10.0 * precoAcao.NextDouble()).ToString("F4"), 0);
+            dtGridViewAcoes.Rows.Add(false, "STU", (10.0 * precoAcao.NextDouble()).ToString("F4"), 0);
+            dtGridViewAcoes.Rows.Add(false, "VWX", (10.0 * precoAcao.NextDouble()).ToString("F4"), 0);
+            dtGridViewAcoes.Rows.Add(false, "YZA", (10.0 * precoAcao.NextDouble()).ToString("F4"), 0);
             Dictionary<string, double> dictAcoes = new Dictionary<string, double>();
-            dictAcoes.Add("ABC", 10.0 * precoAcao.NextDouble());
-            dictAcoes.Add("DEF", 10.0 * precoAcao.NextDouble());
-            dictAcoes.Add("GHI", 10.0 * precoAcao.NextDouble());
-            dictAcoes.Add("JKL", 10.0 * precoAcao.NextDouble());
-            dictAcoes.Add("MNO", 10.0 * precoAcao.NextDouble());
-            dictAcoes.Add("PQR", 10.0 * precoAcao.NextDouble());
-            dictAcoes.Add("STU", 10.0 * precoAcao.NextDouble());
-            dictAcoes.Add("VWX", 10.0 * precoAcao.NextDouble());
-            dictAcoes.Add("YZA", 10.0 * precoAcao.NextDouble());
-
-
-
-            foreach (KeyValuePair<string, double> ac in dictAcoes)
+            foreach (DataGridViewRow row in dtGridViewAcoes.Rows)
             {
-                dataGridView1.Rows.Add(false, ac.Key, ac.Value.ToString("F5"), 0);
+                dictAcoes.Add(Convert.ToString(row.Cells[1].Value), Convert.ToDouble(row.Cells[2].Value));
             }
+            // inicialização tabela carteira
+            dtGridViewCarteira.Rows.Clear();
+            string carteiraAcoes = EscreverArquivosBD.RetornarCarteiraAcoes(pathInvestimentos, contaAtual.NumeroConta);
+            double saldoInvestido = 0;
+            if (carteiraAcoes != "")
+            {
+                string[] dadosCarteira = carteiraAcoes.Split(';');
+                if (dadosCarteira.Length > 1)
+                {
+                    Dictionary<string, Acoes> dictAcoesEmCarteira = new Dictionary<string, Acoes>();
+                    for (int i = 1; i < dadosCarteira.Length; i += 3)
+                    {
+                        dictAcoesEmCarteira.Add(dadosCarteira[i], new Acoes(int.Parse(dadosCarteira[i + 1]), double.Parse(dadosCarteira[i + 2])));
+                    }
+                    foreach (KeyValuePair<string, Acoes> ac in dictAcoesEmCarteira)
+                    {
 
-
-
+                        double valorTotalAcaoAtual = dictAcoes[ac.Key] * ac.Value.Quantidade;
+                        dtGridViewCarteira.Rows.Add(false, 
+                             ac.Key, 
+                             ac.Value.Valor, 
+                             ac.Value.Quantidade, 
+                             (ac.Value.Valor * ac.Value.Quantidade).ToString("F2"), 
+                             dictAcoes[ac.Key], 
+                             (valorTotalAcaoAtual).ToString("F2"), 
+                             0);
+                        saldoInvestido += valorTotalAcaoAtual;
+                    }
+                }
+            }
+            lblSaldoInvestido.Text = saldoInvestido.ToString("F2");
+            //StringBuilder sb = new StringBuilder();
+            //foreach (KeyValuePair<string, double> ac in dictAcoes)
+            //{
+            //    sb.AppendLine($"{ac.Key} : {ac.Value.ToString("F4")}"); 
+            //}
+            //MessageBox.Show(sb.ToString());
         }
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             double total = 0;
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            foreach (DataGridViewRow row in dtGridViewAcoes.Rows)
             {
                 //Convert.ToInt32(dataGridView1.Rows[i].Cells[1].Value)
                 if (Convert.ToBoolean(row.Cells[0].Value))
@@ -841,7 +853,7 @@ namespace AppBancoWinForms
 
                 }
             }
-            label13.Text = "Valor Total: " + total;
+            //label13.Text = "Valor Total: " + total;
         }
 
         private void btCancelarTelaDepSal_Click(object sender, EventArgs e)
@@ -902,7 +914,6 @@ namespace AppBancoWinForms
                                     //ok para depósito
                                     DateTime horaTransacao = DateTime.UtcNow;
                                     double saldoAnterior = contaSalDeposito.Saldo;// salvar saldo anterior para exibir no extrato
-                                    bool movConcluido = false;
                                     contaSalDeposito.Depositar(valorDeposito);
                                     EscreverArquivosBD.GravarSaldoContaAtualizado(pathContas, contaSalDeposito);
                                     Extrato movimento = new Extrato(horaTransacao, "Depósito Salário", contaSalDeposito.NumeroConta, valorDeposito, saldoAnterior, contaSalDeposito.Saldo);

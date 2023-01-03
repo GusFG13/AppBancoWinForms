@@ -200,6 +200,29 @@ namespace AppBancoWinForms.Utils
             return contaSalarioDestino;
         }
 
+        public static string RetornarCarteiraAcoes(string path, int numContaInvest)
+        {
+            string dadosCarteira = "";
+            if (File.Exists(path))
+            {
+                // Open the file to read from.
+                using (StreamReader sr = File.OpenText(path))
+                {
+                    string s = "";
+                    while ((s = sr.ReadLine()) != null)
+                    {
+                        if (int.Parse(s.Split(';')[0]) == numContaInvest)
+                        {
+                            dadosCarteira = s;
+                            sr.Close();
+                            break;
+                        }
+                    }
+                }
+            }
+            return dadosCarteira;
+        }
+
 
     }
 }
