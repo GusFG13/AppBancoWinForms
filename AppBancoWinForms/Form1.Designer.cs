@@ -151,7 +151,6 @@
             this.lblValorVenda = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
             this.lblSaldoDisponivel = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.btVenderAcoes = new System.Windows.Forms.Button();
@@ -191,6 +190,10 @@
             this.TabCarteiraValAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TabCarteiraValTotAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TabCarteiraQtdVender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label40 = new System.Windows.Forms.Label();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
             this.tabPage8.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPage7.SuspendLayout();
@@ -230,6 +233,9 @@
             this.tbDepContaSalario.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.panel15.SuspendLayout();
+            this.panel17.SuspendLayout();
+            this.panel18.SuspendLayout();
+            this.panel19.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage8
@@ -1482,17 +1488,9 @@
             // tabPageAcoes
             // 
             this.tabPageAcoes.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.tabPageAcoes.Controls.Add(this.lblAvisoSaldoIndisp);
-            this.tabPageAcoes.Controls.Add(this.lblSaldoInvestido);
-            this.tabPageAcoes.Controls.Add(this.lblValorCompra);
-            this.tabPageAcoes.Controls.Add(this.lblValorVenda);
-            this.tabPageAcoes.Controls.Add(this.label44);
-            this.tabPageAcoes.Controls.Add(this.lblSaldoDisponivel);
-            this.tabPageAcoes.Controls.Add(this.label41);
-            this.tabPageAcoes.Controls.Add(this.label42);
-            this.tabPageAcoes.Controls.Add(this.label39);
-            this.tabPageAcoes.Controls.Add(this.btVenderAcoes);
-            this.tabPageAcoes.Controls.Add(this.btComprarAcoes);
+            this.tabPageAcoes.Controls.Add(this.panel19);
+            this.tabPageAcoes.Controls.Add(this.panel18);
+            this.tabPageAcoes.Controls.Add(this.panel17);
             this.tabPageAcoes.Controls.Add(this.btCancelarPagAcoes);
             this.tabPageAcoes.Controls.Add(this.panel16);
             this.tabPageAcoes.Location = new System.Drawing.Point(4, 25);
@@ -1508,11 +1506,11 @@
             this.lblAvisoSaldoIndisp.AutoSize = true;
             this.lblAvisoSaldoIndisp.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAvisoSaldoIndisp.ForeColor = System.Drawing.Color.Red;
-            this.lblAvisoSaldoIndisp.Location = new System.Drawing.Point(126, 310);
+            this.lblAvisoSaldoIndisp.Location = new System.Drawing.Point(39, 6);
             this.lblAvisoSaldoIndisp.Name = "lblAvisoSaldoIndisp";
-            this.lblAvisoSaldoIndisp.Size = new System.Drawing.Size(74, 28);
+            this.lblAvisoSaldoIndisp.Size = new System.Drawing.Size(107, 14);
             this.lblAvisoSaldoIndisp.TabIndex = 10;
-            this.lblAvisoSaldoIndisp.Text = "Saldo\r\nindisponível";
+            this.lblAvisoSaldoIndisp.Text = "Saldo indisponível";
             this.lblAvisoSaldoIndisp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblAvisoSaldoIndisp.Visible = false;
             // 
@@ -1520,7 +1518,7 @@
             // 
             this.lblSaldoInvestido.BackColor = System.Drawing.Color.FloralWhite;
             this.lblSaldoInvestido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSaldoInvestido.Location = new System.Drawing.Point(573, 358);
+            this.lblSaldoInvestido.Location = new System.Drawing.Point(114, 69);
             this.lblSaldoInvestido.Name = "lblSaldoInvestido";
             this.lblSaldoInvestido.Size = new System.Drawing.Size(88, 26);
             this.lblSaldoInvestido.TabIndex = 8;
@@ -1530,7 +1528,7 @@
             // 
             this.lblValorCompra.BackColor = System.Drawing.Color.FloralWhite;
             this.lblValorCompra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblValorCompra.Location = new System.Drawing.Point(31, 310);
+            this.lblValorCompra.Location = new System.Drawing.Point(80, 29);
             this.lblValorCompra.Name = "lblValorCompra";
             this.lblValorCompra.Size = new System.Drawing.Size(88, 26);
             this.lblValorCompra.TabIndex = 8;
@@ -1540,7 +1538,7 @@
             // 
             this.lblValorVenda.BackColor = System.Drawing.Color.FloralWhite;
             this.lblValorVenda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblValorVenda.Location = new System.Drawing.Point(302, 314);
+            this.lblValorVenda.Location = new System.Drawing.Point(84, 29);
             this.lblValorVenda.Name = "lblValorVenda";
             this.lblValorVenda.Size = new System.Drawing.Size(88, 26);
             this.lblValorVenda.TabIndex = 8;
@@ -1548,35 +1546,26 @@
             // 
             // label44
             // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(284, 297);
+            this.label44.Location = new System.Drawing.Point(18, 28);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(80, 14);
+            this.label44.Size = new System.Drawing.Size(57, 28);
             this.label44.TabIndex = 3;
             this.label44.Text = "Valor da venda";
+            this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblSaldoDisponivel
             // 
             this.lblSaldoDisponivel.BackColor = System.Drawing.Color.FloralWhite;
             this.lblSaldoDisponivel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSaldoDisponivel.Location = new System.Drawing.Point(573, 305);
+            this.lblSaldoDisponivel.Location = new System.Drawing.Point(114, 16);
             this.lblSaldoDisponivel.Name = "lblSaldoDisponivel";
             this.lblSaldoDisponivel.Size = new System.Drawing.Size(88, 26);
             this.lblSaldoDisponivel.TabIndex = 8;
             this.lblSaldoDisponivel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(33, 290);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(86, 14);
-            this.label41.TabIndex = 3;
-            this.label41.Text = "Valor da compra";
-            // 
             // label42
             // 
-            this.label42.Location = new System.Drawing.Point(470, 353);
+            this.label42.Location = new System.Drawing.Point(11, 64);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(87, 31);
             this.label42.TabIndex = 7;
@@ -1585,7 +1574,7 @@
             // 
             // label39
             // 
-            this.label39.Location = new System.Drawing.Point(469, 303);
+            this.label39.Location = new System.Drawing.Point(10, 14);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(88, 31);
             this.label39.TabIndex = 7;
@@ -1594,29 +1583,32 @@
             // 
             // btVenderAcoes
             // 
-            this.btVenderAcoes.Location = new System.Drawing.Point(287, 351);
+            this.btVenderAcoes.Location = new System.Drawing.Point(43, 65);
             this.btVenderAcoes.Name = "btVenderAcoes";
             this.btVenderAcoes.Size = new System.Drawing.Size(115, 40);
             this.btVenderAcoes.TabIndex = 5;
             this.btVenderAcoes.Text = "Vender Ações Selecionadas";
             this.btVenderAcoes.UseVisualStyleBackColor = true;
+            this.btVenderAcoes.Click += new System.EventHandler(this.btVenderAcoes_Click);
             // 
             // btComprarAcoes
             // 
-            this.btComprarAcoes.Location = new System.Drawing.Point(18, 351);
+            this.btComprarAcoes.Location = new System.Drawing.Point(35, 65);
             this.btComprarAcoes.Name = "btComprarAcoes";
             this.btComprarAcoes.Size = new System.Drawing.Size(115, 40);
             this.btComprarAcoes.TabIndex = 5;
             this.btComprarAcoes.Text = "Comprar Ações Selecionadas";
             this.btComprarAcoes.UseVisualStyleBackColor = true;
+            this.btComprarAcoes.Click += new System.EventHandler(this.btComprarAcoes_Click);
             // 
             // btCancelarPagAcoes
             // 
-            this.btCancelarPagAcoes.Location = new System.Drawing.Point(687, 361);
+            this.btCancelarPagAcoes.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btCancelarPagAcoes.Location = new System.Drawing.Point(687, 369);
             this.btCancelarPagAcoes.Name = "btCancelarPagAcoes";
             this.btCancelarPagAcoes.Size = new System.Drawing.Size(75, 23);
             this.btCancelarPagAcoes.TabIndex = 0;
-            this.btCancelarPagAcoes.Text = "Cancelar";
+            this.btCancelarPagAcoes.Text = "Sair";
             this.btCancelarPagAcoes.UseVisualStyleBackColor = true;
             this.btCancelarPagAcoes.Click += new System.EventHandler(this.btCancelarPagAcoes_Click);
             // 
@@ -1979,6 +1971,50 @@
             this.TabCarteiraQtdVender.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.TabCarteiraQtdVender.Width = 45;
             // 
+            // label40
+            // 
+            this.label40.Location = new System.Drawing.Point(16, 28);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(57, 28);
+            this.label40.TabIndex = 3;
+            this.label40.Text = "Valor da compra";
+            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // panel17
+            // 
+            this.panel17.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel17.Controls.Add(this.btComprarAcoes);
+            this.panel17.Controls.Add(this.lblAvisoSaldoIndisp);
+            this.panel17.Controls.Add(this.label40);
+            this.panel17.Controls.Add(this.lblValorCompra);
+            this.panel17.Location = new System.Drawing.Point(27, 289);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(184, 108);
+            this.panel17.TabIndex = 11;
+            // 
+            // panel18
+            // 
+            this.panel18.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel18.Controls.Add(this.btVenderAcoes);
+            this.panel18.Controls.Add(this.label44);
+            this.panel18.Controls.Add(this.lblValorVenda);
+            this.panel18.Location = new System.Drawing.Point(240, 289);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(200, 108);
+            this.panel18.TabIndex = 12;
+            // 
+            // panel19
+            // 
+            this.panel19.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel19.Controls.Add(this.label39);
+            this.panel19.Controls.Add(this.label42);
+            this.panel19.Controls.Add(this.lblSaldoDisponivel);
+            this.panel19.Controls.Add(this.lblSaldoInvestido);
+            this.panel19.Location = new System.Drawing.Point(469, 289);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(212, 108);
+            this.panel19.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2046,7 +2082,6 @@
             this.panel1.PerformLayout();
             this.tabCtrlTelasApp.ResumeLayout(false);
             this.tabPageAcoes.ResumeLayout(false);
-            this.tabPageAcoes.PerformLayout();
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewAcoes)).EndInit();
@@ -2056,6 +2091,10 @@
             this.groupBox6.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
+            this.panel18.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2203,7 +2242,6 @@
         private System.Windows.Forms.Button btVenderAcoes;
         private System.Windows.Forms.DataGridView dtGridViewCarteira;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label lblSaldoDisponivel;
         private System.Windows.Forms.Label lblSaldoInvestido;
         private System.Windows.Forms.Label label42;
@@ -2225,6 +2263,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TabCarteiraValAtual;
         private System.Windows.Forms.DataGridViewTextBoxColumn TabCarteiraValTotAtual;
         private System.Windows.Forms.DataGridViewTextBoxColumn TabCarteiraQtdVender;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Label label40;
     }
 }
 

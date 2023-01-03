@@ -907,9 +907,73 @@ namespace AppBancoWinForms
                 lblAvisoSaldoIndisp.Visible = false;
             }
         }
+        /******************************** compra e venda de ações ********************************/
 
+        private void btComprarAcoes_Click(object sender, EventArgs e)
+        {
 
+        }
 
+        private void btVenderAcoes_Click(object sender, EventArgs e)
+        {
+
+            double valVenda = 0;
+            StringBuilder mensagem = new StringBuilder();
+            mensagem.AppendLine("Deseja realmente vender as ações abaixo?\n");
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"{contaAtual.NumeroConta}");
+            foreach (DataGridViewRow row in dtGridViewCarteira.Rows)
+            {
+                int qtdRestante = Convert.ToInt32(row.Cells["TabCarteiraQtdEmCart"].Value);
+                string nomeAcao = row.Cells["TabCarteiraAcoes"].Value.ToString();
+                double valorMedioPago = Convert.ToDouble(row.Cells["TabCarteiraValorMedPago"].Value);
+                double valorParaVenda = Convert.ToDouble(row.Cells["TabCarteiraValAtual"].Value);
+                if (Convert.ToBoolean(row.Cells["TabCarteiraChk"].Value))
+                {
+                    int qtdVendida = Convert.ToInt32(row.Cells["TabCarteiraQtdVender"].Value);
+                    //messagebox.show(row.cells[2].value.tostring());
+                    valVenda += valorParaVenda * qtdVendida;
+                    qtdRestante -= qtdVendida;
+                    if (qtdRestante > 0)
+                    {
+                        sb.Append($";{nomeAcao};{qtdRestante};{valorMedioPago.ToString("F4")}");
+                    }
+                    mensagem.AppendLine($"{nomeAcao} (qtd.: {qtdVendida}) por R$ {(valorParaVenda * qtdVendida).ToString("F2")}");
+                }
+                else
+                {
+                    if (qtdRestante > 0)
+                    {
+                        sb.Append($";{nomeAcao};{qtdRestante};{valorMedioPago.ToString("F4")}");
+                    }
+                }
+
+            }
+
+            if (valVenda > 0)
+            {
+                mensagem.AppendLine($"Valor total: R$ {valVenda.ToString("F2")}");
+                DialogResult confirmarVenda = MessageBox.Show(mensagem.ToString(),"Confirmar Venda", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                if (confirmarVenda == DialogResult.Yes) 
+                {
+                    DateTime horaTransacao = DateTime.UtcNow;
+                    double saldoAnterior = contaAtual.Saldo;
+                    contaAtual.Depositar(valVenda);
+                    EscreverArquivosBD.GravarSaldoContaAtualizado(pathContas, contaAtual);
+                    Extrato movimento = new Extrato(horaTransacao, "Venda Ações", contaAtual.NumeroConta, valVenda, saldoAnterior, contaAtual.Saldo);
+                    EscreverArquivosBD.EscreverNovoItem(pathTransacoes, movimento.ToString());
+                    EscreverArquivosBD.GravarCarteiraAtualizada(pathInvestimentos, contaAtual.NumeroConta, sb.ToString());
+                    //GravarCarteiraAtualizada(string path, int numConta, string dadosAtualizados)
+                    tabCtrlTelasApp.SelectedTab = tabPage8;
+                    tabCtrlTelasApp.SelectedTab = tabPageAcoes;
+                    MessageBox.Show("Operação concluída!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //sb.AppendLine();
+                    //sb.AppendLine($"Valor total da venda: {valVenda.ToString("F2")}");
+                    //MessageBox.Show(sb.ToString());
+                }
+            }
+        }
+        /*****************************************************************************************/
         private void btCancelarTelaDepSal_Click(object sender, EventArgs e)
         {
             tabCtrlTelasApp.SelectedTab = tabPage1;

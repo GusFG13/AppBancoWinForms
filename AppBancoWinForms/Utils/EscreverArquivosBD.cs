@@ -171,6 +171,7 @@ namespace AppBancoWinForms.Utils
             }
         }
 
+
         public static ContaSalario BuscarContaSalario(string path, int numContaSalario)
         {
             ContaSalario contaSalarioDestino = null;
@@ -221,6 +222,32 @@ namespace AppBancoWinForms.Utils
                 }
             }
             return dadosCarteira;
+        }
+
+
+        public static void GravarCarteiraAtualizada(string path, int numConta, string dadosAtualizados)
+        {
+            if (File.Exists(path))
+            {
+                string[] investimentosCSV = File.ReadAllLines(path);
+                for (int i = 0; i < investimentosCSV.Length; i++)
+                {
+                    if (int.Parse(investimentosCSV[i].Split(';')[0]) == numConta)
+                    {
+                        investimentosCSV[i] = dadosAtualizados;
+                        break;
+                    }
+                }
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < investimentosCSV.Length; i++)
+                {
+                    sb.AppendLine(investimentosCSV[i]);
+                }
+                using (StreamWriter writer = new StreamWriter(path, false))
+                {
+                    writer.Write(sb.ToString());
+                }
+            }
         }
 
 
