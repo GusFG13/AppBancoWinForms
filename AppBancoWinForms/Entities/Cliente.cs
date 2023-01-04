@@ -8,12 +8,12 @@ namespace AppBancoWinForms.Entities
 {
     class Cliente
     {
-        public int Codigo { get; set; }
-        public string Cpf { get; set; }
-        public string Nome { get; set; }
-        public string Sobrenome { get; set; }
+        public int Codigo { get; protected set; }
+        public string Cpf { get; protected set; }
+        public string Nome { get; protected set; }
+        public string Sobrenome { get; protected set; }
         public PerfilInvestidor Perfil { get; set; }
-        public string Senha { get; set; }
+        private string Senha { get; set; }
 
 
         public Cliente() { }

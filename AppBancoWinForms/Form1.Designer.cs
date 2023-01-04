@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.tabPageExtrato = new System.Windows.Forms.TabPage();
             this.rtbExtrato = new System.Windows.Forms.RichTextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -43,7 +43,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.dtpFim = new System.Windows.Forms.DateTimePicker();
             this.dtpInicio = new System.Windows.Forms.DateTimePicker();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.tabPageAbrirNovaConta = new System.Windows.Forms.TabPage();
             this.panel13 = new System.Windows.Forms.Panel();
             this.label36 = new System.Windows.Forms.Label();
             this.rbPoupanca = new System.Windows.Forms.RadioButton();
@@ -74,7 +74,7 @@
             this.panel14 = new System.Windows.Forms.Panel();
             this.label30 = new System.Windows.Forms.Label();
             this.tbDepIniInvest = new System.Windows.Forms.TextBox();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tabPageNovoCadCliente = new System.Windows.Forms.TabPage();
             this.label24 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btCancelarNovoCadastro = new System.Windows.Forms.Button();
@@ -95,7 +95,7 @@
             this.mtbCPFCadastro = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btCadastrar = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPageMovContas = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btExibirDadosCliente = new System.Windows.Forms.Button();
             this.label29 = new System.Windows.Forms.Label();
@@ -128,7 +128,7 @@
             this.lblSaudacao = new System.Windows.Forms.Label();
             this.btIrParaPagExtrato = new System.Windows.Forms.Button();
             this.cbContaSelecionada = new System.Windows.Forms.ComboBox();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPageLogin = new System.Windows.Forms.TabPage();
             this.btFecharPrograma = new System.Windows.Forms.Button();
             this.btIrParaDepSalario = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
@@ -163,10 +163,22 @@
             this.panel16 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.dtGridViewAcoes = new System.Windows.Forms.DataGridView();
+            this.TabMercadoChk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.TabMercadoNomeAcao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabMercadoValorAcao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabMercadoQtdComprar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtGridViewCarteira = new System.Windows.Forms.DataGridView();
+            this.TabCarteiraChk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.TabCarteiraAcoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabCarteiraValorMedPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabCarteiraQtdEmCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabCarteiraValTotPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabCarteiraValAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabCarteiraValTotAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabCarteiraQtdVender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label20 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
-            this.tbDepContaSalario = new System.Windows.Forms.TabPage();
+            this.tabDepEmContaSalario = new System.Windows.Forms.TabPage();
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -182,21 +194,10 @@
             this.lblErroTelaDepSal = new System.Windows.Forms.Label();
             this.btCancelarTelaDepSal = new System.Windows.Forms.Button();
             this.btDepositarSalario = new System.Windows.Forms.Button();
-            this.TabMercadoChk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.TabMercadoNomeAcao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TabMercadoValorAcao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TabMercadoQtdComprar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TabCarteiraChk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.TabCarteiraAcoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TabCarteiraValorMedPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TabCarteiraQtdEmCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TabCarteiraValTotPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TabCarteiraValAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TabCarteiraValTotAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TabCarteiraQtdVender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage8.SuspendLayout();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.tabPageExtrato.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.tabPage7.SuspendLayout();
+            this.tabPageAbrirNovaConta.SuspendLayout();
             this.panel13.SuspendLayout();
             this.tabCtrlTipoConta.SuspendLayout();
             this.tabPagePoupanca.SuspendLayout();
@@ -208,20 +209,20 @@
             this.tabPageInvestimento.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.panel14.SuspendLayout();
-            this.tabPage6.SuspendLayout();
+            this.tabPageNovoCadCliente.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tabPageMovContas.SuspendLayout();
             this.panel8.SuspendLayout();
             this.pnlNumContaDestino.SuspendLayout();
             this.pnlValor.SuspendLayout();
             this.panel10.SuspendLayout();
             this.gbActions.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabPageLogin.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -233,28 +234,29 @@
             this.panel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewAcoes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewCarteira)).BeginInit();
-            this.tbDepContaSalario.SuspendLayout();
+            this.tabDepEmContaSalario.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.panel15.SuspendLayout();
+            this.panel20.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabPage8
+            // tabPageExtrato
             // 
-            this.tabPage8.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.tabPage8.Controls.Add(this.rtbExtrato);
-            this.tabPage8.Controls.Add(this.label26);
-            this.tabPage8.Controls.Add(this.label10);
-            this.tabPage8.Controls.Add(this.btVoltar);
-            this.tabPage8.Controls.Add(this.btExportarExtrato);
-            this.tabPage8.Controls.Add(this.btGerarextrato);
-            this.tabPage8.Controls.Add(this.groupBox3);
-            this.tabPage8.Location = new System.Drawing.Point(4, 25);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(768, 398);
-            this.tabPage8.TabIndex = 4;
-            this.tabPage8.Text = "Extrato";
-            this.tabPage8.Enter += new System.EventHandler(this.tabPage8_Enter);
+            this.tabPageExtrato.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.tabPageExtrato.Controls.Add(this.rtbExtrato);
+            this.tabPageExtrato.Controls.Add(this.label26);
+            this.tabPageExtrato.Controls.Add(this.label10);
+            this.tabPageExtrato.Controls.Add(this.btVoltar);
+            this.tabPageExtrato.Controls.Add(this.btExportarExtrato);
+            this.tabPageExtrato.Controls.Add(this.btGerarextrato);
+            this.tabPageExtrato.Controls.Add(this.groupBox3);
+            this.tabPageExtrato.Location = new System.Drawing.Point(4, 25);
+            this.tabPageExtrato.Name = "tabPageExtrato";
+            this.tabPageExtrato.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageExtrato.Size = new System.Drawing.Size(768, 398);
+            this.tabPageExtrato.TabIndex = 4;
+            this.tabPageExtrato.Text = "Extrato";
+            this.tabPageExtrato.Enter += new System.EventHandler(this.tabPageExtrato_Enter);
             // 
             // rtbExtrato
             // 
@@ -263,7 +265,8 @@
             this.rtbExtrato.Name = "rtbExtrato";
             this.rtbExtrato.ReadOnly = true;
             this.rtbExtrato.Size = new System.Drawing.Size(540, 356);
-            this.rtbExtrato.TabIndex = 55;
+            this.rtbExtrato.TabIndex = 50;
+            this.rtbExtrato.TabStop = false;
             this.rtbExtrato.Text = "";
             this.rtbExtrato.WordWrap = false;
             // 
@@ -295,7 +298,7 @@
             this.btVoltar.Location = new System.Drawing.Point(60, 342);
             this.btVoltar.Name = "btVoltar";
             this.btVoltar.Size = new System.Drawing.Size(101, 23);
-            this.btVoltar.TabIndex = 2;
+            this.btVoltar.TabIndex = 4;
             this.btVoltar.Text = "Voltar";
             this.btVoltar.UseVisualStyleBackColor = true;
             this.btVoltar.Click += new System.EventHandler(this.btVoltar_Click);
@@ -305,8 +308,8 @@
             this.btExportarExtrato.Location = new System.Drawing.Point(60, 307);
             this.btExportarExtrato.Name = "btExportarExtrato";
             this.btExportarExtrato.Size = new System.Drawing.Size(101, 23);
-            this.btExportarExtrato.TabIndex = 2;
-            this.btExportarExtrato.Text = "Exportar Extrato";
+            this.btExportarExtrato.TabIndex = 3;
+            this.btExportarExtrato.Text = "Salvar Extrato";
             this.btExportarExtrato.UseVisualStyleBackColor = true;
             this.btExportarExtrato.Click += new System.EventHandler(this.btExportarExtrato_Click);
             // 
@@ -315,16 +318,14 @@
             this.btGerarextrato.Location = new System.Drawing.Point(60, 272);
             this.btGerarextrato.Name = "btGerarextrato";
             this.btGerarextrato.Size = new System.Drawing.Size(101, 23);
-            this.btGerarextrato.TabIndex = 3;
+            this.btGerarextrato.TabIndex = 1;
             this.btGerarextrato.Text = "Gerar Extrato";
             this.btGerarextrato.UseVisualStyleBackColor = true;
             this.btGerarextrato.Click += new System.EventHandler(this.btGerarextrato_Click);
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.rb30dias);
-            this.groupBox3.Controls.Add(this.rb15dias);
-            this.groupBox3.Controls.Add(this.rb7dias);
+            this.groupBox3.Controls.Add(this.panel20);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.dtpFim);
@@ -332,17 +333,17 @@
             this.groupBox3.Location = new System.Drawing.Point(10, 49);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(200, 192);
-            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Escolha o período";
             // 
             // rb30dias
             // 
             this.rb30dias.AutoSize = true;
-            this.rb30dias.Location = new System.Drawing.Point(27, 154);
+            this.rb30dias.Location = new System.Drawing.Point(10, 66);
             this.rb30dias.Name = "rb30dias";
             this.rb30dias.Size = new System.Drawing.Size(97, 18);
-            this.rb30dias.TabIndex = 0;
+            this.rb30dias.TabIndex = 3;
             this.rb30dias.TabStop = true;
             this.rb30dias.Text = "Últimos 30 dias";
             this.rb30dias.UseVisualStyleBackColor = true;
@@ -351,10 +352,10 @@
             // rb15dias
             // 
             this.rb15dias.AutoSize = true;
-            this.rb15dias.Location = new System.Drawing.Point(27, 131);
+            this.rb15dias.Location = new System.Drawing.Point(10, 43);
             this.rb15dias.Name = "rb15dias";
             this.rb15dias.Size = new System.Drawing.Size(97, 18);
-            this.rb15dias.TabIndex = 1;
+            this.rb15dias.TabIndex = 2;
             this.rb15dias.TabStop = true;
             this.rb15dias.Text = "Últimos 15 dias";
             this.rb15dias.UseVisualStyleBackColor = true;
@@ -363,10 +364,10 @@
             // rb7dias
             // 
             this.rb7dias.AutoSize = true;
-            this.rb7dias.Location = new System.Drawing.Point(27, 108);
+            this.rb7dias.Location = new System.Drawing.Point(10, 20);
             this.rb7dias.Name = "rb7dias";
             this.rb7dias.Size = new System.Drawing.Size(91, 18);
-            this.rb7dias.TabIndex = 2;
+            this.rb7dias.TabIndex = 1;
             this.rb7dias.TabStop = true;
             this.rb7dias.Text = "Últimos 7 dias";
             this.rb7dias.UseVisualStyleBackColor = true;
@@ -396,7 +397,7 @@
             this.dtpFim.Location = new System.Drawing.Point(67, 60);
             this.dtpFim.Name = "dtpFim";
             this.dtpFim.Size = new System.Drawing.Size(100, 20);
-            this.dtpFim.TabIndex = 5;
+            this.dtpFim.TabIndex = 2;
             this.dtpFim.ValueChanged += new System.EventHandler(this.dtpFim_ValueChanged);
             // 
             // dtpInicio
@@ -405,23 +406,23 @@
             this.dtpInicio.Location = new System.Drawing.Point(67, 21);
             this.dtpInicio.Name = "dtpInicio";
             this.dtpInicio.Size = new System.Drawing.Size(100, 20);
-            this.dtpInicio.TabIndex = 6;
+            this.dtpInicio.TabIndex = 1;
             this.dtpInicio.ValueChanged += new System.EventHandler(this.dtpInicio_ValueChanged);
             // 
-            // tabPage7
+            // tabPageAbrirNovaConta
             // 
-            this.tabPage7.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.tabPage7.Controls.Add(this.panel13);
-            this.tabPage7.Controls.Add(this.label25);
-            this.tabPage7.Controls.Add(this.btVoltarParaMenu);
-            this.tabPage7.Controls.Add(this.btCadastrarNovaConta);
-            this.tabPage7.Controls.Add(this.tabCtrlTipoConta);
-            this.tabPage7.Location = new System.Drawing.Point(4, 25);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(768, 398);
-            this.tabPage7.TabIndex = 3;
-            this.tabPage7.Text = "Abrir Nova Conta";
+            this.tabPageAbrirNovaConta.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.tabPageAbrirNovaConta.Controls.Add(this.panel13);
+            this.tabPageAbrirNovaConta.Controls.Add(this.label25);
+            this.tabPageAbrirNovaConta.Controls.Add(this.btVoltarParaMenu);
+            this.tabPageAbrirNovaConta.Controls.Add(this.btCadastrarNovaConta);
+            this.tabPageAbrirNovaConta.Controls.Add(this.tabCtrlTipoConta);
+            this.tabPageAbrirNovaConta.Location = new System.Drawing.Point(4, 25);
+            this.tabPageAbrirNovaConta.Name = "tabPageAbrirNovaConta";
+            this.tabPageAbrirNovaConta.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAbrirNovaConta.Size = new System.Drawing.Size(768, 398);
+            this.tabPageAbrirNovaConta.TabIndex = 3;
+            this.tabPageAbrirNovaConta.Text = "Abrir Nova Conta";
             // 
             // panel13
             // 
@@ -432,7 +433,7 @@
             this.panel13.Location = new System.Drawing.Point(38, 107);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(270, 144);
-            this.panel13.TabIndex = 55;
+            this.panel13.TabIndex = 1;
             // 
             // label36
             // 
@@ -451,7 +452,7 @@
             this.rbPoupanca.Location = new System.Drawing.Point(36, 56);
             this.rbPoupanca.Name = "rbPoupanca";
             this.rbPoupanca.Size = new System.Drawing.Size(104, 18);
-            this.rbPoupanca.TabIndex = 3;
+            this.rbPoupanca.TabIndex = 1;
             this.rbPoupanca.TabStop = true;
             this.rbPoupanca.Text = "Conta Poupança";
             this.rbPoupanca.UseVisualStyleBackColor = true;
@@ -474,7 +475,7 @@
             this.rbInvestimento.Location = new System.Drawing.Point(36, 104);
             this.rbInvestimento.Name = "rbInvestimento";
             this.rbInvestimento.Size = new System.Drawing.Size(116, 18);
-            this.rbInvestimento.TabIndex = 1;
+            this.rbInvestimento.TabIndex = 3;
             this.rbInvestimento.Text = "Conta Investimento";
             this.rbInvestimento.UseVisualStyleBackColor = true;
             this.rbInvestimento.CheckedChanged += new System.EventHandler(this.rbInvestimento_CheckedChanged);
@@ -496,7 +497,7 @@
             this.btVoltarParaMenu.Location = new System.Drawing.Point(563, 356);
             this.btVoltarParaMenu.Name = "btVoltarParaMenu";
             this.btVoltarParaMenu.Size = new System.Drawing.Size(75, 23);
-            this.btVoltarParaMenu.TabIndex = 5;
+            this.btVoltarParaMenu.TabIndex = 4;
             this.btVoltarParaMenu.Text = "Voltar";
             this.btVoltarParaMenu.UseVisualStyleBackColor = true;
             this.btVoltarParaMenu.Click += new System.EventHandler(this.btVoltarParaMenu_Click);
@@ -506,7 +507,7 @@
             this.btCadastrarNovaConta.Location = new System.Drawing.Point(663, 356);
             this.btCadastrarNovaConta.Name = "btCadastrarNovaConta";
             this.btCadastrarNovaConta.Size = new System.Drawing.Size(75, 23);
-            this.btCadastrarNovaConta.TabIndex = 1;
+            this.btCadastrarNovaConta.TabIndex = 3;
             this.btCadastrarNovaConta.Text = "Cadastrar";
             this.btCadastrarNovaConta.UseVisualStyleBackColor = true;
             this.btCadastrarNovaConta.Click += new System.EventHandler(this.btCadastrarNovaConta_Click);
@@ -520,7 +521,7 @@
             this.tabCtrlTipoConta.Name = "tabCtrlTipoConta";
             this.tabCtrlTipoConta.SelectedIndex = 0;
             this.tabCtrlTipoConta.Size = new System.Drawing.Size(368, 268);
-            this.tabCtrlTipoConta.TabIndex = 0;
+            this.tabCtrlTipoConta.TabIndex = 2;
             // 
             // tabPagePoupanca
             // 
@@ -558,7 +559,7 @@
             this.label11.Location = new System.Drawing.Point(21, 11);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(77, 28);
-            this.label11.TabIndex = 1;
+            this.label11.TabIndex = 2;
             this.label11.Text = "Valor Depósito\r\nInicial (R$)";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -567,7 +568,7 @@
             this.tbDepInicialPoup.Location = new System.Drawing.Point(106, 15);
             this.tbDepInicialPoup.Name = "tbDepInicialPoup";
             this.tbDepInicialPoup.Size = new System.Drawing.Size(81, 20);
-            this.tbDepInicialPoup.TabIndex = 2;
+            this.tbDepInicialPoup.TabIndex = 1;
             this.tbDepInicialPoup.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tabPageSalario
@@ -588,7 +589,7 @@
             this.groupBox4.Location = new System.Drawing.Point(50, 17);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(260, 206);
-            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Dados Holerite";
             // 
@@ -599,7 +600,7 @@
             this.panel12.Location = new System.Drawing.Point(25, 106);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(210, 52);
-            this.panel12.TabIndex = 25;
+            this.panel12.TabIndex = 2;
             // 
             // label12
             // 
@@ -624,7 +625,7 @@
             this.panel11.Location = new System.Drawing.Point(25, 48);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(210, 52);
-            this.panel11.TabIndex = 24;
+            this.panel11.TabIndex = 1;
             // 
             // label28
             // 
@@ -641,7 +642,7 @@
             this.mtbCnpjCadastroContaSal.Mask = "00\\.000\\.000/0000-00";
             this.mtbCnpjCadastroContaSal.Name = "mtbCnpjCadastroContaSal";
             this.mtbCnpjCadastroContaSal.Size = new System.Drawing.Size(112, 20);
-            this.mtbCnpjCadastroContaSal.TabIndex = 55;
+            this.mtbCnpjCadastroContaSal.TabIndex = 1;
             this.mtbCnpjCadastroContaSal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tabPageInvestimento
@@ -665,7 +666,7 @@
             this.groupBox5.Location = new System.Drawing.Point(76, 33);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(209, 100);
-            this.groupBox5.TabIndex = 5;
+            this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Perfil Investidor";
             // 
@@ -675,7 +676,7 @@
             this.rbPerfil3.Location = new System.Drawing.Point(24, 67);
             this.rbPerfil3.Name = "rbPerfil3";
             this.rbPerfil3.Size = new System.Drawing.Size(65, 18);
-            this.rbPerfil3.TabIndex = 6;
+            this.rbPerfil3.TabIndex = 3;
             this.rbPerfil3.TabStop = true;
             this.rbPerfil3.Text = "rbPerfil3";
             this.rbPerfil3.UseVisualStyleBackColor = true;
@@ -686,7 +687,7 @@
             this.rbPerfil2.Location = new System.Drawing.Point(24, 46);
             this.rbPerfil2.Name = "rbPerfil2";
             this.rbPerfil2.Size = new System.Drawing.Size(65, 18);
-            this.rbPerfil2.TabIndex = 5;
+            this.rbPerfil2.TabIndex = 2;
             this.rbPerfil2.TabStop = true;
             this.rbPerfil2.Text = "rbPerfil2";
             this.rbPerfil2.UseVisualStyleBackColor = true;
@@ -697,7 +698,7 @@
             this.rbPerfil1.Location = new System.Drawing.Point(24, 25);
             this.rbPerfil1.Name = "rbPerfil1";
             this.rbPerfil1.Size = new System.Drawing.Size(65, 18);
-            this.rbPerfil1.TabIndex = 4;
+            this.rbPerfil1.TabIndex = 1;
             this.rbPerfil1.TabStop = true;
             this.rbPerfil1.Text = "rbPerfil1";
             this.rbPerfil1.UseVisualStyleBackColor = true;
@@ -709,7 +710,7 @@
             this.panel14.Location = new System.Drawing.Point(76, 153);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(209, 55);
-            this.panel14.TabIndex = 3;
+            this.panel14.TabIndex = 2;
             // 
             // label30
             // 
@@ -726,20 +727,20 @@
             this.tbDepIniInvest.Location = new System.Drawing.Point(106, 17);
             this.tbDepIniInvest.Name = "tbDepIniInvest";
             this.tbDepIniInvest.Size = new System.Drawing.Size(81, 20);
-            this.tbDepIniInvest.TabIndex = 2;
+            this.tbDepIniInvest.TabIndex = 1;
             this.tbDepIniInvest.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // tabPage6
+            // tabPageNovoCadCliente
             // 
-            this.tabPage6.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.tabPage6.Controls.Add(this.label24);
-            this.tabPage6.Controls.Add(this.groupBox2);
-            this.tabPage6.Location = new System.Drawing.Point(4, 25);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(768, 398);
-            this.tabPage6.TabIndex = 2;
-            this.tabPage6.Text = "Novo Cadastro";
+            this.tabPageNovoCadCliente.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.tabPageNovoCadCliente.Controls.Add(this.label24);
+            this.tabPageNovoCadCliente.Controls.Add(this.groupBox2);
+            this.tabPageNovoCadCliente.Location = new System.Drawing.Point(4, 25);
+            this.tabPageNovoCadCliente.Name = "tabPageNovoCadCliente";
+            this.tabPageNovoCadCliente.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageNovoCadCliente.Size = new System.Drawing.Size(768, 398);
+            this.tabPageNovoCadCliente.TabIndex = 2;
+            this.tabPageNovoCadCliente.Text = "Novo Cadastro";
             // 
             // label24
             // 
@@ -942,17 +943,17 @@
             this.btCadastrar.UseVisualStyleBackColor = true;
             this.btCadastrar.Click += new System.EventHandler(this.btCadastrar_Click);
             // 
-            // tabPage2
+            // tabPageMovContas
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.tabPage2.Controls.Add(this.panel8);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(768, 398);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Seleção Conta";
-            this.tabPage2.Enter += new System.EventHandler(this.tabPage2_Enter);
+            this.tabPageMovContas.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.tabPageMovContas.Controls.Add(this.panel8);
+            this.tabPageMovContas.Location = new System.Drawing.Point(4, 25);
+            this.tabPageMovContas.Name = "tabPageMovContas";
+            this.tabPageMovContas.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageMovContas.Size = new System.Drawing.Size(768, 398);
+            this.tabPageMovContas.TabIndex = 1;
+            this.tabPageMovContas.Text = "Seleção Conta";
+            this.tabPageMovContas.Enter += new System.EventHandler(this.tabPageMovContas_Enter);
             // 
             // panel8
             // 
@@ -978,7 +979,7 @@
             this.btExibirDadosCliente.Location = new System.Drawing.Point(288, 307);
             this.btExibirDadosCliente.Name = "btExibirDadosCliente";
             this.btExibirDadosCliente.Size = new System.Drawing.Size(155, 23);
-            this.btExibirDadosCliente.TabIndex = 56;
+            this.btExibirDadosCliente.TabIndex = 7;
             this.btExibirDadosCliente.Text = "Dados Cadastro Cliente";
             this.btExibirDadosCliente.UseVisualStyleBackColor = true;
             this.btExibirDadosCliente.Click += new System.EventHandler(this.btExibirDadosCliente_Click);
@@ -1011,7 +1012,7 @@
             this.pnlNumContaDestino.Location = new System.Drawing.Point(509, 116);
             this.pnlNumContaDestino.Name = "pnlNumContaDestino";
             this.pnlNumContaDestino.Size = new System.Drawing.Size(210, 52);
-            this.pnlNumContaDestino.TabIndex = 23;
+            this.pnlNumContaDestino.TabIndex = 4;
             // 
             // tbContaDestino
             // 
@@ -1039,7 +1040,7 @@
             this.pnlValor.Location = new System.Drawing.Point(509, 187);
             this.pnlValor.Name = "pnlValor";
             this.pnlValor.Size = new System.Drawing.Size(210, 99);
-            this.pnlValor.TabIndex = 22;
+            this.pnlValor.TabIndex = 5;
             // 
             // lblErroMovimentacao
             // 
@@ -1047,7 +1048,7 @@
             this.lblErroMovimentacao.Location = new System.Drawing.Point(3, 32);
             this.lblErroMovimentacao.Name = "lblErroMovimentacao";
             this.lblErroMovimentacao.Size = new System.Drawing.Size(204, 39);
-            this.lblErroMovimentacao.TabIndex = 55;
+            this.lblErroMovimentacao.TabIndex = 5;
             this.lblErroMovimentacao.Text = "MensagemErro";
             this.lblErroMovimentacao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -1056,7 +1057,7 @@
             this.btMovimentoConta.Location = new System.Drawing.Point(68, 73);
             this.btMovimentoConta.Name = "btMovimentoConta";
             this.btMovimentoConta.Size = new System.Drawing.Size(75, 23);
-            this.btMovimentoConta.TabIndex = 23;
+            this.btMovimentoConta.TabIndex = 2;
             this.btMovimentoConta.Text = "Ok";
             this.btMovimentoConta.UseVisualStyleBackColor = true;
             this.btMovimentoConta.Click += new System.EventHandler(this.btMovimentoConta_Click);
@@ -1075,7 +1076,7 @@
             this.tbValorMovimento.Location = new System.Drawing.Point(91, 9);
             this.tbValorMovimento.Name = "tbValorMovimento";
             this.tbValorMovimento.Size = new System.Drawing.Size(112, 20);
-            this.tbValorMovimento.TabIndex = 21;
+            this.tbValorMovimento.TabIndex = 1;
             // 
             // panel10
             // 
@@ -1091,7 +1092,7 @@
             this.panel10.Location = new System.Drawing.Point(26, 149);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(209, 140);
-            this.panel10.TabIndex = 20;
+            this.panel10.TabIndex = 2;
             // 
             // label17
             // 
@@ -1108,7 +1109,7 @@
             this.chkBoxMostrarSaldo.Location = new System.Drawing.Point(69, 105);
             this.chkBoxMostrarSaldo.Name = "chkBoxMostrarSaldo";
             this.chkBoxMostrarSaldo.Size = new System.Drawing.Size(93, 18);
-            this.chkBoxMostrarSaldo.TabIndex = 19;
+            this.chkBoxMostrarSaldo.TabIndex = 1;
             this.chkBoxMostrarSaldo.Text = "Mostrar Saldo";
             this.chkBoxMostrarSaldo.UseVisualStyleBackColor = true;
             this.chkBoxMostrarSaldo.CheckedChanged += new System.EventHandler(this.chkBoxMostrarSaldo_CheckedChanged);
@@ -1183,7 +1184,7 @@
             this.btLogout.Location = new System.Drawing.Point(521, 345);
             this.btLogout.Name = "btLogout";
             this.btLogout.Size = new System.Drawing.Size(155, 23);
-            this.btLogout.TabIndex = 11;
+            this.btLogout.TabIndex = 9;
             this.btLogout.Text = "Sair";
             this.btLogout.UseVisualStyleBackColor = true;
             this.btLogout.Click += new System.EventHandler(this.btLogout_Click);
@@ -1195,7 +1196,7 @@
             this.btAbrirNovaConta.Location = new System.Drawing.Point(288, 345);
             this.btAbrirNovaConta.Name = "btAbrirNovaConta";
             this.btAbrirNovaConta.Size = new System.Drawing.Size(155, 23);
-            this.btAbrirNovaConta.TabIndex = 10;
+            this.btAbrirNovaConta.TabIndex = 8;
             this.btAbrirNovaConta.Text = "Abrir Nova Conta";
             this.btAbrirNovaConta.UseVisualStyleBackColor = true;
             this.btAbrirNovaConta.Click += new System.EventHandler(this.btAbrirNovaConta_Click);
@@ -1209,7 +1210,7 @@
             this.gbActions.Location = new System.Drawing.Point(275, 109);
             this.gbActions.Name = "gbActions";
             this.gbActions.Size = new System.Drawing.Size(200, 180);
-            this.gbActions.TabIndex = 9;
+            this.gbActions.TabIndex = 3;
             this.gbActions.TabStop = false;
             this.gbActions.Text = "Selecione uma operação";
             // 
@@ -1218,7 +1219,7 @@
             this.btInvestirAcoes.Location = new System.Drawing.Point(13, 130);
             this.btInvestirAcoes.Name = "btInvestirAcoes";
             this.btInvestirAcoes.Size = new System.Drawing.Size(113, 23);
-            this.btInvestirAcoes.TabIndex = 11;
+            this.btInvestirAcoes.TabIndex = 4;
             this.btInvestirAcoes.Text = "Investir em Ações";
             this.btInvestirAcoes.UseVisualStyleBackColor = true;
             this.btInvestirAcoes.Click += new System.EventHandler(this.btInvestirAcoes_Click);
@@ -1229,7 +1230,7 @@
             this.rbDepositar.Location = new System.Drawing.Point(13, 25);
             this.rbDepositar.Name = "rbDepositar";
             this.rbDepositar.Size = new System.Drawing.Size(71, 18);
-            this.rbDepositar.TabIndex = 5;
+            this.rbDepositar.TabIndex = 1;
             this.rbDepositar.TabStop = true;
             this.rbDepositar.Text = "Depositar";
             this.rbDepositar.UseVisualStyleBackColor = true;
@@ -1241,7 +1242,7 @@
             this.rbTransferencia.Location = new System.Drawing.Point(13, 95);
             this.rbTransferencia.Name = "rbTransferencia";
             this.rbTransferencia.Size = new System.Drawing.Size(93, 18);
-            this.rbTransferencia.TabIndex = 8;
+            this.rbTransferencia.TabIndex = 3;
             this.rbTransferencia.TabStop = true;
             this.rbTransferencia.Text = "Transferência";
             this.rbTransferencia.UseVisualStyleBackColor = true;
@@ -1253,7 +1254,7 @@
             this.rbSacar.Location = new System.Drawing.Point(13, 60);
             this.rbSacar.Name = "rbSacar";
             this.rbSacar.Size = new System.Drawing.Size(54, 18);
-            this.rbSacar.TabIndex = 6;
+            this.rbSacar.TabIndex = 2;
             this.rbSacar.TabStop = true;
             this.rbSacar.Text = "Sacar";
             this.rbSacar.UseVisualStyleBackColor = true;
@@ -1276,7 +1277,7 @@
             this.btIrParaPagExtrato.Location = new System.Drawing.Point(55, 345);
             this.btIrParaPagExtrato.Name = "btIrParaPagExtrato";
             this.btIrParaPagExtrato.Size = new System.Drawing.Size(155, 23);
-            this.btIrParaPagExtrato.TabIndex = 0;
+            this.btIrParaPagExtrato.TabIndex = 6;
             this.btIrParaPagExtrato.Text = "Extrato";
             this.btIrParaPagExtrato.UseVisualStyleBackColor = true;
             this.btIrParaPagExtrato.Click += new System.EventHandler(this.btIrParaPagExtrato_Click);
@@ -1291,25 +1292,25 @@
             this.cbContaSelecionada.Location = new System.Drawing.Point(26, 96);
             this.cbContaSelecionada.Name = "cbContaSelecionada";
             this.cbContaSelecionada.Size = new System.Drawing.Size(222, 22);
-            this.cbContaSelecionada.TabIndex = 3;
+            this.cbContaSelecionada.TabIndex = 1;
             this.cbContaSelecionada.SelectedIndexChanged += new System.EventHandler(this.cbContaSelecionada_SelectedIndexChanged);
             // 
-            // tabPage1
+            // tabPageLogin
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.tabPage1.Controls.Add(this.btFecharPrograma);
-            this.tabPage1.Controls.Add(this.btIrParaDepSalario);
-            this.tabPage1.Controls.Add(this.label23);
-            this.tabPage1.Controls.Add(this.label22);
-            this.tabPage1.Controls.Add(this.btNovoCadastro);
-            this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(768, 398);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Página Inicial";
+            this.tabPageLogin.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.tabPageLogin.Controls.Add(this.btFecharPrograma);
+            this.tabPageLogin.Controls.Add(this.btIrParaDepSalario);
+            this.tabPageLogin.Controls.Add(this.label23);
+            this.tabPageLogin.Controls.Add(this.label22);
+            this.tabPageLogin.Controls.Add(this.btNovoCadastro);
+            this.tabPageLogin.Controls.Add(this.groupBox1);
+            this.tabPageLogin.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tabPageLogin.Location = new System.Drawing.Point(4, 25);
+            this.tabPageLogin.Name = "tabPageLogin";
+            this.tabPageLogin.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageLogin.Size = new System.Drawing.Size(768, 398);
+            this.tabPageLogin.TabIndex = 0;
+            this.tabPageLogin.Text = "Página Inicial";
             // 
             // btFecharPrograma
             // 
@@ -1467,13 +1468,13 @@
             // 
             // tabCtrlTelasApp
             // 
-            this.tabCtrlTelasApp.Controls.Add(this.tabPage1);
-            this.tabCtrlTelasApp.Controls.Add(this.tabPage2);
-            this.tabCtrlTelasApp.Controls.Add(this.tabPage6);
-            this.tabCtrlTelasApp.Controls.Add(this.tabPage7);
-            this.tabCtrlTelasApp.Controls.Add(this.tabPage8);
+            this.tabCtrlTelasApp.Controls.Add(this.tabPageLogin);
+            this.tabCtrlTelasApp.Controls.Add(this.tabPageMovContas);
+            this.tabCtrlTelasApp.Controls.Add(this.tabPageNovoCadCliente);
+            this.tabCtrlTelasApp.Controls.Add(this.tabPageAbrirNovaConta);
+            this.tabCtrlTelasApp.Controls.Add(this.tabPageExtrato);
             this.tabCtrlTelasApp.Controls.Add(this.tabPageAcoes);
-            this.tabCtrlTelasApp.Controls.Add(this.tbDepContaSalario);
+            this.tabCtrlTelasApp.Controls.Add(this.tabDepEmContaSalario);
             this.tabCtrlTelasApp.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabCtrlTelasApp.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabCtrlTelasApp.ItemSize = new System.Drawing.Size(58, 21);
@@ -1511,7 +1512,7 @@
             this.panel19.Location = new System.Drawing.Point(469, 289);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(212, 108);
-            this.panel19.TabIndex = 13;
+            this.panel19.TabIndex = 4;
             // 
             // label39
             // 
@@ -1560,14 +1561,14 @@
             this.panel18.Location = new System.Drawing.Point(240, 289);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(200, 108);
-            this.panel18.TabIndex = 12;
+            this.panel18.TabIndex = 3;
             // 
             // btVenderAcoes
             // 
             this.btVenderAcoes.Location = new System.Drawing.Point(43, 65);
             this.btVenderAcoes.Name = "btVenderAcoes";
             this.btVenderAcoes.Size = new System.Drawing.Size(115, 40);
-            this.btVenderAcoes.TabIndex = 5;
+            this.btVenderAcoes.TabIndex = 1;
             this.btVenderAcoes.Text = "Vender Ações Selecionadas";
             this.btVenderAcoes.UseVisualStyleBackColor = true;
             this.btVenderAcoes.Click += new System.EventHandler(this.btVenderAcoes_Click);
@@ -1601,14 +1602,14 @@
             this.panel17.Location = new System.Drawing.Point(27, 289);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(184, 108);
-            this.panel17.TabIndex = 11;
+            this.panel17.TabIndex = 2;
             // 
             // btComprarAcoes
             // 
             this.btComprarAcoes.Location = new System.Drawing.Point(35, 65);
             this.btComprarAcoes.Name = "btComprarAcoes";
             this.btComprarAcoes.Size = new System.Drawing.Size(115, 40);
-            this.btComprarAcoes.TabIndex = 5;
+            this.btComprarAcoes.TabIndex = 1;
             this.btComprarAcoes.Text = "Comprar Ações Selecionadas";
             this.btComprarAcoes.UseVisualStyleBackColor = true;
             this.btComprarAcoes.Click += new System.EventHandler(this.btComprarAcoes_Click);
@@ -1651,7 +1652,7 @@
             this.btCancelarPagAcoes.Location = new System.Drawing.Point(687, 369);
             this.btCancelarPagAcoes.Name = "btCancelarPagAcoes";
             this.btCancelarPagAcoes.Size = new System.Drawing.Size(75, 23);
-            this.btCancelarPagAcoes.TabIndex = 0;
+            this.btCancelarPagAcoes.TabIndex = 5;
             this.btCancelarPagAcoes.Text = "Sair";
             this.btCancelarPagAcoes.UseVisualStyleBackColor = true;
             this.btCancelarPagAcoes.Click += new System.EventHandler(this.btCancelarPagAcoes_Click);
@@ -1668,7 +1669,7 @@
             this.panel16.Location = new System.Drawing.Point(18, 6);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(733, 281);
-            this.panel16.TabIndex = 9;
+            this.panel16.TabIndex = 1;
             // 
             // label13
             // 
@@ -1703,219 +1704,9 @@
             this.dtGridViewAcoes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dtGridViewAcoes.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dtGridViewAcoes.Size = new System.Drawing.Size(175, 246);
-            this.dtGridViewAcoes.TabIndex = 4;
+            this.dtGridViewAcoes.TabIndex = 1;
             this.dtGridViewAcoes.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dtGridViewAcoes_CellValidating);
             this.dtGridViewAcoes.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewAcoes_CellValueChanged);
-            // 
-            // dtGridViewCarteira
-            // 
-            this.dtGridViewCarteira.AllowUserToAddRows = false;
-            this.dtGridViewCarteira.AllowUserToDeleteRows = false;
-            this.dtGridViewCarteira.AllowUserToResizeColumns = false;
-            this.dtGridViewCarteira.AllowUserToResizeRows = false;
-            this.dtGridViewCarteira.BackgroundColor = System.Drawing.Color.PaleGoldenrod;
-            this.dtGridViewCarteira.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtGridViewCarteira.ColumnHeadersHeight = 40;
-            this.dtGridViewCarteira.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dtGridViewCarteira.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.TabCarteiraChk,
-            this.TabCarteiraAcoes,
-            this.TabCarteiraValorMedPago,
-            this.TabCarteiraQtdEmCart,
-            this.TabCarteiraValTotPago,
-            this.TabCarteiraValAtual,
-            this.TabCarteiraValTotAtual,
-            this.TabCarteiraQtdVender});
-            this.dtGridViewCarteira.Location = new System.Drawing.Point(269, 30);
-            this.dtGridViewCarteira.Name = "dtGridViewCarteira";
-            this.dtGridViewCarteira.RowHeadersVisible = false;
-            this.dtGridViewCarteira.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dtGridViewCarteira.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dtGridViewCarteira.Size = new System.Drawing.Size(450, 246);
-            this.dtGridViewCarteira.TabIndex = 4;
-            this.dtGridViewCarteira.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dtGridViewCarteira_CellValidating);
-            this.dtGridViewCarteira.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewCarteira_CellValueChanged);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(10, 9);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(140, 18);
-            this.label20.TabIndex = 6;
-            this.label20.Text = "Mercado de Ações";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(266, 9);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(135, 18);
-            this.label33.TabIndex = 6;
-            this.label33.Text = "Carteira de Ações";
-            // 
-            // tbDepContaSalario
-            // 
-            this.tbDepContaSalario.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.tbDepContaSalario.Controls.Add(this.label38);
-            this.tbDepContaSalario.Controls.Add(this.label37);
-            this.tbDepContaSalario.Controls.Add(this.groupBox6);
-            this.tbDepContaSalario.Location = new System.Drawing.Point(4, 25);
-            this.tbDepContaSalario.Name = "tbDepContaSalario";
-            this.tbDepContaSalario.Padding = new System.Windows.Forms.Padding(3);
-            this.tbDepContaSalario.Size = new System.Drawing.Size(768, 398);
-            this.tbDepContaSalario.TabIndex = 6;
-            this.tbDepContaSalario.Text = "Dep. Conta Salario";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(278, 56);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(212, 19);
-            this.label38.TabIndex = 56;
-            this.label38.Text = "Depósito em Conta Salário";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label37.Location = new System.Drawing.Point(286, 16);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(196, 30);
-            this.label37.TabIndex = 55;
-            this.label37.Text = "AppBanco Grupo 5";
-            this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.panel15);
-            this.groupBox6.Controls.Add(this.lblErroTelaDepSal);
-            this.groupBox6.Controls.Add(this.btCancelarTelaDepSal);
-            this.groupBox6.Controls.Add(this.btDepositarSalario);
-            this.groupBox6.Location = new System.Drawing.Point(247, 87);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(274, 272);
-            this.groupBox6.TabIndex = 28;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Dados Conta Salário";
-            // 
-            // panel15
-            // 
-            this.panel15.Controls.Add(this.tbValorSalario);
-            this.panel15.Controls.Add(this.label31);
-            this.panel15.Controls.Add(this.tbNumContaDepSal);
-            this.panel15.Controls.Add(this.label34);
-            this.panel15.Controls.Add(this.label32);
-            this.panel15.Controls.Add(this.mtbCnpjDepSalario);
-            this.panel15.Controls.Add(this.mtbCpfDepSalario);
-            this.panel15.Controls.Add(this.label35);
-            this.panel15.Location = new System.Drawing.Point(12, 19);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(250, 156);
-            this.panel15.TabIndex = 29;
-            // 
-            // tbValorSalario
-            // 
-            this.tbValorSalario.Location = new System.Drawing.Point(110, 119);
-            this.tbValorSalario.Name = "tbValorSalario";
-            this.tbValorSalario.Size = new System.Drawing.Size(112, 20);
-            this.tbValorSalario.TabIndex = 21;
-            // 
-            // label31
-            // 
-            this.label31.Location = new System.Drawing.Point(35, 10);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(69, 35);
-            this.label31.TabIndex = 0;
-            this.label31.Text = "Nº Conta Destinatária";
-            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // tbNumContaDepSal
-            // 
-            this.tbNumContaDepSal.Location = new System.Drawing.Point(110, 17);
-            this.tbNumContaDepSal.Name = "tbNumContaDepSal";
-            this.tbNumContaDepSal.Size = new System.Drawing.Size(112, 20);
-            this.tbNumContaDepSal.TabIndex = 1;
-            this.tbNumContaDepSal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(56, 122);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(48, 14);
-            this.label34.TabIndex = 22;
-            this.label34.Text = "Valor R$";
-            // 
-            // label32
-            // 
-            this.label32.Location = new System.Drawing.Point(29, 79);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(75, 32);
-            this.label32.TabIndex = 0;
-            this.label32.Text = "CNPJ Fonte Pagadora";
-            this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // mtbCnpjDepSalario
-            // 
-            this.mtbCnpjDepSalario.Location = new System.Drawing.Point(110, 85);
-            this.mtbCnpjDepSalario.Mask = "00\\.000\\.000/0000-00";
-            this.mtbCnpjDepSalario.Name = "mtbCnpjDepSalario";
-            this.mtbCnpjDepSalario.Size = new System.Drawing.Size(112, 20);
-            this.mtbCnpjDepSalario.TabIndex = 55;
-            // 
-            // mtbCpfDepSalario
-            // 
-            this.mtbCpfDepSalario.Location = new System.Drawing.Point(110, 51);
-            this.mtbCpfDepSalario.Mask = "000\\.000\\.000-00";
-            this.mtbCpfDepSalario.Name = "mtbCpfDepSalario";
-            this.mtbCpfDepSalario.Size = new System.Drawing.Size(112, 20);
-            this.mtbCpfDepSalario.TabIndex = 1;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(46, 54);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(58, 14);
-            this.label35.TabIndex = 1;
-            this.label35.Text = "CPF Titular";
-            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblErroTelaDepSal
-            // 
-            this.lblErroTelaDepSal.ForeColor = System.Drawing.Color.Red;
-            this.lblErroTelaDepSal.Location = new System.Drawing.Point(35, 226);
-            this.lblErroTelaDepSal.Name = "lblErroTelaDepSal";
-            this.lblErroTelaDepSal.Size = new System.Drawing.Size(204, 39);
-            this.lblErroTelaDepSal.TabIndex = 55;
-            this.lblErroTelaDepSal.Text = "MensagemErro";
-            this.lblErroTelaDepSal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btCancelarTelaDepSal
-            // 
-            this.btCancelarTelaDepSal.Location = new System.Drawing.Point(52, 193);
-            this.btCancelarTelaDepSal.Name = "btCancelarTelaDepSal";
-            this.btCancelarTelaDepSal.Size = new System.Drawing.Size(75, 23);
-            this.btCancelarTelaDepSal.TabIndex = 56;
-            this.btCancelarTelaDepSal.Text = "Cancelar";
-            this.btCancelarTelaDepSal.UseVisualStyleBackColor = true;
-            this.btCancelarTelaDepSal.Click += new System.EventHandler(this.btCancelarTelaDepSal_Click);
-            // 
-            // btDepositarSalario
-            // 
-            this.btDepositarSalario.Location = new System.Drawing.Point(148, 193);
-            this.btDepositarSalario.Name = "btDepositarSalario";
-            this.btDepositarSalario.Size = new System.Drawing.Size(75, 23);
-            this.btDepositarSalario.TabIndex = 23;
-            this.btDepositarSalario.Text = "Depositar";
-            this.btDepositarSalario.UseVisualStyleBackColor = true;
-            this.btDepositarSalario.Click += new System.EventHandler(this.btDepositarSalario_Click);
             // 
             // TabMercadoChk
             // 
@@ -1950,6 +1741,35 @@
             this.TabMercadoQtdComprar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.TabMercadoQtdComprar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.TabMercadoQtdComprar.Width = 45;
+            // 
+            // dtGridViewCarteira
+            // 
+            this.dtGridViewCarteira.AllowUserToAddRows = false;
+            this.dtGridViewCarteira.AllowUserToDeleteRows = false;
+            this.dtGridViewCarteira.AllowUserToResizeColumns = false;
+            this.dtGridViewCarteira.AllowUserToResizeRows = false;
+            this.dtGridViewCarteira.BackgroundColor = System.Drawing.Color.PaleGoldenrod;
+            this.dtGridViewCarteira.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtGridViewCarteira.ColumnHeadersHeight = 40;
+            this.dtGridViewCarteira.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dtGridViewCarteira.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TabCarteiraChk,
+            this.TabCarteiraAcoes,
+            this.TabCarteiraValorMedPago,
+            this.TabCarteiraQtdEmCart,
+            this.TabCarteiraValTotPago,
+            this.TabCarteiraValAtual,
+            this.TabCarteiraValTotAtual,
+            this.TabCarteiraQtdVender});
+            this.dtGridViewCarteira.Location = new System.Drawing.Point(269, 30);
+            this.dtGridViewCarteira.Name = "dtGridViewCarteira";
+            this.dtGridViewCarteira.RowHeadersVisible = false;
+            this.dtGridViewCarteira.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dtGridViewCarteira.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dtGridViewCarteira.Size = new System.Drawing.Size(450, 246);
+            this.dtGridViewCarteira.TabIndex = 2;
+            this.dtGridViewCarteira.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dtGridViewCarteira_CellValidating);
+            this.dtGridViewCarteira.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewCarteira_CellValueChanged);
             // 
             // TabCarteiraChk
             // 
@@ -2017,6 +1837,197 @@
             this.TabCarteiraQtdVender.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.TabCarteiraQtdVender.Width = 45;
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(10, 9);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(140, 18);
+            this.label20.TabIndex = 6;
+            this.label20.Text = "Mercado de Ações";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(266, 9);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(135, 18);
+            this.label33.TabIndex = 6;
+            this.label33.Text = "Carteira de Ações";
+            // 
+            // tabDepEmContaSalario
+            // 
+            this.tabDepEmContaSalario.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.tabDepEmContaSalario.Controls.Add(this.label38);
+            this.tabDepEmContaSalario.Controls.Add(this.label37);
+            this.tabDepEmContaSalario.Controls.Add(this.groupBox6);
+            this.tabDepEmContaSalario.Location = new System.Drawing.Point(4, 25);
+            this.tabDepEmContaSalario.Name = "tabDepEmContaSalario";
+            this.tabDepEmContaSalario.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDepEmContaSalario.Size = new System.Drawing.Size(768, 398);
+            this.tabDepEmContaSalario.TabIndex = 6;
+            this.tabDepEmContaSalario.Text = "Dep. Conta Salario";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(278, 56);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(212, 19);
+            this.label38.TabIndex = 56;
+            this.label38.Text = "Depósito em Conta Salário";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label37.Location = new System.Drawing.Point(286, 16);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(196, 30);
+            this.label37.TabIndex = 55;
+            this.label37.Text = "AppBanco Grupo 5";
+            this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.panel15);
+            this.groupBox6.Controls.Add(this.lblErroTelaDepSal);
+            this.groupBox6.Controls.Add(this.btCancelarTelaDepSal);
+            this.groupBox6.Controls.Add(this.btDepositarSalario);
+            this.groupBox6.Location = new System.Drawing.Point(247, 87);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(274, 272);
+            this.groupBox6.TabIndex = 1;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Dados Conta Salário";
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.tbValorSalario);
+            this.panel15.Controls.Add(this.label31);
+            this.panel15.Controls.Add(this.tbNumContaDepSal);
+            this.panel15.Controls.Add(this.label34);
+            this.panel15.Controls.Add(this.label32);
+            this.panel15.Controls.Add(this.mtbCnpjDepSalario);
+            this.panel15.Controls.Add(this.mtbCpfDepSalario);
+            this.panel15.Controls.Add(this.label35);
+            this.panel15.Location = new System.Drawing.Point(12, 19);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(250, 156);
+            this.panel15.TabIndex = 1;
+            // 
+            // tbValorSalario
+            // 
+            this.tbValorSalario.Location = new System.Drawing.Point(110, 119);
+            this.tbValorSalario.Name = "tbValorSalario";
+            this.tbValorSalario.Size = new System.Drawing.Size(112, 20);
+            this.tbValorSalario.TabIndex = 4;
+            // 
+            // label31
+            // 
+            this.label31.Location = new System.Drawing.Point(35, 10);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(69, 35);
+            this.label31.TabIndex = 0;
+            this.label31.Text = "Nº Conta Destinatária";
+            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tbNumContaDepSal
+            // 
+            this.tbNumContaDepSal.Location = new System.Drawing.Point(110, 17);
+            this.tbNumContaDepSal.Name = "tbNumContaDepSal";
+            this.tbNumContaDepSal.Size = new System.Drawing.Size(112, 20);
+            this.tbNumContaDepSal.TabIndex = 1;
+            this.tbNumContaDepSal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(56, 122);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(48, 14);
+            this.label34.TabIndex = 22;
+            this.label34.Text = "Valor R$";
+            // 
+            // label32
+            // 
+            this.label32.Location = new System.Drawing.Point(29, 79);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(75, 32);
+            this.label32.TabIndex = 0;
+            this.label32.Text = "CNPJ Fonte Pagadora";
+            this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // mtbCnpjDepSalario
+            // 
+            this.mtbCnpjDepSalario.Location = new System.Drawing.Point(110, 85);
+            this.mtbCnpjDepSalario.Mask = "00\\.000\\.000/0000-00";
+            this.mtbCnpjDepSalario.Name = "mtbCnpjDepSalario";
+            this.mtbCnpjDepSalario.Size = new System.Drawing.Size(112, 20);
+            this.mtbCnpjDepSalario.TabIndex = 3;
+            // 
+            // mtbCpfDepSalario
+            // 
+            this.mtbCpfDepSalario.Location = new System.Drawing.Point(110, 51);
+            this.mtbCpfDepSalario.Mask = "000\\.000\\.000-00";
+            this.mtbCpfDepSalario.Name = "mtbCpfDepSalario";
+            this.mtbCpfDepSalario.Size = new System.Drawing.Size(112, 20);
+            this.mtbCpfDepSalario.TabIndex = 2;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(46, 54);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(58, 14);
+            this.label35.TabIndex = 1;
+            this.label35.Text = "CPF Titular";
+            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblErroTelaDepSal
+            // 
+            this.lblErroTelaDepSal.ForeColor = System.Drawing.Color.Red;
+            this.lblErroTelaDepSal.Location = new System.Drawing.Point(35, 226);
+            this.lblErroTelaDepSal.Name = "lblErroTelaDepSal";
+            this.lblErroTelaDepSal.Size = new System.Drawing.Size(204, 39);
+            this.lblErroTelaDepSal.TabIndex = 55;
+            this.lblErroTelaDepSal.Text = "MensagemErro";
+            this.lblErroTelaDepSal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btCancelarTelaDepSal
+            // 
+            this.btCancelarTelaDepSal.Location = new System.Drawing.Point(52, 193);
+            this.btCancelarTelaDepSal.Name = "btCancelarTelaDepSal";
+            this.btCancelarTelaDepSal.Size = new System.Drawing.Size(75, 23);
+            this.btCancelarTelaDepSal.TabIndex = 3;
+            this.btCancelarTelaDepSal.Text = "Cancelar";
+            this.btCancelarTelaDepSal.UseVisualStyleBackColor = true;
+            this.btCancelarTelaDepSal.Click += new System.EventHandler(this.btCancelarTelaDepSal_Click);
+            // 
+            // btDepositarSalario
+            // 
+            this.btDepositarSalario.Location = new System.Drawing.Point(148, 193);
+            this.btDepositarSalario.Name = "btDepositarSalario";
+            this.btDepositarSalario.Size = new System.Drawing.Size(75, 23);
+            this.btDepositarSalario.TabIndex = 2;
+            this.btDepositarSalario.Text = "Depositar";
+            this.btDepositarSalario.UseVisualStyleBackColor = true;
+            this.btDepositarSalario.Click += new System.EventHandler(this.btDepositarSalario_Click);
+            // 
+            // panel20
+            // 
+            this.panel20.Controls.Add(this.rb15dias);
+            this.panel20.Controls.Add(this.rb30dias);
+            this.panel20.Controls.Add(this.rb7dias);
+            this.panel20.Location = new System.Drawing.Point(16, 86);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(151, 100);
+            this.panel20.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2027,12 +2038,12 @@
             this.Name = "Form1";
             this.Text = "AppBanco - Grupo 5";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.tabPage8.ResumeLayout(false);
-            this.tabPage8.PerformLayout();
+            this.tabPageExtrato.ResumeLayout(false);
+            this.tabPageExtrato.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.tabPage7.ResumeLayout(false);
-            this.tabPage7.PerformLayout();
+            this.tabPageAbrirNovaConta.ResumeLayout(false);
+            this.tabPageAbrirNovaConta.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.tabCtrlTipoConta.ResumeLayout(false);
@@ -2050,8 +2061,8 @@
             this.groupBox5.PerformLayout();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage6.PerformLayout();
+            this.tabPageNovoCadCliente.ResumeLayout(false);
+            this.tabPageNovoCadCliente.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -2064,7 +2075,7 @@
             this.panel6.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
+            this.tabPageMovContas.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.pnlNumContaDestino.ResumeLayout(false);
@@ -2075,8 +2086,8 @@
             this.panel10.PerformLayout();
             this.gbActions.ResumeLayout(false);
             this.gbActions.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tabPageLogin.ResumeLayout(false);
+            this.tabPageLogin.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -2092,18 +2103,20 @@
             this.panel16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewAcoes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewCarteira)).EndInit();
-            this.tbDepContaSalario.ResumeLayout(false);
-            this.tbDepContaSalario.PerformLayout();
+            this.tabDepEmContaSalario.ResumeLayout(false);
+            this.tabDepEmContaSalario.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.TabPage tabPageExtrato;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btExportarExtrato;
         private System.Windows.Forms.Button btGerarextrato;
@@ -2115,7 +2128,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dtpFim;
         private System.Windows.Forms.DateTimePicker dtpInicio;
-        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.TabPage tabPageAbrirNovaConta;
         private System.Windows.Forms.TabControl tabCtrlTipoConta;
         private System.Windows.Forms.TabPage tabPagePoupanca;
         private System.Windows.Forms.Button btCadastrarNovaConta;
@@ -2126,7 +2139,7 @@
         private System.Windows.Forms.RadioButton rbInvestimento;
         private System.Windows.Forms.RadioButton rbSalario;
         private System.Windows.Forms.RadioButton rbPoupanca;
-        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabPage tabPageNovoCadCliente;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Panel panel7;
@@ -2145,12 +2158,12 @@
         private System.Windows.Forms.MaskedTextBox mtbCPFCadastro;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btCadastrar;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPageMovContas;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button btIrParaPagExtrato;
         private System.Windows.Forms.Label lblSaudacao;
         private System.Windows.Forms.ComboBox cbContaSelecionada;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPageLogin;
         private System.Windows.Forms.Button btNovoCadastro;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel2;
@@ -2219,7 +2232,7 @@
         private System.Windows.Forms.Button btCancelarPagAcoes;
         private System.Windows.Forms.DataGridView dtGridViewAcoes;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TabPage tbDepContaSalario;
+        private System.Windows.Forms.TabPage tabDepEmContaSalario;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button btCancelarTelaDepSal;
         private System.Windows.Forms.Button btDepositarSalario;
@@ -2269,6 +2282,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TabCarteiraValAtual;
         private System.Windows.Forms.DataGridViewTextBoxColumn TabCarteiraValTotAtual;
         private System.Windows.Forms.DataGridViewTextBoxColumn TabCarteiraQtdVender;
+        private System.Windows.Forms.Panel panel20;
     }
 }
 

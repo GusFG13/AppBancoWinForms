@@ -20,15 +20,17 @@ namespace AppBancoWinForms
 {
     public partial class Form1 : Form
     {
-        Cliente cliente = new Cliente();
+        //Cliente cliente = new Cliente();
+        Cliente cliente;
         Conta contaAtual = new Conta();
         int contaSelecionada = 0;
         List<string> listaContas;
+        readonly static string path = @"c:\DadosAppBanco";
+        readonly static string pathClientes = path + @"\clientes.csv";
+        readonly static string pathContas = path + @"\contas.csv";
+        readonly static string pathTransacoes = path + @"\trasacoes.csv";
+        readonly static string pathInvestimentos = path + @"\investimentos.csv";
 
-        string pathClientes = @"c:\DadosAppBanco\clientes.csv";
-        string pathContas = @"c:\DadosAppBanco\contas.csv";
-        string pathTransacoes = @"c:\DadosAppBanco\trasacoes.csv";
-        string pathInvestimentos = @"c:\DadosAppBanco\investimentos.csv";
 
         public Form1()
         {
@@ -47,6 +49,24 @@ namespace AppBancoWinForms
             tabCtrlTelasApp.Appearance = TabAppearance.FlatButtons;
             tabCtrlTelasApp.ItemSize = new Size(0, 1);
             tabCtrlTelasApp.SizeMode = TabSizeMode.Fixed;
+
+
+
+            try
+            {
+                // Determine whether the directory exists.
+                if (!Directory.Exists(path))
+                {
+                    // Try to create the directory.
+                    DirectoryInfo di = Directory.CreateDirectory(path);
+                    //Console.WriteLine("The directory was created successfully at {0}.", Directory.GetCreationTime(path));
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("The process failed: {0}", e.ToString());
+                Application.Exit();
+            }
         }
 
         private void btEnter_Click(object sender, EventArgs e)
@@ -66,15 +86,16 @@ namespace AppBancoWinForms
                     string[] aux = dadosCliente.Split(';');
                     if (aux[5] == mtbSenhaLogin.Text)
                     {
-                        cliente.Codigo = int.Parse(aux[0]);
-                        cliente.Cpf = aux[1];
-                        cliente.Nome = aux[2];
-                        cliente.Sobrenome = aux[3];
-                        cliente.Perfil = (PerfilInvestidor)Enum.Parse(typeof(PerfilInvestidor), aux[4]);
-                        cliente.Senha = aux[5];
+                        cliente = new Cliente(int.Parse(aux[0]), aux[1], aux[2], aux[3], (PerfilInvestidor)Enum.Parse(typeof(PerfilInvestidor), aux[4]), aux[5]);
+                        //cliente.Codigo = int.Parse(aux[0]);
+                        //cliente.Cpf = aux[1];
+                        //cliente.Nome = aux[2];
+                        //cliente.Sobrenome = aux[3];
+                        //cliente.Perfil = (PerfilInvestidor)Enum.Parse(typeof(PerfilInvestidor), aux[4]);
+                        //cliente.Senha = aux[5];
 
-                        tabCtrlTelasApp.SelectedTab = tabPage2; // ir para a página de seleção de conta
-
+                        tabCtrlTelasApp.SelectedTab = tabPageMovContas; // ir para a página de seleção de conta
+                        
                     }
                     else
                     {
@@ -173,7 +194,7 @@ namespace AppBancoWinForms
                     cliente = Cadastros.CadastrarCliente(pathClientes, cpf, nome, sobrenome, senha);
                     MessageBox.Show("Novo cadastro realizado", "Cadastro concluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //Console.WriteLine("NOVO CADASTRO: " + cliente.ToString());
-                    tabCtrlTelasApp.SelectedTab = tabPage7; // Ir para a tela de criação de conta
+                    tabCtrlTelasApp.SelectedTab = tabPageAbrirNovaConta; // Ir para a tela de criação de conta
                     btVoltarParaMenu.Visible = false;
                 }
             }
@@ -181,11 +202,11 @@ namespace AppBancoWinForms
 
         private void btNovoCadastro_Click(object sender, EventArgs e)
         {
-            tabCtrlTelasApp.SelectedTab = tabPage6;
+            tabCtrlTelasApp.SelectedTab = tabPageNovoCadCliente;
             mtbCPFCadastro.Focus();
         }
 
-        private void tabPage8_Enter(object sender, EventArgs e)
+        private void tabPageExtrato_Enter(object sender, EventArgs e)
         {
             rb7dias.Checked = true;
             rtbExtrato.Text = string.Empty;
@@ -276,19 +297,20 @@ namespace AppBancoWinForms
                 if (listaTransacoes.Count > 0) // cria tabela
                 {
 
-                    sb.AppendLine("+--------------------+----------------------+---------------+--------------+--------------+----------------+---------------+");
-                    sb.AppendLine("|                    |         Tipo         |   Nº Conta    |              | Taxa Cobrada | Saldo Anterior |  Saldo Atual  |");
-                    sb.AppendLine("|    Data - Hora     |       Operação       | Dest. ou Ori. |  Valor (R$)  |     (R$)     |       (R$)     |      (R$)     |");
-                    sb.AppendLine("+--------------------+----------------------+---------------+--------------+--------------+----------------+---------------+");
+                    sb.AppendLine("+--------------------+----------------------+---------+--------------+--------------+----------------+---------------+");
+                    sb.AppendLine("|                    |         Tipo         |         |              | Taxa Cobrada | Saldo Anterior |  Saldo Final  |");
+                    sb.AppendLine("|    Data - Hora     |       Operação       |  D / O  |  Valor (R$)  |     (R$)     |       (R$)     |      (R$)     |");
+                    sb.AppendLine("+--------------------+----------------------+---------+--------------+--------------+----------------+---------------+");
                     var table = new DataTable();
                     foreach (string item in listaTransacoes)
                     {
                         string[] strAux = item.Split(';');
                         //sb.AppendLine(item);
                         DateTime dataHoraAux = DateTime.Parse(strAux[0]).ToLocalTime();
-                        sb.AppendLine($"| {dataHoraAux.ToString("dd/MM/yyyy - HH:mm")} | {strAux[1].PadRight(20)} | {PadBoth(strAux[3], 13)} | {strAux[4].PadLeft(12)} | {strAux[5].PadLeft(12)} | {strAux[6].PadLeft(14)} | {strAux[7].PadLeft(13)} |");
+                        sb.AppendLine($"| {dataHoraAux.ToString("dd/MM/yyyy - HH:mm")} | {strAux[1].PadRight(20)} | {PadBoth(strAux[3], 7)} | {strAux[4].PadLeft(12)} | {strAux[5].PadLeft(12)} | {strAux[6].PadLeft(14)} | {strAux[7].PadLeft(13)} |");
                     }
-                    sb.AppendLine("+--------------------+----------------------+---------------+--------------+--------------+----------------+---------------+");
+                    sb.AppendLine("+--------------------+----------------------+---------+--------------+--------------+----------------+---------------+");
+                    sb.AppendLine("D / O: Número da conta Destinatária ou Origem da movimentação");
                 }
                 else
                 {
@@ -345,25 +367,36 @@ namespace AppBancoWinForms
         private void rbPoupanca_CheckedChanged(object sender, EventArgs e)
         {
             if (rbPoupanca.Checked)
+            {
                 tabCtrlTipoConta.SelectedTab = tabPagePoupanca;
+                tbDepInicialPoup.Focus();
+            }
         }
 
         private void rbSalario_CheckedChanged(object sender, EventArgs e)
         {
             if (rbSalario.Checked)
+            {
                 tabCtrlTipoConta.SelectedTab = tabPageSalario;
+                mtbCnpjCadastroContaSal.Focus();
+            }
+
         }
 
         private void rbInvestimento_CheckedChanged(object sender, EventArgs e)
         {
             if (rbInvestimento.Checked)
+            {
                 tabCtrlTipoConta.SelectedTab = tabPageInvestimento;
+                rbPerfil1.Focus();
+            }
+
         }
         /**************************************************************************/
         private void btIrParaPagExtrato_Click(object sender, EventArgs e)
         {
             contaSelecionada = cbContaSelecionada.SelectedIndex;
-            tabCtrlTelasApp.SelectedTab = tabPage8;
+            tabCtrlTelasApp.SelectedTab = tabPageExtrato;
         }
 
         private void cbContaSelecionada_SelectedIndexChanged(object sender, EventArgs e)
@@ -406,7 +439,7 @@ namespace AppBancoWinForms
             }
         }
 
-        private void tabPage2_Enter(object sender, EventArgs e)
+        private void tabPageMovContas_Enter(object sender, EventArgs e)
         {
             DateTime agora = DateTime.Now;
             string msg = "";
@@ -441,23 +474,23 @@ namespace AppBancoWinForms
             {
                 //cbContaSelecionada.Visible = false;
                 //cbContaSelecionada.Enabled = false;
-                tabCtrlTelasApp.SelectedTab = tabPage7;
+                tabCtrlTelasApp.SelectedTab = tabPageAbrirNovaConta;
             }
         }
 
         private void btVoltar_Click(object sender, EventArgs e)
         {
-            tabCtrlTelasApp.SelectedTab = tabPage2;
+            tabCtrlTelasApp.SelectedTab = tabPageMovContas;
         }
 
         private void btVoltarParaMenu_Click(object sender, EventArgs e)
         {
-            tabCtrlTelasApp.SelectedTab = tabPage2;
+            tabCtrlTelasApp.SelectedTab = tabPageMovContas;
         }
 
         private void btAbrirNovaConta_Click(object sender, EventArgs e)
         {
-            tabCtrlTelasApp.SelectedTab = tabPage7;
+            tabCtrlTelasApp.SelectedTab = tabPageAbrirNovaConta;
             btVoltarParaMenu.Visible = true;
         }
 
@@ -555,7 +588,7 @@ namespace AppBancoWinForms
                     cliente.EditarCadastroCliente(pathClientes);
                 }
                 contaSelecionada = cbContaSelecionada.Items.Count;
-                tabCtrlTelasApp.SelectedTab = tabPage2;
+                tabCtrlTelasApp.SelectedTab = tabPageMovContas;
             }
         }
 
@@ -572,7 +605,7 @@ namespace AppBancoWinForms
                 contaSelecionada = 0;
                 listaContas.Clear();
                 Controles.LimpaCaixasTextos(tabCtrlTelasApp.Controls);
-                tabCtrlTelasApp.SelectedTab = tabPage1;
+                tabCtrlTelasApp.SelectedTab = tabPageLogin;
             }
 
         }
@@ -736,10 +769,12 @@ namespace AppBancoWinForms
                     if (movConcluido)
                     {
                         MessageBox.Show("Operação concluída!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        tabCtrlTelasApp.SelectedTab = tabPage6;
-                        tabCtrlTelasApp.SelectedTab = tabPage2;
+                        tabCtrlTelasApp.SelectedTab = tabPageExtrato;
+                        tabCtrlTelasApp.SelectedTab = tabPageMovContas;
+                        //tabPageMovContas.Refresh();
                         tbContaDestino.Text = "";
                         tbValorMovimento.Text = "";
+                        lblErroMovimentacao.Text = "";
                         lblSaldoAtual.Text = "R$ " + contaAtual.Saldo.ToString("F2");
                     }
                 }
@@ -758,7 +793,7 @@ namespace AppBancoWinForms
 
         private void btCancelarNovoCadastro_Click(object sender, EventArgs e)
         {
-            tabCtrlTelasApp.SelectedTab = tabPage1;
+            tabCtrlTelasApp.SelectedTab = tabPageLogin;
         }
 
         private void tabPageInvestimento_Enter(object sender, EventArgs e)
@@ -777,7 +812,7 @@ namespace AppBancoWinForms
 
         private void btCancelarPagAcoes_Click(object sender, EventArgs e)
         {
-            tabCtrlTelasApp.SelectedTab = tabPage2;
+            tabCtrlTelasApp.SelectedTab = tabPageMovContas;
         }
 
         private void tabPageAcoes_Enter(object sender, EventArgs e)
@@ -968,7 +1003,7 @@ namespace AppBancoWinForms
                         sb.Append($";{ac.Key};{ac.Value.Quantidade};{ac.Value.Valor.ToString("F4")}");
                     }
                     // Gravar operações nos bancos (.csv)
- 
+
                     //if (contaAtual is ContaInvestimento)
                     //{
                     //    ContaInvestimento cTemp = contaAtual as ContaInvestimento;
@@ -982,8 +1017,9 @@ namespace AppBancoWinForms
                     EscreverArquivosBD.EscreverNovoItem(pathTransacoes, movimento.ToString());
                     EscreverArquivosBD.GravarCarteiraAtualizada(pathInvestimentos, contaAtual.NumeroConta, sb.ToString());
 
-                    tabCtrlTelasApp.SelectedTab = tabPage2;
+                    tabCtrlTelasApp.SelectedTab = tabPageMovContas;
                     tabCtrlTelasApp.SelectedTab = tabPageAcoes;
+                    //tabPageAcoes.Refresh();
                     MessageBox.Show("Operação concluída!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
@@ -1048,8 +1084,9 @@ namespace AppBancoWinForms
                     EscreverArquivosBD.EscreverNovoItem(pathTransacoes, movimento.ToString());
                     EscreverArquivosBD.GravarCarteiraAtualizada(pathInvestimentos, contaAtual.NumeroConta, sb.ToString());
                     //GravarCarteiraAtualizada(string path, int numConta, string dadosAtualizados)
-                    tabCtrlTelasApp.SelectedTab = tabPage8;
+                    tabCtrlTelasApp.SelectedTab = tabPageMovContas;
                     tabCtrlTelasApp.SelectedTab = tabPageAcoes;
+                    //tabPageAcoes.Refresh();
                     MessageBox.Show("Operação concluída!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //sb.AppendLine();
                     //sb.AppendLine($"Valor total da venda: {valVenda.ToString("F2")}");
@@ -1060,12 +1097,13 @@ namespace AppBancoWinForms
         /*****************************************************************************************/
         private void btCancelarTelaDepSal_Click(object sender, EventArgs e)
         {
-            tabCtrlTelasApp.SelectedTab = tabPage1;
+            tabCtrlTelasApp.SelectedTab = tabPageLogin;
         }
 
         private void btIrParaDepSalario_Click(object sender, EventArgs e)
         {
-            tabCtrlTelasApp.SelectedTab = tbDepContaSalario;
+            tabCtrlTelasApp.SelectedTab = tabDepEmContaSalario;
+            tbNumContaDepSal.Focus();
         }
 
         private void btDepositarSalario_Click(object sender, EventArgs e)
@@ -1173,7 +1211,6 @@ namespace AppBancoWinForms
         {
             cliente.MostrarDadosCliente();
         }
-
 
     }
 }

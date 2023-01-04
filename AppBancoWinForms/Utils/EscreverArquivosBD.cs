@@ -237,7 +237,7 @@ namespace AppBancoWinForms.Utils
                         investimentosCSV[i] = dadosAtualizados;
                         break;
                     }
-                }
+                } 
                 StringBuilder sb = new StringBuilder();
                 for (int i = 0; i < investimentosCSV.Length; i++)
                 {
