@@ -227,6 +227,7 @@ namespace AppBancoWinForms.Utils
 
         public static void GravarCarteiraAtualizada(string path, int numConta, string dadosAtualizados)
         {
+            bool carteiraExiste = false;
             if (File.Exists(path))
             {
                 string[] investimentosCSV = File.ReadAllLines(path);
@@ -235,6 +236,7 @@ namespace AppBancoWinForms.Utils
                     if (int.Parse(investimentosCSV[i].Split(';')[0]) == numConta)
                     {
                         investimentosCSV[i] = dadosAtualizados;
+                        carteiraExiste = true;
                         break;
                     }
                 } 
@@ -242,6 +244,10 @@ namespace AppBancoWinForms.Utils
                 for (int i = 0; i < investimentosCSV.Length; i++)
                 {
                     sb.AppendLine(investimentosCSV[i]);
+                }
+                if(!carteiraExiste) 
+                { 
+                    sb.AppendLine(dadosAtualizados); 
                 }
                 using (StreamWriter writer = new StreamWriter(path, false))
                 {
