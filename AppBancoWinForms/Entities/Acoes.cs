@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppBancoWinForms.Entities
 {
-    internal class Acoes
+    public class Acoes
     {
         public int Quantidade { get; set; }
         public double Valor { get; set; }
