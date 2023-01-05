@@ -1,0 +1,20 @@
+{
+    "cliente1":{
+        "codigo":"1", 
+        "cpf":"111.111.111-11", 
+        "nome":"Danielle", 
+        "sobrenome":"Rodrigues", 
+        "perfilInvestidor":"Indefinido", 
+        "senha":"987654"},
+    "cliente2":{
+        "codigo":"2", 
+        "cpf":"222.222.222-22", 
+        "nome":"Edson", 
+        "sobrenome":"Sousa", 
+        "perfilInvestidor":"Moderado", 
+        "senha":"654321"},
+    "cliente3":{"codigo":"3", "cpf":"333.333.333-33", "nome":"Filipe", "sobrenome":"Poeta", "perfilInvestidor":"Arrojado", "senha":"987123"},
+    "cliente4":{"codigo":"4", "cpf":"444.444.444-44", "nome":"Gustavo", "sobrenome":"Gonçalves", "perfilInvestidor":"Indefinido", "senha":"123456"},
+    "cliente5":{"codigo":"5", "cpf":"555.555.555-55", "nome":"Leandro", "sobrenome":"Paiva", "perfilInvestidor":"Indefinido", "senha":"423789"},
+    "cliente6":{"codigo":"6", "cpf":"654.987.321-01", "nome":"Asedcsd", "sobrenome":"Sbfgsr", "perfilInvestidor":"Conservador", "senha":"123456"}
+}
