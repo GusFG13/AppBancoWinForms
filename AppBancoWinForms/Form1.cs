@@ -20,7 +20,7 @@ namespace AppBancoWinForms
 {
     public partial class Form1 : Form
     {
-        Cliente cliente = new Cliente();
+        Cliente cliente;
         Conta contaAtual = new Conta();
         int contaSelecionada = 0;
         List<string> listaContas;
@@ -66,17 +66,16 @@ namespace AppBancoWinForms
                     string[] aux = dadosCliente.Split(';');
                     if (aux[5] == mtbSenhaLogin.Text)
                     {
-                        //Foi usado o construtor da classe para seja possível mudar o modificador de acesso
-                        //foi testado e não funcionou
-                        //Cliente cliente = new Cliente(int.Parse(aux[0]), aux[1], aux[2], aux[3], (PerfilInvestidor)Enum.Parse(typeof(PerfilInvestidor), aux[4]), aux[5]);
+                        cliente = new Cliente(int.Parse(aux[0]), aux[1], aux[2], aux[3], (PerfilInvestidor)Enum.Parse(typeof(PerfilInvestidor), aux[4]), aux[5]);
                         
+                        /*
                         cliente.Codigo = int.Parse(aux[0]);
                         cliente.Cpf = aux[1];
                         cliente.Nome = aux[2];
                         cliente.Sobrenome = aux[3];
                         cliente.Perfil = (PerfilInvestidor)Enum.Parse(typeof(PerfilInvestidor), aux[4]);
                         cliente.Senha = aux[5];
-                        
+                        */
                         tabCtrlTelasApp.SelectedTab = tabPage2; // ir para a página de seleção de conta
 
                     }
@@ -1179,7 +1178,5 @@ namespace AppBancoWinForms
         {
             cliente.MostrarDadosCliente();
         }
-
-
     }
 }

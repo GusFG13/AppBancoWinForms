@@ -7,9 +7,9 @@ namespace AppBancoWinForms.Utils
 {
     //Verificar possibilidade da classe Controles herdar de Control, o código
     //ficará mais limpo eu acho
-    internal class Controles
+    internal class Controles : Control
     {
-        public static void LimpaCaixasTextos(Control.ControlCollection parentControl)
+        public static void LimpaCaixasTextos(ControlCollection parentControl)
         {
             foreach (Control c in parentControl)
             {

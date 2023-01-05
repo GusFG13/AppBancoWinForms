@@ -163,7 +163,19 @@
             this.panel16 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.dtGridViewAcoes = new System.Windows.Forms.DataGridView();
+            this.TabMercadoChk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.TabMercadoNomeAcao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabMercadoValorAcao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabMercadoQtdComprar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtGridViewCarteira = new System.Windows.Forms.DataGridView();
+            this.TabCarteiraChk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.TabCarteiraAcoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabCarteiraValorMedPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabCarteiraQtdEmCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabCarteiraValTotPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabCarteiraValAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabCarteiraValTotAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabCarteiraQtdVender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label20 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.tbDepContaSalario = new System.Windows.Forms.TabPage();
@@ -182,18 +194,6 @@
             this.lblErroTelaDepSal = new System.Windows.Forms.Label();
             this.btCancelarTelaDepSal = new System.Windows.Forms.Button();
             this.btDepositarSalario = new System.Windows.Forms.Button();
-            this.TabMercadoChk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.TabMercadoNomeAcao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TabMercadoValorAcao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TabMercadoQtdComprar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TabCarteiraChk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.TabCarteiraAcoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TabCarteiraValorMedPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TabCarteiraQtdEmCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TabCarteiraValTotPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TabCarteiraValAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TabCarteiraValTotAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TabCarteiraQtdVender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage8.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPage7.SuspendLayout();
@@ -1707,6 +1707,40 @@
             this.dtGridViewAcoes.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dtGridViewAcoes_CellValidating);
             this.dtGridViewAcoes.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewAcoes_CellValueChanged);
             // 
+            // TabMercadoChk
+            // 
+            this.TabMercadoChk.FalseValue = "false";
+            this.TabMercadoChk.HeaderText = "";
+            this.TabMercadoChk.Name = "TabMercadoChk";
+            this.TabMercadoChk.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TabMercadoChk.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.TabMercadoChk.TrueValue = "true";
+            this.TabMercadoChk.Width = 25;
+            // 
+            // TabMercadoNomeAcao
+            // 
+            this.TabMercadoNomeAcao.HeaderText = "Ações";
+            this.TabMercadoNomeAcao.Name = "TabMercadoNomeAcao";
+            this.TabMercadoNomeAcao.ReadOnly = true;
+            this.TabMercadoNomeAcao.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TabMercadoNomeAcao.Width = 50;
+            // 
+            // TabMercadoValorAcao
+            // 
+            this.TabMercadoValorAcao.HeaderText = "Valor / Ação";
+            this.TabMercadoValorAcao.Name = "TabMercadoValorAcao";
+            this.TabMercadoValorAcao.ReadOnly = true;
+            this.TabMercadoValorAcao.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TabMercadoValorAcao.Width = 50;
+            // 
+            // TabMercadoQtdComprar
+            // 
+            this.TabMercadoQtdComprar.HeaderText = "Qtd.";
+            this.TabMercadoQtdComprar.Name = "TabMercadoQtdComprar";
+            this.TabMercadoQtdComprar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TabMercadoQtdComprar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.TabMercadoQtdComprar.Width = 45;
+            // 
             // dtGridViewCarteira
             // 
             this.dtGridViewCarteira.AllowUserToAddRows = false;
@@ -1735,6 +1769,72 @@
             this.dtGridViewCarteira.TabIndex = 4;
             this.dtGridViewCarteira.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dtGridViewCarteira_CellValidating);
             this.dtGridViewCarteira.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewCarteira_CellValueChanged);
+            // 
+            // TabCarteiraChk
+            // 
+            this.TabCarteiraChk.FalseValue = "false";
+            this.TabCarteiraChk.HeaderText = "";
+            this.TabCarteiraChk.Name = "TabCarteiraChk";
+            this.TabCarteiraChk.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.TabCarteiraChk.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.TabCarteiraChk.TrueValue = "true";
+            this.TabCarteiraChk.Width = 25;
+            // 
+            // TabCarteiraAcoes
+            // 
+            this.TabCarteiraAcoes.HeaderText = "Ações";
+            this.TabCarteiraAcoes.Name = "TabCarteiraAcoes";
+            this.TabCarteiraAcoes.ReadOnly = true;
+            this.TabCarteiraAcoes.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TabCarteiraAcoes.Width = 50;
+            // 
+            // TabCarteiraValorMedPago
+            // 
+            this.TabCarteiraValorMedPago.HeaderText = "Valor Médio Pago / Ação";
+            this.TabCarteiraValorMedPago.Name = "TabCarteiraValorMedPago";
+            this.TabCarteiraValorMedPago.ReadOnly = true;
+            this.TabCarteiraValorMedPago.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TabCarteiraValorMedPago.Width = 80;
+            // 
+            // TabCarteiraQtdEmCart
+            // 
+            this.TabCarteiraQtdEmCart.HeaderText = "Qtd. em Carteira";
+            this.TabCarteiraQtdEmCart.Name = "TabCarteiraQtdEmCart";
+            this.TabCarteiraQtdEmCart.ReadOnly = true;
+            this.TabCarteiraQtdEmCart.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TabCarteiraQtdEmCart.Width = 55;
+            // 
+            // TabCarteiraValTotPago
+            // 
+            this.TabCarteiraValTotPago.HeaderText = "Valor Total Pago";
+            this.TabCarteiraValTotPago.Name = "TabCarteiraValTotPago";
+            this.TabCarteiraValTotPago.ReadOnly = true;
+            this.TabCarteiraValTotPago.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TabCarteiraValTotPago.Width = 70;
+            // 
+            // TabCarteiraValAtual
+            // 
+            this.TabCarteiraValAtual.HeaderText = "Valor Atual";
+            this.TabCarteiraValAtual.Name = "TabCarteiraValAtual";
+            this.TabCarteiraValAtual.ReadOnly = true;
+            this.TabCarteiraValAtual.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TabCarteiraValAtual.Width = 50;
+            // 
+            // TabCarteiraValTotAtual
+            // 
+            this.TabCarteiraValTotAtual.HeaderText = "Valor Total Atual";
+            this.TabCarteiraValTotAtual.Name = "TabCarteiraValTotAtual";
+            this.TabCarteiraValTotAtual.ReadOnly = true;
+            this.TabCarteiraValTotAtual.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TabCarteiraValTotAtual.Width = 70;
+            // 
+            // TabCarteiraQtdVender
+            // 
+            this.TabCarteiraQtdVender.HeaderText = "Qtd.";
+            this.TabCarteiraQtdVender.Name = "TabCarteiraQtdVender";
+            this.TabCarteiraQtdVender.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TabCarteiraQtdVender.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.TabCarteiraQtdVender.Width = 45;
             // 
             // label20
             // 
@@ -1916,106 +2016,6 @@
             this.btDepositarSalario.Text = "Depositar";
             this.btDepositarSalario.UseVisualStyleBackColor = true;
             this.btDepositarSalario.Click += new System.EventHandler(this.btDepositarSalario_Click);
-            // 
-            // TabMercadoChk
-            // 
-            this.TabMercadoChk.FalseValue = "false";
-            this.TabMercadoChk.HeaderText = "";
-            this.TabMercadoChk.Name = "TabMercadoChk";
-            this.TabMercadoChk.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.TabMercadoChk.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.TabMercadoChk.TrueValue = "true";
-            this.TabMercadoChk.Width = 25;
-            // 
-            // TabMercadoNomeAcao
-            // 
-            this.TabMercadoNomeAcao.HeaderText = "Ações";
-            this.TabMercadoNomeAcao.Name = "TabMercadoNomeAcao";
-            this.TabMercadoNomeAcao.ReadOnly = true;
-            this.TabMercadoNomeAcao.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.TabMercadoNomeAcao.Width = 50;
-            // 
-            // TabMercadoValorAcao
-            // 
-            this.TabMercadoValorAcao.HeaderText = "Valor / Ação";
-            this.TabMercadoValorAcao.Name = "TabMercadoValorAcao";
-            this.TabMercadoValorAcao.ReadOnly = true;
-            this.TabMercadoValorAcao.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.TabMercadoValorAcao.Width = 50;
-            // 
-            // TabMercadoQtdComprar
-            // 
-            this.TabMercadoQtdComprar.HeaderText = "Qtd.";
-            this.TabMercadoQtdComprar.Name = "TabMercadoQtdComprar";
-            this.TabMercadoQtdComprar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.TabMercadoQtdComprar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.TabMercadoQtdComprar.Width = 45;
-            // 
-            // TabCarteiraChk
-            // 
-            this.TabCarteiraChk.FalseValue = "false";
-            this.TabCarteiraChk.HeaderText = "";
-            this.TabCarteiraChk.Name = "TabCarteiraChk";
-            this.TabCarteiraChk.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.TabCarteiraChk.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.TabCarteiraChk.TrueValue = "true";
-            this.TabCarteiraChk.Width = 25;
-            // 
-            // TabCarteiraAcoes
-            // 
-            this.TabCarteiraAcoes.HeaderText = "Ações";
-            this.TabCarteiraAcoes.Name = "TabCarteiraAcoes";
-            this.TabCarteiraAcoes.ReadOnly = true;
-            this.TabCarteiraAcoes.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.TabCarteiraAcoes.Width = 50;
-            // 
-            // TabCarteiraValorMedPago
-            // 
-            this.TabCarteiraValorMedPago.HeaderText = "Valor Médio Pago / Ação";
-            this.TabCarteiraValorMedPago.Name = "TabCarteiraValorMedPago";
-            this.TabCarteiraValorMedPago.ReadOnly = true;
-            this.TabCarteiraValorMedPago.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.TabCarteiraValorMedPago.Width = 80;
-            // 
-            // TabCarteiraQtdEmCart
-            // 
-            this.TabCarteiraQtdEmCart.HeaderText = "Qtd. em Carteira";
-            this.TabCarteiraQtdEmCart.Name = "TabCarteiraQtdEmCart";
-            this.TabCarteiraQtdEmCart.ReadOnly = true;
-            this.TabCarteiraQtdEmCart.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.TabCarteiraQtdEmCart.Width = 55;
-            // 
-            // TabCarteiraValTotPago
-            // 
-            this.TabCarteiraValTotPago.HeaderText = "Valor Total Pago";
-            this.TabCarteiraValTotPago.Name = "TabCarteiraValTotPago";
-            this.TabCarteiraValTotPago.ReadOnly = true;
-            this.TabCarteiraValTotPago.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.TabCarteiraValTotPago.Width = 70;
-            // 
-            // TabCarteiraValAtual
-            // 
-            this.TabCarteiraValAtual.HeaderText = "Valor Atual";
-            this.TabCarteiraValAtual.Name = "TabCarteiraValAtual";
-            this.TabCarteiraValAtual.ReadOnly = true;
-            this.TabCarteiraValAtual.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.TabCarteiraValAtual.Width = 50;
-            // 
-            // TabCarteiraValTotAtual
-            // 
-            this.TabCarteiraValTotAtual.HeaderText = "Valor Total Atual";
-            this.TabCarteiraValTotAtual.Name = "TabCarteiraValTotAtual";
-            this.TabCarteiraValTotAtual.ReadOnly = true;
-            this.TabCarteiraValTotAtual.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.TabCarteiraValTotAtual.Width = 70;
-            // 
-            // TabCarteiraQtdVender
-            // 
-            this.TabCarteiraQtdVender.HeaderText = "Qtd.";
-            this.TabCarteiraQtdVender.Name = "TabCarteiraQtdVender";
-            this.TabCarteiraQtdVender.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.TabCarteiraQtdVender.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.TabCarteiraQtdVender.Width = 45;
             // 
             // Form1
             // 
