@@ -8,7 +8,7 @@ using AppBancoWinForms.Entities;
 
 namespace AppBancoWinForms.Entities
 {
-    internal class Conta
+    public class Conta
     {
         public int NumeroConta { get; set; }
         public TipoConta TipoConta { get; set; }
@@ -41,21 +41,7 @@ namespace AppBancoWinForms.Entities
 
         public virtual double CalcularValorTarifa(double valor)
         {
-            double taxa = 0;
-            switch (this.TipoConta)
-            {
-                case TipoConta.ContaSalario:
-                    taxa = TaxasAdmin.TxContaSalario;
-                    break;
-                case TipoConta.ContaPoupanca:
-                    taxa = TaxasAdmin.TxContaPoupanca;
-                    break;
-                case TipoConta.ContaInvestimento:
-                    taxa = TaxasAdmin.TxContaInvestimento;
-                    break;
-                default: break;
-            }
-            return taxa * valor;
+            return 0.0 * valor;
         }
 
 

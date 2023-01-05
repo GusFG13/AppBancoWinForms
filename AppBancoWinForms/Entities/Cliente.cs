@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using AppBancoWinForms.Entities.Enums;
 namespace AppBancoWinForms.Entities
 {
-    class Cliente
+    public class Cliente
     {
         public int Codigo { get; protected set; }
         public string Cpf { get; protected set; }

@@ -1,6 +1,6 @@
 ﻿namespace AppBancoWinForms.Entities.Enums
 {
-    enum PerfilInvestidor : int
+    public enum PerfilInvestidor : int
     {
         Indefinido = 0,
         Conservador = 1,

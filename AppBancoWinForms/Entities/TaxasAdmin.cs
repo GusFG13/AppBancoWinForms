@@ -1,6 +1,6 @@
 ﻿namespace AppBancoWinForms.Entities
 {
-    internal class TaxasAdmin
+    public class TaxasAdmin
     {
         //taxas para saques e transferências
         public const double TxContaSalario = 0.03; // 3%

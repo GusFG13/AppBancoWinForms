@@ -10,10 +10,10 @@ namespace AppBancoWinForms.Entities
 
         }
 
-        //public override double CalcularValorTarifa(double valor)
-        //{
-        //    return 0.035 * valor;
-        //}
+        public override double CalcularValorTarifa(double valor)
+        {
+            return TaxasAdmin.TxContaPoupanca * valor;
+        }
         public override string ToString()
         {
             return NumeroConta 
