@@ -3,7 +3,7 @@ using System;
 
 namespace AppBancoWinForms.Entities
 {
-    internal class ContaSalario : Conta
+    public class ContaSalario : Conta
     {
         public Holerite Holerite { get; set; }
 

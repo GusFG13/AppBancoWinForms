@@ -9,14 +9,14 @@ namespace AppBancoWinForms.Entities
 {
     public class Extrato
     {
-        public DateTime DataTransacao { get; set; }
-        public string TipoMovimento { get; set; }
-        public int NumeroContaOrigem { get; set; }
-        public int NumeroContaDestino { get; set; }
-        public double Valor { get; set; }
-        public double TaxaCobrada { get; set; }
-        public double SaldoAnterior { get; set; }
-        public double SaldoAtual { get; set; }
+        public DateTime DataTransacao { get; protected set; }
+        public string TipoMovimento { get; protected set; }
+        public int NumeroContaOrigem { get; protected set; }
+        public int NumeroContaDestino { get; protected set; }
+        public double Valor { get; protected set; }
+        public double TaxaCobrada { get; protected set; }
+        public double SaldoAnterior { get; protected set; }
+        public double SaldoAtual { get; protected set; }
 
         public Extrato(DateTime dataTransacao, string tipoMovimento, int numeroContaOrigem, int numeroContaDestino, double valor, double taxaCobrada, double saldoAnterior, double saldoAtual)
         { // para transferencias feitas
