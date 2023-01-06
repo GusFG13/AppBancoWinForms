@@ -36,8 +36,9 @@
             this.btExportarExtrato = new System.Windows.Forms.Button();
             this.btGerarextrato = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.rb30dias = new System.Windows.Forms.RadioButton();
+            this.panel20 = new System.Windows.Forms.Panel();
             this.rb15dias = new System.Windows.Forms.RadioButton();
+            this.rb30dias = new System.Windows.Forms.RadioButton();
             this.rb7dias = new System.Windows.Forms.RadioButton();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -152,6 +153,7 @@
             this.lblSaldoInvestido = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
             this.btVenderAcoes = new System.Windows.Forms.Button();
+            this.lblAvisoSelecionarParaVenda = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
             this.lblValorVenda = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
@@ -194,9 +196,9 @@
             this.lblErroTelaDepSal = new System.Windows.Forms.Label();
             this.btCancelarTelaDepSal = new System.Windows.Forms.Button();
             this.btDepositarSalario = new System.Windows.Forms.Button();
-            this.panel20 = new System.Windows.Forms.Panel();
             this.tabPageExtrato.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.panel20.SuspendLayout();
             this.tabPageAbrirNovaConta.SuspendLayout();
             this.panel13.SuspendLayout();
             this.tabCtrlTipoConta.SuspendLayout();
@@ -237,7 +239,6 @@
             this.tabDepEmContaSalario.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.panel15.SuspendLayout();
-            this.panel20.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPageExtrato
@@ -273,13 +274,13 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label26.Location = new System.Drawing.Point(21, 19);
+            this.label26.Location = new System.Drawing.Point(17, 19);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(179, 27);
+            this.label26.Size = new System.Drawing.Size(186, 23);
             this.label26.TabIndex = 54;
-            this.label26.Text = "AppBanco Grupo 5";
+            this.label26.Text = "Group Five Bank";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label10
@@ -337,17 +338,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Escolha o período";
             // 
-            // rb30dias
+            // panel20
             // 
-            this.rb30dias.AutoSize = true;
-            this.rb30dias.Location = new System.Drawing.Point(10, 66);
-            this.rb30dias.Name = "rb30dias";
-            this.rb30dias.Size = new System.Drawing.Size(97, 18);
-            this.rb30dias.TabIndex = 3;
-            this.rb30dias.TabStop = true;
-            this.rb30dias.Text = "Últimos 30 dias";
-            this.rb30dias.UseVisualStyleBackColor = true;
-            this.rb30dias.CheckedChanged += new System.EventHandler(this.rb30dias_CheckedChanged);
+            this.panel20.Controls.Add(this.rb15dias);
+            this.panel20.Controls.Add(this.rb30dias);
+            this.panel20.Controls.Add(this.rb7dias);
+            this.panel20.Location = new System.Drawing.Point(16, 86);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(151, 100);
+            this.panel20.TabIndex = 3;
             // 
             // rb15dias
             // 
@@ -360,6 +359,18 @@
             this.rb15dias.Text = "Últimos 15 dias";
             this.rb15dias.UseVisualStyleBackColor = true;
             this.rb15dias.CheckedChanged += new System.EventHandler(this.rb15dias_CheckedChanged);
+            // 
+            // rb30dias
+            // 
+            this.rb30dias.AutoSize = true;
+            this.rb30dias.Location = new System.Drawing.Point(10, 66);
+            this.rb30dias.Name = "rb30dias";
+            this.rb30dias.Size = new System.Drawing.Size(97, 18);
+            this.rb30dias.TabIndex = 3;
+            this.rb30dias.TabStop = true;
+            this.rb30dias.Text = "Últimos 30 dias";
+            this.rb30dias.UseVisualStyleBackColor = true;
+            this.rb30dias.CheckedChanged += new System.EventHandler(this.rb30dias_CheckedChanged);
             // 
             // rb7dias
             // 
@@ -483,13 +494,13 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label25.Location = new System.Drawing.Point(271, 9);
+            this.label25.Location = new System.Drawing.Point(268, 9);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(226, 35);
+            this.label25.Size = new System.Drawing.Size(233, 29);
             this.label25.TabIndex = 53;
-            this.label25.Text = "AppBanco Grupo 5";
+            this.label25.Text = "Group Five Bank";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btVoltarParaMenu
@@ -745,13 +756,13 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label24.Location = new System.Drawing.Point(271, 24);
+            this.label24.Location = new System.Drawing.Point(268, 24);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(226, 35);
+            this.label24.Size = new System.Drawing.Size(233, 29);
             this.label24.TabIndex = 52;
-            this.label24.Text = "AppBanco Grupo 5";
+            this.label24.Text = "Group Five Bank";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox2
@@ -996,13 +1007,13 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label27.Location = new System.Drawing.Point(279, 16);
+            this.label27.Location = new System.Drawing.Point(263, 16);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(196, 30);
+            this.label27.Size = new System.Drawing.Size(205, 25);
             this.label27.TabIndex = 54;
-            this.label27.Text = "AppBanco Grupo 5";
+            this.label27.Text = "Group Five Bank";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlNumContaDestino
@@ -1339,13 +1350,13 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label23.Location = new System.Drawing.Point(238, 3);
+            this.label23.Location = new System.Drawing.Point(268, 3);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(292, 70);
+            this.label23.Size = new System.Drawing.Size(233, 58);
             this.label23.TabIndex = 10;
-            this.label23.Text = "Bem-vindo ao AppBanco\r\nGrupo 5";
+            this.label23.Text = "Bem-vindo ao\r\nGroup Five Bank";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label22
@@ -1354,10 +1365,10 @@
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(6, 376);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(493, 14);
+            this.label22.Size = new System.Drawing.Size(418, 14);
             this.label22.TabIndex = 9;
             this.label22.Text = "Desenvolvido por: Danielle Rodrigues, Edson Sousa, Filipe Poeta, Gustavo Gonçalve" +
-    "s, Leandro Paiva";
+    "s";
             // 
             // btNovoCadastro
             // 
@@ -1556,6 +1567,7 @@
             // 
             this.panel18.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.panel18.Controls.Add(this.btVenderAcoes);
+            this.panel18.Controls.Add(this.lblAvisoSelecionarParaVenda);
             this.panel18.Controls.Add(this.label44);
             this.panel18.Controls.Add(this.lblValorVenda);
             this.panel18.Location = new System.Drawing.Point(240, 289);
@@ -1572,6 +1584,20 @@
             this.btVenderAcoes.Text = "Vender Ações Selecionadas";
             this.btVenderAcoes.UseVisualStyleBackColor = true;
             this.btVenderAcoes.Click += new System.EventHandler(this.btVenderAcoes_Click);
+            // 
+            // lblAvisoSelecionarParaVenda
+            // 
+            this.lblAvisoSelecionarParaVenda.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblAvisoSelecionarParaVenda.AutoSize = true;
+            this.lblAvisoSelecionarParaVenda.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvisoSelecionarParaVenda.ForeColor = System.Drawing.Color.Red;
+            this.lblAvisoSelecionarParaVenda.Location = new System.Drawing.Point(22, 6);
+            this.lblAvisoSelecionarParaVenda.Name = "lblAvisoSelecionarParaVenda";
+            this.lblAvisoSelecionarParaVenda.Size = new System.Drawing.Size(156, 14);
+            this.lblAvisoSelecionarParaVenda.TabIndex = 10;
+            this.lblAvisoSelecionarParaVenda.Text = "Nenhuma ação selecionada";
+            this.lblAvisoSelecionarParaVenda.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblAvisoSelecionarParaVenda.Visible = false;
             // 
             // label44
             // 
@@ -1674,13 +1700,13 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label13.Location = new System.Drawing.Point(565, 4);
+            this.label13.Location = new System.Drawing.Point(525, 9);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(154, 23);
+            this.label13.Size = new System.Drawing.Size(194, 18);
             this.label13.TabIndex = 55;
-            this.label13.Text = "Grupo 5 Corretora";
+            this.label13.Text = "Group Five Corretora";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dtGridViewAcoes
@@ -1883,13 +1909,13 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label37.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label37.Location = new System.Drawing.Point(286, 16);
+            this.label37.Location = new System.Drawing.Point(282, 16);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(196, 30);
+            this.label37.Size = new System.Drawing.Size(205, 25);
             this.label37.TabIndex = 55;
-            this.label37.Text = "AppBanco Grupo 5";
+            this.label37.Text = "Group Five Bank";
             this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox6
@@ -2018,16 +2044,6 @@
             this.btDepositarSalario.UseVisualStyleBackColor = true;
             this.btDepositarSalario.Click += new System.EventHandler(this.btDepositarSalario_Click);
             // 
-            // panel20
-            // 
-            this.panel20.Controls.Add(this.rb15dias);
-            this.panel20.Controls.Add(this.rb30dias);
-            this.panel20.Controls.Add(this.rb7dias);
-            this.panel20.Location = new System.Drawing.Point(16, 86);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(151, 100);
-            this.panel20.TabIndex = 3;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2036,12 +2052,14 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabCtrlTelasApp);
             this.Name = "Form1";
-            this.Text = "AppBanco - Grupo 5";
+            this.Text = "Group Five Bank";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.tabPageExtrato.ResumeLayout(false);
             this.tabPageExtrato.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
             this.tabPageAbrirNovaConta.ResumeLayout(false);
             this.tabPageAbrirNovaConta.PerformLayout();
             this.panel13.ResumeLayout(false);
@@ -2097,6 +2115,7 @@
             this.tabPageAcoes.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
+            this.panel18.PerformLayout();
             this.panel17.ResumeLayout(false);
             this.panel17.PerformLayout();
             this.panel16.ResumeLayout(false);
@@ -2108,8 +2127,6 @@
             this.groupBox6.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
-            this.panel20.ResumeLayout(false);
-            this.panel20.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2283,6 +2300,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TabCarteiraValTotAtual;
         private System.Windows.Forms.DataGridViewTextBoxColumn TabCarteiraQtdVender;
         private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.Label lblAvisoSelecionarParaVenda;
     }
 }
 

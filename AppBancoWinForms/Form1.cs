@@ -1086,12 +1086,17 @@ namespace AppBancoWinForms
                     //GravarCarteiraAtualizada(string path, int numConta, string dadosAtualizados)
                     tabCtrlTelasApp.SelectedTab = tabPageMovContas;
                     tabCtrlTelasApp.SelectedTab = tabPageAcoes;
+                    lblAvisoSelecionarParaVenda.Visible = false;
                     //tabPageAcoes.Refresh();
                     MessageBox.Show("Operação concluída!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //sb.AppendLine();
                     //sb.AppendLine($"Valor total da venda: {valVenda.ToString("F2")}");
                     //MessageBox.Show(sb.ToString());
                 }
+            }
+            else
+            {
+                lblAvisoSelecionarParaVenda.Visible = true;
             }
         }
         /*****************************************************************************************/
